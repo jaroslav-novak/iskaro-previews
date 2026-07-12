@@ -1,0 +1,15 @@
+{
+  "prospect_id": "08d83c01-9dd3-412e-89b1-d45866ce4aaa",
+  "company_name": "NEWAY Salón Prievidza",
+  "slug": "neway-salon-prievidza",
+  "version": 1,
+  "template": "salon-v1",
+  "generated_at": "2026-07-12T15:11:50.646Z",
+  "generator": {
+    "model": "plan-file",
+    "duration_ms": 0,
+    "cost_usd": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}

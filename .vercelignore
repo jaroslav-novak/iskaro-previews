@@ -1,0 +1,7 @@
+# Interné súbory — NIKDY sa nesmú dostať na verejný hosting.
+# preview.json nesie prospect UUID a KPI generátora (Vercel servíruje súbory
+# pred rewritmi, takže blokovanie rewritom nefunguje — musí sa vynechať z uploadu).
+preview.json
+README.md
+serve.mjs
+.gitignore
