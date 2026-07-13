@@ -2,14 +2,24 @@
   "prospect_id": "08d83c01-9dd3-412e-89b1-d45866ce4aaa",
   "company_name": "NEWAY Salón Prievidza",
   "slug": "neway-salon-prievidza",
-  "version": 1,
-  "template": "salon-v1",
-  "generated_at": "2026-07-12T15:11:50.646Z",
+  "version": 2,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-13T12:12:23.895Z",
   "generator": {
-    "model": "plan-file",
-    "duration_ms": 0,
-    "cost_usd": 0,
-    "input_tokens": 0,
-    "output_tokens": 0
-  }
+    "model": "claude-sonnet-5",
+    "duration_ms": 725772,
+    "cost_usd": 1.8342538,
+    "input_tokens": 789582,
+    "output_tokens": 67220
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "gallery",
+    "reviews",
+    "hours",
+    "contact"
+  ]
 }
