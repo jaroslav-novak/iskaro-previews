@@ -1,0 +1,15 @@
+{
+  "prospect_id": "2ad4205b-8ff5-489a-a95e-5fe96e33fc63",
+  "company_name": "Nova Beauty - Prievidza",
+  "slug": "nova-beauty-prievidza",
+  "version": 1,
+  "template": "salon-v1",
+  "generated_at": "2026-07-13T04:59:07.808Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 323342,
+    "cost_usd": 0.939983,
+    "input_tokens": 671326,
+    "output_tokens": 24503
+  }
+}
