@@ -1,0 +1,15 @@
+{
+  "prospect_id": "db7fdb93-f10f-4e94-b461-f6a2a8d13dfa",
+  "company_name": "AUTOCENTRUM",
+  "slug": "autocentrum-prievidza",
+  "version": 1,
+  "template": "salon-v1",
+  "generated_at": "2026-07-13T05:54:27.880Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 337620,
+    "cost_usd": 0.9549871999999999,
+    "input_tokens": 624452,
+    "output_tokens": 27101
+  }
+}
