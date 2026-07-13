@@ -6,3 +6,5 @@ README.md
 serve.mjs
 deploy.sh
 .gitignore
+# Extrahované brand podklady (logá…) — interné, kopírujú sa do webov pri builde
+brand-assets
