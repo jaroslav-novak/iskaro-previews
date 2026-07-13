@@ -1,17 +1,19 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
-  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [
-        {
-          "type": "host",
-          "value": "^(?<slug>[^.]+)\\.nahlad\\.iskaro\\.sk$"
-        }
+        { "type": "host", "value": "(?<slug>[^.]+)\\.nahlad\\.iskaro\\.sk" }
       ],
-      "destination": "/previews/:slug/:path*"
+      "destination": "/previews/$slug/index.html"
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        { "type": "host", "value": "(?<slug>[^.]+)\\.nahlad\\.iskaro\\.sk" }
+      ],
+      "destination": "/previews/$slug/:path+"
     }
   ],
   "headers": [

@@ -4,4 +4,5 @@
 preview.json
 README.md
 serve.mjs
+deploy.sh
 .gitignore
