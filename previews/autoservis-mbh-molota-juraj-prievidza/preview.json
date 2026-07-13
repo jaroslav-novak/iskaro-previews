@@ -2,14 +2,14 @@
   "prospect_id": "e53b9399-ac7e-4608-a007-ba3640609cff",
   "company_name": "Autoservis MBH - Molota Juraj",
   "slug": "autoservis-mbh-molota-juraj-prievidza",
-  "version": 3,
+  "version": 4,
   "template": "salon-v1",
-  "generated_at": "2026-07-13T06:59:43.676Z",
+  "generated_at": "2026-07-13T07:06:30.078Z",
   "generator": {
     "model": "claude-sonnet-5",
-    "duration_ms": 38465,
-    "cost_usd": 0.1254431,
-    "input_tokens": 38362,
-    "output_tokens": 2614
+    "duration_ms": 47231,
+    "cost_usd": 0.1621803,
+    "input_tokens": 79412,
+    "output_tokens": 3275
   }
 }
