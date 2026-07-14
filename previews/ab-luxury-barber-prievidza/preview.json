@@ -1,0 +1,24 @@
+{
+  "prospect_id": "935229a4-fe69-40ab-9896-5c8f06156d82",
+  "company_name": "AB Luxury barber",
+  "slug": "ab-luxury-barber-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-14T18:39:25.372Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 355552,
+    "cost_usd": 0.8095717,
+    "input_tokens": 232391,
+    "output_tokens": 28771
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "gallery",
+    "hours",
+    "contact"
+  ]
+}
