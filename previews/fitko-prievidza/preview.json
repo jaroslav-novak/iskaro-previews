@@ -2,15 +2,15 @@
   "prospect_id": "00cc0a6d-5457-4eb0-bda8-edfc0055ee2a",
   "company_name": "Fitko",
   "slug": "fitko-prievidza",
-  "version": 2,
+  "version": 3,
   "template": "bespoke-v2",
-  "generated_at": "2026-07-14T15:08:20.787Z",
+  "generated_at": "2026-07-14T15:23:19.807Z",
   "generator": {
     "model": "claude-sonnet-5",
-    "duration_ms": 323975,
-    "cost_usd": 0.8018962,
-    "input_tokens": 236444,
-    "output_tokens": 28071
+    "duration_ms": 329881,
+    "cost_usd": 1.0324261000000001,
+    "input_tokens": 314614,
+    "output_tokens": 32892
   },
   "sections": [
     "hero",
@@ -19,7 +19,6 @@
     "services",
     "gallery",
     "reviews",
-    "cta_band",
     "hours",
     "contact"
   ]
