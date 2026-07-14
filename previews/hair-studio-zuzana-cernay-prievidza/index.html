@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Hair Studio Zuzana Černay — Kaderníctvo Prievidza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #7A4E42;
+    --secondary: #C9A98C;
+    --cream: #F4EDE7;
+    --dark: #2B2320;
+    --radius: 4px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 0;
+  }
+
+  p { margin: 0 0 1rem; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---------- Header ---------- */
+
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(244, 237, 231, 0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(43, 35, 32, 0.1);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    line-height: 1.1;
+  }
+  .wordmark span {
+    display: block;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+  }
+
+  nav.main-nav {
+    display: none;
+    gap: 1.75rem;
+  }
+  nav.main-nav a {
+    font-size: 0.92rem;
+    text-decoration: none;
+    color: var(--dark);
+    position: relative;
+    padding-bottom: 3px;
+  }
+  nav.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+  }
+  nav.main-nav a:hover::after { transform: scaleX(1); }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .phone-chip {
+    display: none;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .phone-chip:hover { background: var(--primary); color: #fff; }
+
+  .menu-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid rgba(43,35,32,0.25);
+    border-radius: var(--radius);
+    cursor: pointer;
+    padding: 0;
+  }
+  .menu-toggle span {
+    display: block;
+    height: 1.5px;
+    margin: 0 9px;
+    background: var(--dark);
+  }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    padding: 0.5rem 1.5rem 1.25rem;
+    border-top: 1px solid rgba(43,35,32,0.1);
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    text-decoration: none;
+    color: var(--dark);
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(43,35,32,0.08);
+    font-size: 0.98rem;
+  }
+
+  @media (min-width: 860px) {
+    nav.main-nav { display: flex; }
+    .phone-chip { display: inline-flex; }
+    .menu-toggle { display: none; }
+  }
+
+  /* ---------- Reveal ---------- */
+
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Placeholder photo ---------- */
+
+  .placeholder-photo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    text-align: center;
+    background: linear-gradient(150deg, rgba(201,169,140,0.35), rgba(122,78,66,0.12));
+    border: 1px dashed rgba(122, 78, 66, 0.45);
+    border-radius: var(--radius);
+    color: var(--primary);
+    padding: 1.25rem;
+    overflow: hidden;
+  }
+  .placeholder-photo svg {
+    width: 30px;
+    height: 30px;
+    opacity: 0.75;
+  }
+  .placeholder-photo .ph-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    max-width: 22ch;
+    line-height: 1.4;
+  }
+  .placeholder-photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(135deg, rgba(255,255,255,0.35) 0 2px, transparent 2px 14px);
+    pointer-events: none;
+  }
+
+  /* ---------- Disclosure note ---------- */
+
+  .disclosure {
+    display: inline-block;
+    font-size: 0.82rem;
+    color: var(--primary);
+    background: rgba(122,78,66,0.08);
+    border: 1px solid rgba(122,78,66,0.25);
+    border-radius: 999px;
+    padding: 0.45rem 1rem;
+    margin-top: 1.25rem;
+  }
+
+  /* ---------- Hero ---------- */
+
+  section[data-section="hero"] {
+    padding: 3.5rem 0 4rem;
+  }
+  .hero-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3.5rem;
+    }
+  }
+  .hero-overline {
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: 0.01em;
+  }
+  .hero-lead {
+    margin-top: 1.4rem;
+    font-size: 1.08rem;
+    max-width: 46ch;
+    color: rgba(43,35,32,0.85);
+  }
+  .hero-actions {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.95rem 1.7rem;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 0.98rem;
+    box-shadow: 0 8px 20px -8px rgba(122,78,66,0.55);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px -8px rgba(122,78,66,0.6);
+  }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 0.92rem;
+    border-bottom: 1px solid rgba(43,35,32,0.35);
+    padding-bottom: 2px;
+  }
+
+  .hero-photo {
+    aspect-ratio: 4 / 5;
+  }
+  .hero-photo .ph-label { max-width: 20ch; }
+
+  /* ---------- Section shell ---------- */
+
+  section { padding: 4.5rem 0; }
+  .section-head {
+    max-width: 60ch;
+    margin-bottom: 2.75rem;
+  }
+  .section-overline {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.85rem;
+  }
+  .section-head h2 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+  }
+  .section-head p {
+    margin-top: 1rem;
+    color: rgba(43,35,32,0.8);
+    font-size: 1.02rem;
+  }
+
+  /* ---------- About ---------- */
+
+  section[data-section="about"] {
+    background: #fff;
+    border-top: 1px solid rgba(43,35,32,0.08);
+    border-bottom: 1px solid rgba(43,35,32,0.08);
+  }
+  .about-content {
+    max-width: 62ch;
+    position: relative;
+    padding-left: 1.75rem;
+  }
+  .about-content::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.3rem; bottom: 0.3rem;
+    width: 2px;
+    background: var(--secondary);
+  }
+  .about-content p {
+    font-size: 1.08rem;
+    color: rgba(43,35,32,0.88);
+  }
+  .about-content p:first-of-type {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--primary);
+  }
+
+  /* ---------- Services ---------- */
+
+  .service-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  @media (min-width: 720px) {
+    .service-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .service-card .placeholder-photo {
+    aspect-ratio: 5 / 4;
+    margin-bottom: 1.1rem;
+  }
+  .service-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+  }
+  .service-card p {
+    font-size: 0.95rem;
+    color: rgba(43,35,32,0.78);
+    margin-bottom: 0;
+  }
+
+  /* ---------- Gallery ---------- */
+
+  section[data-section="gallery"] {
+    background: var(--dark);
+    color: var(--cream);
+  }
+  section[data-section="gallery"] .section-overline { color: var(--secondary); }
+  section[data-section="gallery"] .section-head h2 { color: var(--cream); }
+  section[data-section="gallery"] .section-head p { color: rgba(244,237,231,0.72); }
+
+  .gallery-note {
+    display: inline-block;
+    margin-top: 1.1rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--secondary);
+    border-left: 2px solid var(--secondary);
+    padding-left: 0.85rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  @media (min-width: 640px) {
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .gallery-grid .placeholder-photo {
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(150deg, rgba(201,169,140,0.25), rgba(122,78,66,0.35));
+    border-color: rgba(201,169,140,0.4);
+    color: var(--secondary);
+  }
+  .gallery-grid .ph-label { max-width: 16ch; font-size: 0.78rem; }
+
+  /* ---------- Area ---------- */
+
+  .area-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  @media (min-width: 860px) {
+    .area-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .area-card {
+    background: #fff;
+    border: 1px solid rgba(43,35,32,0.1);
+    border-radius: var(--radius);
+    padding: 2rem;
+  }
+  .area-card .pin {
+    width: 34px;
+    height: 34px;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  .area-card address {
+    font-style: normal;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    color: var(--dark);
+    line-height: 1.4;
+  }
+  .map-frame {
+    aspect-ratio: 4 / 3;
+    background: repeating-linear-gradient(45deg, rgba(122,78,66,0.06) 0 12px, rgba(122,78,66,0.11) 12px 24px);
+    border: 1px dashed rgba(122,78,66,0.4);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--primary);
+    font-size: 0.88rem;
+    padding: 1.5rem;
+  }
+
+  /* ---------- CTA band ---------- */
+
+  section[data-section="cta_band"] {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+  }
+  section[data-section="cta_band"] h2 {
+    color: #fff;
+    font-size: clamp(1.9rem, 4vw, 2.5rem);
+  }
+  section[data-section="cta_band"] p {
+    color: rgba(255,255,255,0.85);
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.02rem;
+  }
+  .cta-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.75rem;
+    background: #fff;
+    color: var(--primary);
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    padding: 1rem 2.1rem;
+    border-radius: 999px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 24px -8px rgba(0,0,0,0.35);
+  }
+  .cta-phone:hover { transform: translateY(-2px); }
+
+  /* ---------- Contact ---------- */
+
+  section[data-section="contact"] {
+    background: #fff;
+    border-top: 1px solid rgba(43,35,32,0.08);
+  }
+  .contact-grid {
+    display: grid;
+    gap: 1.75rem;
+  }
+  @media (min-width: 720px) {
+    .contact-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .contact-card {
+    border: 1px solid rgba(43,35,32,0.1);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    background: var(--cream);
+  }
+  .contact-card h3 {
+    font-size: 1.05rem;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    margin-bottom: 0.7rem;
+  }
+  .contact-card a {
+    text-decoration: none;
+    font-size: 1.05rem;
+    color: var(--dark);
+    border-bottom: 1px solid rgba(43,35,32,0.25);
+  }
+  .contact-card a:hover { border-color: var(--primary); color: var(--primary); }
+  .contact-card .ig-note {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    color: rgba(43,35,32,0.6);
+    font-style: italic;
+  }
+
+  /* ---------- Footer ---------- */
+
+  footer.site-footer {
+    padding: 2.5rem 0 6rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(43,35,32,0.6);
+  }
+
+  /* ---------- Badge ---------- */
+
+  .preview-badge {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 50;
+    background: rgba(43,35,32,0.92);
+    color: #F4EDE7;
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px -4px rgba(0,0,0,0.35);
+    backdrop-filter: blur(3px);
+  }
+  .preview-badge strong { font-weight: 600; color: var(--secondary); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="wordmark"><span>Hair Studio</span>Zuzana Černay</a>
+    <nav class="main-nav" aria-label="Hlavná navigácia">
+      <a href="#about">O štúdiu</a>
+      <a href="#services">Služby</a>
+      <a href="#gallery">Inšpirácia</a>
+      <a href="#area">Kde nás nájdete</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <div class="header-actions">
+      <a class="phone-chip" href="tel:+421948440808">0948 440 808</a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Otvoriť menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilná navigácia">
+    <a href="#about">O štúdiu</a>
+    <a href="#services">Služby</a>
+    <a href="#gallery">Inšpirácia</a>
+    <a href="#area">Kde nás nájdete</a>
+    <a href="#contact">Kontakt</a>
+    <a href="tel:+421948440808">Zavolať: 0948 440 808</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section data-section="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-overline">Kaderníctvo v Prievidzi</p>
+        <h1 class="hero-title">HAIR STUDIO<br>Zuzana Černay</h1>
+        <p class="hero-lead">Priestor pre strihanie, farbenie a starostlivosť o vlasy s individuálnym prístupom ku každej klientke. Dohodnime si termín, ktorý vám bude vyhovovať.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="tel:+421948440808">Zavolať a objednať sa</a>
+          <a class="btn-ghost" href="#services">Pozrieť služby</a>
+        </div>
+        <div class="disclosure">Toto je návrh webu — čaká na doplnenie reálnych fotografií a textov od majiteľky.</div>
+      </div>
+      <div class="placeholder-photo hero-photo" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        <span class="ph-label">miesto pre atmosférickú fotografiu vlasov / kaderníctva</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" id="about">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="section-overline">O štúdiu</p>
+        <h2>Kaderníctvo s individuálnym prístupom</h2>
+      </div>
+      <div class="about-content" data-reveal>
+        <p>Hair Studio Zuzana Černay je kaderníctvo v Prievidzi, ktoré vedie Zuzana Černay.</p>
+        <p>Každej klientke sa venujeme individuálne — od úvodného rozhovoru o tom, čo od vlasov očakávate, až po výsledný strih, farbu či styling, ktoré budú sedieť práve vám. Ak hľadáte kaderníčku v Prievidzi, na ktorú sa môžete spoľahnúť, sme tu pre vás.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" id="services">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="section-overline">Ponuka</p>
+        <h2>Služby</h2>
+        <p>Prehľad typických kaderníckych služieb. Presný rozsah, techniku a odporúčania pre vaše vlasy si dohodneme priamo na mieste alebo telefonicky pri objednávaní.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card" data-reveal>
+          <div class="placeholder-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6l14 14M20 6L6 20"/><circle cx="4" cy="4" r="2"/><circle cx="4" cy="20" r="2"/></svg>
+            <span class="ph-label">miesto pre fotografiu zo strihania</span>
+          </div>
+          <h3>Strihanie</h3>
+          <p>Strihanie pre dámy, pánov aj deti, prispôsobené tvaru tváre a vášmu štýlu.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <div class="placeholder-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c-3 3-5 6-5 9a5 5 0 0 0 10 0c0-3-2-6-5-9z"/></svg>
+            <span class="ph-label">miesto pre fotografiu farbenia / melíru</span>
+          </div>
+          <h3>Farbenie a melír</h3>
+          <p>Farbenie, melír a ďalšie techniky pre zmenu alebo osvieženie farby vlasov.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <div class="placeholder-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12c2-4 6-7 8-7s6 3 8 7c-2 4-6 7-8 7s-6-3-8-7z"/><circle cx="12" cy="12" r="2.2"/></svg>
+            <span class="ph-label">miesto pre fotografiu stylingu a starostlivosti</span>
+          </div>
+          <h3>Styling a starostlivosť</h3>
+          <p>Styling na bežné dni aj špeciálne príležitosti spolu so starostlivosťou o vlasy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="section-overline">Ukážka</p>
+        <h2>Inšpirácia</h2>
+        <p>Vizuálna ukážka účesov a farbenia pre predstavu o remesle.</p>
+        <span class="gallery-note">Poznámka pre klientku: ide zatiaľ o ilustračnú galériu — odporúčame čo najskôr nahradiť vlastnými fotografiami vašich prác.</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="placeholder-photo" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span class="ph-label">fotografia účesu</span></div>
+        <div class="placeholder-photo" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span class="ph-label">fotografia farbenia</span></div>
+        <div class="placeholder-photo" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span class="ph-label">fotografia stylingu</span></div>
+        <div class="placeholder-photo" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span class="ph-label">fotografia melíru</span></div>
+        <div class="placeholder-photo" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span class="ph-label">fotografia výsledného účesu</span></div>
+        <div class="placeholder-photo" data-reveal><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg><span class="ph-label">fotografia detailu vlasov</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="area" id="area">
+    <div class="wrap area-grid">
+      <div data-reveal>
+        <div class="section-head" style="margin-bottom: 1.75rem;">
+          <p class="section-overline">Lokalita</p>
+          <h2>Kde nás nájdete</h2>
+        </div>
+        <div class="area-card">
+          <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s7-7.58 7-13a7 7 0 0 0-14 0c0 5.42 7 13 7 13z"/><circle cx="12" cy="9" r="2.4"/></svg>
+          <address>Puškinova 1212/1A<br>971 01 Prievidza</address>
+        </div>
+      </div>
+      <div class="map-frame" data-reveal>miesto pre orientačnú mapku alebo fotografiu vstupu do štúdia</div>
+    </div>
+  </section>
+
+  <section data-section="cta_band" id="cta_band">
+    <div class="wrap" data-reveal>
+      <h2>Objednajte sa telefonicky</h2>
+      <p>Online rezervácia momentálne nie je k dispozícii. Najrýchlejšie sa objednáte telefonicky — radi si s vami dohodneme vhodný termín.</p>
+      <a class="cta-phone" href="tel:+421948440808">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.7a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></svg>
+        0948 440 808
+      </a>
+    </div>
+  </section>
+
+  <section data-section="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="section-overline">Spojte sa s nami</p>
+        <h2>Kontakt</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card" data-reveal>
+          <h3>Telefón</h3>
+          <a href="tel:+421948440808">0948 440 808</a>
+        </div>
+        <div class="contact-card" data-reveal>
+          <h3>Adresa</h3>
+          <span>Puškinova 1212/1A<br>971 01 Prievidza</span>
+        </div>
+        <div class="contact-card" data-reveal>
+          <h3>Instagram</h3>
+          <a href="https://www.instagram.com/zuzanacernay/" target="_blank" rel="noopener">@zuzanacernay</a>
+          <span class="ig-note">Profil sa nám nepodarilo pri príprave tohto návrhu plne overiť — obsah sa pri návšteve nenačítal.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Hair Studio Zuzana Černay · Kaderníctvo · Prievidza</p>
+  </div>
+</footer>
+
+<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mobileNav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('[data-reveal]').forEach(function (el) {
+        observer.observe(el);
+      });
+    } else {
+      document.querySelectorAll('[data-reveal]').forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

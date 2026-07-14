@@ -1,0 +1,24 @@
+{
+  "prospect_id": "29f83f9b-9eeb-4c94-b8be-75e3d4772a14",
+  "company_name": "HAIR STUDIO ZUZANA ČERNAY",
+  "slug": "hair-studio-zuzana-cernay-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-14T04:23:53.560Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 266387,
+    "cost_usd": 0.8211594,
+    "input_tokens": 316830,
+    "output_tokens": 23588
+  },
+  "sections": [
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "area",
+    "cta_band",
+    "contact"
+  ]
+}
