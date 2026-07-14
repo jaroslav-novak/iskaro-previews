@@ -1,0 +1,24 @@
+{
+  "prospect_id": "e4aebbd0-13e9-41fa-8963-fd9328ab9d21",
+  "company_name": "Luxor AVD - Pánske kaderníctvo",
+  "slug": "luxor-avd-panske-kadernictvo-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-14T04:41:07.229Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 331358,
+    "cost_usd": 0.9011631999999999,
+    "input_tokens": 296066,
+    "output_tokens": 35441
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "services",
+    "gallery",
+    "hours",
+    "area",
+    "contact"
+  ]
+}
