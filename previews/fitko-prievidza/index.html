@@ -4,902 +4,585 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>FITKO Prievidza — Fitnes a profesionálny tréning</title>
+<title>FITKO Prievidza — fitnes a profesionálny tréning</title>
+<meta name="description" content="FITKO Prievidza — domáca posilňovňa s 60+ stanovišťami, kardio zónou a osobným prístupom trénera. Partner MultiSport a Multi-Benefit kariet. 98 % odporúčaní.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --red:#c0272d;
-    --red-dim:#8f1c21;
-    --black:#161616;
-    --black-2:#1e1e1e;
-    --black-3:#252525;
-    --white:#ffffff;
-    --off:#c9c4c1;
-    --line:#3a3535;
+    --red:#e2231a;
+    --red-dark:#b81a12;
+    --black:#141414;
+    --black-2:#1c1c1a;
+    --black-3:#242220;
+    --cream:#f5f0e8;
+    --tan:#c89b6c;
+    --tan-dim: rgba(200,155,108,.35);
+    --radius: 4px;
+    --maxw: 1180px;
   }
-
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-
+  *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
-
   body{
+    margin:0;
     background:var(--black);
-    color:var(--white);
-    font-family:'Inter',sans-serif;
+    color:var(--cream);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
   }
-
-  img{max-width:100%;display:block;}
-
-  h1,h2,h3,h4{
-    font-family:'Barlow Condensed',sans-serif;
+  h1,h2,h3,.brand-font{
+    font-family:'Barlow Condensed', sans-serif;
     text-transform:uppercase;
-    font-weight:800;
-    letter-spacing:0.5px;
-    line-height:1.05;
+    font-weight:900;
+    letter-spacing:.01em;
+    line-height:1.02;
+    margin:0 0 .5em;
+    color:var(--cream);
   }
-
-  a{color:inherit;text-decoration:none;}
-
-  .container{
-    max-width:1180px;
-    margin:0 auto;
-    padding:0 24px;
-  }
-
-  section{
-    padding:88px 0;
-    position:relative;
-  }
-
+  h2{font-size:clamp(2.1rem, 5vw, 3.2rem); color:var(--cream);}
+  h2 .accent{color:var(--red);}
+  p{margin:0 0 1em;}
+  a{color:var(--tan);}
+  img{max-width:100%; display:block;}
+  .container{max-width:var(--maxw); margin:0 auto; padding:0 1.25rem;}
+  section{padding:5rem 0;}
   .eyebrow{
     display:inline-block;
-    font-family:'Barlow Condensed',sans-serif;
+    font-family:'Barlow Condensed', sans-serif;
     text-transform:uppercase;
-    letter-spacing:3px;
-    font-size:14px;
+    letter-spacing:.18em;
     font-weight:700;
+    font-size:.8rem;
     color:var(--red);
-    margin-bottom:14px;
+    margin-bottom:.75rem;
   }
 
-  .section-title{
-    font-size:clamp(36px,6vw,58px);
-    margin-bottom:18px;
+  /* ---------- HEADER / NAV ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:500;
+    background:rgba(20,20,20,.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid rgba(200,155,108,.18);
   }
-
-  .section-title span{color:var(--red);}
-
-  .section-lede{
-    max-width:620px;
-    color:var(--off);
-    font-size:17px;
-    margin-bottom:48px;
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:.75rem 1.25rem;
+    max-width:var(--maxw); margin:0 auto;
   }
-
-  /* ---------- reveal ---------- */
-  [data-reveal]{
-    opacity:0;
-    transform:translateY(24px);
-    transition:opacity .7s ease, transform .7s ease;
-  }
-  [data-reveal].is-visible{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-  /* ---------- header ---------- */
-  header{
-    position:fixed;
-    top:0;left:0;right:0;
-    z-index:100;
-    background:rgba(22,22,22,.85);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    max-width:1180px;
-    margin:0 auto;
-    padding:16px 24px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-  }
-  .brand{
-    font-family:'Barlow Condensed',sans-serif;
+  .nav-wordmark{
+    font-family:'Barlow Condensed', sans-serif;
     font-weight:900;
-    font-size:26px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-  }
-  .brand span{color:var(--red);}
-
-  nav.links{
-    display:flex;
-    gap:32px;
-  }
-  nav.links a{
-    font-family:'Barlow Condensed',sans-serif;
-    text-transform:uppercase;
-    font-weight:600;
-    font-size:16px;
-    letter-spacing:1px;
-    color:var(--off);
-    transition:color .2s;
-  }
-  nav.links a:hover{color:var(--red);}
-
-  .call-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
+    font-size:1.6rem;
+    letter-spacing:.03em;
     background:var(--red);
-    color:var(--white);
-    font-family:'Barlow Condensed',sans-serif;
+    color:#fff;
+    padding:.15rem .6rem;
+    line-height:1;
+    text-decoration:none;
+  }
+  .nav-links{
+    display:none;
+    gap:1.75rem;
+    list-style:none;
+    margin:0; padding:0;
+    font-family:'Barlow Condensed', sans-serif;
     text-transform:uppercase;
     font-weight:700;
-    letter-spacing:1px;
-    font-size:16px;
-    padding:11px 22px;
-    border-radius:3px;
-    transition:background .2s, transform .2s;
-    white-space:nowrap;
+    letter-spacing:.04em;
+    font-size:.95rem;
   }
-  .call-btn:hover{background:#a51f24;transform:translateY(-1px);}
-
-  .burger{
+  .nav-links a{color:var(--cream); text-decoration:none; border-bottom:2px solid transparent; padding-bottom:2px;}
+  .nav-links a:hover{border-color:var(--red);}
+  .nav-cta{
+    display:none;
+    background:var(--red); color:#fff; text-decoration:none;
+    font-family:'Barlow Condensed', sans-serif; font-weight:800; text-transform:uppercase;
+    padding:.55rem 1.1rem; border-radius:var(--radius); letter-spacing:.03em;
+  }
+  .nav-toggle{
+    background:none; border:1px solid var(--tan-dim); color:var(--cream);
+    font-size:1.4rem; line-height:1; padding:.4rem .65rem; border-radius:var(--radius);
+    cursor:pointer;
+  }
+  @media(min-width:860px){
+    .nav-links{display:flex;}
+    .nav-cta{display:inline-block;}
+    .nav-toggle{display:none;}
+  }
+  .mobile-menu{
     display:none;
     flex-direction:column;
-    gap:5px;
-    background:none;
-    border:none;
-    cursor:pointer;
-    padding:4px;
+    gap:1rem;
+    padding:1rem 1.25rem 1.5rem;
+    border-top:1px solid rgba(200,155,108,.18);
   }
-  .burger span{
-    width:26px;height:3px;background:var(--white);display:block;
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    color:var(--cream); text-decoration:none;
+    font-family:'Barlow Condensed', sans-serif; text-transform:uppercase; font-weight:700; font-size:1.1rem;
   }
+  @media(min-width:860px){.mobile-menu{display:none !important;}}
 
-  /* ---------- hero ---------- */
-  #hero{
-    padding-top:150px;
-    padding-bottom:80px;
-    background:
-      radial-gradient(ellipse at top right, rgba(192,39,45,.18), transparent 55%),
-      var(--black);
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-family:'Barlow Condensed', sans-serif;
+    text-transform:uppercase; font-weight:800; letter-spacing:.03em;
+    font-size:1.05rem;
+    padding:.9rem 1.6rem;
+    border-radius:var(--radius);
+    text-decoration:none;
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+    border:2px solid transparent;
   }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:56px;
-    align-items:center;
-  }
-  .hero-tag{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    border:1px solid var(--red-dim);
-    color:var(--red);
-    font-family:'Barlow Condensed',sans-serif;
-    text-transform:uppercase;
-    font-weight:700;
-    letter-spacing:2px;
-    font-size:13px;
-    padding:7px 14px;
-    border-radius:30px;
-    margin-bottom:22px;
-  }
-  .hero-title{
-    font-size:clamp(52px,8vw,92px);
-    margin-bottom:20px;
-  }
-  .hero-title .accent{
-    color:var(--red);
-    display:block;
-  }
-  .hero-text{
-    color:var(--off);
-    font-size:18px;
-    max-width:480px;
-    margin-bottom:34px;
-  }
-  .hero-ctas{
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-    margin-bottom:36px;
-  }
-  .btn-primary{
-    background:var(--red);
-    color:var(--white);
-    font-family:'Barlow Condensed',sans-serif;
-    text-transform:uppercase;
-    font-weight:700;
-    letter-spacing:1px;
-    font-size:18px;
-    padding:16px 30px;
-    border-radius:3px;
-    transition:background .2s, transform .2s;
-  }
-  .btn-primary:hover{background:#a51f24;transform:translateY(-2px);}
-  .btn-ghost{
-    border:1px solid var(--line);
-    color:var(--white);
-    font-family:'Barlow Condensed',sans-serif;
-    text-transform:uppercase;
-    font-weight:700;
-    letter-spacing:1px;
-    font-size:18px;
-    padding:16px 30px;
-    border-radius:3px;
-    transition:border-color .2s, background .2s;
-  }
-  .btn-ghost:hover{border-color:var(--red);background:rgba(192,39,45,.08);}
+  .btn-primary{background:var(--red); color:#fff;}
+  .btn-primary:hover{background:var(--red-dark); transform:translateY(-2px);}
+  .btn-ghost{border-color:var(--tan); color:var(--cream);}
+  .btn-ghost:hover{background:var(--tan); color:var(--black); transform:translateY(-2px);}
 
-  .hero-note{
-    font-size:14px;
-    color:#8a8582;
-  }
-
-  .hero-photo{
-    position:relative;
-    border:1px solid var(--line);
-    border-radius:6px;
-    aspect-ratio:4/5;
-    background:
-      repeating-linear-gradient(135deg, rgba(192,39,45,.06) 0 2px, transparent 2px 22px),
-      linear-gradient(160deg, #201c1c, #141212);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-  }
-  .hero-photo::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg, transparent 55%, rgba(0,0,0,.55) 100%);
-  }
+  /* ---------- PHOTO PLACEHOLDER ---------- */
   .photo-placeholder{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:14px;
-    color:#847e7c;
+    position:relative;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
     text-align:center;
-    padding:24px;
-    z-index:1;
+    gap:.6rem;
+    min-height:220px;
+    border:1.5px dashed var(--tan-dim);
+    border-radius:var(--radius);
+    background:
+      repeating-linear-gradient(135deg, rgba(226,35,26,.06) 0 14px, transparent 14px 28px),
+      var(--black-2);
+    padding:1.5rem;
   }
-  .photo-placeholder svg{width:44px;height:44px;opacity:.55;}
-  .photo-placeholder small{
-    font-family:'Barlow Condensed',sans-serif;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    font-size:14px;
-    max-width:220px;
-    line-height:1.4;
-  }
-  .hero-photo .wordmark{
-    position:absolute;
-    bottom:22px;
-    left:22px;
-    z-index:2;
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:900;
-    font-size:15px;
-    letter-spacing:2px;
-    color:var(--off);
-    text-transform:uppercase;
+  .photo-placeholder .ph-icon{font-size:1.8rem; opacity:.75;}
+  .photo-placeholder .ph-text{
+    font-size:.85rem; color:var(--tan); max-width:22ch; line-height:1.4;
   }
 
-  /* ---------- trust ---------- */
-  #trust{
+  /* ---------- HERO ---------- */
+  .hero{
+    padding-top:3.5rem;
+    display:grid;
+    gap:2.5rem;
+    max-width:var(--maxw); margin:0 auto; padding-left:1.25rem; padding-right:1.25rem;
+  }
+  .wordmark-badge{
+    display:inline-block;
+    background:var(--red);
+    color:#fff;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:900;
+    font-size:clamp(1.8rem, 6vw, 3rem);
+    letter-spacing:.04em;
+    padding:.1rem .9rem;
+    margin-bottom:1.25rem;
+    transform:rotate(-1.2deg);
+    box-shadow:0 6px 0 rgba(0,0,0,.35);
+  }
+  .hero h1{font-size:clamp(2.4rem, 6vw, 4rem); max-width:16ch;}
+  .hero-lead{font-size:1.15rem; color:var(--cream); max-width:44ch; opacity:.9;}
+  .hero-cta{display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.5rem;}
+  .hero-photo{min-height:280px;}
+  @media(min-width:900px){
+    .hero{grid-template-columns:1.1fr 1fr; align-items:center; padding-top:5rem;}
+    .hero-photo{min-height:420px;}
+  }
+
+  /* ---------- TRUST ---------- */
+  .trust{
     background:var(--black-2);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:44px 0;
+    border-top:1px solid rgba(200,155,108,.15);
+    border-bottom:1px solid rgba(200,155,108,.15);
+    padding:3rem 0;
   }
   .trust-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:24px;
+    display:grid; gap:2rem;
+    grid-template-columns:1fr;
     text-align:center;
   }
-  .trust-item .num{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:800;
-    font-size:clamp(28px,4vw,40px);
-    color:var(--red);
-    display:block;
-    margin-bottom:4px;
+  @media(min-width:700px){.trust-grid{grid-template-columns:repeat(3,1fr);}}
+  .trust-stat{display:flex; flex-direction:column; align-items:center; gap:.35rem;}
+  .trust-stat .num{
+    font-family:'Barlow Condensed', sans-serif; font-weight:900; font-size:2.6rem; color:var(--red); line-height:1;
   }
-  .trust-item .label{
-    color:var(--off);
-    font-size:14px;
-    letter-spacing:.3px;
-  }
+  .trust-stat.partner .num{font-size:2rem;}
+  .trust-stat .label{font-size:.95rem; color:var(--cream); opacity:.85;}
+  .trust-stat .label small{color:var(--tan); font-size:.82rem;}
+  .trust-stat a{color:var(--tan); text-decoration:underline;}
 
-  /* ---------- about ---------- */
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid; gap:1.25rem;
+    grid-template-columns:1fr;
+    margin-top:2.5rem;
+  }
+  @media(min-width:640px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:980px){.services-grid{grid-template-columns:repeat(3,1fr);}}
+  .service-card{
+    position:relative;
+    background:var(--black-2);
+    border:1px solid rgba(200,155,108,.15);
+    border-radius:var(--radius);
+    padding:1.6rem 1.5rem;
+    display:flex; flex-direction:column; gap:.7rem;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .service-card:hover{border-color:var(--red); transform:translateY(-3px);}
+  .service-card .icon{font-size:1.7rem;}
+  .service-card h3{
+    font-family:'Barlow Condensed', sans-serif; text-transform:uppercase; font-weight:800;
+    font-size:1.25rem; margin:0; color:var(--cream);
+  }
+  .service-card p{margin:0; font-size:.92rem; color:var(--cream); opacity:.8;}
+  .service-card .badge-new{
+    position:absolute; top:-10px; right:12px;
+    background:var(--red); color:#fff;
+    font-family:'Barlow Condensed', sans-serif; font-weight:800; text-transform:uppercase;
+    font-size:.72rem; letter-spacing:.03em;
+    padding:.25rem .55rem; border-radius:999px;
+  }
+  .services-note{
+    margin-top:2rem; padding-top:1.5rem; border-top:1px dashed rgba(200,155,108,.25);
+    font-size:.95rem; color:var(--tan);
+  }
+  .services-note a{color:var(--tan);}
+
+  /* ---------- ABOUT ---------- */
   .about-grid{
-    display:grid;
-    grid-template-columns:.85fr 1.15fr;
-    gap:56px;
-    align-items:center;
+    display:grid; gap:2.5rem; align-items:center;
+    grid-template-columns:1fr;
   }
-  .about-photo{
-    border:1px solid var(--line);
-    border-radius:6px;
-    aspect-ratio:1/1.05;
-    background:linear-gradient(160deg,#201c1c,#141212);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .about-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    background:var(--black-3);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:14px 18px;
-    margin:26px 0;
-  }
-  .about-badge .icon{
-    width:34px;height:34px;
-    background:var(--red);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:800;
-    font-size:16px;
-  }
-  .about-badge strong{
-    display:block;
-    font-family:'Barlow Condensed',sans-serif;
-    text-transform:uppercase;
-    letter-spacing:.5px;
-    font-size:17px;
-  }
-  .about-badge span{
-    color:var(--off);
-    font-size:14px;
-  }
-  .about-text p{
-    color:var(--off);
-    margin-bottom:16px;
-    max-width:560px;
-  }
-  .about-text p:last-child{margin-bottom:0;}
-
-  /* ---------- services ---------- */
-  #services{background:var(--black-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .services-list{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    border-radius:6px;
-    overflow:hidden;
-  }
-  .service-item{
-    background:var(--black);
-    padding:30px 28px;
-    display:flex;
-    gap:18px;
-    align-items:flex-start;
-    transition:background .2s;
-  }
-  .service-item:hover{background:var(--black-3);}
-  .service-item .num{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:800;
-    font-size:32px;
-    color:var(--red-dim);
-    line-height:1;
-    flex-shrink:0;
-  }
-  .service-item h3{
-    font-size:21px;
-    margin-bottom:6px;
-    text-transform:none;
-    font-weight:700;
-    letter-spacing:0;
-  }
-  .service-item p{
-    color:var(--off);
-    font-size:15px;
-  }
-
-  /* ---------- gallery ---------- */
-  .gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    grid-template-rows:repeat(2,240px);
-    gap:10px;
-  }
-  .g-item{
-    border:1px solid var(--line);
-    border-radius:4px;
-    background:linear-gradient(150deg,#201c1c,#141212);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-  }
-  .g1{grid-column:1/4;grid-row:1/3;}
-  .g2{grid-column:4/7;grid-row:1/2;}
-  .g3{grid-column:4/5;grid-row:2/3;}
-  .g4{grid-column:5/6;grid-row:2/3;}
-  .g5{grid-column:6/7;grid-row:2/3;}
-
-  .gallery-note{
-    margin-top:20px;
-    color:#847e7c;
-    font-size:13.5px;
+  @media(min-width:900px){.about-grid{grid-template-columns:1fr 1fr;}}
+  .about-photo{min-height:300px;}
+  .fb-vibe{
+    margin-top:1.5rem;
+    background:var(--black-2);
+    border-left:4px solid var(--red);
+    padding:1rem 1.25rem;
     font-style:italic;
+    color:var(--cream);
+    border-radius:0 var(--radius) var(--radius) 0;
+  }
+  .fb-vibe span{display:block; margin-top:.4rem; font-style:normal; font-size:.85rem; color:var(--tan);}
+
+  /* ---------- GALLERY ---------- */
+  .gallery-grid{
+    display:grid; gap:1rem; margin-top:2.5rem;
+    grid-template-columns:1fr 1fr;
+  }
+  @media(min-width:760px){.gallery-grid{grid-template-columns:repeat(4,1fr);}}
+  .gallery-grid .photo-placeholder{min-height:190px;}
+  @media(min-width:760px){
+    .gallery-grid .photo-placeholder:nth-child(1){grid-row:span 2; min-height:400px;}
   }
 
-  /* ---------- reviews ---------- */
-  #reviews{background:var(--black-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  /* ---------- REVIEWS ---------- */
   .reviews-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px;
+    display:grid; gap:1.5rem; margin-top:2.5rem;
+    grid-template-columns:1fr;
   }
+  @media(min-width:760px){.reviews-grid{grid-template-columns:repeat(2,1fr);}}
   blockquote{
-    background:var(--black);
-    border:1px solid var(--line);
-    border-left:3px solid var(--red);
-    border-radius:4px;
-    padding:28px 26px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    height:100%;
+    margin:0; background:var(--black-2);
+    border:1px solid rgba(200,155,108,.15);
+    border-radius:var(--radius);
+    padding:1.75rem;
+    position:relative;
+  }
+  blockquote::before{
+    content:"“";
+    font-family:'Barlow Condensed', sans-serif;
+    font-size:3.5rem; color:var(--red); opacity:.5;
+    position:absolute; top:.2rem; left:1rem; line-height:1;
   }
   blockquote p{
-    font-size:16px;
-    color:#e8e5e3;
-    margin-bottom:20px;
+    margin:1.4rem 0 1rem; font-size:1.05rem; color:var(--cream); position:relative; z-index:1;
   }
-  blockquote p::before{content:"\201C";color:var(--red);font-weight:700;}
-  blockquote p::after{content:"\201D";color:var(--red);font-weight:700;}
   blockquote footer{
-    font-family:'Barlow Condensed',sans-serif;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    font-weight:700;
-    font-size:14px;
-    color:var(--red);
+    font-size:.82rem; color:var(--tan); font-style:normal;
   }
-  .reviews-grid .full{grid-column:1/-1;}
-  @media(min-width:761px){
-    .reviews-grid > blockquote:nth-child(4){grid-column:1/3;}
-    .reviews-grid > blockquote:nth-child(5){grid-column:3/4;}
-  }
+  blockquote footer cite a{color:var(--tan);}
 
-  /* ---------- hours ---------- */
-  .hours-wrap{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-    align-items:start;
-  }
+  /* ---------- HOURS ---------- */
   .hours-table{
-    border:1px solid var(--line);
-    border-radius:6px;
+    margin-top:2rem;
+    display:grid; gap:0;
+    max-width:520px;
+    border:1px solid rgba(200,155,108,.2);
+    border-radius:var(--radius);
     overflow:hidden;
   }
   .hours-row{
-    display:flex;
-    justify-content:space-between;
-    padding:20px 26px;
-    border-bottom:1px solid var(--line);
-    font-family:'Barlow Condensed',sans-serif;
-    font-size:20px;
-    text-transform:uppercase;
-    letter-spacing:.5px;
+    display:flex; justify-content:space-between;
+    padding:1rem 1.4rem;
+    font-family:'Barlow Condensed', sans-serif; text-transform:uppercase; letter-spacing:.02em;
+    font-size:1.05rem;
   }
-  .hours-row:last-child{border-bottom:none;}
-  .hours-row .time{color:var(--red);font-weight:700;}
-  .hours-caveat{
-    margin-top:18px;
-    font-size:13.5px;
-    color:#847e7c;
-    display:flex;
-    gap:8px;
-    align-items:flex-start;
+  .hours-row:nth-child(odd){background:var(--black-2);}
+  .hours-row span:last-child{color:var(--red); font-weight:800;}
+  .hours-disclaimer{
+    margin-top:1.25rem; font-size:.88rem; color:var(--tan); max-width:52ch;
   }
-  .hours-side p{color:var(--off);margin-bottom:16px;max-width:440px;}
 
-  /* ---------- contact ---------- */
-  #contact{
-    background:
-      radial-gradient(ellipse at bottom left, rgba(192,39,45,.16), transparent 55%),
-      var(--black);
-  }
+  /* ---------- CONTACT ---------- */
   .contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
+    display:grid; gap:2.5rem; margin-top:2rem;
+    grid-template-columns:1fr;
   }
-  .contact-card{
-    background:var(--black-3);
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:36px;
+  @media(min-width:900px){.contact-grid{grid-template-columns:1fr 1fr;}}
+  .contact-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:1.25rem;}
+  .contact-list li{display:flex; gap:.9rem; align-items:flex-start; font-size:1.05rem;}
+  .contact-list .ic{font-size:1.3rem;}
+  .contact-list a{color:var(--cream); text-decoration:underline; text-decoration-color:var(--tan);}
+  .map-pin{
+    min-height:260px;
+    background:var(--black-2);
+    border:1px solid rgba(200,155,108,.2);
+    border-radius:var(--radius);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.5rem;
+    text-align:center; padding:1.5rem;
   }
-  .contact-row{
-    display:flex;
-    gap:16px;
-    align-items:flex-start;
-    padding:18px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .contact-row:last-child{border-bottom:none;}
-  .contact-row .icon{
-    width:38px;height:38px;
-    border-radius:50%;
-    background:rgba(192,39,45,.15);
-    border:1px solid var(--red-dim);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    color:var(--red);
-  }
-  .contact-row strong{
-    display:block;
-    font-family:'Barlow Condensed',sans-serif;
-    text-transform:uppercase;
-    letter-spacing:.5px;
-    font-size:16px;
-    margin-bottom:2px;
-  }
-  .contact-row span, .contact-row a{
-    color:var(--off);
-    font-size:15.5px;
-  }
-  .contact-row a:hover{color:var(--red);}
-  .contact-cta{
-    text-align:center;
-    padding:44px 30px;
-    border:1px solid var(--line);
-    border-radius:6px;
-    background:linear-gradient(160deg,#201c1c,#141212);
-  }
-  .contact-cta h3{
-    font-size:34px;
-    margin-bottom:14px;
-  }
-  .contact-cta p{
-    color:var(--off);
-    margin-bottom:26px;
-  }
-  .fb-btn{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    border:1px solid var(--line);
-    padding:15px 26px;
-    border-radius:3px;
-    font-family:'Barlow Condensed',sans-serif;
-    text-transform:uppercase;
-    font-weight:700;
-    letter-spacing:1px;
-    font-size:16px;
-    margin-top:14px;
-    transition:border-color .2s, background .2s;
-  }
-  .fb-btn:hover{border-color:var(--red);background:rgba(192,39,45,.08);}
+  .map-pin .pin-icon{font-size:2.4rem; color:var(--red);}
+  .map-pin p{margin:0; color:var(--tan); font-size:.9rem;}
 
-  /* ---------- footer ---------- */
-  footer.site-footer{
-    padding:34px 0;
-    border-top:1px solid var(--line);
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    border-top:1px solid rgba(200,155,108,.15);
+    padding:2.5rem 0 5rem;
     text-align:center;
-    color:#6f6a68;
-    font-size:13.5px;
   }
-  footer.site-footer .brand{font-size:18px;margin-bottom:8px;display:block;}
+  .site-footer .nav-wordmark{display:inline-block; margin-bottom:.75rem;}
+  .site-footer p{color:var(--tan); font-size:.85rem; margin:0;}
 
-  /* ---------- iskaro badge ---------- */
+  /* ---------- BADGE ---------- */
   .iskaro-badge{
     position:fixed;
-    bottom:16px;
-    right:16px;
-    z-index:200;
-    background:rgba(30,30,30,.92);
-    border:1px solid var(--line);
-    color:#c9c4c1;
-    font-size:12px;
-    padding:8px 14px;
-    border-radius:30px;
-    backdrop-filter:blur(6px);
-    box-shadow:0 4px 14px rgba(0,0,0,.35);
-    transition:border-color .2s, color .2s;
+    bottom:1rem; right:1rem;
+    z-index:999;
+    background:rgba(20,20,20,.88);
+    border:1px solid var(--tan-dim);
+    color:var(--cream);
+    font-size:.72rem;
+    padding:.45rem .8rem;
+    border-radius:999px;
+    text-decoration:none;
+    backdrop-filter:blur(4px);
   }
-  .iskaro-badge strong{color:var(--white);}
-  .iskaro-badge:hover{border-color:var(--red);color:var(--white);}
+  .iskaro-badge strong{color:var(--tan);}
+  .iskaro-badge:hover{border-color:var(--red);}
 
-  /* ---------- responsive ---------- */
-  @media(max-width:900px){
-    .hero-grid,.about-grid,.hours-wrap,.contact-grid{grid-template-columns:1fr;}
-    .about-grid{grid-template-columns:1fr;}
-    .about-photo{max-width:360px;margin:0 auto;}
-    .trust-grid{grid-template-columns:repeat(2,1fr);row-gap:32px;}
-    .services-list{grid-template-columns:1fr;}
-    .reviews-grid{grid-template-columns:1fr;}
-    .reviews-grid > blockquote:nth-child(4),.reviews-grid > blockquote:nth-child(5){grid-column:auto;}
-    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,180px);}
-    .g1{grid-column:1/3;grid-row:1/2;}
-    .g2{grid-column:1/3;grid-row:2/3;}
-    .g3{grid-column:1/2;grid-row:3/4;}
-    .g4{grid-column:2/3;grid-row:3/4;}
-    .g5{grid-column:1/3;grid-row:4/5;}
-  }
-  @media(max-width:760px){
-    nav.links{
-      position:fixed;
-      top:64px;left:0;right:0;
-      background:var(--black-2);
-      border-bottom:1px solid var(--line);
-      flex-direction:column;
-      padding:18px 24px 24px;
-      gap:18px;
-      transform:translateY(-130%);
-      transition:transform .3s ease;
-    }
-    nav.links.open{transform:translateY(0);}
-    .burger{display:flex;}
-    section{padding:64px 0;}
-    .contact-cta h3{font-size:28px;}
-  }
+  /* ---------- REVEAL ---------- */
+  [data-reveal]{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  [data-reveal].is-visible{opacity:1; transform:translateY(0);}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="nav-inner">
-    <a href="#hero" class="brand">FIT<span>KO</span></a>
-    <nav class="links" id="navLinks">
-      <a href="#about">O nás</a>
-      <a href="#services">Ponuka</a>
-      <a href="#gallery">Priestor</a>
-      <a href="#reviews">Recenzie</a>
-      <a href="#hours">Otváracie hodiny</a>
-      <a href="#contact">Kontakt</a>
-    </nav>
-    <a href="tel:+421907563265" class="call-btn">📞 0907 563 265</a>
-    <button class="burger" id="burgerBtn" aria-label="Otvoriť menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+<header class="site-header">
+  <div class="nav-row">
+    <a href="#hero" class="nav-wordmark">FITKO</a>
+    <ul class="nav-links">
+      <li><a href="#services">Vybavenie</a></li>
+      <li><a href="#about">O nás</a></li>
+      <li><a href="#gallery">Fotky</a></li>
+      <li><a href="#reviews">Recenzie</a></li>
+      <li><a href="#hours">Hodiny</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+421907563265">Zavolať</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Otvoriť menu">☰</button>
   </div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="#services">Vybavenie</a>
+    <a href="#about">O nás</a>
+    <a href="#gallery">Fotky</a>
+    <a href="#reviews">Recenzie</a>
+    <a href="#hours">Hodiny</a>
+    <a href="#contact">Kontakt</a>
+    <a href="tel:+421907563265">📞 0907 563 265</a>
+  </nav>
 </header>
 
 <main>
 
-  <section id="hero" data-section="hero">
-    <div class="container hero-grid">
-      <div data-reveal>
-        <span class="hero-tag">Fitnes a profesionálny tréning 👍</span>
-        <h1 class="hero-title">FITKO<span class="accent">Prievidza</span></h1>
-        <p class="hero-text">Nie sme anonymná posilňovňa. Sme fitko, kam chodíš, lebo ťa tu poznajú po mene — s poriadnym vybavením, poctivým tréningom a partiou, čo ti fandí. 😉</p>
-        <div class="hero-ctas">
-          <a href="tel:+421907563265" class="btn-primary">📞 Zavolať do fitka</a>
-          <a href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener" class="btn-ghost">Napísať na Facebook</a>
-        </div>
-        <p class="hero-note">Rezervácie neriešime cez systém — stačí zavolať alebo napísať. Jednoducho.</p>
+  <section data-section="hero" class="hero" id="hero">
+    <div>
+      <span class="wordmark-badge">FITKO</span>
+      <h1>FITKO Prievidza — fitnes a profesionálny tréning</h1>
+      <p class="hero-lead">Poctivá domáca posilňovňa v Prievidzi. Bez zbytočných kecov, s poriadnym vybavením a partiou, ktorá ťa pozná po mene. Zavolaj alebo sa príď pozrieť! 👍😉</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:+421907563265">📞 Zavolať teraz</a>
+        <a class="btn btn-ghost" href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener">Sledovať na Facebooku</a>
       </div>
-      <div class="hero-photo" data-reveal>
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <small>Miesto pre fotku nástennej maľby FITKO z fitka</small>
+    </div>
+    <div class="hero-photo photo-placeholder" role="img" aria-label="Miesto pre fotku nástennej maľby FITKO alebo interiéru posilňovne">
+      <span class="ph-icon">📷</span>
+      <span class="ph-text">miesto pre fotku nástennej maľby FITKO / interiéru posilňovne</span>
+    </div>
+  </section>
+
+  <section data-section="trust" class="trust" aria-label="Overené čísla">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-stat">
+          <span class="num">98 %</span>
+          <span class="label">odporúčaní<br><small>36 recenzií na Facebooku</small></span>
         </div>
-        <span class="wordmark">FITKO · Prievidza</span>
+        <div class="trust-stat">
+          <span class="num">1,6 tis.</span>
+          <span class="label">sledovateľov<br><small>na <a href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener">Facebooku</a></small></span>
+        </div>
+        <div class="trust-stat partner">
+          <span class="num">🤝</span>
+          <span class="label">Partner<br><small><a href="https://multi-sport.sk/aktivity/partner/fitko-prievidza/" target="_blank" rel="noopener">MultiSport a Multi-Benefit kariet</a></small></span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="trust" data-section="trust">
-    <div class="container trust-grid" data-reveal>
-      <div class="trust-item">
-        <span class="num">98 %</span>
-        <span class="label">odporúčanie z 36 recenzií na FB</span>
+  <section data-section="services" class="services" id="services">
+    <div class="container">
+      <span class="eyebrow">Vybavenie a služby</span>
+      <h2>Čo u nás <span class="accent">nájdeš</span></h2>
+      <div class="services-grid">
+        <div class="service-card" data-reveal>
+          <span class="icon">🏋️</span>
+          <h3>60+ stanovíšť a kardio zóna</h3>
+          <p>Vyše 60 cvičebných stanovíšť plus samostatná kardio zóna — nájdeš tu presne to, čo potrebuješ.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="icon">👥</span>
+          <h3>Skupinový a kruhový tréning</h3>
+          <p>Cvič v partii — skupinový a kruhový tréning pre tých, ktorí to majú radi spoločne.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="icon">🥊</span>
+          <h3>Boxerské vrecia</h3>
+          <p>Vybi sa poriadne na boxerských vreciach — súčasť našej workoutovej zóny.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="icon">📋</span>
+          <h3>Individuálny plán s trénerom</h3>
+          <p>Osobný tréningový aj stravovací plán priamo od skúseného trénera.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="icon">☕</span>
+          <h3>Fit bar s kávou</h3>
+          <p>Po tréningu si daj kvalitnú kávu priamo u nás v Fit bare.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="icon">🔴</span>
+          <span class="badge-new">Novinka u nás vo Fitku!</span>
+          <h3>MITO LIGHT Biohacker 5.0</h3>
+          <p>Terapia blízkym červeným svetlom — nová vec, ktorú u nás nájdeš. 👍</p>
+        </div>
       </div>
-      <div class="trust-item">
-        <span class="num">1,6 tis.</span>
-        <span class="label">sledovateľov na Facebooku</span>
-      </div>
-      <div class="trust-item">
-        <span class="num">MultiSport</span>
-        <span class="label">partnerská karta akceptovaná</span>
-      </div>
-      <div class="trust-item">
-        <span class="num">Parking</span>
-        <span class="label">bezplatné parkovisko pred budovou</span>
-      </div>
+      <p class="services-note">A ako bonus — bezplatné parkovisko priamo pred budovou. (zdroj: <a href="https://multi-sport.sk/aktivity/partner/fitko-prievidza/" target="_blank" rel="noopener">multi-sport.sk</a>)</p>
     </div>
   </section>
 
-  <section id="about" data-section="about">
+  <section data-section="about" class="about" id="about">
     <div class="container about-grid">
-      <div class="about-photo" data-reveal>
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
-          <small>Miesto pre fotku trénera Pala priamo vo fitku</small>
-        </div>
-      </div>
-      <div data-reveal>
+      <div>
         <span class="eyebrow">O nás</span>
-        <h2 class="section-title">Nie sme <span>korporát</span>, sme partia</h2>
-        <div class="about-text">
-          <p>Za fitkom stojí <strong>Ing. Palo Gubo</strong> — tréner s viac ako <strong>10-ročnou praxou</strong>, ktorý ti okrem prístupu na stanovištia rád zostaví aj individuálny tréningový a stravovací plán presne na mieru.</p>
-          <p>Podľa recenzií je práve toto to, čo ľudia u nás oceňujú najviac — domácku, kamarátsku atmosféru, kde si každý s každým pomôže a nikto sa nemusí nikomu doprosovať o radu. Fitnes a profesionálny tréning na jednom mieste. 👍</p>
+        <h2>Domáca atmosféra, kde sú <span class="accent">všetci kamaráti</span></h2>
+        <p>U nás to nie je o tom, že prídeš, odcvičíš a odídeš bez slova. Poznáme sa po mene, poradíme, keď treba, a rovno ti aj ukážeme, ako na to. Fitnes a profesionálny tréning bez zbytočnej vážnosti — presne tak, ako to má byť. 👍😉</p>
+        <p>Nech si tu prvýkrát alebo chodíš roky, u nás si vždy medzi svojimi.</p>
+        <div class="fb-vibe">
+          „Dnes „malá / veľká" návšteva!!! 👍😉"
+          <span>— presne takto to u nás vyzerá. Príď na svoju!</span>
         </div>
-        <div class="about-badge">
-          <span class="icon">P</span>
-          <div>
-            <strong>Ing. Palo Gubo</strong>
-            <span>Tréner a majiteľ · 10+ rokov praxe</span>
-          </div>
-        </div>
+      </div>
+      <div class="about-photo photo-placeholder" role="img" aria-label="Miesto pre skupinovú fotku klientov z Facebooku">
+        <span class="ph-icon">📷</span>
+        <span class="ph-text">miesto pre skupinovú fotku klientov</span>
       </div>
     </div>
   </section>
 
-  <section id="services" data-section="services">
+  <section data-section="gallery" class="gallery" id="gallery">
     <div class="container">
-      <div data-reveal>
-        <span class="eyebrow">Ponuka</span>
-        <h2 class="section-title">Čo u nás <span>nájdeš</span></h2>
-        <p class="section-lede">Poriadna výbava aj pre nováčika, aj pre pokročilého. Poď sa pozrieť, čo ťa u nás čaká.</p>
-      </div>
-      <div class="services-list" data-reveal>
-        <div class="service-item">
-          <span class="num">01</span>
-          <div><h3>60+ cvičebných stanovísk + kardio zóna</h3><p>Poriadny výber strojov aj voľných váh, plus kardio na rozohriatie či výdrž.</p></div>
+      <span class="eyebrow">Fotky</span>
+      <h2>Pozri sa <span class="accent">k nám dnu</span></h2>
+      <div class="gallery-grid">
+        <div class="photo-placeholder" role="img" aria-label="Miesto pre fotku interiéru posilňovne">
+          <span class="ph-icon">📷</span>
+          <span class="ph-text">interiér posilňovne</span>
         </div>
-        <div class="service-item">
-          <span class="num">02</span>
-          <div><h3>Osobný tréning a individuálne plány</h3><p>Tréningový aj stravovací plán šitý presne na teba, od skúseného trénera.</p></div>
+        <div class="photo-placeholder" role="img" aria-label="Miesto pre fotku kardio a workoutovej zóny">
+          <span class="ph-icon">📷</span>
+          <span class="ph-text">kardio / workoutová zóna</span>
         </div>
-        <div class="service-item">
-          <span class="num">03</span>
-          <div><h3>Terapia MITO LIGHT® Biohacker 5.0</h3><p>Novinka u nás vo Fitku! Terapia blízkym červeným svetlom pre regeneráciu. 👍</p></div>
+        <div class="photo-placeholder" role="img" aria-label="Miesto pre skupinovú fotku klientov">
+          <span class="ph-icon">📷</span>
+          <span class="ph-text">skupinová fotka klientov</span>
         </div>
-        <div class="service-item">
-          <span class="num">04</span>
-          <div><h3>Fit bar s kávou</h3><p>Pred tréningom espresso, po tréningu doplnenie energie — priamo v prevádzke.</p></div>
-        </div>
-        <div class="service-item">
-          <span class="num">05</span>
-          <div><h3>Skupinové cvičebne</h3><p>Priestor na skupinové lekcie a tréningy v partii.</p></div>
-        </div>
-        <div class="service-item">
-          <span class="num">06</span>
-          <div><h3>Boxovacie vrecia a workoutová dráha</h3><p>Vybi sa na boxe alebo si zabehni workoutovú dráhu.</p></div>
+        <div class="photo-placeholder" role="img" aria-label="Miesto pre fotku nástennej maľby FITKO">
+          <span class="ph-icon">📷</span>
+          <span class="ph-text">nástenná maľba FITKO</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="gallery" data-section="gallery">
+  <section data-section="reviews" class="reviews" id="reviews">
     <div class="container">
-      <div data-reveal>
-        <span class="eyebrow">Priestor</span>
-        <h2 class="section-title">Ako to u nás <span>vyzerá</span></h2>
-        <p class="section-lede">Žiadne fotenie s profi svetlami — takto to u nás reálne vyzerá. Poď sa presvedčiť osobne. 😉</p>
+      <span class="eyebrow">Recenzie zákazníkov</span>
+      <h2>Čo hovoria <span class="accent">naši klienti</span></h2>
+      <div class="reviews-grid">
+        <blockquote data-reveal>
+          <p>Nič tam nechýba, navyše dostanete radu ako a čo cvičiť ihneď.</p>
+          <footer>— recenzia zákazníka, <cite><a href="https://slovenskobcan.com/telocvicna/trenciansky/fitko/" target="_blank" rel="noopener">zdroj</a></cite></footer>
+        </blockquote>
+        <blockquote data-reveal>
+          <p>Výborný prístup majiteľa, domáca atmosféra, kde sú všetci kamaráti.</p>
+          <footer>— recenzia zákazníka, <cite><a href="https://slovenskobcan.com/telocvicna/trenciansky/fitko/" target="_blank" rel="noopener">zdroj</a></cite></footer>
+        </blockquote>
+        <blockquote data-reveal>
+          <p>Veľmi dobrá domáca atmosféra, všetko potrebné vybavenie, pozitívny prístup majiteľa.</p>
+          <footer>— recenzia zákazníka, <cite><a href="https://slovenskobcan.com/telocvicna/trenciansky/fitko/" target="_blank" rel="noopener">zdroj</a></cite></footer>
+        </blockquote>
+        <blockquote data-reveal>
+          <p>Skvelé vybavenie, príjemná cvičebná zóna, prijateľná cena vstupu.</p>
+          <footer>— recenzia zákazníka, <cite><a href="https://slovenskobcan.com/telocvicna/trenciansky/fitko/" target="_blank" rel="noopener">zdroj</a></cite></footer>
+        </blockquote>
       </div>
-      <div class="gallery-grid" data-reveal>
-        <div class="g-item g1">
-          <div class="photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><small>Miesto pre fotku hlavnej cvičebnej plochy</small></div>
-        </div>
-        <div class="g-item g2">
-          <div class="photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><small>Miesto pre fotku kardio zóny</small></div>
-        </div>
-        <div class="g-item g3">
-          <div class="photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><small>Miesto pre fotku boxovacieho vreca</small></div>
-        </div>
-        <div class="g-item g4">
-          <div class="photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><small>Miesto pre fotku fit baru</small></div>
-        </div>
-        <div class="g-item g5">
-          <div class="photo-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><small>Miesto pre fotku workoutovej dráhy</small></div>
-        </div>
-      </div>
-      <p class="gallery-note">Fotky pochádzajú z bežného mobilu priamo z fitka — presne tak, ako to u nás naozaj vyzerá.</p>
     </div>
   </section>
 
-  <section id="reviews" data-section="reviews">
+  <section data-section="hours" class="hours" id="hours">
     <div class="container">
-      <div data-reveal>
-        <span class="eyebrow">Recenzie</span>
-        <h2 class="section-title">Čo hovoria <span>klienti</span></h2>
-        <p class="section-lede">Doslovné citáty od ľudí, ktorí u nás cvičia.</p>
+      <span class="eyebrow">Otváracie hodiny</span>
+      <h2>Otváracie <span class="accent">hodiny</span></h2>
+      <div class="hours-table">
+        <div class="hours-row"><span>Pondelok – Piatok</span><span>5:30 – 21:00</span></div>
+        <div class="hours-row"><span>Sobota – Nedeľa</span><span>6:00 – 21:00</span></div>
       </div>
-      <div class="reviews-grid" data-reveal>
-        <blockquote>
-          <p>Nechýba mi tam nič, ešte aj rady ako a s čím cvičiť dostanete okamžite a nemusíte sa nikomu doprosovať.</p>
-          <footer><cite>R. S.</cite></footer>
-        </blockquote>
-        <blockquote>
-          <p>Výborný prístup majiteľa, taktiez aj ostatných členov týmu,, fitko,, domáca atmosféra každý s každým kamarát, za mňa 5/5</p>
-          <footer><cite>D.</cite></footer>
-        </blockquote>
-        <blockquote>
-          <p>Veľmi dobrá domáca atmosféra..všetko potrebné vybavenie.pozitivny pristup majiteľa. Nie je čo vytknúť.</p>
-          <footer><cite>V.</cite></footer>
-        </blockquote>
-        <blockquote>
-          <p>Super fitko aj personal paradna atmosfera a aj priestor je dobre vyuziti..... Hore prst!!</p>
-          <footer><cite>M. Š.</cite></footer>
-        </blockquote>
-        <blockquote>
-          <p>Čisté fitko fungujúce stroje - čo viac dodať.</p>
-          <footer><cite>J. M.</cite></footer>
-        </blockquote>
-      </div>
+      <p class="hours-disclaimer">Orientačné hodiny z verejného registra — presný rozvrh si prosím over telefonicky pred návštevou. 👍</p>
     </div>
   </section>
 
-  <section id="hours" data-section="hours">
-    <div class="container hours-wrap">
-      <div data-reveal>
-        <span class="eyebrow">Otváracie hodiny</span>
-        <h2 class="section-title">Kedy nás <span>nájdeš</span></h2>
-        <div class="hours-table">
-          <div class="hours-row"><span>Pondelok — Piatok</span><span class="time">5:30 – 21:00</span></div>
-          <div class="hours-row"><span>Sobota — Nedeľa</span><span class="time">6:00 – 21:00</span></div>
-        </div>
-        <p class="hours-caveat">⚠️ Hodiny sú na potvrdenie — odporúčame overiť telefonicky alebo cez Facebook pred návštevou.</p>
-      </div>
-      <div class="hours-side" data-reveal>
-        <p>Príď kedykoľvek v otváracích hodinách — na dohodnutý čas ťa netlačíme, u nás to funguje voľne. Ak si nie si istý, radšej zavolaj vopred. 👍</p>
-        <a href="tel:+421907563265" class="btn-ghost">📞 Overiť telefonicky</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" data-section="contact">
-    <div class="container contact-grid">
-      <div data-reveal>
-        <span class="eyebrow">Kontakt</span>
-        <h2 class="section-title">Ozvi sa <span>nám</span></h2>
-        <div class="contact-card">
-          <div class="contact-row">
-            <span class="icon">📞</span>
-            <div><strong>Telefón</strong><a href="tel:+421907563265">0907 563 265</a></div>
-          </div>
-          <div class="contact-row">
-            <span class="icon">📍</span>
-            <div><strong>Adresa</strong><span>J. Murgaša 699/1, Prievidza-Prednádražie</span></div>
-          </div>
-          <div class="contact-row">
-            <span class="icon">🅿️</span>
-            <div><strong>Parkovanie</strong><span>Bezplatné parkovisko priamo pred budovou</span></div>
-          </div>
-          <div class="contact-row">
-            <span class="icon">👍</span>
-            <div><strong>Facebook</strong><a href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener">FITKO Prievidza</a></div>
-          </div>
+  <section data-section="contact" class="contact" id="contact">
+    <div class="container">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Poď sa <span class="accent">pozrieť</span></h2>
+      <div class="contact-grid">
+        <ul class="contact-list">
+          <li><span class="ic">📞</span><span>Zavolaj nám priamo — <a href="tel:+421907563265">0907 563 265</a></span></li>
+          <li><span class="ic">📍</span><span>J. Murgaša 699/1, Prievidza</span></li>
+          <li><span class="ic">📘</span><span><a href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener">Sleduj nás na Facebooku</a> — tam nájdeš aj čerstvé novinky</span></li>
+        </ul>
+        <div class="map-pin">
+          <span class="pin-icon">📍</span>
+          <p>J. Murgaša 699/1, Prievidza</p>
+          <p>Bezplatné parkovisko priamo pred budovou</p>
         </div>
       </div>
-      <div class="contact-cta" data-reveal>
-        <h3>Dnes „malá / veľká" návšteva?</h3>
-        <p>Príď sa pozrieť, zavolaj alebo napíš. Radi ťa u nás privítame! 👍😉</p>
-        <a href="tel:+421907563265" class="btn-primary">📞 Zavolať teraz</a><br>
-        <a href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener" class="fb-btn">Sledovať na Facebooku</a>
+      <div style="margin-top:2.5rem;">
+        <a class="btn btn-primary" href="tel:+421907563265">📞 Zavolať teraz</a>
       </div>
     </div>
   </section>
@@ -907,36 +590,42 @@
 </main>
 
 <footer class="site-footer">
-  <span class="brand">FIT<span style="color:var(--red)">KO</span> Prievidza</span>
-  Fitnes a profesionálny tréning · J. Murgaša 699/1, Prievidza-Prednádražie
+  <span class="nav-wordmark">FITKO</span>
+  <p>FITKO Prievidza · Fitnes a profesionálny tréning</p>
 </footer>
 
-<a href="https://iskaro.sk" target="_blank" rel="noopener" class="iskaro-badge">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+<a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
 
 <script>
-  var burger = document.getElementById('burgerBtn');
-  var links = document.getElementById('navLinks');
-  burger.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  links.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      links.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
-    });
-  });
-
-  var revealEls = document.querySelectorAll('[data-reveal]');
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.15});
-  revealEls.forEach(function(el){ io.observe(el); });
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('mobileMenu');
+    if(toggle && menu){
+      toggle.addEventListener('click', function(){
+        var open = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.15});
+      document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+    } else {
+      document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('is-visible'); });
+    }
+  })();
 </script>
 
 </body>
