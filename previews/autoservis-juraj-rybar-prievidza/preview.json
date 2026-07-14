@@ -1,0 +1,24 @@
+{
+  "prospect_id": "fd05c566-8899-4669-b5d9-f39c32a62e83",
+  "company_name": "Autoservis Juraj Rybár",
+  "slug": "autoservis-juraj-rybar-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-14T04:15:21.605Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 243820,
+    "cost_usd": 0.5685627000000001,
+    "input_tokens": 152454,
+    "output_tokens": 22727
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "process",
+    "area",
+    "contact"
+  ]
+}
