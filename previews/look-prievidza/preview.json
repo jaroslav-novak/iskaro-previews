@@ -1,0 +1,24 @@
+{
+  "prospect_id": "e1041754-9b28-468b-8250-8bf459532b8c",
+  "company_name": "LOOK",
+  "slug": "look-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-15T16:07:47.283Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 426873,
+    "cost_usd": 1.1286465,
+    "input_tokens": 359066,
+    "output_tokens": 38645
+  },
+  "sections": [
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "team",
+    "reviews",
+    "contact"
+  ]
+}
