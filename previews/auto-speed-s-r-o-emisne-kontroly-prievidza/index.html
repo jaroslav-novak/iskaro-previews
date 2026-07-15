@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AUTO-SPEED Prievidza – autoservis pod jednou strechou</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1b3b6f;
+    --blue:#4a76b8;
+    --pale:#b5c7e0;
+    --white:#ffffff;
+    --ink:#182437;
+    --pale-bg:#eef2f8;
+    --border:#d6e0ee;
+    --radius:10px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Arimo",Arial,Helvetica,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--navy);}
+  h1,h2,h3{font-family:"Arimo",Arial,sans-serif;color:var(--navy);line-height:1.15;margin:0 0 .5em;}
+  h1{font-size:clamp(1.9rem,5vw,3rem);font-weight:800;letter-spacing:-.01em;}
+  h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700;}
+  h3{font-size:1.15rem;font-weight:700;}
+  p{margin:0 0 1em;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.25rem;}
+  .eyebrow{
+    display:inline-block;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--blue);
+    margin-bottom:.6rem;
+  }
+
+  /* header */
+  header.site{
+    position:sticky;top:0;z-index:40;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--border);
+    backdrop-filter:saturate(180%) blur(6px);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:1rem;padding:.7rem 1.25rem;max-width:var(--maxw);margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem;min-width:0;}
+  .brand img{height:44px;width:auto;border-radius:4px;flex:none;}
+  .brand-mark{
+    font-style:italic;
+    font-weight:600;
+    color:var(--blue);
+    font-size:1.15rem;
+    letter-spacing:.01em;
+    white-space:nowrap;
+  }
+  .brand-mark small{
+    display:block;
+    font-style:normal;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:.6rem;
+    color:var(--navy);
+  }
+  nav.main-nav{display:none;}
+  nav.main-nav ul{list-style:none;display:flex;gap:1.4rem;margin:0;padding:0;}
+  nav.main-nav a{text-decoration:none;font-weight:600;font-size:.92rem;color:var(--ink);}
+  nav.main-nav a:hover{color:var(--blue);}
+  .header-cta{
+    display:inline-flex;align-items:center;gap:.5rem;
+    background:var(--navy);color:var(--white);
+    padding:.6rem 1rem;border-radius:8px;
+    font-weight:700;text-decoration:none;font-size:.92rem;
+    white-space:nowrap;
+    transition:background .15s ease;
+  }
+  .header-cta:hover{background:#142f58;}
+  .menu-toggle{
+    display:inline-flex;background:none;border:1px solid var(--border);
+    border-radius:8px;padding:.45rem .6rem;cursor:pointer;
+  }
+  .menu-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;}
+
+  /* hero */
+  section[data-section="hero"]{
+    background:linear-gradient(180deg,var(--pale-bg) 0%,var(--white) 100%);
+    padding:2.6rem 0 3rem;
+  }
+  .hero-grid{
+    display:grid;gap:2rem;align-items:center;
+  }
+  .hero-text h1{margin-bottom:.7rem;}
+  .hero-lede{font-size:1.08rem;color:#3a4a63;max-width:46ch;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem;}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;
+    padding:.85rem 1.4rem;border-radius:9px;
+    font-weight:700;font-size:1rem;text-decoration:none;
+    border:2px solid transparent;
+    transition:transform .12s ease, box-shadow .12s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--navy);color:var(--white);box-shadow:0 6px 16px rgba(27,59,111,.25);}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 20px rgba(27,59,111,.3);}
+  .btn-ghost{border-color:var(--navy);color:var(--navy);}
+  .btn-ghost:hover{background:var(--navy);color:var(--white);}
+  .btn svg{flex:none;}
+  .hero-photo{position:relative;}
+  .hero-photo figure{margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);box-shadow:0 18px 40px -18px rgba(27,59,111,.35);}
+  .hero-photo img{aspect-ratio:4/3;object-fit:cover;width:100%;}
+  figcaption.illustrative{
+    font-size:.72rem;color:#6b7891;padding:.5rem .7rem;background:var(--white);
+    border-top:1px solid var(--border);
+  }
+
+  /* trust badges */
+  section[data-section="trust"]{padding:1.4rem 0 2.2rem;}
+  .badge-row{
+    display:grid;grid-template-columns:1fr;gap:.8rem;
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    padding:1.4rem 0;
+  }
+  .badge{
+    display:flex;align-items:center;gap:.75rem;
+    font-size:.92rem;font-weight:600;color:var(--navy);
+  }
+  .badge .ic{
+    flex:none;width:36px;height:36px;border-radius:50%;
+    background:var(--pale-bg);display:flex;align-items:center;justify-content:center;
+    color:var(--blue);
+  }
+  .badge a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
+
+  /* generic section spacing */
+  section{padding:3.2rem 0;}
+  section[data-section="about"]{background:var(--pale-bg);}
+  .section-head{max-width:60ch;margin-bottom:1.8rem;}
+
+  /* about */
+  .about-grid{display:grid;gap:1rem;}
+  .about-grid p{color:#33415a;}
+
+  /* services */
+  .card-grid{
+    display:grid;grid-template-columns:1fr;gap:1rem;
+  }
+  .service-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:1.3rem 1.2rem;
+    transition:border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+  }
+  .service-card:hover{border-color:var(--blue);box-shadow:0 10px 24px -14px rgba(27,59,111,.35);transform:translateY(-2px);}
+  .service-card .ic{
+    width:42px;height:42px;border-radius:9px;background:var(--navy);color:var(--white);
+    display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;
+  }
+  .service-card h3{margin-bottom:.35rem;}
+  .service-card p{color:#4c5975;font-size:.94rem;margin:0;}
+
+  /* process / equipment */
+  section[data-section="process"]{background:var(--navy);color:var(--white);}
+  section[data-section="process"] h2,
+  section[data-section="process"] .eyebrow{color:var(--white);}
+  section[data-section="process"] .section-head p{color:var(--pale);}
+  .process-grid{display:grid;gap:2rem;align-items:center;}
+  .tech-list{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.4rem;}
+  .tech-chip{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:8px;
+    padding:.8rem .9rem;
+  }
+  .tech-chip strong{display:block;font-size:1.02rem;color:var(--white);margin-bottom:.15rem;}
+  .tech-chip span{font-size:.84rem;color:var(--pale);}
+  .process-photo figure{margin:0;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.18);}
+  .process-photo img{aspect-ratio:4/3;object-fit:cover;width:100%;}
+  .process-photo figcaption{font-size:.72rem;color:var(--pale);padding:.5rem .7rem;background:rgba(255,255,255,.06);}
+
+  /* reviews */
+  .review-grid{display:grid;grid-template-columns:1fr;gap:1.1rem;}
+  blockquote.review{
+    margin:0;background:var(--pale-bg);border-left:4px solid var(--blue);
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:1.3rem 1.3rem 1.1rem;
+  }
+  blockquote.review p{margin:0 0 .9rem;color:var(--ink);font-size:.98rem;}
+  blockquote.review footer{font-size:.85rem;color:var(--blue);font-weight:700;}
+  .review-score{
+    display:flex;align-items:center;gap:.6rem;margin-top:1.6rem;
+    font-weight:700;color:var(--navy);
+  }
+  .stars{color:var(--blue);letter-spacing:.1em;font-size:1.1rem;}
+
+  /* contact */
+  section[data-section="contact"]{background:var(--pale-bg);}
+  .contact-grid{display:grid;gap:1.6rem;}
+  .contact-card{
+    background:var(--white);border:1px solid var(--border);border-radius:var(--radius);
+    padding:1.5rem;
+  }
+  .contact-list{list-style:none;margin:0;padding:0;display:grid;gap:.9rem;}
+  .contact-list li{display:flex;gap:.8rem;align-items:flex-start;font-size:.96rem;}
+  .contact-list .ic{
+    flex:none;width:34px;height:34px;border-radius:8px;background:var(--pale-bg);
+    display:flex;align-items:center;justify-content:center;color:var(--navy);
+  }
+  .contact-list strong{display:block;color:var(--navy);}
+  .contact-list a{font-weight:700;text-decoration:none;}
+  .contact-list a:hover{text-decoration:underline;}
+  .map-box{
+    border:1px dashed var(--pale);border-radius:var(--radius);
+    padding:1.5rem;text-align:center;background:var(--pale-bg);
+  }
+  .map-box .ic{
+    width:46px;height:46px;border-radius:50%;background:var(--white);border:1px solid var(--border);
+    display:flex;align-items:center;justify-content:center;margin:0 auto .8rem;color:var(--navy);
+  }
+  .map-box .gps{font-weight:700;color:var(--navy);letter-spacing:.02em;}
+
+  /* footer */
+  footer.site-footer{
+    padding:2rem 0;border-top:1px solid var(--border);
+    font-size:.85rem;color:#6b7891;
+  }
+  footer.site-footer .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;justify-content:space-between;align-items:center;}
+
+  /* badge iskaro */
+  .iskaro-badge{
+    position:fixed;right:.85rem;bottom:.85rem;z-index:50;
+    background:var(--white);border:1px solid var(--border);
+    padding:.5rem .85rem;border-radius:999px;
+    font-size:.72rem;color:#556077;text-decoration:none;
+    box-shadow:0 6px 18px -8px rgba(27,59,111,.35);
+  }
+  .iskaro-badge strong{color:var(--navy);}
+  .iskaro-badge:hover{border-color:var(--blue);}
+
+  /* reveal (below the fold only) */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;}
+  .reveal.is-visible{opacity:1;transform:none;}
+
+  @media (min-width:640px){
+    .card-grid{grid-template-columns:1fr 1fr;}
+    .badge-row{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (min-width:860px){
+    nav.main-nav{display:block;}
+    .menu-toggle{display:none;}
+    .hero-grid{grid-template-columns:1.05fr .95fr;}
+    .about-grid{grid-template-columns:1fr 1fr;align-items:start;}
+    .process-grid{grid-template-columns:.95fr 1.05fr;}
+    .badge-row{grid-template-columns:repeat(4,1fr);}
+    .review-grid{grid-template-columns:repeat(3,1fr);}
+    .contact-grid{grid-template-columns:1.1fr .9fr;}
+  }
+  @media (min-width:1024px){
+    .card-grid{grid-template-columns:repeat(4,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <div class="brand">
+      <img src="assets/logo.jpg" alt="AUTO-SPEED s.r.o. - Emisné Kontroly">
+      <span class="brand-mark">autospeed<small>Prievidza</small></span>
+    </div>
+    <nav class="main-nav" aria-label="Hlavná navigácia">
+      <ul>
+        <li><a href="#about">O nás</a></li>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#process">Vybavenie</a></li>
+        <li><a href="#reviews">Recenzie</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="header-cta" href="tel:+421907582904">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.36 1.77.7 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.83.34 1.7.58 2.6.7A2 2 0 0 1 22 16.92z"/></svg>
+      0907 582 904
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Otvoriť menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="main-nav" id="mobileNav" style="display:none;padding:0 1.25rem 1rem;" aria-label="Mobilná navigácia">
+    <ul style="flex-direction:column;gap:.9rem;">
+      <li><a href="#about">O nás</a></li>
+      <li><a href="#services">Služby</a></li>
+      <li><a href="#process">Vybavenie</a></li>
+      <li><a href="#reviews">Recenzie</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section data-section="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Autoservis Prievidza · od roku 2001</span>
+        <h1>AUTO-SPEED Prievidza</h1>
+        <p class="hero-lede">Autoservis pre osobné a ľahké úžitkové autá. Od roku 2001 fungujeme vo vlastnom areáli
+          v Prievidzi a ponuku sme postupne rozšírili tak, aby ste väčšinu vecí okolo auta vybavili pod jednou
+          strechou — bez behania po meste.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:+421907582904">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.36 1.77.7 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.83.34 1.7.58 2.6.7A2 2 0 0 1 22 16.92z"/></svg>
+            Zavolajte: 0907 582 904
+          </a>
+          <a class="btn btn-ghost" href="#services">Prehľad služieb</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <figure>
+          <img src="assets/stock-02.jpg" alt="Ilustračná fotografia exteriéru autoservisu s modrým označením">
+          <figcaption class="illustrative">Ilustračná fotografia</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="trust">
+    <div class="wrap">
+      <div class="badge-row">
+        <div class="badge">
+          <span class="ic" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
+          Na trhu od roku 2001
+        </div>
+        <div class="badge">
+          <span class="ic" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>
+          </span>
+          <a href="https://www.zlatafirma.eu/company/auto-speed-s-r-o-emisne-kontroly-210313" target="_blank" rel="noopener">Ocenenie Zlatá Firma 2022–2026</a>
+        </div>
+        <div class="badge">
+          <span class="ic" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </span>
+          Google hodnotenie 4,5/5 (53 recenzií)
+        </div>
+        <div class="badge">
+          <span class="ic" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M16 3v8M8 3v8M3 11h18"/></svg>
+          </span>
+          Kompletný servis pod jednou strechou
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" id="about">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <span class="eyebrow">Profil firmy</span>
+        <h2>O nás</h2>
+      </div>
+      <div class="about-grid">
+        <p>Firma vznikla v roku 2001 v areáli bývalého družstva v Prievidzi. V začiatkoch sme sa venovali najmä
+          menším mechanickým a klampiarskym opravám — bežnej údržbe áut, s ktorou za nami ľudia z okolia
+          chodili roky.</p>
+        <p>Postupne sme dielňu rozširovali o ďalšie možnosti: pribudla diagnostika, práca s elektronickými
+          rozvodmi aj generálne opravy. Dnes tak vieme väčšinu bežných zásahov na aute vybaviť pod jednou
+          strechou, vo vlastnom areáli na Severnej ulici v Prievidzi.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" id="services">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <span class="eyebrow">Ponuka</span>
+        <h2>Naše služby</h2>
+      </div>
+      <div class="card-grid">
+        <article class="service-card">
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+          <h3>Automechanické opravy</h3>
+          <p>Motory, podvozky a nápravy osobných a ľahkých úžitkových áut.</p>
+        </article>
+        <article class="service-card">
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-6 7 6v12M9 21v-6h6v6"/></svg></span>
+          <h3>Klampiarske práce</h3>
+          <p>Opravy karosérie po nehode aj bežnom opotrebovaní.</p>
+        </article>
+        <article class="service-card">
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20"/></svg></span>
+          <h3>Lakovňa (Standox)</h3>
+          <p>Striekací box a lakovnícke materiály značky Standox.</p>
+        </article>
+        <article class="service-card">
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+          <h3>Diagnostika</h3>
+          <p>Elektronické rozvody a generálne opravy (GO).</p>
+        </article>
+        <article class="service-card">
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7M2 10l10-7 10 7"/></svg></span>
+          <h3>Servis klimatizácie</h3>
+          <p>Kontrola, plnenie a údržba klimatizácie vo vozidle.</p>
+        </article>
+        <article class="service-card">
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></span>
+          <h3>Geometria 3D</h3>
+          <p>Presné nastavenie geometrie náprav.</p>
+        </article>
+        <article class="service-card">
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/></svg></span>
+          <h3>Pneuservis</h3>
+          <p>Opravy defektov, výmena pneumatík, vyváženie plechových aj ALU diskov do veľkosti 21 palcov.</p>
+        </article>
+        <article class="service-card">
+          <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+          <h3>Odťahová služba</h3>
+          <p>Odťah osobných vozidiel, zapožičanie vozíka na odťah, odťah do hmotnosti 2 t.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="process" id="process">
+    <div class="wrap process-grid reveal">
+      <div>
+        <span class="eyebrow">Zázemie dielne</span>
+        <div class="section-head">
+          <h2>Vybavenie a technológie</h2>
+          <p>Namiesto fráz radšej konkrétne: na diagnostiku používame prístroje TEXA, geometriu a pneuservis
+            máme na vybavení JohnBean, pri klimatizácii a elektrických súčiastkach pracujeme s dielmi Valeo
+            a lakovňa beží na materiáloch Standox.</p>
+        </div>
+        <div class="tech-list">
+          <div class="tech-chip"><strong>TEXA</strong><span>diagnostika vozidiel</span></div>
+          <div class="tech-chip"><strong>JohnBean</strong><span>geometria, pneuservis</span></div>
+          <div class="tech-chip"><strong>Valeo</strong><span>klimatizácia, el. súčiastky</span></div>
+          <div class="tech-chip"><strong>Standox</strong><span>lakovnícke materiály</span></div>
+        </div>
+      </div>
+      <div class="process-photo">
+        <figure>
+          <img src="assets/stock-04.jpg" alt="Ilustračná fotografia diagnostiky motora diagnostickým prístrojom">
+          <figcaption>Ilustračná fotografia</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="reviews" id="reviews">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <span class="eyebrow">Recenzie</span>
+        <h2>Čo hovoria zákazníci</h2>
+      </div>
+      <div class="review-grid">
+        <blockquote class="review">
+          <p>„Maximálna spokojnosť, profesionálny prístup a flexibilita. Veľkým benefitom je, že všetko vedia
+            zastrešiť tzv. pod jednou strechou... v prilohe fotky pred a po...ĎAKUJEM.“</p>
+          <footer><cite>Google recenzia, Marian L.</cite></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>„Zobrali mi auto a rýchlo na ňom spravili to čo bolo treba, aj naprek tomu že tam mali dosť inej
+            roboty. Určite odporúčam.“</p>
+          <footer><cite>Google recenzia, Dano .</cite></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>„Velmi som spokojná so servisom, prijatelná cena, krásna robota za krátku dobu. Milí personál.
+            Vrelo odporúcam 👍“</p>
+          <footer><cite>Google recenzia, Maria C.</cite></footer>
+        </blockquote>
+      </div>
+      <div class="review-score">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>4,5/5 z 53 Google recenzií</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="contact" id="contact">
+    <div class="wrap reveal">
+      <div class="section-head">
+        <span class="eyebrow">Spojte sa s nami</span>
+        <h2>Kontakt</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <ul class="contact-list">
+            <li>
+              <span class="ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.36 1.77.7 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.83.34 1.7.58 2.6.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <span><strong>Maroš Mikuš</strong><a href="tel:+421907582904">0907 582 904</a></span>
+            </li>
+            <li>
+              <span class="ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.36 1.77.7 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.83.34 1.7.58 2.6.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <span><strong>Jozef Paprčka</strong>0908 232 080</span>
+            </li>
+            <li>
+              <span class="ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.36 1.77.7 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.83.34 1.7.58 2.6.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <span><strong>Pevná linka</strong>046/542 7302</span>
+            </li>
+            <li>
+              <span class="ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg></span>
+              <span><strong>E-mail</strong><a href="mailto:maros.autospeed@gmail.com">maros.autospeed@gmail.com</a></span>
+            </li>
+            <li>
+              <span class="ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <span><strong>Adresa</strong>Severná 13, 971 01 Prievidza</span>
+            </li>
+            <li>
+              <span class="ic" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+              <span><strong>Otváracie hodiny</strong>Po – Pia: 8:00 – 16:30</span>
+            </li>
+          </ul>
+        </div>
+        <div class="map-box">
+          <span class="ic" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <p style="margin:0 0 .3rem;font-weight:700;color:var(--navy);">Severná 13, Prievidza</p>
+          <p class="gps" style="margin:0;">48.771624, 18.640997</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>AUTO-SPEED s.r.o. — Severná 13, Prievidza</span>
+    <a href="tel:+421907582904">0907 582 904</a>
+  </div>
+</footer>
+
+<a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mobileNav');
+    if(toggle && nav){
+      toggle.addEventListener('click', function(){
+        var open = nav.style.display === 'block';
+        nav.style.display = open ? 'none' : 'block';
+        toggle.setAttribute('aria-expanded', String(!open));
+      });
+    }
+    var reveals = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      }, {threshold:.15});
+      reveals.forEach(function(el){ io.observe(el); });
+    } else {
+      reveals.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

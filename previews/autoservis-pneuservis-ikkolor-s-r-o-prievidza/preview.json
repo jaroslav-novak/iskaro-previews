@@ -1,0 +1,23 @@
+{
+  "prospect_id": "ab5ea781-ca45-4661-96c0-35c8af3a4329",
+  "company_name": "Autoservis, pneuservis - iKKolor s.r.o.",
+  "slug": "autoservis-pneuservis-ikkolor-s-r-o-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-15T21:10:16.247Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 376115,
+    "cost_usd": 0.9871232999999999,
+    "input_tokens": 308006,
+    "output_tokens": 34466
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "services",
+    "gallery",
+    "reviews",
+    "contact"
+  ]
+}

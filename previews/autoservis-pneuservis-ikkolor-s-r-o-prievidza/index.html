@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Autoservis a pneuservis iKKolor | Prievidza</title>
+<meta name="description" content="Autoservis, pneuservis - iKKolor s.r.o. — komplexná starostlivosť o Váš automobil v Prievidzi. Servisné prehliadky, STK a EK, pneuservis, lakovanie, autoelektrika.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#d21b24;
+    --black:#1a1a1a;
+    --white:#ffffff;
+    --surface:#f6f5f4;
+    --surface-2:#eeecea;
+    --line:rgba(26,26,26,0.12);
+    --line-strong:rgba(26,26,26,0.22);
+    --shadow:0 10px 30px rgba(26,26,26,0.08);
+    --radius:2px;
+    --max:1180px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--black);
+    font-family:"Fira Sans", "Segoe UI", Arial, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  h1,h2,h3,h4{
+    font-family:"Play","Fira Sans",sans-serif;
+    font-weight:700;
+    line-height:1.15;
+    margin:0 0 .6em;
+    letter-spacing:.01em;
+  }
+  p{ margin:0 0 1em; }
+  ul{ margin:0; padding:0; list-style:none; }
+  .container{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 1.25rem;
+  }
+  .eyebrow{
+    font-family:"Play",sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.72rem;
+    color:var(--red);
+    font-weight:700;
+    display:inline-block;
+    margin-bottom:.9rem;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.55rem;
+    font-family:"Play",sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    letter-spacing:.02em;
+    text-decoration:none;
+    padding:.9rem 1.6rem;
+    border-radius:var(--radius);
+    border:2px solid transparent;
+    transition:transform .15s ease, background-color .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{
+    background:var(--red);
+    color:var(--white);
+    border-color:var(--red);
+  }
+  .btn-primary:hover{ background:#b71620; border-color:#b71620; }
+  .btn-outline{
+    background:transparent;
+    color:var(--white);
+    border-color:rgba(255,255,255,0.55);
+  }
+  .btn-outline:hover{ border-color:var(--white); background:rgba(255,255,255,0.08); }
+  .btn-dark{
+    background:var(--black);
+    color:var(--white);
+    border-color:var(--black);
+  }
+  .btn-dark:hover{ background:#000; }
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding-top:.7rem;
+    padding-bottom:.7rem;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:.7rem;
+    text-decoration:none;
+  }
+  .brand img{ height:38px; width:auto; }
+  .brand span{
+    font-family:"Play",sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    line-height:1.05;
+    color:var(--black);
+  }
+  .brand small{
+    display:block;
+    font-family:"Fira Sans",sans-serif;
+    font-weight:500;
+    font-size:.68rem;
+    letter-spacing:.05em;
+    color:var(--red);
+    text-transform:uppercase;
+  }
+  .main-nav{
+    display:none;
+    gap:1.6rem;
+    font-size:.92rem;
+    font-weight:500;
+  }
+  .main-nav a{ text-decoration:none; position:relative; padding:.3rem 0; }
+  .main-nav a::after{
+    content:"";
+    position:absolute;
+    left:0; right:100%; bottom:0;
+    height:2px;
+    background:var(--red);
+    transition:right .18s ease;
+  }
+  .main-nav a:hover::after{ right:0; }
+  .header-actions{
+    display:flex;
+    align-items:center;
+    gap:.9rem;
+  }
+  .header-phone{
+    display:none;
+    align-items:center;
+    gap:.5rem;
+    font-family:"Play",sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    text-decoration:none;
+    color:var(--black);
+  }
+  .header-phone svg{ flex:none; }
+  .menu-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:42px; height:42px;
+    border:1px solid var(--line-strong);
+    background:var(--white);
+    border-radius:var(--radius);
+    cursor:pointer;
+  }
+  .menu-toggle span,
+  .menu-toggle span::before,
+  .menu-toggle span::after{
+    content:"";
+    display:block;
+    width:18px;
+    height:2px;
+    background:var(--black);
+    position:relative;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .menu-toggle span::before{ position:absolute; top:-6px; }
+  .menu-toggle span::after{ position:absolute; top:6px; }
+  .mobile-nav{
+    display:none;
+    flex-direction:column;
+    border-top:1px solid var(--line);
+    background:var(--white);
+  }
+  .mobile-nav.is-open{ display:flex; }
+  .mobile-nav a{
+    padding:.9rem 1.25rem;
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    font-weight:500;
+  }
+
+  @media (min-width:900px){
+    .main-nav{ display:flex; }
+    .header-phone{ display:inline-flex; }
+    .menu-toggle{ display:none; }
+    .mobile-nav{ display:none !important; }
+  }
+
+  /* ---------- reveal ---------- */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+
+  /* ---------- HERO ---------- */
+  section[data-section="hero"]{
+    position:relative;
+    color:var(--white);
+    background-color:var(--black);
+    background-image:linear-gradient(180deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0.86) 100%), url("assets/photo-1.jpg");
+    background-size:cover;
+    background-position:center;
+    padding:3.6rem 0 3rem;
+  }
+  .hero-inner{ max-width:640px; }
+  .hero-inner h1{
+    font-size:clamp(2rem, 5.5vw, 3.1rem);
+    color:var(--white);
+  }
+  .hero-inner .lede{
+    font-size:1.05rem;
+    color:rgba(255,255,255,0.88);
+    max-width:52ch;
+  }
+  .hero-cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.9rem;
+    margin-top:1.6rem;
+  }
+  .hero-facts{
+    margin-top:2.4rem;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:.9rem;
+    border-top:1px solid rgba(255,255,255,0.22);
+    padding-top:1.6rem;
+  }
+  .hero-fact{
+    display:flex;
+    align-items:flex-start;
+    gap:.75rem;
+    font-size:.94rem;
+  }
+  .hero-fact svg{ flex:none; margin-top:.15rem; color:var(--red); }
+  .hero-fact strong{
+    display:block;
+    font-family:"Play",sans-serif;
+    font-size:.98rem;
+    letter-spacing:.01em;
+  }
+  @media (min-width:640px){
+    .hero-facts{ grid-template-columns:1fr 1fr; }
+  }
+  @media (min-width:900px){
+    section[data-section="hero"]{ padding:6rem 0 5rem; }
+  }
+
+  /* ---------- generic section ---------- */
+  .section{ padding:3.6rem 0; }
+  .section-head{ max-width:660px; margin-bottom:2.4rem; }
+  .section-head h2{ font-size:clamp(1.6rem, 4vw, 2.2rem); color:var(--black); }
+  .section-head p{ color:#3a3a3a; font-size:1rem; }
+  .section-alt{ background:var(--surface); }
+
+  /* ---------- TRUST ---------- */
+  .trust-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+  .trust-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-top:3px solid var(--red);
+    padding:1.5rem 1.4rem;
+    border-radius:var(--radius);
+  }
+  .trust-card h3{
+    font-size:1.02rem;
+    color:var(--black);
+    margin-bottom:.4rem;
+  }
+  .trust-card p{ font-size:.92rem; color:#454545; margin:0; }
+  .trust-rating{
+    display:flex;
+    align-items:baseline;
+    gap:.5rem;
+    margin-bottom:.3rem;
+  }
+  .trust-rating strong{
+    font-family:"Play",sans-serif;
+    font-size:1.7rem;
+    color:var(--red);
+  }
+  .trust-stars{ color:var(--red); letter-spacing:.1em; font-size:.95rem; }
+  @media (min-width:640px){
+    .trust-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (min-width:1000px){
+    .trust-grid{ grid-template-columns:repeat(5,1fr); }
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--white);
+    padding:1.5rem 1.4rem;
+    display:flex;
+    gap:1rem;
+    align-items:flex-start;
+  }
+  .service-card .icon{
+    flex:none;
+    width:42px; height:42px;
+    border:1px solid var(--line-strong);
+    border-radius:var(--radius);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--red);
+  }
+  .service-card h3{
+    font-size:1rem;
+    margin-bottom:.25rem;
+    color:var(--black);
+  }
+  .service-card p{ font-size:.88rem; color:#4a4a4a; margin:0; }
+  @media (min-width:640px){
+    .services-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (min-width:1000px){
+    .services-grid{ grid-template-columns:repeat(3,1fr); }
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+  .gallery-item{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    aspect-ratio:4/3;
+    border:1px solid var(--line);
+  }
+  .gallery-item img{
+    width:100%; height:100%;
+    object-fit:cover;
+  }
+  .gallery-item.is-photo .tag{
+    position:absolute;
+    left:.8rem; bottom:.8rem;
+    background:var(--red);
+    color:var(--white);
+    font-family:"Play",sans-serif;
+    font-size:.72rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:.35rem .6rem;
+    border-radius:var(--radius);
+  }
+  .gallery-item.is-placeholder{
+    background:
+      repeating-linear-gradient(45deg, rgba(26,26,26,0.05) 0 2px, transparent 2px 14px),
+      var(--surface-2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:1.5rem;
+  }
+  .gallery-item.is-placeholder .placeholder-inner{
+    border:1px dashed var(--line-strong);
+    padding:1.2rem 1rem;
+    border-radius:var(--radius);
+    background:rgba(255,255,255,0.6);
+  }
+  .gallery-item.is-placeholder svg{ color:var(--red); margin-bottom:.5rem; }
+  .gallery-item.is-placeholder span{
+    display:block;
+    font-size:.86rem;
+    color:#4a4a4a;
+    font-weight:500;
+  }
+  @media (min-width:700px){
+    .gallery-grid{ grid-template-columns:repeat(3,1fr); }
+    .gallery-item.is-photo{ grid-column:span 2; grid-row:span 2; }
+  }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-top{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    flex-wrap:wrap;
+    margin-bottom:2rem;
+    padding-bottom:1.6rem;
+    border-bottom:1px solid var(--line);
+  }
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.2rem;
+  }
+  blockquote{
+    margin:0;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-left:4px solid var(--red);
+    padding:1.6rem 1.5rem;
+    border-radius:var(--radius);
+  }
+  blockquote p{
+    font-size:1rem;
+    color:var(--black);
+    margin:0;
+  }
+  blockquote p::before{ content:"\201E"; color:var(--red); font-weight:700; }
+  blockquote p::after{ content:"\201C"; color:var(--red); font-weight:700; }
+  blockquote footer{
+    margin-top:1rem;
+    font-family:"Play",sans-serif;
+    font-size:.85rem;
+    color:#5a5a5a;
+    letter-spacing:.02em;
+  }
+  @media (min-width:900px){
+    .reviews-grid{ grid-template-columns:repeat(3,1fr); }
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2.4rem;
+  }
+  .contact-info dl{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:.7rem 1rem;
+    margin:1.6rem 0;
+    font-size:.96rem;
+  }
+  .contact-info dt{
+    font-family:"Play",sans-serif;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--red);
+    align-self:start;
+    padding-top:.15rem;
+  }
+  .contact-info dd{ margin:0; color:var(--black); }
+  .contact-info a{ text-decoration:none; }
+  .contact-info a:hover{ text-decoration:underline; }
+  .map-box{
+    margin-top:1.6rem;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.4rem;
+    background:
+      linear-gradient(rgba(26,26,26,0.05) 1px, transparent 1px) 0 0/28px 28px,
+      linear-gradient(90deg, rgba(26,26,26,0.05) 1px, transparent 1px) 0 0/28px 28px,
+      var(--surface);
+    position:relative;
+    min-height:170px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+  }
+  .map-pin{
+    color:var(--red);
+    margin-bottom:.6rem;
+  }
+  .map-box .gps{
+    font-family:"Play",sans-serif;
+    font-size:.78rem;
+    letter-spacing:.03em;
+    color:#4a4a4a;
+  }
+  .contact-form{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.8rem;
+  }
+  .contact-form h3{ font-size:1.15rem; margin-bottom:.3rem; }
+  .contact-form .hint{ font-size:.86rem; color:#565656; margin-bottom:1.4rem; }
+  .field{ margin-bottom:1.1rem; }
+  .field label{
+    display:block;
+    font-size:.85rem;
+    font-weight:500;
+    margin-bottom:.4rem;
+  }
+  .field input, .field textarea{
+    width:100%;
+    border:1px solid var(--line-strong);
+    border-radius:var(--radius);
+    padding:.75rem .8rem;
+    font-family:"Fira Sans",sans-serif;
+    font-size:.95rem;
+    background:var(--white);
+    color:var(--black);
+  }
+  .field input:focus, .field textarea:focus{
+    outline:2px solid var(--red);
+    outline-offset:1px;
+  }
+  .field textarea{ resize:vertical; min-height:110px; }
+  @media (min-width:900px){
+    .contact-grid{ grid-template-columns:1fr 1fr; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  .site-footer{
+    background:var(--black);
+    color:rgba(255,255,255,0.75);
+    padding:2.2rem 0 5.5rem;
+    font-size:.86rem;
+  }
+  .site-footer .container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .site-footer a{ color:rgba(255,255,255,0.85); text-decoration:none; }
+  .site-footer a:hover{ text-decoration:underline; }
+
+  /* ---------- BADGE ---------- */
+  .iskaro-badge{
+    position:fixed;
+    right:14px;
+    bottom:14px;
+    z-index:60;
+    background:rgba(26,26,26,0.92);
+    color:#fff;
+    font-size:.72rem;
+    line-height:1;
+    padding:.55rem .8rem;
+    border-radius:999px;
+    text-decoration:none;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    letter-spacing:.01em;
+  }
+  .iskaro-badge strong{ font-family:"Play",sans-serif; }
+  .iskaro-badge:hover{ background:rgba(26,26,26,1); }
+
+  .visually-hidden{
+    position:absolute !important;
+    width:1px; height:1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    white-space:nowrap;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="#hero" aria-label="Autoservis, pneuservis - iKKolor s.r.o. — úvod">
+      <img src="assets/logo.png" alt="Autoservis, pneuservis - iKKolor s.r.o.">
+      <span>iKKolor Autoservis<small>Autoservis a pneuservis</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Hlavná navigácia">
+      <a href="#trust">Prečo my</a>
+      <a href="#services">Služby</a>
+      <a href="#gallery">Prevádzka</a>
+      <a href="#reviews">Recenzie</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+421917231978">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.86.34 1.7.66 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.27a2 2 0 0 1 2.11-.45c.8.32 1.64.54 2.5.66A2 2 0 0 1 22 16.92z"/></svg>
+        0917 231 978
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otvoriť menu">
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobilná navigácia">
+    <a href="#trust">Prečo my</a>
+    <a href="#services">Služby</a>
+    <a href="#gallery">Prevádzka</a>
+    <a href="#reviews">Recenzie</a>
+    <a href="#contact">Kontakt</a>
+    <a href="tel:+421917231978">Zavolať: 0917 231 978</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="hero" data-section="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow" style="color:#fff; opacity:.85;">Prievidza · Včelárska 1</span>
+      <h1>Autoservis a pneuservis iKKolor</h1>
+      <p class="lede">Zabezpečujeme komplexnú a profesionálnu starostlivosť o Váš automobil — od servisných prehliadok cez pneuservis až po lakovanie. Kľúčom k úspešnému servisnému úkonu bez dodatočných nákladov je správna diagnostika.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:+421917231978">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.86.34 1.7.66 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.27a2 2 0 0 1 2.11-.45c.8.32 1.64.54 2.5.66A2 2 0 0 1 22 16.92z"/></svg>
+          0917 231 978
+        </a>
+        <a class="btn btn-outline" href="#services">Prehľad služieb</a>
+      </div>
+      <div class="hero-facts">
+        <div class="hero-fact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span><strong>Otváracie hodiny</strong>Pondelok – Piatok, 8:00 – 17:00</span>
+        </div>
+        <div class="hero-fact">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><strong>Prevádzka</strong>Včelárska 1, Prievidza</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust" class="section" data-section="trust">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Prečo si nás vybrať</span>
+        <h2>Prečo si nás vybrať</h2>
+        <p>Neustále investujeme do nových technológii a pracovných prostriedkov. Naše zaradenie do overených sietí a partnerstiev je dokladom toho, že servisné úkony vykonávame s profesionálnym prístupom a špeciálnymi technológiami.</p>
+      </div>
+      <div class="trust-grid reveal">
+        <div class="trust-card">
+          <div class="trust-rating">
+            <strong>4,8/5</strong>
+            <span class="trust-stars" aria-hidden="true">★★★★★</span>
+          </div>
+          <h3>Google hodnotenie</h3>
+          <p>Priemerné hodnotenie 4,8 z 5 z 20 recenzií zákazníkov.</p>
+        </div>
+        <div class="trust-card">
+          <h3>AUTOFIT</h3>
+          <p>Sme členom franchisingovej siete AUTOFIT, ktorá zastrešuje nezávislé autoservisy s jednotným štandardom prevádzky.</p>
+        </div>
+        <div class="trust-card">
+          <h3>ATE brzdové centrum</h3>
+          <p>Súčasť ATE brzdového centra spravovaného spoločnosťou Continental — pre diagnostiku a servis brzdových systémov.</p>
+        </div>
+        <div class="trust-card">
+          <h3>Partner Cromax / Axalta</h3>
+          <p>Od roku 1998 dlhoročný partner Cromax/Axalta v oblasti autolakov a lakovníckych technológií.</p>
+        </div>
+        <div class="trust-card">
+          <h3>Zlatá Firma 2022–2026</h3>
+          <p>Opakované ocenenie Zlatá Firma za obdobie 2022 až 2026, udeľované na základe hodnotení zákazníkov.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section section-alt" data-section="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Naše služby</span>
+        <h2>Naše služby</h2>
+        <p>Ponúkame komplexnú a profesionálnu starostlivosť o Váš automobil naprieč nasledujúcimi oblasťami servisu.</p>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+          <div>
+            <h3>Servisné prehliadky</h3>
+            <p>Pravidelné servisné prehliadky vozidla podľa predpísaných intervalov.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <div>
+            <h3>Príprava na STK a EK</h3>
+            <p>Kontrola a príprava vozidla pred technickou a emisnou kontrolou.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <div>
+            <h3>Pneuservis</h3>
+            <p>Prezúvanie, vyváženie a oprava pneumatík.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M4 6h16M4 18h16"/></svg></span>
+          <div>
+            <h3>Geometria</h3>
+            <p>Nastavenie geometrie kolies pre správne opotrebenie pneumatík a stabilitu vozidla.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/></svg></span>
+          <div>
+            <h3>Lakovanie</h3>
+            <p>Vlastná lakovacia prevádzka, riešenia na svojpomocnú opravu laku aj kompletné lakovanie.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M6 12h12"/></svg></span>
+          <div>
+            <h3>Mechanické práce</h3>
+            <p>Čistenie FAP a DPF filtrov, výmena olejov a rozvodov, brzdový servis a ďalšie mechanické úkony.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+          <div>
+            <h3>Autoelektrika a diagnostika</h3>
+            <p>Elektrické opravy, diagnostika, servis akumulátorov, alternátorov a štartérov.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/><circle cx="12" cy="12" r="5"/></svg></span>
+          <div>
+            <h3>Servis klimatizácie</h3>
+            <p>Servis a údržba klimatizácie vozidla.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12l8.73-5.04M12 22.08V12"/></svg></span>
+          <div>
+            <h3>Autodiely</h3>
+            <p>Predaj autodielov k jednotlivým servisným úkonom.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+          <div>
+            <h3>Financovanie a náhradné vozidlá</h3>
+            <p>Možnosti financovania servisných úkonov, náhradné vozidlá a odvoz zo servisu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section" data-section="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Naša prevádzka</span>
+        <h2>Naša prevádzka</h2>
+        <p>Váš automobil je u nás v bezpečí počas celej doby opravy. V súčasnosti máme k dispozícii fotografiu exteriéru prevádzky; zábery z interiéru a dielne doplníme po ich dodaní.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <figure class="gallery-item is-photo">
+          <img src="assets/photo-1.jpg" alt="Exteriér prevádzky iKKolor Autoservis — vstup so ceduľami Autoservis a Prijem vozidiel">
+          <span class="tag">Exteriér prevádzky</span>
+        </figure>
+        <div class="gallery-item is-placeholder">
+          <div class="placeholder-inner">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span>Miesto pre fotku z interiéru dielne</span>
+          </div>
+        </div>
+        <div class="gallery-item is-placeholder">
+          <div class="placeholder-inner">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M6 12h12"/></svg>
+            <span>Miesto pre fotku zo servisnej haly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="section section-alt" data-section="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Čo hovoria zákazníci</span>
+        <h2>Čo hovoria zákazníci</h2>
+        <p>V našom servise si zákazníka vážime a jeho spokojnosť je pre nás dôležitým meradlom kvality vykonanej práce.</p>
+      </div>
+      <div class="reviews-top reveal">
+        <div class="trust-rating" style="margin:0;">
+          <strong>4,8/5</strong>
+          <span class="trust-stars" aria-hidden="true">★★★★★</span>
+        </div>
+        <span style="color:#4a4a4a; font-size:.92rem;">Google hodnotenie z 20 recenzií</span>
+      </div>
+      <div class="reviews-grid reveal">
+        <blockquote>
+          <p>Ďakujeme za 'prvú pomoc', hneď po zavolaní nám pomohli. Milý a odborný prístup.</p>
+          <footer>Stanislava K.</footer>
+        </blockquote>
+        <blockquote>
+          <p>Ak niekto hľadá profesionálny prístup, kompletné evidovanie všetkých servisných úkonov v pc...</p>
+          <footer>Lubomir M.</footer>
+        </blockquote>
+        <blockquote>
+          <p>Záujem o zákazníka, poradenstvo po kontrole vozidla. Spokojný</p>
+          <footer>Oto I.</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section" data-section="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Kontaktujte nás</span>
+        <h2>Kontaktujte nás</h2>
+        <p>V prípade záujmu o servisný úkon nás môžete kontaktovať telefonicky, e-mailom alebo prostredníctvom formulára nižšie.</p>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <a class="btn btn-primary" href="tel:+421917231978">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.86.34 1.7.66 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.27a2 2 0 0 1 2.11-.45c.8.32 1.64.54 2.5.66A2 2 0 0 1 22 16.92z"/></svg>
+            Zavolať: 0917 231 978
+          </a>
+          <dl>
+            <dt>Adresa</dt>
+            <dd>Včelárska 1, Prievidza</dd>
+            <dt>Telefón</dt>
+            <dd><a href="tel:+421917231978">0917 231 978</a></dd>
+            <dt>E-mail</dt>
+            <dd><a href="mailto:servis@mautotechnik.sk">servis@mautotechnik.sk</a></dd>
+            <dt>Otváracie hodiny</dt>
+            <dd>Pondelok – Piatok, 8:00 – 17:00</dd>
+          </dl>
+          <div class="map-box">
+            <svg class="map-pin" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="gps">Včelárska 1, Prievidza · 48.777284, 18.630354</span>
+          </div>
+        </div>
+        <form class="contact-form" action="mailto:servis@mautotechnik.sk" method="post" enctype="text/plain">
+          <h3>Napíšte nám</h3>
+          <p class="hint">Sekundárna možnosť kontaktu — pre rýchlejšie vybavenie nás radšej kontaktujte telefonicky.</p>
+          <div class="field">
+            <label for="name">Meno a priezvisko</label>
+            <input id="name" name="meno" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Telefón alebo e-mail</label>
+            <input id="phone" name="kontakt" type="text" autocomplete="tel" required>
+          </div>
+          <div class="field">
+            <label for="message">Správa</label>
+            <textarea id="message" name="sprava" required></textarea>
+          </div>
+          <button class="btn btn-dark" type="submit">Odoslať správu</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© Autoservis, pneuservis - iKKolor s.r.o. · Včelárska 1, Prievidza</span>
+    <a href="tel:+421917231978">0917 231 978</a>
+  </div>
+</footer>
+
+<a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function(){
+    var toggle = document.querySelector('.menu-toggle');
+    var mobileNav = document.getElementById('mobile-nav');
+    if(toggle && mobileNav){
+      toggle.addEventListener('click', function(){
+        var open = mobileNav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      mobileNav.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', function(){
+          mobileNav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    var revealEls = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(function(el){ io.observe(el); });
+    } else {
+      revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

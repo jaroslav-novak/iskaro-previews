@@ -1,0 +1,23 @@
+{
+  "prospect_id": "515f6139-9b29-47e6-9118-ba5b609e5354",
+  "company_name": "M+M Centrum Autoservis Stašjak Martin",
+  "slug": "m-m-centrum-autoservis-stasjak-martin-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-15T21:20:42.401Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 616745,
+    "cost_usd": 1.7683717,
+    "input_tokens": 570690,
+    "output_tokens": 62776
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "services",
+    "process",
+    "cta_band",
+    "contact"
+  ]
+}

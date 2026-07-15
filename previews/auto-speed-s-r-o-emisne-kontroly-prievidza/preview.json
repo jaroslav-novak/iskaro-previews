@@ -1,0 +1,24 @@
+{
+  "prospect_id": "ceda60db-382e-4d96-9141-8ae7bafdb556",
+  "company_name": "AUTO-SPEED s.r.o. - Emisné Kontroly",
+  "slug": "auto-speed-s-r-o-emisne-kontroly-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-15T21:15:42.649Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 699131,
+    "cost_usd": 1.6615073999999999,
+    "input_tokens": 417736,
+    "output_tokens": 65184
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "process",
+    "reviews",
+    "contact"
+  ]
+}

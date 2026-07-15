@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>M+M Centrum Autoservis — Prievidza</title>
+<meta name="description" content="M+M Centrum Autoservis, Prievidza, Jánošíkova ulica 69/3. Oprava a úprava motorových vozidiel na objednávku. Zavolajte na 046 540 48 64.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1D2B3A;
+    --orange:#E1672B;
+    --offwhite:#F6F4F0;
+    --charcoal:#23262B;
+    --slate:#7C8894;
+    --line: rgba(29,43,58,0.12);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--offwhite);
+    color:var(--charcoal);
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:"Barlow Semi Condensed","Inter",system-ui,sans-serif;
+    color:var(--navy);
+    font-weight:600;
+    line-height:1.05;
+    margin:0;
+  }
+
+  p{margin:0;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  .wrap{
+    width:100%;
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .eyebrow{
+    font-family:"Barlow Semi Condensed", sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.78rem;
+    font-weight:600;
+    color:var(--navy);
+    opacity:0.62;
+  }
+
+  .btn-call{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--orange);
+    color:#fff;
+    text-decoration:none;
+    font-family:"Barlow Semi Condensed", sans-serif;
+    font-weight:700;
+    font-size:1.2rem;
+    letter-spacing:0.01em;
+    padding:16px 28px;
+    border-radius:3px;
+    box-shadow:0 6px 18px rgba(225,103,43,0.32);
+    transition:transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    white-space:nowrap;
+  }
+  .btn-call:hover,
+  .btn-call:focus-visible{
+    background:#c85920;
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(225,103,43,0.4);
+  }
+  .btn-call:active{transform:translateY(0);}
+  .btn-call svg{flex:0 0 auto;}
+
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:rgba(246,244,240,0.92);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  header.site .bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    gap:16px;
+  }
+  .wordmark{
+    font-family:"Barlow Semi Condensed", sans-serif;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:0.01em;
+    color:var(--navy);
+    text-decoration:none;
+    line-height:1.1;
+  }
+  .wordmark span{
+    display:block;
+    font-size:0.65rem;
+    font-weight:500;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-top:2px;
+  }
+  header.site .btn-call{
+    padding:10px 18px;
+    font-size:0.98rem;
+    box-shadow:none;
+  }
+
+  section[data-section="hero"]{
+    padding:56px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:36px;
+    align-items:center;
+  }
+  .hero-copy h1{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    margin:10px 0 14px;
+  }
+  .hero-copy .location{
+    font-size:1.05rem;
+    color:var(--navy);
+    font-weight:500;
+    margin-bottom:18px;
+  }
+  .hero-copy .lead{
+    max-width:46ch;
+    color:var(--charcoal);
+    margin-bottom:28px;
+  }
+  .hero-note{
+    margin-top:14px;
+    font-size:0.92rem;
+    color:var(--navy);
+    opacity:0.7;
+  }
+  .hero-photo{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    aspect-ratio:4/3;
+    box-shadow:0 24px 48px -20px rgba(29,43,58,0.35);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  section[data-section="trust"]{
+    padding:40px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .trust-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .trust-item{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .trust-item .icon{
+    flex:0 0 auto;
+    width:40px;
+    height:40px;
+    border-radius:3px;
+    background:var(--navy);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .trust-item .icon svg{width:20px;height:20px;stroke:var(--offwhite);}
+  .trust-item h3{
+    font-size:1.05rem;
+    font-weight:600;
+    margin-bottom:4px;
+  }
+  .trust-item p{
+    font-size:0.92rem;
+    color:var(--charcoal);
+    opacity:0.85;
+  }
+
+  section[data-section="services"]{
+    padding:72px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .services-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:36px;
+    align-items:center;
+  }
+  .services-copy h2{
+    font-size:clamp(1.9rem, 4vw, 2.6rem);
+    margin:10px 0 18px;
+  }
+  .services-copy p{
+    max-width:52ch;
+    color:var(--charcoal);
+  }
+  .services-photo{
+    border-radius:4px;
+    overflow:hidden;
+    aspect-ratio:4/3;
+    box-shadow:0 20px 40px -22px rgba(29,43,58,0.3);
+  }
+  .services-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  section[data-section="process"]{
+    padding:72px 0;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(29,43,58,0.03), rgba(29,43,58,0));
+  }
+  .process-head{
+    max-width:56ch;
+    margin-bottom:44px;
+  }
+  .process-head h2{
+    font-size:clamp(1.9rem, 4vw, 2.6rem);
+    margin:10px 0 14px;
+  }
+  .process-head p{color:var(--charcoal);}
+  .process-steps{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .step{
+    position:relative;
+    padding-top:8px;
+    border-top:2px solid var(--navy);
+  }
+  .step .num{
+    font-family:"Barlow Semi Condensed", sans-serif;
+    font-weight:700;
+    font-size:2.6rem;
+    color:var(--slate);
+    opacity:0.55;
+    line-height:1;
+    display:block;
+    margin-bottom:10px;
+  }
+  .step h3{
+    font-size:1.15rem;
+    margin-bottom:8px;
+  }
+  .step p{
+    font-size:0.94rem;
+    color:var(--charcoal);
+    opacity:0.85;
+    max-width:32ch;
+  }
+
+  section[data-section="cta_band"]{
+    background:var(--navy);
+    padding:44px 0;
+  }
+  .cta-band-inner{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+  .cta-band-inner .label{
+    color:var(--offwhite);
+    font-family:"Barlow Semi Condensed", sans-serif;
+    font-size:1.5rem;
+    font-weight:600;
+  }
+  .cta-band-inner .phone{
+    color:var(--offwhite);
+    opacity:0.7;
+    font-size:0.95rem;
+    margin-top:4px;
+  }
+
+  section[data-section="contact"]{
+    padding:72px 0 100px;
+  }
+  .contact-head h2{
+    font-size:clamp(1.9rem, 4vw, 2.6rem);
+    margin:10px 0 34px;
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+  .contact-details dl{
+    margin:0;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px 20px;
+  }
+  .contact-details dt{
+    font-family:"Barlow Semi Condensed", sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:0.74rem;
+    font-weight:600;
+    color:var(--slate);
+    padding-top:2px;
+  }
+  .contact-details dd{
+    margin:0;
+    font-size:1rem;
+    color:var(--navy);
+  }
+  address{font-style:normal;}
+  .contact-details .tel-link{
+    text-decoration:none;
+    font-weight:600;
+    border-bottom:1px solid var(--orange);
+  }
+  .contact-details .tel-link:hover{color:var(--orange);}
+  .contact-cta{margin-top:30px;}
+
+  .map-card{
+    position:relative;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px) 0 0/32px 32px,
+      linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/32px 32px,
+      #fff;
+    min-height:260px;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    overflow:hidden;
+  }
+  .map-card .pin{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-60%);
+  }
+  .map-card .pin svg{width:34px;height:34px;stroke:var(--orange);fill:none;}
+  .map-card .map-label{
+    position:relative;
+    background:var(--offwhite);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:12px 16px;
+    font-size:0.92rem;
+    color:var(--navy);
+    max-width:fit-content;
+  }
+  .map-card .map-label strong{display:block;font-family:"Barlow Semi Condensed", sans-serif;font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--slate);margin-bottom:4px;}
+
+  footer.site{
+    border-top:1px solid var(--line);
+    padding:28px 0 96px;
+  }
+  footer.site .bar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 24px;
+    align-items:center;
+    justify-content:space-between;
+  }
+  footer.site .wordmark span{color:var(--slate);}
+  footer.site a.tel-footer{
+    text-decoration:none;
+    font-size:0.95rem;
+    color:var(--navy);
+    border-bottom:1px solid var(--orange);
+  }
+
+  .iskaro-badge{
+    position:fixed;
+    right:14px;
+    bottom:14px;
+    z-index:50;
+    background:rgba(29,43,58,0.88);
+    color:#fff;
+    text-decoration:none;
+    font-size:0.72rem;
+    font-family:"Inter", sans-serif;
+    padding:7px 12px;
+    border-radius:999px;
+    letter-spacing:0.01em;
+    box-shadow:0 6px 16px rgba(0,0,0,0.18);
+    opacity:0.88;
+    transition:opacity 0.18s ease;
+  }
+  .iskaro-badge:hover{opacity:1;}
+  .iskaro-badge strong{font-weight:600;}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media (min-width:640px){
+    .trust-grid{grid-template-columns:repeat(3,1fr);}
+    .process-steps{grid-template-columns:repeat(3,1fr);}
+    .cta-band-inner{flex-direction:row;align-items:center;}
+  }
+
+  @media (min-width:900px){
+    .hero-grid{grid-template-columns:1.05fr 0.95fr;gap:56px;}
+    .services-grid{grid-template-columns:0.9fr 1.1fr;gap:56px;}
+    .contact-grid{grid-template-columns:1fr 1fr;gap:64px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .btn-call{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="wrap bar">
+      <a class="wordmark" href="#top">M+M Centrum Autoservis<span>Prievidza</span></a>
+      <a class="btn-call" href="tel:+421465404864">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        046 540 48 64
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section data-section="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Oprava a údržba automobilov</p>
+          <h1>M+M Centrum Autoservis</h1>
+          <p class="location">Prievidza — Jánošíkova ulica 69/3</p>
+          <p class="lead">Auto vám opravíme alebo skontrolujeme v dohodnutom termíne. Zavolajte a dohodneme sa, kedy sa vám to hodí.</p>
+          <a class="btn-call" href="tel:+421465404864">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Zavolať 046 540 48 64
+          </a>
+          <p class="hero-note">Pracujeme na objednávku.</p>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/stock-01.jpg" alt="Mechanik pri oprave motora v autoservise" width="960" height="720">
+        </div>
+      </div>
+    </section>
+
+    <section data-section="trust" class="reveal">
+      <div class="wrap trust-grid">
+        <div class="trust-item">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </span>
+          <div>
+            <h3>Na objednávku</h3>
+            <p>Termín si dohodneme telefonicky, presne podľa Vás.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 6v0M18 18v0"/></svg>
+          </span>
+          <div>
+            <h3>Platba v hotovosti</h3>
+            <p>Jednoducho, bez zbytočných formalít.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div>
+            <h3>Lokálny servis</h3>
+            <p>Priamo v Prievidzi, Jánošíkova ulica 69/3.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-section="services" class="reveal">
+      <div class="wrap services-grid">
+        <div class="services-copy">
+          <p class="eyebrow">Čo u nás vybavíte</p>
+          <h2>Služby</h2>
+          <p>Zaoberáme sa opravou a úpravou motorových vozidiel — od bežnej údržby po opravy, ktoré vaše auto práve potrebuje. Presný rozsah práce aj termín si dohodneme telefonicky podľa toho, s čím prichádzate.</p>
+        </div>
+        <div class="services-photo">
+          <img src="assets/stock-11.jpg" alt="Interiér autoservisnej dielne s náradím a vozidlami" width="960" height="720">
+        </div>
+      </div>
+    </section>
+
+    <section data-section="process" class="reveal">
+      <div class="wrap">
+        <div class="process-head">
+          <p class="eyebrow">Objednávky</p>
+          <h2>Ako to funguje</h2>
+          <p>Nemáme pevné otváracie hodiny — pracujeme na objednávku, aby sme sa vám mohli venovať naplno.</p>
+        </div>
+        <div class="process-steps">
+          <div class="step">
+            <span class="num">01</span>
+            <h3>Zavolajte</h3>
+            <p>Vytočte 046 540 48 64 a povedzte, s čím potrebujete pomôcť.</p>
+          </div>
+          <div class="step">
+            <span class="num">02</span>
+            <h3>Dohodnite si termín</h3>
+            <p>Spolu nájdeme deň a čas, ktorý vám vyhovuje.</p>
+          </div>
+          <div class="step">
+            <span class="num">03</span>
+            <h3>Doneste auto</h3>
+            <p>Príďte s autom v dohodnutom čase na Jánošíkovu ulicu 69/3.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-section="cta_band" class="reveal">
+      <div class="wrap cta-band-inner">
+        <div>
+          <p class="label">Potrebujete termín v servise?</p>
+          <p class="phone">046 540 48 64</p>
+        </div>
+        <a class="btn-call" href="tel:+421465404864">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Zavolať
+        </a>
+      </div>
+    </section>
+
+    <section data-section="contact" class="reveal">
+      <div class="wrap">
+        <div class="contact-head">
+          <p class="eyebrow">Spojte sa s nami</p>
+          <h2>Kontakt</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-details">
+            <dl>
+              <dt>Adresa</dt>
+              <dd><address>Jánošíkova ulica 69/3<br>971 01 Prievidza</address></dd>
+              <dt>Telefón</dt>
+              <dd><a class="tel-link" href="tel:+421465404864">046 540 48 64</a></dd>
+              <dt>Termíny</dt>
+              <dd>Na objednávku</dd>
+              <dt>Platba</dt>
+              <dd>V hotovosti</dd>
+            </dl>
+            <div class="contact-cta">
+              <a class="btn-call" href="tel:+421465404864">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Zavolať 046 540 48 64
+              </a>
+            </div>
+          </div>
+          <div class="map-card" role="img" aria-label="Orientačná mapa: Jánošíkova ulica 69/3, Prievidza">
+            <span class="pin">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div class="map-label">
+              <strong>Kde nás nájdete</strong>
+              Jánošíkova ulica 69/3, 971 01 Prievidza
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site">
+    <div class="wrap bar">
+      <a class="wordmark" href="#top">M+M Centrum Autoservis<span>Prievidza</span></a>
+      <a class="tel-footer" href="tel:+421465404864">046 540 48 64</a>
+    </div>
+  </footer>
+
+  <a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+  <script>
+    (function(){
+      var items = document.querySelectorAll('.reveal');
+      if(!('IntersectionObserver' in window)){
+        items.forEach(function(el){ el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      items.forEach(function(el){ io.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
