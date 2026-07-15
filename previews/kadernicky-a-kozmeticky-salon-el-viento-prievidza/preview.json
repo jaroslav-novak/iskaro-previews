@@ -1,0 +1,24 @@
+{
+  "prospect_id": "f5e7edb7-2b6c-4062-b318-a0abc4012817",
+  "company_name": "Kadernícky a kozmetický salón El Viento",
+  "slug": "kadernicky-a-kozmeticky-salon-el-viento-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-15T20:39:21.771Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 351922,
+    "cost_usd": 0.91967,
+    "input_tokens": 344340,
+    "output_tokens": 28741
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "gallery",
+    "reviews",
+    "contact"
+  ]
+}

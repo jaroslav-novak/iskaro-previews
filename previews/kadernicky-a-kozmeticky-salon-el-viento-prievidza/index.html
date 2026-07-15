@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>J'sphere Beauty — kaderníctvo a kozmetika, Prievidza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#faf7f2;
+    --champagne:#e8ddcf;
+    --bronze:#c9a87c;
+    --ink:#2b2320;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    line-height:1.1;
+    margin:0 0 .5em;
+    color:var(--ink);
+  }
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 clamp(1.25rem, 4vw, 3rem);
+  }
+  .eyebrow{
+    font-family:'Karla', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.72rem;
+    font-weight:700;
+    color:#7a6a4f;
+  }
+
+  /* ===== Header / nav ===== */
+  header.site{
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:rgba(250,247,242,.92);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid rgba(43,35,32,.08);
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:.9rem clamp(1.25rem, 4vw, 3rem);
+    max-width:var(--max);
+    margin:0 auto;
+  }
+  .wordmark-small{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.35rem;
+    font-weight:700;
+    letter-spacing:.02em;
+    text-decoration:none;
+  }
+  .wordmark-small em{
+    font-style:italic;
+    color:var(--bronze);
+  }
+  nav.main-nav ul{
+    list-style:none;
+    display:flex;
+    gap:1.9rem;
+    margin:0;
+    padding:0;
+  }
+  nav.main-nav a{
+    text-decoration:none;
+    font-size:.92rem;
+    font-weight:500;
+    color:var(--ink);
+    position:relative;
+    padding-bottom:2px;
+  }
+  nav.main-nav a::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-3px;
+    height:1px;
+    background:var(--bronze);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .25s ease;
+  }
+  nav.main-nav a:hover::after,
+  nav.main-nav a:focus-visible::after{transform:scaleX(1);}
+  .nav-cta{
+    display:none;
+  }
+  .menu-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:42px;height:42px;
+    background:none;
+    border:1px solid rgba(43,35,32,.25);
+    border-radius:50%;
+    cursor:pointer;
+  }
+  .menu-toggle span{
+    display:block;
+    width:16px;height:1px;
+    background:var(--ink);
+    position:relative;
+  }
+  .menu-toggle span::before,
+  .menu-toggle span::after{
+    content:"";
+    position:absolute;
+    left:0;width:16px;height:1px;background:var(--ink);
+  }
+  .menu-toggle span::before{top:-5px;}
+  .menu-toggle span::after{top:5px;}
+
+  @media (min-width: 62rem){
+    .menu-toggle{display:none;}
+    nav.main-nav{display:block !important;}
+    .nav-cta{
+      display:inline-block;
+      font-size:.85rem;
+      font-weight:700;
+      padding:.55rem 1.1rem;
+      border:1px solid var(--ink);
+      border-radius:999px;
+      text-decoration:none;
+      transition:background .2s ease, color .2s ease;
+    }
+    .nav-cta:hover{background:var(--ink); color:var(--cream);}
+  }
+  @media (max-width: 61.9375rem){
+    nav.main-nav{
+      display:none;
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--cream);
+      border-bottom:1px solid rgba(43,35,32,.08);
+      padding:1.25rem clamp(1.25rem, 4vw, 3rem) 1.75rem;
+    }
+    nav.main-nav.open{display:block;}
+    nav.main-nav ul{flex-direction:column; gap:1.1rem;}
+    nav.main-nav .nav-cta{
+      display:inline-block;
+      margin-top:.5rem;
+      font-weight:700;
+      text-decoration:underline;
+    }
+  }
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    background:var(--bronze);
+    color:var(--ink);
+    font-weight:700;
+    font-size:.95rem;
+    text-decoration:none;
+    padding:.9rem 1.7rem;
+    border-radius:999px;
+    transition:transform .2s ease, box-shadow .2s ease;
+    box-shadow:0 6px 18px rgba(201,168,124,.35);
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(201,168,124,.45);}
+  .btn-ghost{
+    background:none;
+    border:1px solid rgba(43,35,32,.35);
+    box-shadow:none;
+  }
+  .btn-ghost:hover{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+
+  /* ===== Hero ===== */
+  section[data-section="hero"]{
+    padding:clamp(2.75rem,7vw,6rem) 0 clamp(3rem,8vw,5rem);
+  }
+  .hero-grid{
+    display:grid;
+    gap:2.75rem;
+    align-items:center;
+  }
+  @media (min-width: 60rem){
+    .hero-grid{grid-template-columns:1.05fr .95fr; gap:4rem;}
+  }
+  .hero-copy .eyebrow{display:block; margin-bottom:1rem;}
+  .hero-copy h1{
+    font-size:clamp(2.8rem, 7vw, 4.6rem);
+    letter-spacing:.01em;
+  }
+  .hero-copy h1 em{font-style:italic; color:var(--bronze);}
+  .hero-copy p.lead{
+    font-size:clamp(1.05rem, 1.6vw, 1.2rem);
+    max-width:34rem;
+    margin:0 0 1.9rem;
+    color:#4a3f37;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:1.25rem;
+  }
+  .hero-phone{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.35rem;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px solid var(--bronze);
+    padding-bottom:2px;
+  }
+  .hero-media{
+    position:relative;
+  }
+  .hero-media .frame{
+    aspect-ratio:4/5;
+    overflow:hidden;
+    border-radius:2px;
+    box-shadow:0 30px 60px -25px rgba(43,35,32,.45);
+    position:relative;
+  }
+  .hero-media img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .hero-media .frame::after{
+    content:"";
+    position:absolute; inset:0;
+    border:1px solid rgba(250,247,242,.55);
+    margin:14px;
+    pointer-events:none;
+  }
+
+  /* ===== Trust ===== */
+  section[data-section="trust"]{
+    padding:clamp(1.5rem,4vw,2.5rem) 0;
+    border-top:1px solid rgba(43,35,32,.1);
+    border-bottom:1px solid rgba(43,35,32,.1);
+    background:var(--champagne);
+  }
+  .trust-row{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:.85rem 1.1rem;
+  }
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    font-size:.82rem;
+    font-weight:700;
+    letter-spacing:.02em;
+    padding:.55rem 1.05rem;
+    border:1px solid rgba(43,35,32,.25);
+    border-radius:999px;
+    background:var(--cream);
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .badge strong{color:#8a6a3a;}
+  .badge.link:hover{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+
+  /* ===== generic section rhythm ===== */
+  section.block{
+    padding:clamp(3.5rem,9vw,7rem) 0;
+  }
+  section.block .head{
+    max-width:38rem;
+    margin:0 0 clamp(2rem,5vw,3.5rem);
+  }
+  section.block .head h2{
+    font-size:clamp(2.1rem, 4.5vw, 3rem);
+  }
+  section.block .head .eyebrow{display:block; margin-bottom:.75rem;}
+
+  section.reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  section.reveal.is-visible{
+    opacity:1;
+    transform:none;
+  }
+  @media (prefers-reduced-motion: reduce){
+    section.reveal{opacity:1; transform:none; transition:none;}
+  }
+
+  /* ===== About ===== */
+  section[data-section="about"] .about-grid{
+    display:grid;
+    gap:2.5rem;
+  }
+  @media (min-width: 55rem){
+    section[data-section="about"] .about-grid{
+      grid-template-columns:.42fr .58fr;
+      align-items:start;
+    }
+  }
+  .about-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(4.5rem, 12vw, 8rem);
+    line-height:.85;
+    color:var(--champagne);
+    font-style:italic;
+    -webkit-text-stroke:1px var(--bronze);
+    color:transparent;
+  }
+  section[data-section="about"] p{
+    font-size:1.05rem;
+    max-width:36rem;
+    color:#453b34;
+  }
+  section[data-section="about"] p + p{margin-top:1.1rem;}
+
+  /* ===== Services ===== */
+  section[data-section="services"]{background:var(--champagne);}
+  .services-grid{
+    display:grid;
+    gap:2.25rem;
+  }
+  @media (min-width: 60rem){
+    .services-grid{grid-template-columns:.85fr 1.15fr; align-items:center;}
+  }
+  .services-photo .frame{
+    aspect-ratio:3/4;
+    overflow:hidden;
+    border-radius:2px;
+    box-shadow:0 24px 48px -22px rgba(43,35,32,.35);
+  }
+  .services-photo img{width:100%;height:100%;object-fit:cover;}
+  .pillars{
+    display:grid;
+    gap:1.4rem;
+  }
+  @media (min-width: 34rem){
+    .pillars{grid-template-columns:repeat(3,1fr);}
+  }
+  @media (min-width: 60rem){
+    .pillars{grid-template-columns:1fr;}
+  }
+  .pillar{
+    background:var(--cream);
+    padding:1.6rem 1.5rem;
+    border-radius:4px;
+    border:1px solid rgba(43,35,32,.08);
+  }
+  .pillar h3{
+    font-size:1.4rem;
+    margin-bottom:.4rem;
+  }
+  .pillar p{
+    font-size:.94rem;
+    margin:0;
+    color:#4a3f37;
+  }
+  .pillar .tag{
+    display:inline-block;
+    margin-top:.65rem;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#8a6a3a;
+  }
+  .services-note{
+    margin-top:1.6rem;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.25rem;
+    max-width:34rem;
+  }
+
+  /* ===== Gallery ===== */
+  .gallery-grid{
+    display:grid;
+    gap:1.5rem;
+  }
+  @media (min-width: 40rem){
+    .gallery-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  figure.g-item{
+    margin:0;
+  }
+  figure.g-item .frame{
+    aspect-ratio:4/5;
+    overflow:hidden;
+    border-radius:2px;
+  }
+  figure.g-item img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform .6s ease;
+  }
+  figure.g-item:hover img{transform:scale(1.045);}
+  figure.g-item figcaption{
+    margin-top:.7rem;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.05rem;
+    color:#4a3f37;
+  }
+
+  /* ===== Reviews ===== */
+  section[data-section="reviews"]{background:var(--champagne);}
+  .reviews-grid{
+    display:grid;
+    gap:1.75rem;
+  }
+  @media (min-width: 46rem){
+    .reviews-grid{grid-template-columns:1fr 1fr;}
+  }
+  blockquote{
+    margin:0;
+    background:var(--cream);
+    padding:2.1rem 1.9rem 1.7rem;
+    border-radius:4px;
+    position:relative;
+    border-top:2px solid var(--bronze);
+  }
+  blockquote::before{
+    content:"“";
+    font-family:'Cormorant Garamond', serif;
+    font-size:3.4rem;
+    color:var(--bronze);
+    position:absolute;
+    top:-.15rem; left:1.3rem;
+    line-height:1;
+  }
+  blockquote p{
+    margin:.6rem 0 1.1rem;
+    font-size:1.1rem;
+    font-style:italic;
+    color:var(--ink);
+  }
+  blockquote footer{
+    font-family:'Karla', sans-serif;
+    font-style:normal;
+    font-size:.85rem;
+    font-weight:700;
+    color:#7a6a4f;
+  }
+  blockquote footer cite{
+    display:block;
+    font-style:normal;
+    font-weight:400;
+    font-size:.78rem;
+    color:#8b7c68;
+    margin-top:.15rem;
+  }
+  blockquote footer cite a{text-decoration:underline;}
+
+  /* ===== Contact ===== */
+  section[data-section="contact"]{
+    background:var(--ink);
+    color:var(--cream);
+  }
+  section[data-section="contact"] h2{color:var(--cream);}
+  section[data-section="contact"] .eyebrow{color:var(--bronze);}
+  .contact-grid{
+    display:grid;
+    gap:2.25rem;
+  }
+  @media (min-width: 50rem){
+    .contact-grid{grid-template-columns:1fr 1fr;}
+  }
+  .contact-card{
+    background:rgba(250,247,242,.06);
+    border:1px solid rgba(250,247,242,.16);
+    border-radius:4px;
+    padding:1.9rem 1.8rem;
+  }
+  .contact-card h3{
+    color:var(--cream);
+    font-size:1.3rem;
+    margin-bottom:.6rem;
+  }
+  .contact-card p{
+    margin:0 0 .4rem;
+    color:rgba(250,247,242,.82);
+    font-size:.98rem;
+  }
+  .contact-phone{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.9rem;
+    font-weight:600;
+    text-decoration:none;
+    color:var(--cream);
+    display:inline-block;
+    margin:.35rem 0 .2rem;
+    border-bottom:1px solid var(--bronze);
+  }
+  .contact-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    margin-top:1.6rem;
+  }
+  .contact-links a{
+    font-size:.85rem;
+    font-weight:700;
+    text-decoration:underline;
+    color:var(--cream);
+  }
+  footer.site-foot{
+    text-align:center;
+    padding:1.6rem 0 clamp(4rem, 8vw, 2rem);
+    font-size:.78rem;
+    color:rgba(250,247,242,.55);
+  }
+
+  /* ===== Iskaro badge ===== */
+  .preview-badge{
+    position:fixed;
+    right:14px;
+    bottom:14px;
+    z-index:60;
+    background:rgba(43,35,32,.92);
+    color:var(--cream);
+    font-family:'Karla', sans-serif;
+    font-size:.72rem;
+    font-weight:500;
+    text-decoration:none;
+    padding:.5rem .85rem;
+    border-radius:999px;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+    backdrop-filter:blur(4px);
+  }
+  .preview-badge strong{font-weight:700; color:var(--bronze);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-row">
+    <a class="wordmark-small" href="#hero">J'sph<em>e</em>re Beauty</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Otvoriť menu">
+      <span></span>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#o-nas">O nás</a></li>
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#galeria">Naša práca</a></li>
+        <li><a href="#recenzie">Recenzie</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a class="nav-cta" href="tel:+421465424987">046 542 49 87</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section data-section="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Predtým Kadernícky a kozmetický salón El Viento</span>
+        <h1>J'sph<em>e</em>re Beauty</h1>
+        <p class="lead">Nové meno pre remeslo, ktoré v Prievidzi budujeme dlhodobo. Kaderníctvo a kozmetika s rovnakou starostlivosťou o detail, s akou ste nás poznali doteraz — a s výhľadom dopredu.</p>
+        <div class="hero-actions">
+          <a class="btn" href="tel:+421465424987">Zavolajte nám</a>
+          <a class="hero-phone" href="tel:+421465424987">046 542 49 87</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="frame">
+          <img src="assets/photo-2.jpg" alt="Vizážistka nanáša mejkap neveste pri okne, príprava pred svadbou" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="trust">
+    <div class="wrap trust-row">
+      <a class="badge link" href="https://www.zlatafirma.eu/company/kadernicky-a-kozmeticky-salon-el-viento-448747" target="_blank" rel="noopener"><strong>Zlatá Firma</strong> 2022</a>
+      <a class="badge link" href="https://www.zlatafirma.eu/company/kadernicky-a-kozmeticky-salon-el-viento-448747" target="_blank" rel="noopener"><strong>Zlatá Firma</strong> 2023</a>
+      <a class="badge link" href="https://www.zlatafirma.eu/company/kadernicky-a-kozmeticky-salon-el-viento-448747" target="_blank" rel="noopener"><strong>Zlatá Firma</strong> 2024</a>
+      <a class="badge link" href="https://www.zlatafirma.eu/company/kadernicky-a-kozmeticky-salon-el-viento-448747" target="_blank" rel="noopener"><strong>Zlatá Firma</strong> 2026</a>
+      <span class="badge"><strong>100 %</strong>&nbsp;odporúčaní · 16 recenzií na Facebooku</span>
+    </div>
+  </section>
+
+  <section class="block reveal" data-section="about" id="o-nas">
+    <div class="wrap about-grid">
+      <div class="about-mark" aria-hidden="true">O&nbsp;nás</div>
+      <div>
+        <span class="eyebrow">O salóne</span>
+        <h2>O nás</h2>
+        <p>Salón v Prievidzi budujeme dlhodobo — s rodinnou atmosférou a individuálnym prístupom, ktorý si všímajú aj naše klientky vo svojich recenziách.</p>
+        <p>Meno, pod ktorým nás poznáte, sa mení. Remeslo, starostlivosť a pozornosť k detailu, ktoré do každej návštevy vkladáme, zostávajú rovnaké. Postupne prechádzame pod značku J'sphere Beauty a tešíme sa, že túto novú kapitolu môžete sledovať spolu s nami.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal" data-section="services" id="sluzby">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Ponuka</span>
+        <h2>Služby</h2>
+        <p>Profesionálne kozmetické a kadernícke služby.</p>
+      </div>
+      <div class="services-grid">
+        <div class="services-photo">
+          <div class="frame">
+            <img src="assets/photo-1.jpg" alt="Detail ostrihaných kučeravých vlasov chlapca zozadu po strihu a trvalej" loading="lazy">
+          </div>
+        </div>
+        <div>
+          <div class="pillars">
+            <div class="pillar">
+              <h3>Kaderníctvo</h3>
+              <p>Strihy, farbenie aj sezónne trendy podľa toho, čo vám sedí.</p>
+              <span class="tag">Hitom sezóny je Curly boost</span>
+            </div>
+            <div class="pillar">
+              <h3>Kozmetika</h3>
+              <p>Profesionálna starostlivosť o pleť s dôrazom na individuálny prístup.</p>
+            </div>
+            <div class="pillar">
+              <h3>Pedikúra</h3>
+              <p>Kompletná starostlivosť o nohy na jednom mieste s ostatnými službami.</p>
+            </div>
+          </div>
+          <p class="services-note">Doprajte si chvíľu pre seba a odneste si účes, v ktorom sa budete cítiť krásne každý deň.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal" data-section="gallery" id="galeria">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Portfólio</span>
+        <h2>Naša práca</h2>
+      </div>
+      <div class="gallery-grid">
+        <figure class="g-item">
+          <div class="frame">
+            <img src="assets/photo-3.jpg" alt="Detail hotového svadobného mejkapu" loading="lazy">
+          </div>
+          <figcaption>Svadobný mejkap, detail.</figcaption>
+        </figure>
+        <figure class="g-item">
+          <div class="frame">
+            <img src="assets/photo-4.jpg" alt="Nevesta s korunkou a hotovým účesom, v pozadí družička" loading="lazy">
+          </div>
+          <figcaption>Deň, na ktorý sa ladí každý detail.</figcaption>
+        </figure>
+        <figure class="g-item">
+          <div class="frame">
+            <img src="assets/photo-5.jpg" alt="Výsledok farbenia vlasov s prechodom do svetlejšieho tónu, pohľad zozadu" loading="lazy">
+          </div>
+          <figcaption>Farbenie s jemným prechodom tónov.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal" data-section="reviews" id="recenzie">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Referencie</span>
+        <h2>Čo hovoria klientky</h2>
+      </div>
+      <div class="reviews-grid">
+        <blockquote>
+          <p>Komplet kadernícke a kozmetické plus pedikérske služby na jednom mieste. Rodinná atmosféra</p>
+          <footer>Lenka H.
+            <cite><a href="https://www.zlatafirma.eu/company/kadernicky-a-kozmeticky-salon-el-viento-448747" target="_blank" rel="noopener">zlatafirma.eu</a></cite>
+          </footer>
+        </blockquote>
+        <blockquote>
+          <p>Kvalitné služby, vždy priateľský a individuálny prístup, kids friendly :)</p>
+          <footer>Kristína
+            <cite><a href="https://www.zlatafirma.eu/company/kadernicky-a-kozmeticky-salon-el-viento-448747" target="_blank" rel="noopener">zlatafirma.eu</a></cite>
+          </footer>
+        </blockquote>
+        <blockquote>
+          <p>Vynikajúci salón,kde vám poskytnú individuálny prístup podľa vašich predstáv, či už sa to</p>
+          <footer>Jana H.
+            <cite><a href="https://www.zlatafirma.eu/company/kadernicky-a-kozmeticky-salon-el-viento-448747" target="_blank" rel="noopener">zlatafirma.eu</a></cite>
+          </footer>
+        </blockquote>
+        <blockquote>
+          <p>Ďakujem veľmi pekne za krásny účes</p>
+          <footer>Veronika T.
+            <cite><a href="https://www.facebook.com/KadernictvoKozmetikaElViento" target="_blank" rel="noopener">Facebook</a></cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal" data-section="contact" id="kontakt">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Objednávka</span>
+        <h2>Kontakt</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Zavolajte nám</h3>
+          <p>Pracujeme výhradne na objednávku — termín si dohodneme telefonicky.</p>
+          <a class="contact-phone" href="tel:+421465424987">046 542 49 87</a>
+        </div>
+        <div class="contact-card">
+          <h3>Nájdete nás</h3>
+          <p>M. Mišíka 34/410</p>
+          <p>Prievidza</p>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="https://www.facebook.com/KadernictvoKozmetikaElViento" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.zlatafirma.eu/company/kadernicky-a-kozmeticky-salon-el-viento-448747" target="_blank" rel="noopener">Zlatá Firma — profil</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">J'sphere Beauty · Prievidza</div>
+</footer>
+
+<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mainNav');
+    if(toggle && nav){
+      toggle.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', function(){
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    var reveals = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window && reveals.length){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.15});
+      reveals.forEach(function(el){ io.observe(el); });
+    } else {
+      reveals.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

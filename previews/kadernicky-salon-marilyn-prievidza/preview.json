@@ -1,0 +1,23 @@
+{
+  "prospect_id": "a4465db2-42db-448e-bbb8-7d3ab038126a",
+  "company_name": "Kadernícky Salón Marilyn",
+  "slug": "kadernicky-salon-marilyn-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-15T20:44:35.592Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 310619,
+    "cost_usd": 0.8282107000000001,
+    "input_tokens": 361111,
+    "output_tokens": 24750
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "gallery",
+    "contact"
+  ]
+}

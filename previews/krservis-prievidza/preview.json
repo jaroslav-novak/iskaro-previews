@@ -1,0 +1,24 @@
+{
+  "prospect_id": "c6a148c6-27fb-4956-a710-8fa5704308f2",
+  "company_name": "KRservis",
+  "slug": "krservis-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-15T20:39:27.556Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 357543,
+    "cost_usd": 0.7551969000000001,
+    "input_tokens": 228109,
+    "output_tokens": 29054
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "gallery",
+    "hours",
+    "contact"
+  ]
+}
