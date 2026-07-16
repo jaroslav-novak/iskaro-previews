@@ -1,0 +1,25 @@
+{
+  "prospect_id": "51e11166-a748-4a22-a586-053c1fb1a485",
+  "company_name": "Dolce Vita",
+  "slug": "dolce-vita-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-16T06:08:57.275Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 475862,
+    "cost_usd": 1.2114807,
+    "input_tokens": 299428,
+    "output_tokens": 45740
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "gallery",
+    "reviews",
+    "hours",
+    "contact"
+  ]
+}

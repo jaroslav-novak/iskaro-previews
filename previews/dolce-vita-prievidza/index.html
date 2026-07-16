@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Salón Dolce Vita — kaderníctvo v centre Prievidze</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#f2d9e7;
+    --purple:#ddd3f0;
+    --blue:#cbe8f6;
+    --ink:#1a1a1a;
+    --paper:#fffdfc;
+    --max:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Poppins",sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Caveat",cursive;
+    font-weight:700;
+    margin:0 0 .3em;
+    line-height:1.1;
+  }
+  p{margin:0 0 1em;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  section{padding:5rem 1.25rem;}
+  .wrap{max-width:var(--max);margin:0 auto;}
+  .kicker{
+    font-family:"Poppins",sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.72rem;
+    font-weight:600;
+    color:#7a5c72;
+    margin-bottom:.6rem;
+    display:inline-block;
+  }
+
+  /* ---------- HERO ---------- */
+  [data-section="hero"]{
+    background:linear-gradient(135deg, var(--pink) 0%, var(--purple) 52%, var(--blue) 100%);
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    padding:3.5rem 1.25rem;
+    position:relative;
+    overflow:hidden;
+  }
+  [data-section="hero"]::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(255,255,255,.55) 0%, transparent 40%),
+      radial-gradient(circle at 88% 82%, rgba(255,255,255,.4) 0%, transparent 45%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:1;
+    max-width:720px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .wordmark{
+    font-size:clamp(3.4rem, 11vw, 6rem);
+    letter-spacing:.01em;
+    color:var(--ink);
+    text-shadow:0 2px 0 rgba(255,255,255,.5);
+    margin-bottom:.15em;
+  }
+  .hero-tagline{
+    font-family:"Poppins",sans-serif;
+    font-weight:500;
+    font-size:1.15rem;
+    letter-spacing:.02em;
+    color:#3a2f3a;
+    margin-bottom:1.6rem;
+  }
+  .hero-note{
+    font-size:1rem;
+    color:#463a46;
+    max-width:480px;
+    margin:0 auto 2.1rem;
+  }
+  .hero-ctas{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.9rem;
+    justify-content:center;
+    align-items:center;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    font-family:"Poppins",sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    text-decoration:none;
+    padding:.95rem 1.9rem;
+    border-radius:999px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:#fff;
+    box-shadow:0 10px 24px -8px rgba(26,26,26,.45);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 28px -8px rgba(26,26,26,.55);}
+  .badge-pill{
+    font-size:.85rem;
+    font-weight:600;
+    background:rgba(255,255,255,.65);
+    border:1px solid rgba(26,26,26,.12);
+    padding:.6rem 1.1rem;
+    border-radius:999px;
+    color:#3a2f3a;
+  }
+
+  /* ---------- TRUST ---------- */
+  [data-section="trust"]{
+    padding:3.5rem 1.25rem;
+    background:var(--paper);
+    border-bottom:1px solid rgba(26,26,26,.06);
+  }
+  .trust-heading{
+    text-align:center;
+    font-size:1.05rem;
+    font-weight:500;
+    color:#5c4a58;
+    margin-bottom:2.2rem;
+    font-family:"Poppins",sans-serif;
+  }
+  .trust-grid{
+    display:grid;
+    gap:1.25rem;
+    grid-template-columns:1fr;
+    max-width:760px;
+    margin:0 auto;
+  }
+  @media(min-width:640px){
+    .trust-grid{grid-template-columns:1fr 1fr;}
+  }
+  .trust-card{
+    background:linear-gradient(160deg, var(--pink), var(--blue));
+    border-radius:20px;
+    padding:1.8rem 1.6rem;
+    text-align:center;
+  }
+  .trust-score{
+    font-family:"Caveat",cursive;
+    font-weight:700;
+    font-size:3rem;
+    line-height:1;
+    color:var(--ink);
+  }
+  .trust-count{
+    font-size:.9rem;
+    font-weight:500;
+    color:#3a2f3a;
+    margin:.35rem 0 .2rem;
+  }
+  .trust-source{
+    font-size:.78rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:#6a5966;
+    font-weight:600;
+  }
+
+  /* ---------- ABOUT ---------- */
+  [data-section="about"]{
+    background:var(--paper);
+  }
+  [data-section="about"] .wrap{
+    max-width:680px;
+    text-align:center;
+  }
+  [data-section="about"] h2{
+    font-size:clamp(2.4rem,5vw,3.2rem);
+  }
+  [data-section="about"] p{
+    font-size:1.08rem;
+    color:#333;
+  }
+
+  /* ---------- SERVICES ---------- */
+  [data-section="services"]{
+    background:linear-gradient(180deg, #fff 0%, var(--pink) 140%);
+  }
+  [data-section="services"] h2{
+    text-align:center;
+    font-size:clamp(2.4rem,5vw,3.2rem);
+    margin-bottom:2.5rem;
+  }
+  .services-grid{
+    display:grid;
+    gap:1.5rem;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:640px){
+    .services-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(min-width:960px){
+    .services-grid{grid-template-columns:repeat(4,1fr);}
+  }
+  .service-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 24px -12px rgba(26,26,26,.18);
+    transition:transform .2s ease, box-shadow .2s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 32px -12px rgba(26,26,26,.25);
+  }
+  .service-card .photo{
+    aspect-ratio:4/3;
+    overflow:hidden;
+  }
+  .service-card .photo img{
+    width:100%;height:100%;object-fit:cover;
+  }
+  .service-card .body{
+    padding:1.3rem 1.2rem 1.5rem;
+  }
+  .service-card h3{
+    font-size:1.55rem;
+    margin-bottom:.35rem;
+  }
+  .service-card p{
+    font-size:.92rem;
+    color:#444;
+    margin:0;
+  }
+  .service-card.accent{
+    background:linear-gradient(150deg, var(--purple), var(--pink));
+    justify-content:center;
+    padding:1.6rem 1.2rem;
+    min-height:100%;
+  }
+  .service-card.accent .body{padding:0;}
+  .accent-mark{
+    font-family:"Caveat",cursive;
+    font-size:2.6rem;
+    line-height:1;
+    color:var(--ink);
+    margin-bottom:.4rem;
+    display:block;
+  }
+
+  /* ---------- GALLERY ---------- */
+  [data-section="gallery"]{
+    background:#fff;
+  }
+  [data-section="gallery"] .wrap{
+    max-width:900px;
+  }
+  [data-section="gallery"] h2{
+    text-align:center;
+    font-size:clamp(2.4rem,5vw,3.2rem);
+    margin-bottom:.5rem;
+  }
+  .gallery-sub{
+    text-align:center;
+    color:#5c4a58;
+    margin-bottom:2.2rem;
+    font-size:1rem;
+  }
+  figure.gallery-figure{
+    margin:0;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 24px 48px -20px rgba(26,26,26,.3);
+  }
+  figure.gallery-figure img{
+    width:100%;
+    height:auto;
+    object-fit:cover;
+    aspect-ratio:16/10;
+  }
+  figure.gallery-figure figcaption{
+    padding:1.2rem 1.5rem;
+    background:linear-gradient(120deg, var(--purple), var(--blue));
+    font-size:.92rem;
+    color:#2c2430;
+  }
+
+  /* ---------- REVIEWS ---------- */
+  [data-section="reviews"]{
+    background:linear-gradient(180deg, var(--blue) 0%, #fff 30%);
+  }
+  [data-section="reviews"] h2{
+    text-align:center;
+    font-size:clamp(2.4rem,5vw,3.2rem);
+    margin-bottom:2.5rem;
+  }
+  .reviews-grid{
+    display:grid;
+    gap:1.3rem;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:640px){
+    .reviews-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(min-width:960px){
+    .reviews-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  blockquote{
+    margin:0;
+    background:#fff;
+    border-radius:18px;
+    padding:1.5rem 1.4rem;
+    box-shadow:0 8px 22px -14px rgba(26,26,26,.25);
+    border-left:4px solid var(--pink);
+  }
+  blockquote p{
+    font-size:1rem;
+    color:#222;
+    margin:0 0 .9rem;
+  }
+  blockquote footer{
+    font-size:.85rem;
+    color:#7a5c72;
+    font-weight:600;
+  }
+  blockquote cite{font-style:normal;}
+  .reviews-source{
+    text-align:center;
+    margin-top:2.2rem;
+    font-size:.85rem;
+    color:#5c4a58;
+  }
+  .reviews-source a{text-decoration:underline;}
+
+  /* ---------- HOURS ---------- */
+  [data-section="hours"]{
+    background:var(--paper);
+  }
+  [data-section="hours"] .wrap{
+    max-width:520px;
+    text-align:center;
+  }
+  [data-section="hours"] h2{
+    font-size:clamp(2.4rem,5vw,3.2rem);
+    margin-bottom:2rem;
+  }
+  .hours-table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 24px -14px rgba(26,26,26,.2);
+  }
+  .hours-table tr{border-bottom:1px solid rgba(26,26,26,.07);}
+  .hours-table tr:last-child{border-bottom:none;}
+  .hours-table td{
+    padding:1rem 1.4rem;
+    font-size:1rem;
+    text-align:left;
+  }
+  .hours-table td:last-child{
+    text-align:right;
+    font-weight:600;
+  }
+  .hours-table tr.closed td:last-child{color:#a05a78;}
+
+  /* ---------- CONTACT ---------- */
+  [data-section="contact"]{
+    background:linear-gradient(135deg, var(--purple), var(--pink) 60%, var(--blue));
+    text-align:center;
+  }
+  [data-section="contact"] h2{
+    font-size:clamp(2.4rem,5vw,3.2rem);
+    margin-bottom:1.6rem;
+  }
+  .contact-details{
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+    align-items:center;
+    margin-bottom:2rem;
+    font-size:1.05rem;
+    font-weight:500;
+  }
+  .contact-details a{
+    text-decoration:none;
+    font-weight:600;
+  }
+  .contact-details a:hover{text-decoration:underline;}
+  .fb-link{
+    display:inline-block;
+    margin-top:1.6rem;
+    font-size:.9rem;
+    color:#3a2f3a;
+    text-decoration:underline;
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ---------- ISKARO BADGE ---------- */
+  .iskaro-badge{
+    position:fixed;
+    right:14px;
+    bottom:14px;
+    z-index:50;
+    background:rgba(255,255,255,.92);
+    border:1px solid rgba(26,26,26,.12);
+    color:#3a2f3a;
+    font-size:.72rem;
+    font-weight:500;
+    padding:.5rem .85rem;
+    border-radius:999px;
+    text-decoration:none;
+    box-shadow:0 6px 16px -8px rgba(26,26,26,.3);
+    backdrop-filter:blur(4px);
+  }
+  .iskaro-badge strong{font-weight:700;}
+
+  footer.site-footer{
+    text-align:center;
+    padding:2rem 1.25rem 6rem;
+    font-size:.8rem;
+    color:#7a6a76;
+    background:var(--purple);
+  }
+</style>
+</head>
+<body>
+
+<section data-section="hero">
+  <div class="hero-inner">
+    <h1 class="wordmark">Salón Dolce Vita</h1>
+    <p class="hero-tagline">Kaderníctvo v centre Prievidze</p>
+    <p class="hero-note">Kadernícky salón v centre mesta Prievidza — príď na strihanie, farbenie alebo si u nás nechaj urobiť účes na veľkú príležitosť 😉</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="tel:+421919038809">📞 Zavolať a dohodnúť termín</a>
+      <span class="badge-pill">Voľné termíny 👍</span>
+    </div>
+  </div>
+</section>
+
+<section data-section="trust">
+  <div class="wrap">
+    <p class="trust-heading">Nezávisle overené hodnotenia klientok</p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-score">4.9/5</div>
+        <div class="trust-count">25 recenzií</div>
+        <div class="trust-source">Cybo / Zlaté stránky</div>
+      </div>
+      <div class="trust-card">
+        <div class="trust-score">8.8/10</div>
+        <div class="trust-count">17 recenzií</div>
+        <div class="trust-source">orlykadernictva.eu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-section="about" class="reveal">
+  <div class="wrap">
+    <h2>O salóne</h2>
+    <p>Sme kadernícky salón v centre mesta Prievidza. Roky sa tu staráme o vlasy stálych klientok, ktoré sa k nám radi vracajú — a to je pre nás tá najväčšia pochvala. Náš skúsený kadernícky tím sa o teba postará s rovnakou starostlivosťou, akú by sme čakali sami pre seba.</p>
+  </div>
+</section>
+
+<section data-section="services" class="reveal">
+  <div class="wrap">
+    <h2>Služby</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="photo"><img src="assets/stock-02.jpg" alt="Kaderníčka strihá blond vlasy nožnicami"></div>
+        <div class="body">
+          <h3>Dámske strihanie</h3>
+          <p>Strih presne podľa teba — od jemných úprav po výraznú zmenu.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="photo"><img src="assets/stock-05.jpg" alt="Farbenie vlasov technikou fólií v salóne"></div>
+        <div class="body">
+          <h3>Farbenie vlasov</h3>
+          <p>Od jemných odtieňov po výraznú farebnú premenu.</p>
+        </div>
+      </div>
+      <div class="service-card accent">
+        <div class="body">
+          <span class="accent-mark">Na veľký deň</span>
+          <h3>Spoločenské a svadobné účesy</h3>
+          <p>Nechaj svoj účes na nás — pozri si ukážku nižšie v sekcii Naša práca.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="photo"><img src="assets/stock-08.jpg" alt="Žehlenie vlasov pri keratínovom vyrovnávaní"></div>
+        <div class="body">
+          <h3>Keratínové vyrovnávanie Cocochoco</h3>
+          <p>Náročnejšia procedúra pre hladké a poslušné vlasy nadlho.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-section="gallery" class="reveal">
+  <div class="wrap">
+    <h2>Naša práca</h2>
+    <p class="gallery-sub">Priamo z nášho salónu — spoločenský účes fotený u nás v interiéri.</p>
+    <figure class="gallery-figure">
+      <img src="assets/photo-1.jpg" alt="Koláž fotiek spoločenského účesu (kučeravý pletenec) fotených v interiéri salónu Dolce Vita">
+      <figcaption>Spoločenský účes s pleteným detailom, fotené priamo u nás v salóne.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-section="reviews" class="reveal">
+  <div class="wrap">
+    <h2>Čo hovoria klientky</h2>
+    <div class="reviews-grid">
+      <blockquote>
+        <p>Renátka je šikovná kaderníčka, opäť má perfektne ostrihala!😉👍</p>
+        <footer><cite>— I.</cite></footer>
+      </blockquote>
+      <blockquote>
+        <p>Pekne na mňa čakali a s účesom sa doslova vyhrali!</p>
+        <footer><cite>— J. K.</cite></footer>
+      </blockquote>
+      <blockquote>
+        <p>Najlepšie služby široko - ďaleko</p>
+        <footer><cite>— j.</cite></footer>
+      </blockquote>
+      <blockquote>
+        <p>Milá a ochotná kaderníčka</p>
+        <footer><cite>— A. I.</cite></footer>
+      </blockquote>
+      <blockquote>
+        <p>Veľmi fajn prístup, bola som v salóne na farbe, ako nová zákazníčka a ak budem opäť niekedy v PD, určite zájdem rada znova.</p>
+        <footer><cite>— M.</cite></footer>
+      </blockquote>
+    </div>
+    <p class="reviews-source">Recenzie podľa <a href="https://slovenskobcan.com/kadernictvo/trenciansky/dolce-vita/" target="_blank" rel="noopener">slovenskobcan.com</a></p>
+  </div>
+</section>
+
+<section data-section="hours" class="reveal">
+  <div class="wrap">
+    <h2>Otváracie hodiny</h2>
+    <table class="hours-table">
+      <tr><td>Pondelok – Piatok</td><td>9:00 – 17:00</td></tr>
+      <tr><td>Sobota</td><td>9:00 – 13:00</td></tr>
+      <tr class="closed"><td>Nedeľa</td><td>Zatvorené</td></tr>
+    </table>
+  </div>
+</section>
+
+<section data-section="contact" class="reveal">
+  <div class="wrap">
+    <h2>Kontakt</h2>
+    <div class="contact-details">
+      <a href="tel:+421919038809">📞 0919 038 809</a>
+      <span>📍 Rastislavova 415/2, Prievidza</span>
+    </div>
+    <a class="btn btn-primary" href="tel:+421919038809">Zavolať teraz</a>
+    <br>
+    <a class="fb-link" href="https://www.facebook.com/people/Salon-Dolce-Vita/100063520043025/" target="_blank" rel="noopener">Sleduj nás na Facebooku</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>Salón Dolce Vita · Kaderníctvo v centre Prievidze</p>
+</footer>
+
+<a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function(){
+    var items = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function(el){ observer.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
