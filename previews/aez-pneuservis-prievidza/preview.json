@@ -1,0 +1,25 @@
+{
+  "prospect_id": "2720f490-19e3-4f03-8276-d0d8ea66db85",
+  "company_name": "AEZ Pneuservis",
+  "slug": "aez-pneuservis-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-16T05:18:14.202Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 322473,
+    "cost_usd": 0.9399354,
+    "input_tokens": 451537,
+    "output_tokens": 31052
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "gallery",
+    "reviews",
+    "hours",
+    "contact"
+  ]
+}
