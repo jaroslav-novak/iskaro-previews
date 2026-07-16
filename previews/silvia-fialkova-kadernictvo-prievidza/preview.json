@@ -1,0 +1,23 @@
+{
+  "prospect_id": "32cad433-9857-4b4f-a8d6-38e1fda3bb74",
+  "company_name": "Silvia Fialková Kaderníctvo",
+  "slug": "silvia-fialkova-kadernictvo-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-16T06:17:13.559Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 423722,
+    "cost_usd": 0.8718077999999999,
+    "input_tokens": 186364,
+    "output_tokens": 37409
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "about",
+    "services",
+    "gallery",
+    "contact"
+  ]
+}
