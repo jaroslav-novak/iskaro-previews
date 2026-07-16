@@ -1,0 +1,25 @@
+{
+  "prospect_id": "8a33ee97-37ea-4bc8-9c32-dad826991368",
+  "company_name": "3D geometria kolies",
+  "slug": "3d-geometria-kolies-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-16T05:28:12.671Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 421327,
+    "cost_usd": 1.1485406,
+    "input_tokens": 296134,
+    "output_tokens": 39700
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "services",
+    "about",
+    "reviews",
+    "process",
+    "hours",
+    "contact"
+  ]
+}

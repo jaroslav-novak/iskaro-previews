@@ -5,847 +5,764 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Paradajs Garage — Autolakovňa a detailing, Prievidza</title>
-<meta name="description" content="Paradajs Garage — autolakovňa a detailing v Prievidzi. Vlastná retro značka, skúsenosť s prémiovými autami, systém Axalta. Zavolajte 0903 940 979.">
+<meta name="description" content="Paradajs Garage — autolakovňa a detailing v Prievidzi. Od prípravy povrchu až po finálny nástrek. Lak, ktorý vyzerá ako z výroby.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#201c18;
-    --bg-2:#2a2420;
+    --ink:#201c18;
+    --cream:#f2e8d8;
     --teal:#2e8577;
     --orange:#e2793c;
-    --cream:#f2e8d8;
+    --teal-light:#3ea393;
+    --orange-light:#f0925a;
     --line: rgba(242,232,216,0.14);
-    --shadow: 0 20px 50px rgba(0,0,0,0.45);
+    --panel: #2a251f;
+    --panel-2:#26221d;
   }
 
-  *,*::before,*::after{ box-sizing:border-box; }
+  *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
   body{
     margin:0;
-    background:var(--bg);
+    background:var(--ink);
     color:var(--cream);
     font-family:'Inter', system-ui, sans-serif;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
   }
-
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
   h1,h2,h3{
     font-family:'Pacifico', cursive;
-    line-height:1.25;
-    margin:0;
     font-weight:400;
+    line-height:1.15;
+    margin:0 0 .5em;
   }
-
-  h2{ color:var(--teal); font-size:clamp(1.9rem, 5vw, 2.8rem); }
-  h3{ color:var(--orange); font-size:clamp(1.25rem, 3vw, 1.6rem); }
-
-  p{ margin:0; }
-
-  a{ color:inherit; }
-
-  img{ display:block; max-width:100%; }
-
-  .wrap{
-    width:100%;
-    max-width:1120px;
+  h1{ font-size:clamp(2.4rem, 6vw, 4.2rem); }
+  h2{ font-size:clamp(1.9rem, 4.5vw, 2.8rem); color:var(--orange); }
+  p{ margin:0 0 1em; }
+  .container{
+    max-width:1180px;
     margin:0 auto;
-    padding-left:1.25rem;
-    padding-right:1.25rem;
+    padding:0 6vw;
   }
-
   .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    font-size:.78rem;
+    letter-spacing:.16em;
     text-transform:uppercase;
-    letter-spacing:0.18em;
-    font-size:0.72rem;
+    color:var(--teal-light);
     font-weight:700;
-    color:var(--orange);
-    font-family:'Inter', sans-serif;
+    margin-bottom:1rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;
+    height:2px;
+    background:var(--orange);
+    display:inline-block;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.55em;
+    padding:.95em 1.9em;
+    border-radius:999px;
+    background:var(--orange);
+    color:var(--ink);
+    font-weight:700;
+    text-decoration:none;
+    font-size:1.05rem;
+    border:2px solid var(--orange);
+    transition:transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+    box-shadow:0 8px 24px -8px rgba(226,121,60,0.55);
+  }
+  .btn:hover{
+    background:transparent;
+    color:var(--orange-light);
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px -8px rgba(226,121,60,0.35);
+  }
+  .btn.ghost{
+    background:transparent;
+    color:var(--cream);
+    border-color:var(--line);
+    box-shadow:none;
+  }
+  .btn.ghost:hover{
+    border-color:var(--teal-light);
+    color:var(--teal-light);
+    transform:translateY(-2px);
   }
 
-  /* ---------- Header ---------- */
-  header{
+  /* Top bar */
+  .topbar{
     position:sticky;
     top:0;
-    z-index:50;
-    background:rgba(32,28,24,0.92);
-    backdrop-filter:blur(8px);
+    z-index:40;
+    background:rgba(32,28,24,0.86);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .nav{
+  .topbar-inner{
+    max-width:1180px;
+    margin:0 auto;
+    padding:.7rem 6vw;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0.75rem 1.25rem;
-    max-width:1120px;
-    margin:0 auto;
+    gap:1rem;
   }
   .brand{
     display:flex;
     align-items:center;
-    gap:0.65rem;
+    gap:.7rem;
     text-decoration:none;
-    font-family:'Inter', sans-serif;
-    font-weight:800;
-    font-size:1.05rem;
-    color:var(--cream);
-    letter-spacing:0.01em;
   }
   .brand img{
     width:42px;
     height:42px;
-    border-radius:50%;
+    border-radius:10px;
     object-fit:cover;
-    border:2px solid var(--teal);
-  }
-  nav ul{
-    list-style:none;
-    display:flex;
-    gap:1.75rem;
-    margin:0;
-    padding:0;
-  }
-  nav ul a{
-    text-decoration:none;
-    font-size:0.92rem;
-    font-weight:600;
-    color:var(--cream);
-    opacity:0.85;
-    position:relative;
-    padding:0.25rem 0;
-  }
-  nav ul a::after{
-    content:"";
-    position:absolute;
-    left:0; bottom:-2px;
-    width:0; height:2px;
-    background:var(--orange);
-    transition:width 0.25s ease;
-  }
-  nav ul a:hover{ opacity:1; }
-  nav ul a:hover::after{ width:100%; }
-
-  .call-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:0.5rem;
-    background:var(--orange);
-    color:var(--bg);
-    font-weight:700;
-    font-size:0.9rem;
-    padding:0.55rem 1.1rem;
-    border-radius:999px;
-    text-decoration:none;
-    white-space:nowrap;
-    transition:transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .call-pill:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(226,121,60,0.35); }
-
-  .menu-toggle{
-    display:none;
-    background:none;
     border:1px solid var(--line);
-    border-radius:8px;
+  }
+  .brand span{
+    font-family:'Pacifico', cursive;
+    font-size:1.3rem;
     color:var(--cream);
-    width:42px;
-    height:42px;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
   }
-  .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
-    content:"";
-    display:block;
-    width:20px;
-    height:2px;
-    background:var(--cream);
-    position:relative;
-    transition:0.2s;
+  .topbar .btn{
+    padding:.6em 1.3em;
+    font-size:.92rem;
   }
-  .menu-toggle span::before{ position:absolute; top:-6px; }
-  .menu-toggle span::after{ position:absolute; top:6px; }
 
-  /* ---------- Hero ---------- */
+  /* HERO */
   section[data-section="hero"]{
     position:relative;
-    min-height:92vh;
-    display:flex;
-    align-items:center;
-    background:
-      linear-gradient(180deg, rgba(20,17,14,0.55) 0%, rgba(20,17,14,0.75) 55%, var(--bg) 100%),
-      url('assets/photo-1.jpg') center 30%/cover no-repeat;
-  }
-  .hero-inner{
-    max-width:1120px;
-    margin:0 auto;
-    padding:6rem 1.25rem 4rem;
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:1.6rem;
-  }
-
-  .badge{
-    position:relative;
-    width:132px;
-    height:132px;
-    border-radius:50%;
-    background:var(--cream);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    box-shadow:var(--shadow), 0 0 0 6px rgba(242,232,216,0.08);
+    padding:4.5rem 0 5rem;
     overflow:hidden;
-    flex-shrink:0;
   }
-  .badge::before{
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:3rem;
+    align-items:center;
+  }
+  .hero-copy .location{
+    font-size:1.15rem;
+    color:var(--cream);
+    opacity:.85;
+    margin-bottom:1.6rem;
+  }
+  .hero-copy .location strong{ color:var(--teal-light); }
+  .hero-cta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    align-items:center;
+  }
+  .hero-photo{
+    position:relative;
+    border-radius:22px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    border:1px solid var(--line);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .hero-photo::after{
     content:"";
     position:absolute;
     inset:0;
-    background:
-      repeating-linear-gradient(
-        180deg,
-        var(--orange) 0px, var(--orange) 14px,
-        #c5602a 14px, #c5602a 16px,
-        var(--cream) 16px, var(--cream) 30px
-      );
-    opacity:0.9;
+    background:linear-gradient(180deg, rgba(32,28,24,0) 55%, rgba(32,28,24,0.75) 100%);
   }
-  .badge-text{
-    position:relative;
-    font-family:'Pacifico', cursive;
-    color:var(--teal);
-    font-size:1.55rem;
-    text-shadow:0 1px 0 rgba(255,255,255,0.4);
-  }
-  .badge-car{
-    position:relative;
-    margin-top:0.15rem;
-    width:46px;
-    height:16px;
-  }
-  .badge-car svg{ width:100%; height:100%; fill:var(--bg); }
-
-  .hero-heading{
-    font-size:clamp(2.6rem, 8vw, 4.4rem);
-    color:var(--cream);
-    text-shadow:0 4px 24px rgba(0,0,0,0.55);
-  }
-  .hero-heading span{ color:var(--teal); }
-
-  .hero-sub{
-    font-size:clamp(1rem, 2.4vw, 1.25rem);
-    color:var(--cream);
-    max-width:32rem;
-    opacity:0.95;
-  }
-  .hero-sub strong{ color:var(--orange); }
-
-  .hero-tagline{
-    font-size:1rem;
-    color:var(--cream);
-    opacity:0.85;
-    max-width:30rem;
-    font-style:italic;
-  }
-
-  .cta-row{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:1rem;
-    margin-top:0.5rem;
-  }
-
-  .btn-primary{
-    display:inline-flex;
-    align-items:center;
-    gap:0.6rem;
-    background:var(--orange);
-    color:var(--bg);
-    font-weight:700;
-    font-size:1.05rem;
-    padding:1rem 1.8rem;
-    border-radius:999px;
-    text-decoration:none;
-    box-shadow:0 12px 30px rgba(226,121,60,0.35);
-    transition:transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 16px 36px rgba(226,121,60,0.45); }
-  .btn-primary svg{ width:20px; height:20px; fill:var(--bg); }
-
-  .location-chip{
-    display:inline-flex;
-    align-items:center;
-    gap:0.4rem;
-    font-size:0.9rem;
-    font-weight:600;
-    color:var(--cream);
-    background:rgba(242,232,216,0.08);
+  .hero-photo .tag{
+    position:absolute;
+    left:1.1rem;
+    bottom:1.1rem;
+    z-index:2;
+    background:rgba(32,28,24,0.72);
     border:1px solid var(--line);
-    padding:0.55rem 1rem;
+    padding:.5em 1em;
     border-radius:999px;
+    font-size:.85rem;
+    color:var(--cream);
+    backdrop-filter:blur(6px);
   }
-  .location-chip svg{ width:15px; height:15px; fill:var(--teal); }
+  .hero-bg-word{
+    position:absolute;
+    top:-2rem;
+    right:-2rem;
+    font-family:'Pacifico', cursive;
+    font-size:12rem;
+    color:var(--teal);
+    opacity:.06;
+    pointer-events:none;
+    z-index:0;
+    white-space:nowrap;
+  }
 
-  /* ---------- Generic section rhythm ---------- */
-  section{ padding:5.5rem 0; }
-  section.reveal{
+  /* Sections generic reveal (below fold only) */
+  section[data-reveal]{
     opacity:0;
-    transform:translateY(24px);
-    transition:opacity 0.7s ease, transform 0.7s ease;
+    transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
   }
-  section.reveal.is-visible{ opacity:1; transform:translateY(0); }
-
-  .section-head{
-    max-width:34rem;
-    margin-bottom:3rem;
+  section[data-reveal].is-visible{
+    opacity:1;
+    transform:none;
   }
-  .section-head h2{ margin-top:0.5rem; }
-  .section-head p{ color:var(--cream); opacity:0.82; margin-top:0.9rem; font-size:1.02rem; }
 
-  /* ---------- Trust ---------- */
-  section[data-section="trust"]{ background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  section{ padding:5.5rem 0; }
+  section + section{ border-top:1px solid var(--line); }
+
+  /* TRUST */
+  section[data-section="trust"]{ background:var(--panel-2); }
   .trust-grid{
     display:grid;
-    grid-template-columns:1fr;
-    gap:1.5rem;
-  }
-  @media(min-width:640px){ .trust-grid{ grid-template-columns:1fr 1fr; } }
-  @media(min-width:980px){ .trust-grid{ grid-template-columns:repeat(4, 1fr); } }
-  .trust-card{
-    background:var(--bg);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:1.8rem 1.5rem;
-    transition:transform 0.25s ease, border-color 0.25s ease;
-  }
-  .trust-card:hover{ transform:translateY(-6px); border-color:var(--teal); }
-  .trust-icon{
-    width:42px; height:42px;
-    border-radius:10px;
-    background:rgba(46,133,119,0.16);
-    display:flex; align-items:center; justify-content:center;
-    margin-bottom:1rem;
-  }
-  .trust-icon svg{ width:22px; height:22px; fill:var(--teal); }
-  .trust-card h3{ font-size:1.1rem; margin-bottom:0.5rem; }
-  .trust-card p{ font-size:0.94rem; opacity:0.85; }
-
-  /* ---------- Gallery ---------- */
-  .gallery-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:1.25rem;
-  }
-  @media(min-width:760px){
-    .gallery-grid{ grid-template-columns:1.2fr 1fr; grid-template-rows:auto auto; }
-    .gallery-item:first-child{ grid-row:1 / 3; }
-  }
-  .gallery-item{
-    position:relative;
-    border-radius:18px;
-    overflow:hidden;
-    border:1px solid var(--line);
-    aspect-ratio:4/5;
-  }
-  @media(min-width:760px){ .gallery-item:nth-child(2), .gallery-item:nth-child(3){ aspect-ratio:16/10; } }
-  .gallery-item img{
-    width:100%; height:100%;
-    object-fit:cover;
-    transition:transform 0.5s ease;
-  }
-  .gallery-item:hover img{ transform:scale(1.06); }
-  .gallery-caption{
-    position:absolute;
-    left:0; right:0; bottom:0;
-    padding:1.1rem 1.2rem;
-    background:linear-gradient(0deg, rgba(15,13,11,0.85) 0%, rgba(15,13,11,0) 100%);
-    font-size:0.9rem;
-    font-weight:600;
-    color:var(--cream);
-  }
-
-  /* ---------- Services ---------- */
-  section[data-section="services"]{ background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .services-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:1.5rem;
-  }
-  @media(min-width:700px){ .services-grid{ grid-template-columns:1fr 1fr; } }
-  .service-card{
-    background:var(--bg);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:2.2rem;
-    position:relative;
-  }
-  .service-card h3{ font-size:1.5rem; margin-bottom:0.8rem; }
-  .service-card p{ font-size:0.98rem; opacity:0.85; }
-  .service-note{
-    margin-top:2.5rem;
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:1rem;
-    font-size:0.95rem;
-    opacity:0.85;
-  }
-  .service-note a{
-    color:var(--teal);
-    font-weight:700;
-    text-decoration:underline;
-    text-underline-offset:3px;
-  }
-
-  /* ---------- About ---------- */
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:2.5rem;
+    grid-template-columns:.9fr 1.1fr;
+    gap:3rem;
     align-items:center;
   }
-  @media(min-width:800px){ .about-grid{ grid-template-columns:1fr 1.1fr; } }
-  .about-photo{
-    border-radius:18px;
+  .trust-photo{
+    border-radius:20px;
     overflow:hidden;
-    border:1px solid var(--line);
     aspect-ratio:4/3;
-  }
-  .about-photo img{ width:100%; height:100%; object-fit:cover; }
-  .about-text p{
-    font-size:1.05rem;
-    opacity:0.9;
-    margin-bottom:1rem;
-  }
-  .about-text p:last-child{ margin-bottom:0; }
-  .about-text strong{ color:var(--orange); }
-
-  /* ---------- Reviews ---------- */
-  section[data-section="reviews"]{ background:var(--bg-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .rating-line{
-    display:inline-flex;
-    align-items:center;
-    gap:0.6rem;
-    background:rgba(226,121,60,0.12);
-    border:1px solid rgba(226,121,60,0.3);
-    color:var(--orange);
-    font-weight:700;
-    padding:0.55rem 1.1rem;
-    border-radius:999px;
-    font-size:0.95rem;
-    margin-bottom:2.5rem;
-  }
-  .rating-line svg{ width:16px; height:16px; fill:var(--orange); }
-  .reviews-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:1.5rem;
-  }
-  @media(min-width:820px){ .reviews-grid{ grid-template-columns:repeat(3, 1fr); } }
-  blockquote{
-    margin:0;
-    background:var(--bg);
     border:1px solid var(--line);
-    border-left:3px solid var(--teal);
-    border-radius:14px;
-    padding:1.8rem 1.6rem;
-    display:flex;
-    flex-direction:column;
-    gap:1.2rem;
   }
-  blockquote p{
-    font-size:0.98rem;
-    opacity:0.92;
-    font-style:italic;
-  }
-  blockquote footer{
-    font-style:normal;
-    font-size:0.85rem;
-    opacity:0.7;
-    display:flex;
-    flex-direction:column;
-    gap:0.15rem;
-  }
-  blockquote footer cite{ font-style:normal; font-weight:700; color:var(--cream); }
-
-  /* ---------- Contact ---------- */
-  .contact-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:2.5rem;
-  }
-  @media(min-width:800px){ .contact-grid{ grid-template-columns:1fr 1fr; } }
-  .contact-list{
+  .trust-photo img{ width:100%; height:100%; object-fit:cover; }
+  .usp-list{
     list-style:none;
-    margin:0; padding:0;
+    margin:0;
+    padding:0;
     display:flex;
     flex-direction:column;
     gap:1.4rem;
   }
-  .contact-list li{
+  .usp-list li{
     display:flex;
+    gap:1rem;
     align-items:flex-start;
-    gap:0.9rem;
+    padding-bottom:1.4rem;
+    border-bottom:1px solid var(--line);
   }
-  .contact-list .ico{
-    width:38px; height:38px;
-    border-radius:10px;
-    background:rgba(46,133,119,0.16);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
+  .usp-list li:last-child{ border-bottom:none; padding-bottom:0; }
+  .usp-icon{
+    flex:none;
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    background:linear-gradient(145deg, var(--teal), #204e46);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.25rem;
   }
-  .contact-list .ico svg{ width:19px; height:19px; fill:var(--teal); }
-  .contact-list a{
+  .usp-list h3{
+    font-family:'Inter', sans-serif;
+    font-weight:700;
+    font-size:1.08rem;
+    margin:0 0 .3rem;
     color:var(--cream);
-    text-decoration:none;
-    font-weight:600;
   }
-  .contact-list a:hover{ color:var(--orange); }
-  .contact-list .label{
-    display:block;
-    font-size:0.78rem;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    opacity:0.6;
-    margin-bottom:0.2rem;
-    font-weight:600;
+  .usp-list p{ margin:0; opacity:.82; font-size:.98rem; }
+
+  /* PROCESS */
+  .process-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+    align-items:center;
+  }
+  .process-photo{
+    border-radius:20px;
+    overflow:hidden;
+    aspect-ratio:3/4;
+    border:1px solid var(--line);
+  }
+  .process-photo img{ width:100%; height:100%; object-fit:cover; }
+  .process-quote{
+    font-size:clamp(1.3rem, 2.4vw, 1.7rem);
+    line-height:1.5;
+    color:var(--cream);
+    border-left:3px solid var(--orange);
+    padding-left:1.4rem;
+    margin:1.6rem 0;
+  }
+  .process-quote em{ color:var(--teal-light); font-style:normal; }
+  .signoff{
+    font-size:1.05rem;
+    opacity:.85;
   }
 
-  .map-box{
-    position:relative;
-    border-radius:18px;
-    border:1px solid var(--line);
-    overflow:hidden;
-    aspect-ratio:4/3;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(46,133,119,0.25), transparent 60%),
-      var(--bg-2);
+  /* SERVICES */
+  section[data-section="services"]{ background:var(--panel-2); }
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:1.6rem;
+    margin-top:2rem;
   }
-  .map-box svg{ width:100%; height:100%; }
-  .map-pin-label{
-    position:absolute;
-    left:50%;
-    bottom:1.4rem;
-    transform:translateX(-50%);
-    background:var(--bg);
+  .service-card{
+    background:var(--panel);
     border:1px solid var(--line);
-    padding:0.5rem 1rem;
-    border-radius:999px;
-    font-size:0.85rem;
+    border-radius:18px;
+    padding:2.2rem 1.9rem;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .service-card:hover{
+    border-color:var(--teal-light);
+    transform:translateY(-4px);
+  }
+  .service-card .num{
+    font-family:'Pacifico', cursive;
+    font-size:1.6rem;
+    color:var(--orange);
+    display:block;
+    margin-bottom:.6rem;
+  }
+  .service-card h3{
+    font-family:'Inter', sans-serif;
     font-weight:700;
+    font-size:1.2rem;
+    margin:0 0 .5rem;
+  }
+  .service-card p{ margin:0; opacity:.8; font-size:.95rem; }
+
+  /* GALLERY */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.2rem;
+    margin-top:2.2rem;
+  }
+  .gallery-item{
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    aspect-ratio:1/1;
+    border:1px solid var(--line);
+  }
+  .gallery-item:first-child{ grid-row:span 2; aspect-ratio:auto; }
+  .gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+  }
+  .gallery-item:hover img{ transform:scale(1.06); }
+
+  /* REVIEWS */
+  section[data-section="reviews"]{ background:var(--panel-2); }
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:1.6rem;
+    margin-top:2rem;
+  }
+  blockquote{
+    margin:0;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:2rem 1.8rem;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    gap:1.2rem;
+  }
+  blockquote::before{
+    content:"“";
+    font-family:'Pacifico', cursive;
+    font-size:3.4rem;
+    color:var(--teal);
+    opacity:.45;
+    line-height:1;
+  }
+  blockquote p{ margin:-1.6rem 0 0; font-size:1rem; opacity:.92; }
+  blockquote footer{
+    font-size:.9rem;
+    opacity:.75;
+    border-top:1px solid var(--line);
+    padding-top:1rem;
+  }
+  blockquote footer cite{
+    font-style:normal;
+    font-weight:700;
+    color:var(--orange-light);
+    display:block;
+    margin-bottom:.2rem;
+  }
+  blockquote footer a{ color:var(--teal-light); text-decoration:none; }
+  blockquote footer a:hover{ text-decoration:underline; }
+
+  /* ABOUT */
+  .about-wrap{
+    max-width:760px;
+  }
+  .about-note{
+    margin-top:1.6rem;
+    font-size:.88rem;
+    opacity:.62;
+    border:1px dashed var(--line);
+    border-radius:12px;
+    padding:.9rem 1.1rem;
+  }
+
+  /* CONTACT */
+  section[data-section="contact"]{ background:var(--panel-2); }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:3rem;
+    align-items:start;
+  }
+  .contact-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:2.2rem;
+  }
+  .contact-row{
+    display:flex;
+    gap:1rem;
+    align-items:flex-start;
+    padding:1rem 0;
+    border-bottom:1px solid var(--line);
+  }
+  .contact-row:last-child{ border-bottom:none; }
+  .contact-row .ic{
+    flex:none;
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    background:var(--teal);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.05rem;
+  }
+  .contact-row a{ color:var(--cream); text-decoration:none; font-weight:600; }
+  .contact-row a:hover{ color:var(--orange-light); }
+  .contact-row .label{
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    opacity:.6;
+    margin-bottom:.15rem;
+  }
+  .map-box{
+    border-radius:20px;
+    border:1px solid var(--line);
+    background:
+      radial-gradient(circle at 30% 30%, rgba(46,133,119,0.35), transparent 55%),
+      radial-gradient(circle at 70% 65%, rgba(226,121,60,0.22), transparent 50%),
+      var(--panel);
+    min-height:320px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .map-box svg{ width:60px; height:60px; }
+  .map-box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:36px 36px;
+    opacity:.5;
+  }
+  .map-label{
+    position:absolute;
+    bottom:1.4rem;
+    left:50%;
+    transform:translateX(-50%);
+    background:rgba(32,28,24,0.8);
+    border:1px solid var(--line);
+    padding:.5em 1.1em;
+    border-radius:999px;
+    font-size:.85rem;
     white-space:nowrap;
   }
 
-  /* ---------- Footer badge ---------- */
-  .preview-badge{
+  footer.site-end{
+    padding:2.5rem 0 7rem;
+    text-align:center;
+    font-size:.85rem;
+    opacity:.55;
+  }
+  footer.site-end strong{ font-family:'Pacifico', cursive; color:var(--teal-light); font-weight:400; }
+
+  .badge-preview{
     position:fixed;
     right:1rem;
     bottom:1rem;
-    z-index:100;
-    background:rgba(32,28,24,0.9);
+    z-index:60;
+    background:rgba(32,28,24,0.92);
     border:1px solid var(--line);
     color:var(--cream);
-    font-size:0.72rem;
-    padding:0.5rem 0.85rem;
+    font-size:.78rem;
+    padding:.55em 1em;
     border-radius:999px;
     text-decoration:none;
     backdrop-filter:blur(6px);
-    box-shadow:0 6px 20px rgba(0,0,0,0.35);
+    box-shadow:0 8px 22px -8px rgba(0,0,0,0.6);
   }
-  .preview-badge strong{ color:var(--orange); }
+  .badge-preview strong{ color:var(--orange-light); }
+  .badge-preview:hover{ border-color:var(--teal-light); }
 
-  footer.site-end{
-    padding:2.5rem 0 5rem;
-    text-align:center;
-    font-size:0.85rem;
-    opacity:0.6;
-  }
-
-  /* ---------- Mobile nav ---------- */
-  @media(max-width:860px){
-    nav ul{
-      position:fixed;
-      top:70px; left:0; right:0;
-      background:rgba(20,17,14,0.98);
-      flex-direction:column;
-      align-items:flex-start;
-      padding:1.25rem;
-      gap:1rem;
-      border-bottom:1px solid var(--line);
-      transform:translateY(-140%);
-      transition:transform 0.3s ease;
+  @media (max-width: 860px){
+    .hero-grid, .trust-grid, .process-grid, .contact-grid{
+      grid-template-columns:1fr;
     }
-    nav ul.open{ transform:translateY(0); }
-    .menu-toggle{ display:flex; }
+    .process-grid{ display:flex; flex-direction:column-reverse; }
+    .gallery-grid{ grid-template-columns:1fr 1fr; }
+    .gallery-item:first-child{ grid-column:span 2; grid-row:auto; aspect-ratio:16/10; }
+    .hero-bg-word{ display:none; }
+    section{ padding:3.6rem 0; }
+  }
+  @media (max-width: 520px){
+    .gallery-grid{ grid-template-columns:1fr; }
+    .gallery-item:first-child{ grid-column:auto; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="nav">
-    <a href="#" class="brand">
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#hero">
       <img src="assets/logo.jpg" alt="Paradajs Garage">
-      Paradajs Garage
+      <span>Paradajs Garage</span>
     </a>
-    <ul id="primary-nav">
-      <li><a href="#gallery">Naša práca</a></li>
-      <li><a href="#services">Služby</a></li>
-      <li><a href="#about">O nás</a></li>
-      <li><a href="#reviews">Recenzie</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-    <a class="call-pill" href="tel:+421903940979">📞 0903 940 979</a>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="primary-nav">
-      <span></span>
-    </button>
+    <a class="btn" href="tel:+421903940979">📞 Zavolajte</a>
   </div>
-</header>
+</div>
 
 <main>
 
-  <section data-section="hero">
-    <div class="hero-inner">
-      <div class="badge" aria-hidden="true">
-        <span class="badge-text">Paradajs</span>
-        <span class="badge-car">
-          <svg viewBox="0 0 64 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 16c0-1.5 1-3 3-3l4-6c1-1.5 2.5-2 4-2h14c1.5 0 3 .5 4 2l4 6c2 0 3 1.5 3 3v3c0 .8-.7 1.5-1.5 1.5H60c-.5 1.8-2 3-4 3s-3.5-1.2-4-3H24c-.5 1.8-2 3-4 3s-3.5-1.2-4-3H5.5C4.7 20.5 4 19.8 4 19v-3z"/></svg>
-        </span>
+  <section data-section="hero" id="hero">
+    <span class="hero-bg-word" aria-hidden="true">Paradajs</span>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Autolakovňa &amp; detailing · Prievidza</span>
+        <h1>Paradajs Garage</h1>
+        <p class="location">Prievidza, <strong>Športová 23</strong> — dielňa, kde má každý ťah pištoľou svoj význam. 🚗💨</p>
+        <div class="hero-cta">
+          <a class="btn" href="tel:+421903940979">📞 Zavolajte: 0903 940 979</a>
+          <a class="btn ghost" href="#gallery-anchor">Pozrieť našu prácu</a>
+        </div>
       </div>
-      <h1 class="hero-heading">Paradajs <span>Garage</span></h1>
-      <p class="location-chip">
-        <svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-        Prievidza
-      </p>
-      <p class="hero-sub">Autolakovňa a detailing. <strong>Od prípravy povrchu až po finálny nástrek</strong> — lak, ktorý vyzerá ako z výroby.</p>
-      <p class="hero-tagline">Potrebujete opraviť lak alebo streliť nový look? 🚗💨</p>
-      <div class="cta-row">
-        <a class="btn-primary" href="tel:+421903940979">
-          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
-          Zavolajte: 0903 940 979
-        </a>
+      <div class="hero-photo">
+        <img src="assets/photo-2.jpg" alt="Brandované auto Paradajs Garage a pracovník v uniforme s logom">
+        <span class="tag">Vlastná značka. Vlastná práca.</span>
       </div>
     </div>
   </section>
 
-  <section data-section="trust" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
+  <section data-section="trust" data-reveal>
+    <div class="container trust-grid">
+      <div class="trust-photo">
+        <img src="assets/photo-1.jpg" alt="Porsche Taycan pripravené vo workshope Paradajs Garage">
+      </div>
+      <div>
         <span class="eyebrow">Prečo my</span>
-        <h2>Prečo Paradajs</h2>
-        <p>Bez veľkých rečí — toto sú veci, na ktorých u nás naozaj záleží.</p>
-      </div>
-      <div class="trust-grid">
-        <div class="trust-card">
-          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.6 5.9L21 9l-4.5 4.4L17.6 20 12 16.8 6.4 20l1.1-6.6L3 9l6.4-1.1z"/></svg></div>
-          <h3>Vlastná značka</h3>
-          <p>Retro „Paradajs" nálepka na aute aj na pracovných uniformách — spoznáte nás na prvý pohľad.</p>
-        </div>
-        <div class="trust-card">
-          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm14 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM7 17V9l2-4h6l2 4v8"/></svg></div>
-          <h3>Skúsenosť s prémiovými autami</h3>
-          <p>Vo workshope sme mali pripravené aj Porsche Taycan — na detail si potrpíme pri každom aute.</p>
-        </div>
-        <div class="trust-card">
-          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v6l-8 10L4 10z"/></svg></div>
-          <h3>Systém Axalta</h3>
-          <p>Lakujeme s profesionálnym lakovacím systémom Axalta. Každý ťah pištoľou má svoj význam.</p>
-        </div>
-        <div class="trust-card">
-          <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M4 12l8-8 8 8M6 10v10h12V10"/></svg></div>
-          <h3>Všetko pod jednou strechou</h3>
-          <p>Autolakovňa aj detailing na jednom mieste — nemusíte behať po viacerých dielňach.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section data-section="gallery" id="gallery" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Portfólio</span>
-        <h2>Naša práca</h2>
-        <p>Každý detail a každý ťah pištoľou má svoj význam — pozrite si to na vlastné oči.</p>
-      </div>
-      <div class="gallery-grid">
-        <figure class="gallery-item">
-          <img src="assets/photo-1.jpg" alt="Porsche Taycan pripravené vo workshope Paradajs Garage">
-          <figcaption class="gallery-caption">Porsche Taycan vo workshope</figcaption>
-        </figure>
-        <figure class="gallery-item">
-          <img src="assets/photo-2.jpg" alt="Brandované auto so značkou Paradajs a pracovník v uniforme">
-          <figcaption class="gallery-caption">Naša značka na aute aj na uniforme</figcaption>
-        </figure>
-        <figure class="gallery-item">
-          <img src="assets/photo-3.jpg" alt="Lakovník strieka farbu na karosériu v lakovacej kabíne">
-          <figcaption class="gallery-caption">Lakovanie v kabíne, ťah po ťahu</figcaption>
-        </figure>
+        <h2>Robíme to poriadne</h2>
+        <ul class="usp-list">
+          <li>
+            <span class="usp-icon">🍅</span>
+            <div>
+              <h3>Vlastná retro značka</h3>
+              <p>Paradajs nie je len meno — logo nesie naše auto aj naše uniformy. Stojíme si za tým, čo podpisujeme.</p>
+            </div>
+          </li>
+          <li>
+            <span class="usp-icon">🏁</span>
+            <div>
+              <h3>Skúsenosť s prémiovými autami</h3>
+              <p>Cez naše ruky prešli aj športové a prémiové vozidlá — presnosť tu neni na výber, je samozrejmosť.</p>
+            </div>
+          </li>
+          <li>
+            <span class="usp-icon">🎨</span>
+            <div>
+              <h3>Lakovací systém Axalta</h3>
+              <p>Pracujeme s profesionálnym lakovacím systémom Axalta — základ pre farbu, ktorá vydrží a sedí presne.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section data-section="services" id="services" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Ponuka</span>
-        <h2>Služby</h2>
-        <p>Presný rozsah a cenník si radi doladíme priamo s Vami — tu je základný prehľad, čo u nás nájdete.</p>
+  <section data-section="process" data-reveal>
+    <div class="container process-grid">
+      <div>
+        <span class="eyebrow">Náš postup</span>
+        <h2>Ako pracujeme</h2>
+        <p class="process-quote">
+          Od prípravy povrchu až po finálny nástrek. <em>Každý detail a každý ťah pištoľou má svoj význam.</em>
+        </p>
+        <p class="signoff">Lak, ktorý vyzerá ako z výroby. Streliť nový look? 🚗💨</p>
       </div>
+      <div class="process-photo">
+        <img src="assets/photo-3.jpg" alt="Lakovník strieka farbu na karosériu v lakovacej kabíne">
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" data-reveal>
+    <div class="container">
+      <span class="eyebrow">Ponuka</span>
+      <h2>Čo u nás vybavíte</h2>
       <div class="services-grid">
         <div class="service-card">
+          <span class="num">01</span>
           <h3>Autolakovňa</h3>
-          <p>Oprava a nástrek laku. Od prípravy povrchu až po finálny nástrek — pracujeme so systémom Axalta tak, aby výsledok vyzeral ako z výroby.</p>
+          <p>Lakovanie a oprava laku — od prípravy povrchu až po finálny nástrek, s dôrazom na detail v každej vrstve.</p>
         </div>
         <div class="service-card">
+          <span class="num">02</span>
           <h3>Detailing</h3>
-          <p>Dôkladná starostlivosť o vzhľad vozidla. Rozsah si prejdeme spoločne podľa toho, čo Vaše auto potrebuje.</p>
-        </div>
-      </div>
-      <p class="service-note">Chcete presný rozsah a cenu na mieru? <a href="tel:+421903940979">Zavolajte na 0903 940 979</a>.</p>
-    </div>
-  </section>
-
-  <section data-section="about" id="about" class="reveal">
-    <div class="wrap">
-      <div class="about-grid">
-        <div class="about-photo">
-          <img src="assets/photo-3.jpg" alt="Lakovník pri práci v lakovacej kabíne Paradajs Garage">
-        </div>
-        <div class="about-text">
-          <span class="eyebrow">O nás</span>
-          <h2 style="margin-top:0.5rem;">O nás</h2>
-          <p style="margin-top:1.2rem;">Sme poctivá lokálna dielňa v Prievidzi. <strong>Od prípravy povrchu až po finálny nástrek</strong> — každý detail a každý ťah pištoľou má svoj význam.</p>
-          <p>Nerobíme veľké reči, radšej necháme hovoriť hotovú prácu: lak, ktorý vyzerá ako z výroby.</p>
-          <p>Potrebujete opraviť lak alebo streliť nový look? Sme tu pre Vás. 🚗💨</p>
+          <p>Starostlivosť o vzhľad vozidla po dôkladnej príprave povrchu, aby výsledok vyzeral ako z výroby.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section data-section="reviews" id="reviews" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Referencie</span>
-        <h2>Čo hovoria zákazníci</h2>
+  <section data-section="gallery" data-reveal id="gallery-anchor">
+    <div class="container">
+      <span class="eyebrow">Portfólio</span>
+      <h2>Naša práca</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/photo-1.jpg" alt="Porsche Taycan pripravené vo workshope Paradajs Garage">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/photo-2.jpg" alt="Brandované auto Paradajs Garage s pracovníkom v uniforme">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/photo-3.jpg" alt="Lakovník pri práci v lakovacej kabíne">
+        </div>
       </div>
-      <p class="rating-line">
-        <svg viewBox="0 0 24 24"><path d="M12 2l2.6 5.9L21 9l-4.5 4.4L17.6 20 12 16.8 6.4 20l1.1-6.6L3 9l6.4-1.1z"/></svg>
-        5,0 / 5 z 25 recenzií · zlatafirma.eu
-      </p>
+    </div>
+  </section>
+
+  <section data-section="reviews" data-reveal>
+    <div class="container">
+      <span class="eyebrow">Referencie</span>
+      <h2>Čo hovoria zákazníci</h2>
       <div class="reviews-grid">
         <blockquote>
           <p>Veľké ďakujem za ochotu a ľudský prístup! V piatok večer nás nechalo auto v Bojniciach a aj napriek neskorému času nám rýchlo pomohli. Profesionálny a ústretový prístup, ktorý si zaslúži pochvalu.</p>
           <footer>
             <cite>Jana K.</cite>
-            <span>Google Maps recenzia · zlatafirma.eu</span>
+            Google Maps recenzia · zdroj: <a href="https://www.zlatafirma.eu/company/paradajs-garage-571608" target="_blank" rel="noopener">zlatafirma.eu</a>
           </footer>
         </blockquote>
         <blockquote>
           <p>Môžem len odporučiť, asi nieje auto s ktorým by si neporadili. Ochota, prístup, odbornosť. Páni sa fakt vyznajú. Skúste, uvidíte sami.</p>
           <footer>
             <cite>Adam B.</cite>
-            <span>Google Maps recenzia · zlatafirma.eu</span>
+            Google Maps recenzia · zdroj: <a href="https://www.zlatafirma.eu/company/paradajs-garage-571608" target="_blank" rel="noopener">zlatafirma.eu</a>
           </footer>
         </blockquote>
         <blockquote>
           <p>Páni robia zázraky na počkanie. Auto odtiahnuté do 10 minút a za ďalších 30 som bol na ceste. Úžasné.</p>
           <footer>
             <cite>Matej</cite>
-            <span>Google Maps recenzia · zlatafirma.eu</span>
+            Google Maps recenzia · zdroj: <a href="https://www.zlatafirma.eu/company/paradajs-garage-571608" target="_blank" rel="noopener">zlatafirma.eu</a>
           </footer>
         </blockquote>
       </div>
     </div>
   </section>
 
-  <section data-section="contact" id="contact" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Spojte sa s nami</span>
-        <h2>Kontakt</h2>
-      </div>
+  <section data-section="about" data-reveal>
+    <div class="container about-wrap">
+      <span class="eyebrow">O nás</span>
+      <h2>Prečo Paradajs</h2>
+      <p>Sme dielňa postavená na remeselnej hrdosti — na aute aj na uniformách nosíme vlastné logo, lebo si za svojou prácou stojíme menom. Nejde nám o veľké reči, ale o to, aby lak z našich rúk vyzeral presne tak, ako má: ako z výroby.</p>
+      <p class="about-note">Presnejší príbeh firmy (roky pôsobenia, mená majiteľov a podobne) doplní a schváli klient.</p>
+    </div>
+  </section>
+
+  <section data-section="contact" data-reveal>
+    <div class="container">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Poďme na to</h2>
       <div class="contact-grid">
-        <ul class="contact-list">
-          <li>
-            <span class="ico"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.7 21 3 13.3 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span>
+        <div class="contact-card">
+          <div class="contact-row">
+            <span class="ic">📞</span>
             <div>
-              <span class="label">Telefón</span>
+              <div class="label">Telefón</div>
               <a href="tel:+421903940979">0903 940 979</a>
             </div>
-          </li>
-          <li>
-            <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg></span>
+          </div>
+          <div class="contact-row">
+            <span class="ic">📍</span>
             <div>
-              <span class="label">Adresa</span>
-              <span>Športová 23, Prievidza</span>
+              <div class="label">Adresa</div>
+              <div>Športová 23, Prievidza</div>
             </div>
-          </li>
-          <li>
-            <span class="ico"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm5.8-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg></span>
+          </div>
+          <div class="contact-row">
+            <span class="ic">📷</span>
             <div>
-              <span class="label">Instagram</span>
+              <div class="label">Instagram</div>
               <a href="https://www.instagram.com/paradajs_garage/" target="_blank" rel="noopener">@paradajs_garage</a>
             </div>
-          </li>
-        </ul>
-        <div class="map-box" role="img" aria-label="Orientačná mapa — Športová 23, Prievidza">
-          <svg viewBox="0 0 300 225" xmlns="http://www.w3.org/2000/svg">
-            <rect width="300" height="225" fill="#2a2420"/>
-            <path d="M0 60 H300 M0 120 H300 M0 170 H300" stroke="#3a332c" stroke-width="6"/>
-            <path d="M70 0 V225 M190 0 V225 M240 0 V225" stroke="#3a332c" stroke-width="6"/>
-            <circle cx="150" cy="112" r="9" fill="#e2793c"/>
-            <circle cx="150" cy="112" r="16" fill="none" stroke="#e2793c" stroke-width="2" opacity="0.5"/>
+          </div>
+        </div>
+        <div class="map-box" role="img" aria-label="Mapová ilustrácia s polohou Prievidza, Športová 23">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8z" fill="#e2793c"/>
+            <circle cx="12" cy="10" r="3.2" fill="#201c18"/>
           </svg>
-          <span class="map-pin-label">📍 Športová 23, Prievidza</span>
+          <span class="map-label">Prievidza · Športová 23</span>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="site-end">Paradajs Garage · Prievidza</footer>
-
 </main>
 
-<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+<footer class="site-end">
+  <p><strong>Paradajs Garage</strong> — Prievidza · Autolakovňa &amp; Detailing 🚗💨</p>
+</footer>
+
+<a class="badge-preview" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
 
 <script>
-  (function(){
-    var toggle = document.getElementById('menu-toggle');
-    var nav = document.getElementById('primary-nav');
-    if(toggle && nav){
-      toggle.addEventListener('click', function(){
-        var open = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-      nav.addEventListener('click', function(e){
-        if(e.target.tagName === 'A'){
-          nav.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
+(function(){
+  var sections = document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
         }
       });
-    }
-
-    var reveals = document.querySelectorAll('.reveal');
-    if('IntersectionObserver' in window){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if(entry.isIntersecting){
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
-      reveals.forEach(function(el){ io.observe(el); });
-    } else {
-      reveals.forEach(function(el){ el.classList.add('is-visible'); });
-    }
-  })();
+    }, {threshold: 0.12});
+    sections.forEach(function(s){ io.observe(s); });
+  } else {
+    sections.forEach(function(s){ s.classList.add('is-visible'); });
+  }
+})();
 </script>
 
 </body>

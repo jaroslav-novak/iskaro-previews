@@ -2,23 +2,24 @@
   "prospect_id": "a2945cca-8500-4e57-a213-4573da949051",
   "company_name": "Paradajs Garage",
   "slug": "paradajs-garage-prievidza",
-  "version": 1,
+  "version": 2,
   "template": "bespoke-v2",
-  "generated_at": "2026-07-15T20:50:09.428Z",
+  "generated_at": "2026-07-16T05:26:13.247Z",
   "generator": {
     "model": "claude-sonnet-5",
-    "duration_ms": 636679,
-    "cost_usd": 1.2860898,
-    "input_tokens": 566933,
-    "output_tokens": 40650
+    "duration_ms": 305715,
+    "cost_usd": 0.9706251000000001,
+    "input_tokens": 443258,
+    "output_tokens": 30082
   },
   "sections": [
     "hero",
     "trust",
-    "gallery",
+    "process",
     "services",
-    "about",
+    "gallery",
     "reviews",
+    "about",
     "contact"
   ]
 }
