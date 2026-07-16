@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Martin Hasák — Oprava a údržba automobilov, Prievidza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1F2A38;
+    --orange:#E2611A;
+    --cream:#F4F1EA;
+    --steel:#4A5A68;
+    --white:#FFFFFF;
+    --font-head:'Oswald', sans-serif;
+    --font-body:'Source Sans Pro', sans-serif;
+    --radius:4px;
+    --shadow:0 12px 30px -14px rgba(31,42,56,0.35);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--navy);
+    background:var(--cream);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  h1,h2,h3{font-family:var(--font-head);text-transform:uppercase;letter-spacing:0.03em;line-height:1.15;margin:0;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  ul,ol{margin:0;padding:0;list-style:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem;}
+  section{position:relative;}
+
+  /* ---------- reveal (only below-fold sections use .reveal) ---------- */
+  .reveal-init{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal-visible{opacity:1;transform:none;}
+
+  /* ---------- header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:40;
+    background:var(--white);
+    border-bottom:1px solid rgba(31,42,56,0.08);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0.9rem 1.25rem;
+  }
+  .wordmark{
+    font-family:var(--font-head);
+    font-size:1.25rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--navy);
+  }
+  .wordmark strong{color:var(--orange);font-weight:700;}
+  .header-phone{
+    display:inline-flex;align-items:center;gap:0.5rem;
+    border:1.5px solid var(--navy);
+    color:var(--navy);
+    font-weight:600;
+    font-size:0.9rem;
+    padding:0.5rem 0.9rem;
+    border-radius:999px;
+    white-space:nowrap;
+    transition:background .2s ease, color .2s ease;
+  }
+  .header-phone:hover{background:var(--navy);color:var(--white);}
+  .header-phone svg{width:16px;height:16px;flex:none;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:0.6rem;
+    font-family:var(--font-head);
+    font-size:1rem;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    padding:0.9rem 1.6rem;
+    border-radius:var(--radius);
+    font-weight:600;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--orange);color:var(--navy);box-shadow:var(--shadow);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -14px rgba(226,97,26,0.55);}
+  .btn-outline{border:1.5px solid var(--white);color:var(--white);}
+  .btn-outline:hover{background:var(--white);color:var(--navy);}
+  .btn svg{width:18px;height:18px;flex:none;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--navy);
+    color:var(--white);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    align-items:center;
+  }
+  .hero-text{padding:3.2rem 1.25rem 2.4rem;max-width:640px;margin:0 auto;}
+  .hero-eyebrow{
+    display:inline-block;
+    font-family:var(--font-head);
+    font-size:0.85rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--orange);
+    margin-bottom:1rem;
+  }
+  .hero-text h1{
+    font-size:clamp(2.1rem, 6vw, 3.4rem);
+    margin-bottom:1.1rem;
+  }
+  .hero-lead{
+    font-size:1.1rem;
+    color:var(--cream);
+    max-width:34rem;
+    margin-bottom:1.8rem;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:0.9rem;}
+  .hero-figure{
+    position:relative;
+    min-height:260px;
+  }
+  .hero-figure img{
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .hero-figure::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(31,42,56,0) 40%, rgba(31,42,56,0.35) 100%);
+  }
+
+  /* ---------- section heading pattern ---------- */
+  .section-pad{padding:4rem 0;}
+  .section-head{max-width:640px;margin:0 auto 2.4rem;text-align:center;}
+  .section-head h2{font-size:clamp(1.7rem, 4.5vw, 2.4rem);color:var(--navy);}
+  .section-head p{margin-top:0.9rem;color:var(--steel);font-size:1.05rem;}
+
+  /* ---------- trust ---------- */
+  .trust{background:var(--cream);}
+  .trust-grid{
+    display:grid;gap:1.25rem;
+    grid-template-columns:1fr;
+  }
+  .trust-card{
+    background:var(--white);
+    border-left:4px solid var(--orange);
+    border-radius:var(--radius);
+    padding:1.6rem 1.5rem;
+    box-shadow:var(--shadow);
+  }
+  .trust-card h3{
+    font-family:var(--font-head);
+    font-size:1.05rem;
+    text-transform:none;
+    letter-spacing:0;
+    margin-bottom:0.6rem;
+    color:var(--navy);
+  }
+  .trust-card p{color:var(--steel);font-size:0.98rem;}
+  .trust-icon{
+    width:38px;height:38px;
+    border-radius:50%;
+    background:rgba(226,97,26,0.12);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:1rem;
+  }
+  .trust-icon svg{width:19px;height:19px;color:var(--orange);}
+
+  /* ---------- services ---------- */
+  .services{background:var(--white);}
+  .services-grid{
+    display:grid;gap:1.25rem;
+    grid-template-columns:1fr;
+  }
+  .service-card{
+    background:var(--cream);
+    border-radius:var(--radius);
+    padding:1.8rem 1.5rem;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .service-card:hover{box-shadow:var(--shadow);transform:translateY(-3px);}
+  .service-icon{
+    width:44px;height:44px;
+    border-radius:var(--radius);
+    background:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:1.1rem;
+  }
+  .service-icon svg{width:22px;height:22px;color:var(--orange);}
+  .service-card h3{
+    font-family:var(--font-head);
+    font-size:1.1rem;
+    text-transform:none;
+    letter-spacing:0;
+    margin-bottom:0.5rem;
+    color:var(--navy);
+  }
+  .service-card p{color:var(--steel);font-size:0.96rem;}
+
+  /* ---------- gallery ---------- */
+  .gallery{background:var(--navy);color:var(--white);}
+  .gallery .section-head p{color:var(--cream);}
+  .gallery-grid{
+    display:grid;gap:1rem;
+    grid-template-columns:1fr;
+  }
+  .gallery-item{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 16px 32px -18px rgba(0,0,0,0.6);
+  }
+  .gallery-item img{
+    width:100%;height:280px;object-fit:cover;
+    transition:transform .5s ease;
+  }
+  .gallery-item:hover img{transform:scale(1.05);}
+  .gallery-item figcaption{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:0.9rem 1rem;
+    font-size:0.9rem;
+    background:linear-gradient(0deg, rgba(31,42,56,0.85), rgba(31,42,56,0));
+    color:var(--white);
+  }
+
+  /* ---------- process ---------- */
+  .process{background:var(--cream);}
+  .process-steps{
+    display:grid;gap:1.6rem;
+    grid-template-columns:1fr;
+    counter-reset:step;
+  }
+  .process-step{
+    position:relative;
+    padding-left:3.6rem;
+  }
+  .process-step::before{
+    counter-increment:step;
+    content:counter(step);
+    position:absolute;left:0;top:-0.2rem;
+    font-family:var(--font-head);
+    font-size:2.2rem;
+    font-weight:700;
+    color:var(--orange);
+    line-height:1;
+  }
+  .process-step h3{
+    font-family:var(--font-head);
+    font-size:1.05rem;
+    text-transform:none;
+    letter-spacing:0;
+    margin-bottom:0.4rem;
+    color:var(--navy);
+  }
+  .process-step p{color:var(--steel);font-size:0.96rem;}
+
+  /* ---------- area ---------- */
+  .area{background:var(--white);}
+  .area-grid{
+    display:grid;gap:2rem;
+    grid-template-columns:1fr;
+    align-items:center;
+  }
+  .area-text h2{font-size:clamp(1.7rem, 4.5vw, 2.4rem);color:var(--navy);margin-bottom:1rem;}
+  .area-text p{color:var(--steel);font-size:1.02rem;margin-bottom:0.9rem;}
+  .area-note{
+    display:inline-block;
+    border:1.5px dashed var(--steel);
+    border-radius:var(--radius);
+    padding:0.8rem 1rem;
+    font-size:0.92rem;
+    color:var(--navy);
+  }
+  .area-badge{
+    justify-self:center;
+    width:100%;
+    max-width:280px;
+    aspect-ratio:1;
+    border-radius:50%;
+    background:var(--cream);
+    border:2px solid rgba(226,97,26,0.4);
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;
+    gap:0.4rem;
+    text-align:center;
+  }
+  .area-badge svg{width:44px;height:44px;color:var(--orange);}
+  .area-badge span{
+    font-family:var(--font-head);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--navy);
+    font-size:1.1rem;
+  }
+
+  /* ---------- contact ---------- */
+  .contact{
+    background:var(--navy);
+    color:var(--white);
+    text-align:center;
+  }
+  .contact h2{color:var(--white);font-size:clamp(1.7rem, 4.5vw, 2.4rem);}
+  .contact p{color:var(--cream);margin:1rem auto 1.8rem;max-width:32rem;font-size:1.05rem;}
+  .contact-phone{
+    display:inline-flex;align-items:center;gap:0.8rem;
+    font-family:var(--font-head);
+    font-size:clamp(1.8rem, 5vw, 2.6rem);
+    color:var(--orange);
+    padding:0.4rem 0;
+    border-bottom:2px solid transparent;
+    transition:border-color .2s ease;
+  }
+  .contact-phone:hover{border-color:var(--orange);}
+  .contact-phone svg{width:28px;height:28px;flex:none;}
+
+  /* ---------- footer ---------- */
+  .site-footer{
+    background:var(--navy);
+    color:var(--steel);
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding:1.6rem 0;
+    font-size:0.85rem;
+    text-align:center;
+  }
+  .site-footer a{color:var(--cream);}
+
+  /* ---------- preview badge ---------- */
+  .preview-badge{
+    position:fixed;
+    right:1rem;bottom:1rem;
+    z-index:60;
+    background:rgba(31,42,56,0.92);
+    color:var(--white);
+    font-size:0.72rem;
+    padding:0.5rem 0.85rem;
+    border-radius:999px;
+    box-shadow:0 8px 20px -8px rgba(0,0,0,0.5);
+    backdrop-filter:blur(4px);
+  }
+  .preview-badge strong{color:var(--orange);}
+
+  /* ---------- responsive ---------- */
+  @media (min-width:640px){
+    .trust-grid,.services-grid{grid-template-columns:repeat(2,1fr);}
+    .process-steps{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (min-width:900px){
+    .hero-grid{grid-template-columns:1.05fr 0.95fr;}
+    .hero-text{padding:5rem 3rem 5rem 1.25rem;margin:0;max-width:none;}
+    .hero-figure{min-height:100%;}
+    .services-grid{grid-template-columns:repeat(4,1fr);}
+    .gallery-grid{grid-template-columns:repeat(3,1fr);}
+    .process-steps{grid-template-columns:repeat(5,1fr);}
+    .area-grid{grid-template-columns:1.2fr 0.8fr;}
+    .trust-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media (min-width:1200px){
+    .hero-text{padding-left:0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <span class="wordmark">Martin <strong>Hasák</strong></span>
+    <a class="header-phone" href="tel:+421465471957">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.3 1.6.54 2.37a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.71-1.11a2 2 0 0 1 2.11-.45c.77.24 1.56.42 2.37.54A2 2 0 0 1 22 16.92z"/></svg>
+      046 547 19 57
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <section data-section="hero" class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="hero-eyebrow">Prievidza · Autoservis</span>
+        <h1>Oprava a údržba automobilov</h1>
+        <p class="hero-lead">Martin Hasák — poctivá práca na vašom aute, bez zbytočných rečí. Zavolajte, povieme si, čo je treba, a dohodneme termín.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+421465471957">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.3 1.6.54 2.37a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.71-1.11a2 2 0 0 1 2.11-.45c.77.24 1.56.42 2.37.54A2 2 0 0 1 22 16.92z"/></svg>
+            Zavolať: 046 547 19 57
+          </a>
+          <a class="btn btn-outline" href="#kontakt">Kontakt</a>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <img src="assets/stock-09.jpg" alt="Mechanik pri oprave motora v dielni">
+      </figure>
+    </div>
+  </section>
+
+  <section data-section="trust" class="trust section-pad">
+    <div class="wrap">
+      <div class="section-head reveal-init">
+        <h2>Poctivá práca, jasná cena</h2>
+        <p>Auto je pre vás dôležité, preto vám k nemu poviem pravdu — čo treba opraviť, čo môže počkať, a koľko to bude stáť ešte predtým, než sa do toho pustím.</p>
+      </div>
+      <div class="trust-grid reveal-init">
+        <article class="trust-card">
+          <span class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+          </span>
+          <h3>Rovno vám poviem, na čom ste</h3>
+          <p>Žiadne obchádzanie okolo horúcej kaše — poviem vám, čo auto skutočne potrebuje.</p>
+        </article>
+        <article class="trust-card">
+          <span class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </span>
+          <h3>Cena vopred, bez prekvapení</h3>
+          <p>Sumu si dohodneme ešte pred opravou, aby ste vedeli, s čím počítať.</p>
+        </article>
+        <article class="trust-card">
+          <span class="trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </span>
+          <h3>Práca, na ktorú sa dá spoľahnúť</h3>
+          <p>Robím to poriadne, aby ste sa k opravenej veci nemuseli vracať skoro znova.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" class="services section-pad">
+    <div class="wrap">
+      <div class="section-head reveal-init">
+        <h2>Čo pre vaše auto urobíme</h2>
+        <p>Bežná servisná starostlivosť o osobné autá — od diagnostiky až po prípravu na kontrolu.</p>
+      </div>
+      <div class="services-grid reveal-init">
+        <article class="service-card">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </span>
+          <h3>Diagnostika</h3>
+          <p>Zistíme, čo autu skutočne chýba, ešte pred tým, než sa pustíme do opravy.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </span>
+          <h3>Opravy</h3>
+          <p>Odstránime poruchy a chyby, ktoré vám auto hlási alebo ktoré nájdeme pri kontrole.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </span>
+          <h3>Bežná údržba</h3>
+          <p>Pravidelná starostlivosť, ktorá autu predlžuje život a šetrí vám starosti.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </span>
+          <h3>Príprava na STK/EK</h3>
+          <p>Prejdeme auto tak, aby ste na kontrolu išli s pokojnou hlavou.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="gallery" class="gallery section-pad">
+    <div class="wrap">
+      <div class="section-head reveal-init">
+        <h2>Dielňa a náradie</h2>
+        <p>Prostredie, v ktorom sa o vaše auto postaráme.</p>
+      </div>
+      <div class="gallery-grid reveal-init">
+        <figure class="gallery-item">
+          <img src="assets/stock-05.jpg" alt="Priestor dielne s náradím a zdvihákom na autá">
+          <figcaption>Naša dielňa</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/stock-06.jpg" alt="Auto v dielni obklopené náradím a vybavením">
+          <figcaption>Náradie po ruke</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/stock-11.jpg" alt="Diagnostické zariadenie pripojené na motore auta">
+          <figcaption>Diagnostika priamo na mieste</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="process" class="process section-pad">
+    <div class="wrap">
+      <div class="section-head reveal-init">
+        <h2>Ako to prebieha</h2>
+        <p>Od telefonátu po vyzdvihnutie auta — bez zbytočných krokov navyše.</p>
+      </div>
+      <ol class="process-steps reveal-init">
+        <li class="process-step">
+          <h3>Zavoláte</h3>
+          <p>Poviete mi, s čím máte problém alebo čo auto potrebuje.</p>
+        </li>
+        <li class="process-step">
+          <h3>Dohodneme termín</h3>
+          <p>Nájdeme čas, ktorý vám aj mne vyhovuje.</p>
+        </li>
+        <li class="process-step">
+          <h3>Diagnostika</h3>
+          <p>Pozriem sa na auto a poviem vám, čo je skutočne potrebné.</p>
+        </li>
+        <li class="process-step">
+          <h3>Oprava</h3>
+          <p>Pustím sa do práce po tom, čo sa dohodneme na rozsahu aj cene.</p>
+        </li>
+        <li class="process-step">
+          <h3>Vyzdvihnutie</h3>
+          <p>Prevezmete si hotové auto, pripravené na cestu.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section data-section="area" class="area section-pad">
+    <div class="wrap area-grid">
+      <div class="area-text reveal-init">
+        <h2>Prievidza a okolie</h2>
+        <p>Autá opravujem v Prievidzi. Ak bývate v okolí, vieme sa dohodnúť aj na vzdialenejšom termíne.</p>
+        <span class="area-note">Presné miesto dielne si dohodneme telefonicky pri objednaní.</span>
+      </div>
+      <div class="area-badge reveal-init">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Prievidza</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="contact" id="kontakt" class="contact section-pad">
+    <div class="wrap">
+      <h2>Kontaktujte nás</h2>
+      <p>Najrýchlejšie sa dohodneme telefonicky. Zavolajte a poviete mi, s čím vám môžem pomôcť.</p>
+      <a class="contact-phone" href="tel:+421465471957">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.3 1.6.54 2.37a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.71-1.11a2 2 0 0 1 2.11-.45c.77.24 1.56.42 2.37.54A2 2 0 0 1 22 16.92z"/></svg>
+        046 547 19 57
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Martin Hasák — Oprava a údržba automobilov, Prievidza · <a href="tel:+421465471957">046 547 19 57</a></p>
+  </div>
+</footer>
+
+<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var els = document.querySelectorAll('.reveal-init');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('reveal-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
