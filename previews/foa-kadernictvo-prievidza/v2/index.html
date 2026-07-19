@@ -244,12 +244,13 @@
     display:inline-block;
   }
 
-  [data-reveal]{
+  /* Reveal len ako progressive enhancement — bez JS je obsah plne viditeľný. */
+  .js [data-reveal]{
     opacity:0;
     transform:translateY(18px);
     transition:opacity .6s ease, transform .6s ease;
   }
-  [data-reveal].is-visible{
+  .js [data-reveal].is-visible{
     opacity:1;
     transform:translateY(0);
   }
@@ -731,6 +732,7 @@
 
 <script>
 (function(){
+  document.documentElement.classList.add('js');
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('site-nav');
   if(toggle && nav){
