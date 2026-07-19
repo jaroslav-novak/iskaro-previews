@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>FOA Kaderníctvo — kaderníctvo v Prievidzi od roku 2000</title>
+<meta name="description" content="FOA Kaderníctvo — zabehnutý prievidzský salón od roku 2000. Zavolajte a objednajte sa: 0915 260 267.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #e5262b;
+    --dark: #262626;
+    --white: #ffffff;
+    --grey-line: #e6e3e1;
+    --grey-bg: #f7f5f4;
+    --grey-text: #5b5754;
+    --radius: 2px;
+    --max: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Work Sans", sans-serif;
+    color: var(--dark);
+    background: var(--white);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .brand {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header.site-header {
+    background: var(--dark);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.4);
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+  }
+
+  .brand {
+    color: var(--red);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    display: inline-flex;
+    text-decoration: none;
+  }
+
+  .brand .swoosh-a { position: relative; display: inline-block; }
+  .brand .swoosh-a::before {
+    content: "";
+    position: absolute;
+    top: -0.42em;
+    left: 50%;
+    width: 0.85em;
+    height: 0.4em;
+    border-top: 3px solid currentColor;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    transform: translateX(-50%) rotate(-8deg);
+  }
+
+  nav.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav.main-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  nav.main-nav a:hover,
+  nav.main-nav a:focus-visible { border-color: var(--red); color: var(--red); }
+
+  .header-cta {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 780px) {
+    nav.main-nav { display: none; width: 100%; }
+    nav.main-nav.open { display: block; }
+    nav.main-nav ul {
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 0 16px;
+    }
+    nav.main-nav a {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .header-row { flex-wrap: wrap; }
+    .nav-toggle { display: block; }
+  }
+
+  /* ---------- HERO (fully visible on load, no reveal animation) ---------- */
+  section[data-section="hero"] {
+    background: var(--white);
+    padding: 64px 0 56px;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    color: var(--red);
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+    line-height: 1.12;
+    font-weight: 700;
+    color: var(--dark);
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .hero p.lead {
+    margin: 24px 0 32px;
+    font-size: 1.08rem;
+    color: var(--grey-text);
+    max-width: 46ch;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1rem;
+    padding: 17px 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(229, 38, 43, 0.28);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    border: 2px solid var(--red);
+  }
+  .btn:hover, .btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(229, 38, 43, 0.36);
+    background: #c81f24;
+    border-color: #c81f24;
+  }
+  .btn.ghost {
+    background: transparent;
+    color: var(--dark);
+    border: 2px solid var(--dark);
+    box-shadow: none;
+  }
+  .btn.ghost:hover, .btn.ghost:focus-visible {
+    background: var(--dark);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+
+  .hero-media {
+    position: relative;
+  }
+  .hero-media .frame {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 24px 48px -20px rgba(38,38,38,0.35);
+  }
+  .hero-media img { width: 100%; height: 460px; object-fit: cover; }
+  .hero-note {
+    position: absolute;
+    bottom: -18px;
+    left: -18px;
+    background: var(--white);
+    border: 1px solid var(--grey-line);
+    padding: 10px 16px;
+    font-size: 0.78rem;
+    color: var(--grey-text);
+    max-width: 220px;
+    box-shadow: 0 10px 24px -12px rgba(0,0,0,0.2);
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-media { order: -1; }
+    .hero-media img { height: 300px; }
+    .hero-note { display: none; }
+  }
+
+  /* ---------- REVEAL (below-fold only) ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- TRUST ---------- */
+  section[data-section="trust"] {
+    background: var(--dark);
+    color: var(--white);
+    padding: 40px 0;
+  }
+  .trust-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .trust-item {
+    text-align: center;
+    padding: 0 12px;
+    border-left: 1px solid rgba(255,255,255,0.12);
+  }
+  .trust-item:first-child { border-left: none; }
+  .trust-num {
+    font-family: "Oswald", sans-serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--red);
+    display: block;
+    line-height: 1;
+  }
+  .trust-label {
+    font-size: 0.86rem;
+    color: rgba(255,255,255,0.78);
+    margin-top: 8px;
+    display: block;
+  }
+  .trust-item a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  .trust-item a:hover { color: var(--red); }
+
+  @media (max-width: 700px) {
+    .trust-row { grid-template-columns: 1fr; gap: 20px; }
+    .trust-item { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; }
+    .trust-item:first-child { border-top: none; padding-top: 0; }
+  }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section { padding: 88px 0; }
+  .section-head {
+    max-width: 640px;
+    margin: 0 0 48px;
+  }
+  .section-head .kicker {
+    color: var(--red);
+    font-family: "Oswald", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+    font-weight: 700;
+  }
+
+  /* ---------- ABOUT ---------- */
+  section[data-section="about"] { background: var(--grey-bg); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .placeholder-frame {
+    border: 2px dashed #c7c2be;
+    background: #efece9;
+    color: #857f79;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 24px;
+    line-height: 1.5;
+  }
+  .placeholder-frame span { max-width: 22ch; }
+  .about-photo { aspect-ratio: 3 / 4; }
+  .about-copy p { margin: 0 0 18px; color: var(--grey-text); font-size: 1.02rem; }
+  .about-copy p:first-of-type {
+    font-size: 1.14rem;
+    color: var(--dark);
+  }
+  .about-signoff {
+    margin-top: 28px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1.05rem;
+  }
+  .about-signoff span {
+    display: block;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    color: var(--grey-text);
+    font-size: 0.85rem;
+    text-transform: none;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-photo { aspect-ratio: 16 / 10; }
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .service-card {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 18px 36px -22px rgba(38,38,38,0.4);
+  }
+  .service-card img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+  }
+  .service-card figcaption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    background: linear-gradient(0deg, rgba(38,38,38,0.88) 0%, rgba(38,38,38,0) 100%);
+    color: var(--white);
+    padding: 60px 22px 20px;
+  }
+  .service-card figcaption h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .services-note {
+    margin-top: 28px;
+    color: var(--grey-text);
+    font-size: 0.94rem;
+    max-width: 60ch;
+  }
+
+  @media (max-width: 700px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- GALLERY ---------- */
+  section[data-section="gallery"] { background: var(--grey-bg); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .gallery-grid .placeholder-frame {
+    aspect-ratio: 4 / 3;
+    font-size: 0.82rem;
+  }
+  .gallery-grid .placeholder-frame:nth-child(3n+1) { aspect-ratio: 4/5; }
+
+  @media (max-width: 860px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  blockquote {
+    margin: 0;
+    background: var(--white);
+    border: 1px solid var(--grey-line);
+    border-left: 4px solid var(--red);
+    padding: 26px 28px;
+    border-radius: var(--radius);
+  }
+  blockquote p {
+    margin: 0 0 16px;
+    font-size: 1.02rem;
+    color: var(--dark);
+    font-style: italic;
+  }
+  blockquote p::before { content: "\201E"; }
+  blockquote p::after { content: "\201C"; }
+  blockquote footer {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.8rem;
+    color: var(--grey-text);
+  }
+  blockquote footer cite { font-style: normal; }
+  .review-wide { grid-column: 1 / -1; }
+
+  @media (max-width: 780px) {
+    .reviews-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- HOURS ---------- */
+  section[data-section="hours"] { background: var(--dark); color: var(--white); }
+  section[data-section="hours"] .section-head .kicker { color: var(--red); }
+  section[data-section="hours"] .section-head h2 { color: var(--white); }
+  .hours-table {
+    width: 100%;
+    max-width: 560px;
+    border-collapse: collapse;
+  }
+  .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .hours-table tr:last-child { border-bottom: none; }
+  .hours-table td {
+    padding: 16px 4px;
+    font-size: 1.05rem;
+  }
+  .hours-table td:first-child {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+  .hours-table td:last-child { text-align: right; color: rgba(255,255,255,0.9); }
+  .hours-table .closed td:last-child { color: rgba(255,255,255,0.45); }
+  .hours-note {
+    margin-top: 24px;
+    font-size: 0.86rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 52ch;
+  }
+
+  /* ---------- CTA BAND ---------- */
+  section[data-section="cta_band"] {
+    background: var(--white);
+    text-align: center;
+    padding: 96px 0;
+  }
+  section[data-section="cta_band"] h2 {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    margin-bottom: 18px;
+  }
+  section[data-section="cta_band"] p {
+    color: var(--grey-text);
+    margin-bottom: 34px;
+    font-size: 1.05rem;
+  }
+  .btn.big {
+    font-size: 1.35rem;
+    padding: 24px 46px;
+  }
+  .btn.big svg { width: 24px; height: 24px; }
+
+  /* ---------- CONTACT ---------- */
+  section[data-section="contact"] { background: var(--grey-bg); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .contact-block h3 {
+    font-size: 1rem;
+    color: var(--red);
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+  }
+  .contact-block a.contact-link {
+    display: inline-block;
+    font-size: 1.15rem;
+    text-decoration: none;
+    color: var(--dark);
+    border-bottom: 2px solid var(--red);
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+  }
+  .contact-block a.contact-link:hover { color: var(--red); }
+  .contact-block p.muted {
+    color: var(--grey-text);
+    font-size: 0.92rem;
+    margin-top: 8px;
+  }
+  .social-row { display: flex; gap: 14px; margin-top: 6px; flex-wrap: wrap; }
+  .social-row a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--dark);
+    border: 1px solid var(--grey-line);
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    background: var(--white);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .social-row a:hover { border-color: var(--red); color: var(--red); }
+  .social-row svg { width: 16px; height: 16px; }
+
+  @media (max-width: 780px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer.site-footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 0.82rem;
+  }
+  footer.site-footer .brand { font-size: 1.1rem; margin-bottom: 6px; display: inline-flex; }
+
+  /* ---------- BADGE ---------- */
+  .preview-badge {
+    position: fixed;
+    right: 14px;
+    bottom: 14px;
+    z-index: 100;
+    background: rgba(38,38,38,0.92);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.72rem;
+    padding: 9px 14px;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    backdrop-filter: blur(2px);
+  }
+  .preview-badge strong { color: var(--red); }
+  .preview-badge:hover { background: var(--dark); }
+
+  @media (max-width: 520px) {
+    .preview-badge { font-size: 0.66rem; padding: 7px 11px; right: 10px; bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-row">
+    <a href="#hero" class="brand" aria-label="FOA Kaderníctvo — domov">FO<span class="swoosh-a">A</span></a>
+    <nav class="main-nav" id="mainNav" aria-label="Hlavná navigácia">
+      <ul>
+        <li><a href="#about">Náš príbeh</a></li>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#gallery">Salón</a></li>
+        <li><a href="#reviews">Recenzie</a></li>
+        <li><a href="#hours">Otváracie hodiny</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="mainNav">&#9776;</button>
+  </div>
+</header>
+
+<main>
+
+  <section data-section="hero" id="hero" aria-labelledby="hero-heading">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="hero-eyebrow">Prievidza · kaderníctvo od roku 2000</span>
+        <h1 id="hero-heading">FOA Kaderníctvo — kaderníctvo<br>v Prievidzi <em>od roku 2000</em></h1>
+        <p class="lead">Zavolajte a dohodneme si presný termín. Bez objednávkového formulára, bez čakania na odpoveď — stačí jeden telefonát.</p>
+        <a class="btn" href="tel:+421915260267">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0915 260 267
+        </a>
+      </div>
+      <div class="hero-media">
+        <div class="frame">
+          <img src="assets/stock-02.jpg" alt="Moderný svetlý interiér kaderníctva — ilustračná fotografia" width="640" height="460">
+        </div>
+        <p class="hero-note">Miesto pre skutočnú fotku salónu FOA Kaderníctvo — nahradíme hneď, ako ju dodáte.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="trust" aria-label="Dôveryhodné čísla">
+    <div class="wrap trust-row">
+      <div class="trust-item">
+        <span class="trust-num">2000</span>
+        <span class="trust-label">Rok, odkedy v Prievidzi strihá a farbí naša klientela</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">76</span>
+        <span class="trust-label">Recenzií zákazníčok na <a href="https://slovenskobcan.com/kadernictvo/trenciansky/foa-kadernictvo/" target="_blank" rel="noopener">slovenskobcan.com</a></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">1116</span>
+        <span class="trust-label">Príspevkov a ~759 sledovateľov na <a href="https://www.instagram.com/foakadernictvo/" target="_blank" rel="noopener">Instagrame @foakadernictvo</a></span>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" id="about" class="reveal" aria-labelledby="about-heading">
+    <div class="wrap about-grid">
+      <div class="placeholder-frame about-photo">
+        <span>Miesto pre fotografiu Maje Krpelanovej — doplníme po dodaní od klientky</span>
+      </div>
+      <div class="about-copy">
+        <div class="section-head" style="margin-bottom:24px;">
+          <span class="kicker">Kto sme</span>
+          <h2 id="about-heading">Náš príbeh</h2>
+        </div>
+        <p>Kaderníctvo FOA vediem od roku 2000. Za tie roky prešlo mojimi rukami veľa hláv aj veľa príbehov — a som vďačná za každú klientku, ktorá sa k nám vracia rok čo rok.</p>
+        <p>Záleží mi na tom, aby ste sa u nás cítili príjemne od prvej minúty: čistý a upravený priestor, príjemná hudba na pozadí a milý personál, ktorý si na vás urobí čas. Súčasťou návštevy je aj dobrá káva — malá vec, ktorá vie spríjemniť čakanie.</p>
+        <p>Ďakujem každej jednej z vás za dôveru a dlhoročnú priazeň. Teším sa na ďalšie stretnutie u nás v salóne.</p>
+        <p class="about-signoff">Maja Krpelanová<span>majiteľka FOA Kaderníctvo</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" id="services" class="reveal" aria-labelledby="services-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Ponuka</span>
+        <h2 id="services-heading">Služby</h2>
+      </div>
+      <div class="services-grid">
+        <figure class="service-card">
+          <img src="assets/stock-08.jpg" alt="Kaderníčka aplikuje farbu na vlasy klientky" width="600" height="340">
+          <figcaption><h3>Dámske kaderníctvo</h3></figcaption>
+        </figure>
+        <figure class="service-card">
+          <img src="assets/stock-06.jpg" alt="Kaderník strihá vlasy klientovi v salóne" width="600" height="340">
+          <figcaption><h3>Pánske kaderníctvo</h3></figcaption>
+        </figure>
+      </div>
+      <p class="services-note">Presný cenník vám radi povieme telefonicky — líši sa podľa dĺžky vlasov a zvoleného úkonu.</p>
+    </div>
+  </section>
+
+  <section data-section="gallery" id="gallery" class="reveal" aria-labelledby="gallery-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Nahliadnite k nám</span>
+        <h2 id="gallery-heading">Náš salón</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="placeholder-frame"><span>Miesto pre fotku interiéru salónu</span></div>
+        <div class="placeholder-frame"><span>Miesto pre fotku z Instagramu @foakadernictvo</span></div>
+        <div class="placeholder-frame"><span>Miesto pre fotku pracovného kúta</span></div>
+        <div class="placeholder-frame"><span>Miesto pre fotku výsledku práce klientky</span></div>
+        <div class="placeholder-frame"><span>Miesto pre fotku tímu pri práci</span></div>
+        <div class="placeholder-frame"><span>Miesto pre ďalšiu fotku salónu</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="reviews" id="reviews" class="reveal" aria-labelledby="reviews-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Referencie</span>
+        <h2 id="reviews-heading">Čo hovoria zákazníčky</h2>
+      </div>
+      <div class="reviews-grid">
+        <blockquote>
+          <p>Som dlhoročná zákazníčka majiteľky Majky a jej úžasného salónu❤️ Vždy je milá,usmiata, vie poradiť farbu,strih</p>
+          <footer><cite>P. O.</cite> · slovenskobcan.com</footer>
+        </blockquote>
+        <blockquote>
+          <p>Krásna balayage! Ďakujem kaderníčke Radomíre za perfektnú balayage napriek mojim poodfarbovanym vlasom.</p>
+          <footer><cite>S. S.</cite> · slovenskobcan.com</footer>
+        </blockquote>
+        <blockquote>
+          <p>Kaderníctvo som našla, keď som sa potrebovala ostrihať bez objednania. Mala som šťastie a zobrali ma</p>
+          <footer><cite>K. G.</cite> · slovenskobcan.com</footer>
+        </blockquote>
+        <blockquote>
+          <p>Velka spokojnosť so strihom, rano som zavolala a na obed som hneď aj išla, mila kadernička</p>
+          <footer><cite>M. M.</cite> · slovenskobcan.com</footer>
+        </blockquote>
+        <blockquote class="review-wide">
+          <p>Majka Krpelanova je najlepšia kaderníčka podľa mňa.🌹👍👍.Opät ma len ona ostrihala suprovo.</p>
+          <footer><cite>Ž. R.</cite> · slovenskobcan.com</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="hours" id="hours" class="reveal" aria-labelledby="hours-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Kedy nás nájdete</span>
+        <h2 id="hours-heading">Otváracie hodiny</h2>
+      </div>
+      <table class="hours-table">
+        <tbody>
+          <tr><td>Utorok — Štvrtok</td><td>8:30 – 19:00</td></tr>
+          <tr><td>Piatok — Sobota</td><td>8:30 – 18:00</td></tr>
+          <tr class="closed"><td>Pondelok</td><td>zatvorené</td></tr>
+          <tr class="closed"><td>Nedeľa</td><td>zatvorené</td></tr>
+        </tbody>
+      </table>
+      <p class="hours-note">Pred prvou návštevou si prosím termín aj hodiny radšej telefonicky potvrďte — najmä pred sviatkami môžu byť výnimočne upravené.</p>
+    </div>
+  </section>
+
+  <section data-section="cta_band" aria-labelledby="cta-heading">
+    <div class="wrap">
+      <h2 id="cta-heading">Objednajte sa telefonicky</h2>
+      <p>Žiadny formulár, žiadne čakanie na odpoveď — jeden telefonát a máte termín.</p>
+      <a class="btn big" href="tel:+421915260267">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0915 260 267
+      </a>
+    </div>
+  </section>
+
+  <section data-section="contact" id="contact" class="reveal" aria-labelledby="contact-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Spojte sa s nami</span>
+        <h2 id="contact-heading">Kontakt</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-block">
+          <h3>Telefón</h3>
+          <a class="contact-link" href="tel:+421915260267">0915 260 267</a>
+          <p class="muted">Adresa salónu: momentálne si ju s majiteľkou overujeme, čoskoro doplníme. Do príchodu nás prosím kontaktujte telefonicky.</p>
+        </div>
+        <div class="contact-block">
+          <h3>Sociálne siete</h3>
+          <div class="social-row">
+            <a href="https://www.instagram.com/foakadernictvo/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/p/FOA-Kadern%C3%ADctvo-100063505392606/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span class="brand">FO<span class="swoosh-a">A</span></span>
+  <div>Kaderníctvo v Prievidzi od roku 2000</div>
+</footer>
+
+<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && reveals.length) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function (el) { observer.observe(el); });
+    } else {
+      reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>
