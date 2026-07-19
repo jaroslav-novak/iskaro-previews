@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Promo Servis — Autoservis a pneuservis Prievidza</title>
+<meta name="description" content="Promo Servis Prievidza — rodinný autoservis a pneuservis. Opravy do 24 hodín, pneuservis na počkanie, osobný a férový prístup. Zavolajte na 0917 138 528.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#e2141f;
+    --red-dark:#b30f18;
+    --ink:#1a1a1a;
+    --paper:#ffffff;
+    --cream:#fff5f5;
+    --line:#f0d9da;
+    --shadow:0 12px 28px -14px rgba(26,26,26,.28);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Lato",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .container{
+    width:100%;
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+  h1,h2,h3{
+    font-family:"Lato",Arial,sans-serif;
+    color:var(--ink);
+    margin:0 0 .5em;
+    line-height:1.15;
+  }
+  h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:900;}
+  h2{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:900;}
+  h3{font-size:1.15rem;font-weight:700;}
+  p{margin:0 0 1em;}
+  .eyebrow{
+    display:inline-block;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:.78rem;
+    color:var(--red);
+    margin-bottom:.6em;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.55em;
+    font-family:"Lato",Arial,sans-serif;
+    font-weight:700;
+    font-size:1.125rem;
+    text-decoration:none;
+    padding:1em 1.6em;
+    border-radius:999px;
+    border:2px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--red);
+    color:#fff;
+    box-shadow:0 10px 24px -8px rgba(226,20,31,.55);
+  }
+  .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--paper);
+    border-color:rgba(255,255,255,.75);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.12);}
+  .btn-outline{
+    background:transparent;
+    color:var(--red);
+    border-color:var(--red);
+  }
+  .btn-outline:hover{background:var(--cream);}
+  .btn svg{width:1.2em;height:1.2em;flex:none;}
+
+  /* Header */
+  .site-header{
+    position:sticky;top:0;z-index:40;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .container{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:12px;padding-bottom:12px;
+  }
+  .brand{display:flex;align-items:center;gap:.6em;text-decoration:none;}
+  .brand img{height:44px;width:auto;}
+  .nav-links{
+    display:none;
+    gap:1.8em;
+    list-style:none;margin:0;padding:0;
+    font-weight:700;font-size:.95rem;
+  }
+  .nav-links a{text-decoration:none;color:var(--ink);position:relative;padding:.2em 0;}
+  .nav-links a:hover{color:var(--red);}
+  .header-actions{display:flex;align-items:center;gap:.8em;}
+  .call-pill{
+    display:inline-flex;align-items:center;gap:.5em;
+    background:var(--red);color:#fff;
+    padding:.65em 1.1em;border-radius:999px;
+    font-weight:700;text-decoration:none;font-size:.95rem;
+    white-space:nowrap;
+    box-shadow:0 8px 18px -8px rgba(226,20,31,.55);
+  }
+  .call-pill:hover{background:var(--red-dark);}
+  .menu-toggle{
+    display:inline-flex;background:none;border:2px solid var(--line);
+    border-radius:10px;padding:.5em;cursor:pointer;
+  }
+  .menu-toggle svg{width:22px;height:22px;}
+  @media(min-width:900px){
+    .nav-links{display:flex;}
+    .menu-toggle{display:none;}
+  }
+  .mobile-nav{
+    display:none;
+    border-top:1px solid var(--line);
+    background:#fff;
+  }
+  .mobile-nav.open{display:block;}
+  .mobile-nav ul{list-style:none;margin:0;padding:12px 20px 18px;display:grid;gap:.9em;font-weight:700;}
+  .mobile-nav a{text-decoration:none;color:var(--ink);}
+  @media(min-width:900px){.mobile-nav{display:none !important;}}
+
+  /* Hero */
+  .hero{position:relative;color:#fff;overflow:hidden;}
+  .hero-media{position:absolute;inset:0;z-index:0;}
+  .hero-media img{width:100%;height:100%;object-fit:cover;}
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(26,26,26,.55) 0%,rgba(26,26,26,.72) 55%,rgba(26,26,26,.88) 100%);
+  }
+  .hero-inner{
+    position:relative;z-index:1;
+    padding:110px 0 72px;
+    max-width:720px;
+  }
+  .hero p.lead{font-size:1.15rem;color:#f5f5f5;max-width:52ch;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:.9em;margin-top:1.6em;}
+  .hero-note{
+    margin-top:1.6em;font-size:.92rem;color:#f0e0e0;
+    display:flex;align-items:center;gap:.5em;
+  }
+
+  /* Section rhythm */
+  section{padding:64px 0;}
+  section.band-cream{background:var(--cream);}
+  .section-head{max-width:640px;margin:0 auto 2.4em;text-align:center;}
+  .section-head p{color:#4a4a4a;font-size:1.05rem;}
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* Trust */
+  .trust-grid{
+    display:grid;gap:1.4em;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:760px){.trust-grid{grid-template-columns:repeat(3,1fr);}}
+  .trust-card{
+    background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.8em 1.6em;
+    box-shadow:var(--shadow);
+  }
+  .trust-card .num{
+    font-weight:900;font-size:2.1rem;color:var(--red);
+    display:block;margin-bottom:.2em;
+  }
+  .trust-card h3{margin-bottom:.5em;}
+  .trust-card p{color:#4a4a4a;font-size:.98rem;margin:0;}
+
+  /* About */
+  .about-wrap{
+    max-width:760px;margin:0 auto;
+    background:#fff;border-left:5px solid var(--red);
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:2em 2.2em;
+    box-shadow:var(--shadow);
+  }
+  .about-wrap p{font-size:1.05rem;color:#333;}
+  .about-wrap p:last-child{margin-bottom:0;}
+  .signoff{font-weight:700;color:var(--red);margin-top:1.4em;}
+
+  /* Services */
+  .services-grid{
+    display:grid;gap:1.6em;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:760px){.services-grid{grid-template-columns:repeat(3,1fr);}}
+  .service-card{
+    background:#fff;border-radius:var(--radius);
+    overflow:hidden;border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    display:flex;flex-direction:column;
+  }
+  .service-card .thumb{aspect-ratio:4/3;overflow:hidden;}
+  .service-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+  .service-card:hover .thumb img{transform:scale(1.06);}
+  .service-card .body{padding:1.5em 1.4em 1.7em;flex:1;}
+  .service-card h3{color:var(--red);}
+  .service-card ul{margin:.8em 0 0;padding-left:1.1em;color:#3f3f3f;font-size:.95rem;}
+  .service-card li{margin-bottom:.35em;}
+  .service-card p{color:#3f3f3f;font-size:.97rem;}
+
+  /* Reviews */
+  .reviews-grid{
+    display:grid;gap:1.4em;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:760px){.reviews-grid{grid-template-columns:repeat(3,1fr);}}
+  blockquote{
+    margin:0;background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);padding:1.8em 1.6em;
+    box-shadow:var(--shadow);position:relative;
+  }
+  blockquote::before{
+    content:"\201C";
+    font-family:Georgia,serif;
+    font-size:3.4rem;color:var(--red);
+    line-height:1;display:block;margin-bottom:.1em;
+    opacity:.85;
+  }
+  blockquote p{font-size:1.02rem;color:#2a2a2a;font-style:italic;margin:0 0 1em;}
+  blockquote footer{font-size:.9rem;font-weight:700;color:var(--red);font-style:normal;}
+  blockquote cite{font-style:normal;}
+
+  /* Hours */
+  .hours-card{
+    max-width:520px;margin:0 auto;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .hours-row{
+    display:flex;justify-content:space-between;
+    padding:1.05em 1.6em;font-weight:700;
+    border-bottom:1px solid var(--line);
+  }
+  .hours-row:last-child{border-bottom:none;}
+  .hours-row span:first-child{color:var(--ink);}
+  .hours-row span:last-child{color:var(--red);}
+  .hours-row.closed span:last-child{color:#8a8a8a;}
+
+  /* Contact */
+  .contact-grid{
+    display:grid;gap:1.6em;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:820px){.contact-grid{grid-template-columns:1.1fr .9fr;align-items:stretch;}}
+  .contact-call{
+    background:var(--red);color:#fff;border-radius:var(--radius);
+    padding:2.2em 2em;display:flex;flex-direction:column;justify-content:center;
+    box-shadow:var(--shadow);
+  }
+  .contact-call h3{color:#fff;font-size:1.4rem;}
+  .contact-call p{color:#ffe1e3;}
+  .contact-call .phone-big{
+    font-size:2rem;font-weight:900;text-decoration:none;color:#fff;
+    display:inline-flex;align-items:center;gap:.4em;margin:.4em 0 1em;
+  }
+  .contact-side{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:2em;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:1.4em;
+  }
+  .addr-block{display:flex;gap:1em;align-items:flex-start;}
+  .addr-block svg{flex:none;width:26px;height:26px;color:var(--red);margin-top:.15em;}
+  .addr-block address{font-style:normal;color:#333;}
+  .map-deco{
+    border-radius:10px;overflow:hidden;border:1px solid var(--line);
+    height:150px;position:relative;
+    background:
+      linear-gradient(#fbeceb,#fbeceb) padding-box,
+      repeating-linear-gradient(0deg, transparent 0 26px, rgba(226,20,31,.12) 26px 28px),
+      repeating-linear-gradient(90deg, transparent 0 26px, rgba(226,20,31,.12) 26px 28px);
+  }
+  .map-deco svg{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-60%);
+    width:34px;height:34px;color:var(--red);
+  }
+
+  /* Footer */
+  .site-footer{
+    background:var(--ink);color:#e9e2e2;
+    padding:34px 0 90px;text-align:center;font-size:.9rem;
+  }
+  .site-footer strong{color:#fff;}
+
+  /* Iskaro badge */
+  .iskaro-badge{
+    position:fixed;right:14px;bottom:14px;z-index:50;
+    background:rgba(26,26,26,.85);color:#fff;
+    font-size:.72rem;padding:.5em .85em;border-radius:999px;
+    text-decoration:none;backdrop-filter:blur(4px);
+    box-shadow:0 6px 16px -6px rgba(0,0,0,.5);
+  }
+  .iskaro-badge strong{color:#fff;}
+  .iskaro-badge:hover{background:rgba(26,26,26,.95);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="#hero">
+      <img src="assets/logo.png" alt="Promo Servis" width="150" height="44">
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#o-nas">O nás</a></li>
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#recenzie">Recenzie</a></li>
+        <li><a href="#hodiny">Otváracie hodiny</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="call-pill" href="tel:+421917138528">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0917 138 528
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Otvoriť menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#o-nas">O nás</a></li>
+      <li><a href="#sluzby">Služby</a></li>
+      <li><a href="#recenzie">Recenzie</a></li>
+      <li><a href="#hodiny">Otváracie hodiny</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" data-section="hero" id="hero">
+    <div class="hero-media">
+      <img src="assets/photo-1.jpg" alt="Budova servisu Promo vo Zapotôčkoch v Prievidzi, s vývesným štítom Promo a nápisom AUTOSERVIS PNEUSERVIS nad červenými vstupnými dverami">
+    </div>
+    <div class="container hero-inner">
+      <span class="eyebrow" style="color:#ffd3d5;">Autoservis a pneuservis · Prievidza</span>
+      <h1>Servis, ktorému môžete veriť</h1>
+      <p class="lead">Vitajte! Vytvorte si dôvod na radosť a preneste starosti Vášho auta na naše plecia. Pracujeme rýchlo a poctivo — pretože vieme, aký je pre Vás čas dôležitý.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="tel:+421917138528">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Zavolajte na 0917 138 528
+        </a>
+        <a class="btn btn-ghost" href="#sluzby">Pozrieť služby</a>
+      </div>
+      <p class="hero-note">Kde niekto vidí problém, náš tím už hľadá riešenie.</p>
+    </div>
+  </section>
+
+  <section class="band-cream reveal" data-section="trust" id="v-com-sa-lisime">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">V čom sa líšime</span>
+        <h2>Rýchlosť, sklad dielov a osobný prístup</h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <span class="num">Rýchlo</span>
+          <h3>Opráv do 24 hodín</h3>
+          <p>Vďaka prístupu k vyše 1 500 000 katalógovým číslam dielov máme takmer vždy to, čo Vaše auto potrebuje — a stihneme to promptne.</p>
+        </div>
+        <div class="trust-card">
+          <span class="num">Na počkanie</span>
+          <h3>Pneuservis</h3>
+          <p>Veľké priestory a profesionálne náradie nám umožňujú promptné prezutie Vášho miláčika, bez zbytočného čakania.</p>
+        </div>
+        <div class="trust-card">
+          <span class="num">Fér</span>
+          <h3>Individuálny prístup</h3>
+          <p>Ponúkame optimálne finančné riešenie a osobný prístup, aký pri veľkých značkových servisoch nezažijete.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" data-section="about" id="o-nas">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Kto sme</span>
+        <h2>Vitajte</h2>
+      </div>
+      <div class="about-wrap">
+        <p>Sme malý rodinný autoservis a pneuservis v Prievidzi, kde je starostlivosť o Vaše auto vždy prvoradá. Vytvorte si dôvod na radosť a preneste starosti Vášho auta na naše plecia — o zvyšok sa postaráme my.</p>
+        <p>Kde niekto vidí problém, náš tím už hľadá riešenie. Namiesto anonymného prístupu veľkých značkových servisov ponúkame osobný vzťah, pružnosť a férové ceny — a pretože vieme, aký je pre Vás čas dôležitý, snažíme sa vybaviť opravu do 24 hodín.</p>
+        <p class="signoff">Tešíme sa na Vašu návštevu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-cream reveal" data-section="services" id="sluzby">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Ponuka</span>
+        <h2>Naše služby</h2>
+        <p>Možnosť výberu podľa toho, čo Vaše auto práve potrebuje.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="thumb">
+            <img src="assets/stock-02.jpg" alt="Mechanik vykonáva údržbu motora v dielni pomocou náradia">
+          </div>
+          <div class="body">
+            <h3>Servis vozidla</h3>
+            <ul>
+              <li>Kompletná diagnostika</li>
+              <li>Kontrola tlmičov a brzdového systému</li>
+              <li>Opravy motora, prevodovky, alternátora a štartéra</li>
+              <li>Výfuk a riadenie</li>
+              <li>Výmena oleja a geometria</li>
+              <li>Sezónne prehliadky, záručný aj pozáručný servis</li>
+              <li>Autopríslušenstvo a autokozmetika</li>
+            </ul>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="thumb">
+            <img src="assets/stock-04.jpg" alt="Mechanik prezúva pneumatiku na aute v autoservise">
+          </div>
+          <div class="body">
+            <h3>Pneuservis</h3>
+            <p>Prezúvanie a oprava defektov na počkanie — bez čakania a bez starostí, presne vtedy, keď to potrebujete.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="thumb">
+            <img src="assets/stock-08.jpg" alt="Technik čistí klimatizačný systém vozidla pomocou manometra">
+          </div>
+          <div class="body">
+            <h3>Čistenie klimatizácie</h3>
+            <p>Šetrné čistenie klimatizácie sprayom pre čistý a svieži vzduch vo Vašom aute.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" data-section="reviews" id="recenzie">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Skúsenosti zákazníkov</span>
+        <h2>Čo hovoria zákazníci</h2>
+      </div>
+      <div class="reviews-grid">
+        <blockquote>
+          <p>Potrebovala som surnu prehliadku auta v sobotu. Velmi milo a ochotne mi pomohli, naozaj odporucam.</p>
+          <footer><cite>Danka L.</cite> — Google recenzia</footer>
+        </blockquote>
+        <blockquote>
+          <p>Super, veľmi ochotný pán, rýchla práca a hlavne sa aj rozumie svojmu remeslu</p>
+          <footer><cite>jakub k.</cite> — Google recenzia</footer>
+        </blockquote>
+        <blockquote>
+          <p>Dobrý prístup, nazval by som ho prozakaznicky co sa o veľa servisoch povedať nedá</p>
+          <footer><cite>Tono T.</cite> — Google recenzia</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-cream reveal" data-section="hours" id="hodiny">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Plánujte s nami</span>
+        <h2>Otváracie hodiny</h2>
+      </div>
+      <div class="hours-card">
+        <div class="hours-row"><span>Pondelok — Piatok</span><span>8:00 – 16:00</span></div>
+        <div class="hours-row"><span>Sobota</span><span>na objednávku</span></div>
+        <div class="hours-row closed"><span>Nedeľa</span><span>zatvorené</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" data-section="contact" id="kontakt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Sme tu pre Vás</span>
+        <h2>Kontaktujte nás</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-call">
+          <h3>Najrýchlejšie sa dohodneme telefonicky</h3>
+          <a class="phone-big" href="tel:+421917138528">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="26" height="26"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            0917 138 528
+          </a>
+          <p>Zavolajte a dohodneme si termín, ktorý Vám vyhovuje — na servis, prezutie aj poradenstvo.</p>
+          <a class="btn btn-ghost" href="tel:+421917138528" style="align-self:flex-start;">Zavolať teraz</a>
+        </div>
+        <div class="contact-side">
+          <div class="addr-block">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <address>
+              Promo Servis<br>
+              Rad L. N. Tolstého 1882/16A<br>
+              971 01 Prievidza
+            </address>
+          </div>
+          <div class="map-deco" role="img" aria-label="Ilustračná mapka polohy prevádzky Promo Servis v Prievidzi">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p><strong>Promo Servis</strong> — Prievidza · Autoservis a pneuservis</p>
+    <p>Starostlivosť je prvoradá.</p>
+  </div>
+</footer>
+
+<a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mobileNav');
+    if(toggle && nav){
+      toggle.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', function(){
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    var revealEls = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.12});
+      revealEls.forEach(function(el){ io.observe(el); });
+    } else {
+      revealEls.forEach(function(el){ el.classList.add('in'); });
+    }
+  })();
+</script>
+
+</body>
+</html>
