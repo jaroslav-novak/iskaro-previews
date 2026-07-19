@@ -1,0 +1,24 @@
+{
+  "prospect_id": "32c152f5-fb94-45cc-b327-b4aa74193832",
+  "company_name": "Autoclinic Prievidza",
+  "slug": "autoclinic-prievidza",
+  "version": 1,
+  "template": "bespoke-v2",
+  "generated_at": "2026-07-19T18:06:00.407Z",
+  "generator": {
+    "model": "claude-sonnet-5",
+    "duration_ms": 272164,
+    "cost_usd": 0.6828897,
+    "input_tokens": 241595,
+    "output_tokens": 23914
+  },
+  "sections": [
+    "hero",
+    "trust",
+    "services",
+    "gallery",
+    "about",
+    "custom",
+    "contact"
+  ]
+}
