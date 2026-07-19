@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Autoservis MBH – Juraj Molota, Prievidza. Oprava a údržba automobilov, kontakt a spojenie na jednom mieste.">
+<title>Autoservis MBH - Molota Juraj</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#141116;
+    --paper:#1C171F;
+    --ink:#F3EDF1;
+    --body:#C9C0C9;
+    --muted:#A79CA6;
+    --accent:#bd683a;
+    --accent-deep:#a4775f;
+    --accent-soft:#64605b;
+    --line:rgba(243,237,241,.14);
+    --line-strong:rgba(243,237,241,.28);
+    --radius:4px;
+    --serif:"Bricolage Grotesque","Helvetica Neue",sans-serif;
+    --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:var(--sans);
+    font-weight:300;
+    font-size:1.0625rem;
+    line-height:1.75;
+    color:var(--body);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--ink);line-height:1.12}
+  a{color:var(--accent)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .container{width:min(1120px,92%);margin-inline:auto}
+  .skip{
+    position:absolute;left:-999px;top:0;background:var(--accent);color:var(--paper);
+    padding:.6rem 1rem;z-index:100;font-size:.85rem;letter-spacing:.06em;
+  }
+  .skip:focus{left:.5rem;top:.5rem}
+
+  /* ---------- header ---------- */
+  .site-head{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb,var(--cream) 90%,transparent);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .head-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+  .brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.05}
+  .brand-name{font-family:var(--serif);font-style:italic;font-weight:600;font-size:1.7rem;color:var(--ink);letter-spacing:.01em}
+  .brand-sub{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-top:.15rem}
+  .site-nav{display:none;gap:2rem}
+  .site-nav a{
+    text-decoration:none;color:var(--ink);font-size:.78rem;font-weight:400;
+    letter-spacing:.2em;text-transform:uppercase;padding:.35rem 0;
+    border-bottom:1px solid transparent;transition:border-color .2s,color .2s;
+  }
+  .site-nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  @media (min-width:760px){.site-nav{display:flex}}
+
+  .btn{
+    display:inline-block;background:var(--accent);color:var(--paper);text-decoration:none;
+    font-family:var(--sans);font-weight:500;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+    padding:1rem 1.9rem;border-radius:var(--radius);transition:background .2s,transform .2s;
+  }
+  .btn:hover{background:var(--accent-deep);transform:translateY(-1px)}
+  .btn-small{padding:.6rem 1.1rem;font-size:.7rem}
+  .link-arrow{
+    display:inline-block;color:var(--ink);text-decoration:none;font-size:.8rem;font-weight:400;
+    letter-spacing:.18em;text-transform:uppercase;padding:.9rem 0;
+    border-bottom:1px solid var(--line-strong);transition:color .2s,border-color .2s;
+  }
+  .link-arrow::after{content:"\2197";margin-left:.5rem;color:var(--accent)}
+  .link-arrow:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:clamp(4rem,10vw,7.5rem) 0 clamp(3.5rem,8vw,6rem)}
+  .hero-grid{position:relative;display:grid;gap:3rem;align-items:center;z-index:1}
+  @media (min-width:960px){.hero-grid{grid-template-columns:7fr 5fr;gap:2rem}}
+  .eyebrow{
+    font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);
+    font-weight:500;display:flex;align-items:center;gap:.9rem;margin-bottom:1.6rem;
+  }
+  .eyebrow::before{content:"";display:inline-block;width:44px;height:1px;background:var(--accent);flex:none}
+  .hero h1{display:flex;flex-direction:column;gap:.4rem}
+  .h1-brand{font-style:italic;font-weight:600;font-size:clamp(4rem,13vw,7.5rem);letter-spacing:-.01em;line-height:.95}
+  .h1-sub{
+    font-family:var(--sans);font-weight:400;font-size:.85rem;letter-spacing:.42em;
+    text-transform:uppercase;color:var(--ink);
+  }
+  .lead{
+    font-family:var(--serif);font-size:clamp(1.25rem,3vw,1.55rem);line-height:1.55;
+    color:var(--body);max-width:34ch;margin-top:1.8rem;
+  }
+  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem 2rem;margin-top:2.4rem}
+  .hero-art{display:flex;justify-content:center}
+  .hero-art svg{width:min(340px,72vw);height:auto;display:block}
+  @media (min-width:960px){.hero-art svg{width:100%;max-width:420px}}
+  .hero-ghost{
+    position:absolute;right:-2rem;top:-2.5rem;z-index:0;pointer-events:none;user-select:none;
+    font-family:var(--serif);font-style:italic;font-weight:600;
+    font-size:clamp(9rem,26vw,20rem);line-height:1;color:var(--accent);opacity:.05;
+  }
+
+  /* ---------- trust band ---------- */
+  .trust{background:var(--accent-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .trust-in{
+    display:flex;flex-direction:column;align-items:center;gap:1rem;
+    padding:1.6rem 0;text-align:center;
+  }
+  @media (min-width:860px){.trust-in{flex-direction:row;justify-content:space-between;text-align:left}}
+  .trust-score{display:flex;align-items:center;gap:.9rem}
+  .stars{display:block;flex:none}
+  .stars path{fill:var(--accent)}
+  .trust-score strong{
+    font-family:var(--serif);font-weight:600;font-size:1.35rem;color:var(--ink);letter-spacing:.02em;
+  }
+  .trust-traits{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.4rem;
+    font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--accent-deep);
+  }
+  .trust-traits li{list-style:none;display:flex;align-items:center;gap:1.4rem}
+  .trust-traits li + li::before{content:"\00B7";color:var(--line-strong);font-style:normal}
+
+  /* ---------- sections ---------- */
+  .section{padding:clamp(4.5rem,10vw,7.5rem) 0}
+  .kicker{
+    display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem;
+    font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);font-weight:500;
+  }
+  .kicker em{font-family:var(--serif);font-style:italic;font-size:1rem;letter-spacing:0}
+  .kicker::after{content:"";flex:0 0 44px;height:1px;background:var(--accent)}
+  .section h2{font-size:clamp(2rem,5.5vw,3.1rem);max-width:20ch;margin-bottom:1.6rem}
+
+  .chip{
+    display:inline-block;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);border:1px solid var(--accent);border-radius:999px;
+    padding:.3rem .85rem;font-weight:500;background:transparent;margin-top:1.8rem;
+  }
+
+  /* about */
+  .about-grid{display:grid;gap:2.5rem}
+  @media (min-width:900px){.about-grid{grid-template-columns:5fr 7fr;gap:4rem}}
+  .about-copy p + p{margin-top:1.2rem}
+  .about-aside{
+    border-top:1px solid var(--line-strong);padding-top:1.6rem;margin-top:3rem;
+    display:flex;flex-wrap:wrap;gap:2.5rem 4rem;
+  }
+  .fact{display:flex;flex-direction:column;gap:.15rem}
+  .fact dt{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .fact dd{font-family:var(--serif);font-size:1.25rem;color:var(--ink)}
+
+  /* services */
+  .services{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .service-list{list-style:none;margin-top:1rem}
+  .service-row{
+    display:grid;gap:.4rem 2rem;padding:1.8rem 0;border-top:1px solid var(--line);
+    transition:background .2s;
+  }
+  .service-row:last-child{border-bottom:1px solid var(--line)}
+  @media (min-width:820px){
+    .service-row{grid-template-columns:3.5rem 1fr 1.6fr;align-items:baseline;padding:2.2rem .8rem}
+    .service-row:hover{background:var(--accent-soft)}
+  }
+  .service-num{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--accent)}
+  .service-name{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,3.4vw,2rem);color:var(--ink)}
+  .service-price{display:block;font-size:1.05rem;color:var(--accent-deep);font-style:italic;margin-top:.2rem}
+  .service-desc{max-width:52ch}
+  .honest-note{
+    margin-top:2.2rem;display:flex;gap:1rem;align-items:flex-start;
+    font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--muted);max-width:62ch;
+  }
+  .honest-note::before{content:"\2731";color:var(--accent);font-style:normal;font-size:.9rem;line-height:2}
+
+  /* reviews */
+  .reviews-note{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:2.6rem}
+  .review-grid{display:grid;gap:1.4rem}
+  @media (min-width:900px){
+    .review-grid{grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:start}
+    .review-grid blockquote:nth-child(2){transform:translateY(2.2rem)}
+  }
+  .review-grid blockquote{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:2.2rem 1.8rem 1.8rem;position:relative;
+  }
+  .review-grid blockquote::before{
+    content:"\201E";position:absolute;top:-.4rem;left:1.2rem;
+    font-family:var(--serif);font-size:4.4rem;line-height:1;color:var(--accent);opacity:.28;
+  }
+  .review-grid p{font-family:var(--serif);font-size:1.18rem;line-height:1.55;color:var(--ink)}
+  .review-grid footer{
+    margin-top:1.3rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--muted);font-weight:400;
+  }
+
+  /* gallery invitation */
+  .gallery{background:var(--accent-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .gallery-lead{max-width:58ch;margin-bottom:3rem}
+  .frame-row{display:grid;gap:1.4rem;margin-bottom:2.8rem}
+  @media (min-width:760px){
+    .frame-row{grid-template-columns:repeat(3,1fr);gap:1.8rem;align-items:start}
+    .frame-row .frame:nth-child(2){transform:translateY(1.8rem)}
+  }
+  .frame{
+    aspect-ratio:3/4;border:1px solid var(--line-strong);border-radius:var(--radius);
+    background:linear-gradient(160deg,var(--paper) 0%,var(--cream) 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+    padding:1rem;position:relative;
+  }
+  .frame::after{
+    content:"";position:absolute;inset:9px;border:1px solid var(--line);border-radius:1px;pointer-events:none;
+  }
+  .frame svg{width:56px;height:auto;opacity:.85;stroke:var(--accent-deep)}
+  .frame svg .fill{fill:var(--accent-deep);stroke:none}
+  .frame span{
+    font-family:var(--serif);font-style:italic;font-size:1.02rem;color:var(--muted);text-align:center;
+  }
+  .gallery-cta{display:flex;flex-wrap:wrap;gap:1rem 2.4rem}
+
+  /* contact */
+  .contact-grid{display:grid;gap:3rem;margin-top:.6rem}
+  @media (min-width:900px){.contact-grid{grid-template-columns:7fr 5fr;gap:4.5rem}}
+  .tel-big{
+    display:inline-block;font-family:var(--serif);font-weight:600;
+    font-size:clamp(2.4rem,7.5vw,4.2rem);color:var(--accent);text-decoration:none;
+    letter-spacing:.015em;line-height:1.1;margin:.4rem 0 1.4rem;
+    border-bottom:2px solid transparent;transition:border-color .2s;
+  }
+  .tel-big:hover{border-bottom-color:var(--accent)}
+  .contact-copy p{max-width:52ch}
+  .contact-meta{list-style:none;margin-top:2rem;border-top:1px solid var(--line);max-width:32rem}
+  .contact-meta li{
+    display:flex;justify-content:space-between;gap:1.5rem;align-items:baseline;
+    padding:.9rem 0;border-bottom:1px solid var(--line);
+  }
+  .contact-meta .k{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap}
+  .contact-meta .v{font-family:var(--serif);font-size:1.15rem;color:var(--ink);text-align:right}
+  .addr-card{
+    border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--paper);
+    padding:2rem 1.8rem;align-self:start;
+  }
+  .addr-card h3{font-size:1.5rem;margin-bottom:.8rem}
+  .addr-card .addr-ph{font-family:var(--serif);font-style:italic;font-size:1.12rem;color:var(--muted)}
+  .addr-card hr{border:0;border-top:1px solid var(--line);margin:1.6rem 0}
+  .addr-card .social{display:flex;flex-direction:column;gap:.8rem}
+  .addr-card .social a{
+    text-decoration:none;color:var(--ink);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:.5rem;transition:color .2s;
+  }
+  .addr-card .social a::after{content:"\2197";color:var(--accent)}
+  .addr-card .social a:hover{color:var(--accent)}
+
+  /* footer */
+  .site-foot{background:#0C0A0E;color:#E9DCE4;padding:3.2rem 0 5.5rem}
+  .foot-in{display:flex;flex-direction:column;gap:2rem}
+  @media (min-width:760px){.foot-in{flex-direction:row;justify-content:space-between;align-items:flex-end}}
+  .foot-brand .brand-name{color:#E9DCE4;font-size:2rem}
+  .foot-brand .brand-sub{color:#8F8290}
+  .foot-links{display:flex;flex-wrap:wrap;gap:1.6rem;list-style:none}
+  .foot-links a{
+    color:#E9DCE4;text-decoration:none;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+    border-bottom:1px solid color-mix(in srgb,#E9DCE4 30%,transparent);padding-bottom:.25rem;
+    transition:border-color .2s,color .2s;
+  }
+  .foot-links a:hover{color:#fff;border-bottom-color:#fff}
+  .foot-links a:focus-visible{outline-color:#E9DCE4}
+  .foot-legal{font-size:.78rem;color:#8F8290;letter-spacing:.05em}
+
+  /* Iskaro badge */
+  .iskaro-badge{
+    position:fixed;right:14px;bottom:14px;z-index:60;
+    background:color-mix(in srgb,var(--paper) 94%,transparent);border:1px solid var(--line-strong);border-radius:999px;
+    padding:.5rem 1rem;font-size:.68rem;letter-spacing:.08em;color:var(--ink);
+    text-decoration:none;box-shadow:0 2px 14px rgba(0,0,0,.10);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:border-color .2s;
+  }
+  .iskaro-badge strong{color:var(--accent);font-weight:500}
+  .iskaro-badge:hover{border-color:var(--accent)}
+</style>
+</head>
+<body>
+<a class="skip" href="#obsah">Preskočiť na obsah</a>
+
+<header class="site-head">
+  <div class="container head-in">
+    <a class="brand" href="#hore" aria-label="Autoservis MBH - Molota Juraj — na začiatok stránky">
+      <span class="brand-name">MBH</span>
+      <span class="brand-sub">Autoservis · Prievidza</span>
+    </a>
+    <nav class="site-nav" aria-label="Hlavná navigácia">
+      <a href="#o-salone">O salóne</a>
+      <a href="#sluzby">Služby</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn btn-small" href="tel:+421465430517">Zavolajte</a>
+  </div>
+</header>
+
+<main id="obsah">
+
+  <section class="hero" id="hore">
+    <div class="hero-ghost" aria-hidden="true">MBH</div>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Oprava a údržba automobilov · Prievidza</p>
+        <h1>
+          <span class="h1-brand">MBH</span>
+          <span class="h1-sub">Autoservis · Prievidza</span>
+        </h1>
+        <p class="lead">Autoservis MBH sa v Prievidzi stará o opravu a údržbu vášho vozidla. Tu nájdete, ako sa s nami spojiť a kde nás nájsť.</p>
+        <div class="hero-cta">
+          <a class="btn" href="tel:+421465430517">Zavolajte · 046 543 05 17</a>
+          
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="210" cy="250" r="168" stroke="#a4775f" stroke-opacity=".16" stroke-width="1"/>
+      <circle cx="210" cy="250" r="120" stroke="#a4775f" stroke-opacity=".10" stroke-width="1"/>
+      <path d="M318 24 C 214 118, 372 206, 268 300 C 196 366, 208 462, 288 534" stroke="#a4775f" stroke-opacity=".62" stroke-width="1.5"/>
+      <path d="M292 16 C 192 112, 344 202, 244 296 C 174 362, 186 456, 262 528" stroke="#a4775f" stroke-opacity=".42" stroke-width="1.2"/>
+      <path d="M266 12 C 172 106, 316 198, 220 292 C 152 358, 164 450, 236 522" stroke="#a4775f" stroke-opacity=".28" stroke-width="1"/>
+      <path d="M240 10 C 152 102, 288 194, 196 288 C 132 354, 142 444, 210 516" stroke="#a4775f" stroke-opacity=".18" stroke-width="1"/>
+      <path d="M344 36 C 238 126, 398 212, 292 306 C 218 372, 232 468, 314 538" stroke="#a4775f" stroke-opacity=".30" stroke-width="1"/>
+      <path d="M84 118 L 84 158 M 64 138 L 104 138 M 70 124 L 98 152 M 98 124 L 70 152" stroke="#a4775f" stroke-opacity=".7" stroke-width="1.3" stroke-linecap="round"/>
+      <circle cx="318" cy="24" r="3.2" fill="#a4775f"/>
+      <circle cx="288" cy="534" r="3.2" fill="#a4775f" fill-opacity=".55"/>
+      <circle cx="118" cy="404" r="2.4" fill="#a4775f" fill-opacity=".4"/>
+    </svg>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="o-salone">
+    <div class="container">
+      <p class="kicker"><em>01</em> O salóne</p>
+      <div class="about-grid">
+        <h2>O servise</h2>
+        <div class="about-copy">
+          <p>Autoservis MBH pôsobí v Prievidzi a venuje sa oprave a údržbe automobilov.</p>
+          <p>Podrobnejší popis vášho servisu doplníme spoločne, aby presne sedel na vašu prácu a zákazníkov.</p>
+          <span class="chip">Návrh textu — znenie doladíme spolu s vami</span>
+        </div>
+      </div>
+      <dl class="about-aside">
+        <div class="fact"><dt>Lokalita</dt><dd>Prievidza</dd></div>
+        <div class="fact"><dt>Zameranie</dt><dd>Oprava a údržba automobilov</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section services" id="sluzby">
+    <div class="container">
+      <p class="kicker"><em>02</em> Služby</p>
+      <h2>Služby</h2>
+      <ul class="service-list">
+        
+      </ul>
+      <p class="honest-note">Presný zoznam služieb doplníme spoločne s vami, nech je ponuka presná a úplná.</p>
+    </div>
+  </section>
+
+
+
+  <section class="section" id="kontakt">
+    <div class="container">
+      <p class="kicker"><em>03</em> Kontakt</p>
+      <div class="contact-grid">
+        <div class="contact-copy">
+          <h2>Kontakt</h2>
+          <a class="tel-big" href="tel:+421465430517">046 543 05 17</a>
+          <p>Ozvite sa nám telefonicky, radi si s vami dohodneme termín.</p>
+          <ul class="contact-meta">
+            <li><span class="k">Telefón</span><span class="v"><a href="tel:+421465430517" style="text-decoration:none;color:inherit">046 543 05 17</a></span></li>
+          </ul>
+        </div>
+        <aside class="addr-card">
+          <h3>Kde nás nájdete</h3>
+          <p class="addr-ph">Presnú adresu doplníme, hneď ako ju s vami potvrdíme.</p>
+          <hr>
+          <div class="social">
+            
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="container foot-in">
+    <div class="foot-brand brand">
+      <span class="brand-name">MBH</span>
+      <span class="brand-sub">Autoservis · Prievidza</span>
+    </div>
+    <ul class="foot-links">
+      <li><a href="tel:+421465430517">046 543 05 17</a></li>
+    </ul>
+    <p class="foot-legal">© 2026 Autoservis MBH - Molota Juraj</p>
+  </div>
+</footer>
+
+<a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+</body>
+</html>

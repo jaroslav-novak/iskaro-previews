@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Fitko Prievidza — Fitnes a profesionálny tréning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c8202c;
+    --red-dark:#8f1620;
+    --black:#161616;
+    --charcoal:#1f1f1f;
+    --charcoal-2:#252525;
+    --white:#ffffff;
+    --gray:#b9b6b6;
+    --gray-dim:#8f8c8c;
+    --radius:14px;
+    --maxw:1180px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--black);
+    color:var(--white);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Michroma','Inter',sans-serif;
+    line-height:1.25;
+    margin:0 0 .6em;
+    letter-spacing:.01em;
+  }
+  h2{
+    font-size:clamp(1.6rem,4vw,2.4rem);
+    color:var(--white);
+  }
+  p{margin:0 0 1em;color:var(--gray);}
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 20px;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--red);
+    margin-bottom:1em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:2px;
+    background:var(--red);
+    display:inline-block;
+  }
+
+  /* ---------- header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(22,22,22,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .site-header .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:68px;
+  }
+  .brand-mark{
+    font-family:'Inter',sans-serif;
+    font-weight:800;
+    font-size:1.15rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--white);
+    background:var(--red);
+    padding:.35em .65em;
+    border-radius:4px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+  }
+  .nav-toggle span{
+    width:24px;height:2px;background:var(--white);display:block;
+  }
+  nav.main-nav ul{
+    list-style:none;
+    display:flex;
+    gap:28px;
+    margin:0;padding:0;
+  }
+  nav.main-nav a{
+    text-decoration:none;
+    font-weight:600;
+    font-size:.92rem;
+    color:var(--gray);
+    transition:color .2s;
+  }
+  nav.main-nav a:hover{color:var(--white);}
+  .header-cta{
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.5em;
+    font-weight:700;
+    font-size:.95rem;
+    text-decoration:none;
+    padding:.85em 1.5em;
+    border-radius:999px;
+    border:2px solid transparent;
+    transition:transform .15s ease, background .2s, border-color .2s;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--red);
+    color:var(--white);
+  }
+  .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--white);
+    border-color:rgba(255,255,255,.4);
+  }
+  .btn-ghost:hover{border-color:var(--white);transform:translateY(-2px);}
+  .btn-sm{padding:.6em 1.1em;font-size:.85rem;}
+
+  /* ---------- hero ---------- */
+  section[data-section="hero"]{
+    position:relative;
+    min-height:92vh;
+    display:flex;
+    align-items:flex-end;
+    background-image:linear-gradient(180deg, rgba(22,22,22,.35) 0%, rgba(22,22,22,.55) 45%, rgba(22,22,22,.96) 100%), url('assets/photo-2.jpg');
+    background-size:cover;
+    background-position:center 30%;
+  }
+  .hero-inner{
+    width:100%;
+    padding-bottom:64px;
+  }
+  .hero-inner h1{
+    font-size:clamp(2.4rem,6.5vw,4.6rem);
+    color:var(--white);
+    max-width:16ch;
+  }
+  .hero-tagline{
+    font-size:clamp(1.05rem,2vw,1.3rem);
+    color:var(--white);
+    max-width:42ch;
+    font-weight:500;
+    margin-bottom:1.6em;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+
+  /* ---------- trust ---------- */
+  section[data-section="trust"]{
+    padding:56px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .trust-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+  }
+  .trust-card{
+    background:var(--charcoal);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:var(--radius);
+    padding:28px;
+    text-align:center;
+  }
+  .trust-card .stat{
+    font-family:'Michroma',sans-serif;
+    font-size:2.4rem;
+    color:var(--red);
+    display:block;
+    margin-bottom:.25em;
+  }
+  .trust-card p{margin:0;color:var(--gray);font-size:.95rem;}
+  .trust-card a{color:var(--white);text-decoration:underline;text-underline-offset:3px;}
+
+  /* ---------- about ---------- */
+  section[data-section="about"]{padding:80px 0;}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:40px;
+    align-items:center;
+  }
+  .about-photo{
+    border-radius:var(--radius);
+    overflow:hidden;
+    aspect-ratio:4/3;
+    filter:grayscale(100%) contrast(1.05);
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about-text p{font-size:1.02rem;}
+  .about-text strong{color:var(--white);}
+
+  /* ---------- services ---------- */
+  section[data-section="services"]{
+    padding:80px 0;
+    background:var(--charcoal);
+  }
+  .service-photos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin-bottom:44px;
+  }
+  .service-photos figure{
+    margin:0;
+    border-radius:var(--radius);
+    overflow:hidden;
+    aspect-ratio:1/1;
+    position:relative;
+  }
+  .service-photos img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+  .service-photos figure:hover img{transform:scale(1.06);}
+  .service-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:18px;
+    list-style:none;
+    margin:0;padding:0;
+  }
+  .service-list li{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    background:var(--charcoal-2);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:10px;
+    padding:18px;
+  }
+  .service-list .ico{
+    flex:none;
+    width:34px;height:34px;
+    border-radius:50%;
+    background:var(--red);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--white);
+    font-weight:800;
+    font-size:.95rem;
+  }
+  .service-list span.label{color:var(--white);font-weight:600;font-size:.98rem;}
+
+  /* ---------- custom / red light ---------- */
+  section[data-section="custom"]{
+    position:relative;
+    padding:110px 0;
+    background-image:linear-gradient(115deg, rgba(200,32,44,.88) 0%, rgba(22,22,22,.88) 60%), url('assets/stock-10.jpg');
+    background-size:cover;
+    background-position:center;
+  }
+  section[data-section="custom"] .wrap{max-width:760px;}
+  section[data-section="custom"] .eyebrow{color:var(--white);}
+  section[data-section="custom"] .eyebrow::before{background:var(--white);}
+  section[data-section="custom"] h2{color:var(--white);}
+  section[data-section="custom"] p{color:rgba(255,255,255,.88);font-size:1.08rem;}
+  .custom-benefits{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:24px 0 32px;
+    padding:0;
+    list-style:none;
+  }
+  .custom-benefits li{
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;
+    padding:.5em 1em;
+    font-size:.85rem;
+    font-weight:600;
+    color:var(--white);
+  }
+
+  /* ---------- reviews ---------- */
+  section[data-section="reviews"]{padding:80px 0;}
+  .review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+  }
+  blockquote{
+    margin:0;
+    background:var(--charcoal);
+    border:1px solid rgba(255,255,255,.07);
+    border-left:4px solid var(--red);
+    border-radius:10px;
+    padding:26px;
+  }
+  blockquote p{
+    color:var(--white);
+    font-size:1.02rem;
+    font-style:italic;
+    margin:0 0 14px;
+  }
+  blockquote footer{
+    color:var(--gray-dim);
+    font-size:.85rem;
+    font-style:normal;
+  }
+  blockquote cite{font-style:normal;font-weight:700;color:var(--gray);}
+
+  /* ---------- hours ---------- */
+  section[data-section="hours"]{
+    padding:80px 0;
+    background:var(--charcoal);
+  }
+  .hours-table{
+    width:100%;
+    max-width:520px;
+    border-collapse:collapse;
+    background:var(--charcoal-2);
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.07);
+  }
+  .hours-table th,.hours-table td{
+    text-align:left;
+    padding:16px 22px;
+    font-size:1rem;
+  }
+  .hours-table th{color:var(--gray);font-weight:600;}
+  .hours-table td{color:var(--white);font-weight:700;text-align:right;}
+  .hours-table tr+tr{border-top:1px solid rgba(255,255,255,.06);}
+  .hours-note{
+    margin-top:18px;
+    font-size:.85rem;
+    color:var(--gray-dim);
+    max-width:520px;
+  }
+
+  /* ---------- contact ---------- */
+  section[data-section="contact"]{padding:80px 0 60px;}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+  .contact-card{
+    background:var(--charcoal);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:var(--radius);
+    padding:32px;
+  }
+  .contact-list{
+    list-style:none;
+    margin:0 0 24px;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .contact-list li{display:flex;gap:12px;align-items:flex-start;color:var(--gray);}
+  .contact-list .tag{
+    flex:none;
+    font-size:.72rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--red);
+    padding-top:.2em;
+    width:80px;
+  }
+  .contact-list a{color:var(--white);text-decoration:underline;text-underline-offset:3px;}
+  .contact-actions{display:flex;flex-wrap:wrap;gap:14px;}
+
+  /* ---------- footer ---------- */
+  footer.site-footer{
+    padding:32px 0 100px;
+    text-align:center;
+    color:var(--gray-dim);
+    font-size:.82rem;
+  }
+
+  /* ---------- badge ---------- */
+  .preview-badge{
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    z-index:200;
+    background:rgba(22,22,22,.9);
+    border:1px solid rgba(255,255,255,.18);
+    color:var(--gray);
+    font-size:.72rem;
+    padding:.5em .9em;
+    border-radius:999px;
+    text-decoration:none;
+    backdrop-filter:blur(6px);
+  }
+  .preview-badge strong{color:var(--white);}
+  .preview-badge:hover{border-color:var(--red);}
+
+  /* ---------- reveal ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* ---------- responsive ---------- */
+  @media (min-width:760px){
+    .about-grid{grid-template-columns:1fr 1fr;}
+    .contact-grid{grid-template-columns:1.1fr .9fr;}
+  }
+  @media (max-width:820px){
+    nav.main-nav{
+      position:absolute;
+      top:68px;left:0;right:0;
+      background:rgba(22,22,22,.98);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      display:none;
+    }
+    nav.main-nav.open{display:block;}
+    nav.main-nav ul{
+      flex-direction:column;
+      gap:0;
+      padding:8px 20px 18px;
+    }
+    nav.main-nav ul li{border-top:1px solid rgba(255,255,255,.06);}
+    nav.main-nav a{display:block;padding:14px 0;}
+    .nav-toggle{display:flex;}
+    .header-cta .btn-ghost-label{display:none;}
+  }
+  @media (max-width:600px){
+    .service-photos{grid-template-columns:repeat(3,1fr);gap:8px;}
+    .hours-table td,.hours-table th{padding:14px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="#hero" class="brand-mark">Fitko</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Otvoriť menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#custom">Red Light</a></li>
+        <li><a href="#reviews">Recenzie</a></li>
+        <li><a href="#hours">Hodiny</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-primary btn-sm" href="tel:+421907563265">Zavolať</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section data-section="hero" id="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Fitnes a profesionálny tréning</span>
+      <h1>Fitko Prievidza</h1>
+      <p class="hero-tagline">Domáca atmosféra, skúsený tréner a komunita, ktorá sa k tebe vracia. Poď medzi nás — dnes je práve ten deň na malú (alebo veľkú) návštevu! 👍😉</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+421907563265">📞 0907 563 265</a>
+        <a class="btn btn-ghost" href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener">Sleduj nás na Facebooku</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="trust" id="trust">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-card">
+          <span class="stat">98 %</span>
+          <p>odporúčaní pri 36 recenziách priamo na <a href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener">našej FB stránke</a></p>
+        </div>
+        <div class="trust-card">
+          <span class="stat">MultiSport</span>
+          <p>a Benefit partner — firemné kartičky u nás bez problémov platia. Viac na <a href="https://multi-sport.sk/aktivity/partner/fitko-prievidza/" target="_blank" rel="noopener">multi-sport.sk</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" id="about" class="reveal">
+    <div class="wrap about-grid">
+      <div class="about-photo">
+        <img src="assets/photo-1.jpg" alt="Interiér posilňovne Fitko — rady kardio strojov a zrkadlová stena">
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">O nás</span>
+        <h2>Fitko, kde ťa poznajú po mene</h2>
+        <p>U nás nejde len o železo a stroje. Je to <strong>skúsený tréner s dlhoročnou praxou</strong>, osobný prístup ku každému a atmosféra, ktorú naši členovia opisujú jednoducho ako <strong>domácu</strong>.</p>
+        <p>Nič sa u nás nerobí naľahko — poradíme, ako a s čím cvičiť, nastavíme ti to na mieru a postrážime, aby si sa cítil ako medzi kamarátmi, nie ako číslo v systéme.</p>
+        <p>Čisté priestory, funkčné stroje a ľudia, ktorí ťa privítajú s úsmevom — presne kvôli tomu sa k nám naši členovia stále vracajú.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" id="services" class="reveal">
+    <div class="wrap">
+      <span class="eyebrow">Ponuka</span>
+      <h2>Čo u nás nájdeš</h2>
+      <div class="service-photos">
+        <figure><img src="assets/stock-01.jpg" alt="Rady kardio strojov v modernej posilňovni"></figure>
+        <figure><img src="assets/stock-04.jpg" alt="Boxerské vrece pripravené na tréning"></figure>
+        <figure><img src="assets/stock-07.jpg" alt="Tréner vedie klientku pri cvičení s činkou"></figure>
+      </div>
+      <ul class="service-list">
+        <li><span class="ico">1</span><span class="label">Posilňovanie na 60+ stanovištiach a kardio zóna</span></li>
+        <li><span class="ico">2</span><span class="label">Skupinové cvičenia v telocvični</span></li>
+        <li><span class="ico">3</span><span class="label">Boxerské vrecia a workoutová dráha</span></li>
+        <li><span class="ico">4</span><span class="label">Fit bar s kávou</span></li>
+        <li><span class="ico">5</span><span class="label">Individuálne tréningové a stravovacie plány, poradenstvo pre začiatočníkov</span></li>
+        <li><span class="ico">6</span><span class="label">Bezplatné parkovanie priamo pred budovou</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section data-section="custom" id="custom" class="reveal">
+    <div class="wrap">
+      <span class="eyebrow">Novinka u nás vo Fitku!</span>
+      <h2>Novinka: MITO LIGHT Biohacker 5.0</h2>
+      <p>Objav silu biohackingu a posuň svoje výsledky na maximum. Terapia červeným svetlom je doplnková služba, akú v bežnej posilňovni nenájdeš — a teraz je aj u nás.</p>
+      <ul class="custom-benefits">
+        <li>Rýchlejšia regenerácia</li>
+        <li>Pomoc pri zápaloch</li>
+        <li>Kvalitnejší spánok</li>
+        <li>Zdravšia pokožka</li>
+      </ul>
+      <a class="btn btn-primary" href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener">Opýtaj sa nás na Red Light 👍</a>
+    </div>
+  </section>
+
+  <section data-section="reviews" id="reviews" class="reveal">
+    <div class="wrap">
+      <span class="eyebrow">Recenzie</span>
+      <h2>Čo hovoria naši členovia</h2>
+      <div class="review-grid">
+        <blockquote>
+          <p>Nechýba mi tam nič, ešte aj rady ako a s čím cvičiť dostanete okamžite</p>
+          <footer>— <cite>R. S.</cite></footer>
+        </blockquote>
+        <blockquote>
+          <p>Výborný prístup majiteľa, taktiez aj ostatných členov týmu,, fitko,, domáca atmosféra</p>
+          <footer>— <cite>D.</cite></footer>
+        </blockquote>
+        <blockquote>
+          <p>Veľmi dobrá domáca atmosféra..všetko potrebné vybavenie.pozitivny pristup majiteľa</p>
+          <footer>— <cite>V.</cite></footer>
+        </blockquote>
+        <blockquote>
+          <p>Super fitko aj personal paradna atmosfera a aj priestor je dobre vyuzity</p>
+          <footer>— <cite>M. Š.</cite></footer>
+        </blockquote>
+        <blockquote>
+          <p>Čisté fitko fungujúce stroje - čo viac dodať</p>
+          <footer>— <cite>J. M.</cite></footer>
+        </blockquote>
+        <blockquote>
+          <p>Úžasní sú... milá návšteva.</p>
+          <footer>— <cite>Erika Dologová</cite>, komentár pod príspevkom na FB</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="hours" id="hours" class="reveal">
+    <div class="wrap">
+      <span class="eyebrow">Otváracie hodiny</span>
+      <h2>Otváracie hodiny</h2>
+      <table class="hours-table">
+        <tbody>
+          <tr><th scope="row">Pondelok — Piatok</th><td>5:30 — 21:00</td></tr>
+          <tr><th scope="row">Sobota — Nedeľa</th><td>6:00 — 21:00</td></tr>
+        </tbody>
+      </table>
+      <p class="hours-note">* Orientačné hodiny podľa externého katalógu. Na Facebooku ti aktuálne vždy ukážeme len stav „Teraz otvorené".</p>
+    </div>
+  </section>
+
+  <section data-section="contact" id="contact" class="reveal">
+    <div class="wrap">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Kontakt</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <ul class="contact-list">
+            <li><span class="tag">Adresa</span><span>J. Murgaša 699/1, Prievidza</span></li>
+            <li><span class="tag">Telefón</span><a href="tel:+421907563265">0907 563 265</a></li>
+            <li><span class="tag">Facebook</span><a href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener">FITKO Prievidza</a></li>
+          </ul>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="tel:+421907563265">Zavolať teraz</a>
+            <a class="btn btn-ghost" href="https://www.facebook.com/p/FITKO-Prievidza-100057407240019/?locale=sk_SK" target="_blank" rel="noopener">Napísať na FB</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.1rem;color:var(--white);margin-bottom:.5em;">Zatiaľ nás nájdeš len na Facebooku 👍</h3>
+          <p>Vlastnú doménu ešte nemáme, ale na FB sme aktívni a odpovedáme rýchlo. Napíš nám, zavolaj, alebo príď rovno na miesto — tešíme sa na teba! 😉</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p style="margin:0;color:var(--gray-dim);">Fitko Prievidza · J. Murgaša 699/1, Prievidza</p>
+  </div>
+</footer>
+
+<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    if(toggle && nav){
+      toggle.addEventListener('click', function(){
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    var reveals = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window && reveals.length){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.15});
+      reveals.forEach(function(el){ io.observe(el); });
+    } else {
+      reveals.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

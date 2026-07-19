@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Kaderníctvo Marilyn — kaderníctvo v Prievidzi od roku 1991</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#B14A55;
+    --cream:#F8F1E7;
+    --ink:#2E2320;
+    --gold:#C79A4B;
+    --line: rgba(46,35,32,0.16);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    color:var(--ink);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    font-size:0.72rem;
+    font-weight:600;
+    color:var(--primary);
+  }
+  .divider{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:0;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:rgba(248,241,231,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+  }
+  .brand-mark{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.3rem;
+    font-weight:500;
+    color:var(--primary);
+    text-decoration:none;
+  }
+  nav.primary-nav{
+    display:none;
+    gap:32px;
+    align-items:center;
+  }
+  nav.primary-nav a{
+    text-decoration:none;
+    font-size:0.92rem;
+    color:var(--ink);
+    position:relative;
+  }
+  nav.primary-nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0;
+    height:1px;
+    background:var(--primary);
+    transition:width .25s ease;
+  }
+  nav.primary-nav a:hover::after{width:100%;}
+  .header-actions{display:flex;align-items:center;gap:14px;}
+  .call-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--primary);
+    color:var(--cream);
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:999px;
+    font-size:0.88rem;
+    font-weight:500;
+    white-space:nowrap;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .call-pill:hover{background:#9a3c46; transform:translateY(-1px);}
+  .menu-btn{
+    display:inline-flex;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:8px;
+    width:40px;
+    height:40px;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+  .menu-btn span, .menu-btn span::before, .menu-btn span::after{
+    content:"";
+    display:block;
+    width:18px;
+    height:1.5px;
+    background:var(--ink);
+    position:relative;
+    transition:.25s;
+  }
+  .menu-btn span::before{position:absolute; top:-6px;}
+  .menu-btn span::after{position:absolute; top:6px;}
+  .mobile-nav{
+    display:none;
+    flex-direction:column;
+    padding:8px 24px 20px;
+    border-top:1px solid var(--line);
+  }
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{
+    text-decoration:none;
+    color:var(--ink);
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+    font-size:1rem;
+  }
+  .mobile-nav a:last-child{border-bottom:none;}
+
+  @media(min-width:860px){
+    nav.primary-nav{display:flex;}
+    .menu-btn{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  section[data-section="hero"]{
+    position:relative;
+    overflow:hidden;
+    padding:72px 0 88px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:40px;
+    align-items:center;
+  }
+  .hero-text{position:relative; z-index:2;}
+  .hero-text h1{
+    font-size:clamp(2.6rem, 9vw, 5.2rem);
+    line-height:0.98;
+  }
+  .hero-text .sub{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:clamp(1.05rem, 2.6vw, 1.35rem);
+    color:var(--primary);
+    margin-top:18px;
+  }
+  .hero-text p.lead{
+    max-width:46ch;
+    margin-top:22px;
+    font-size:1.05rem;
+    color:rgba(46,35,32,0.85);
+  }
+  .hero-ctas{
+    margin-top:34px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    align-items:center;
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--primary);
+    color:var(--cream);
+    text-decoration:none;
+    padding:16px 30px;
+    border-radius:999px;
+    font-size:1rem;
+    font-weight:500;
+    box-shadow:0 8px 24px -10px rgba(177,74,85,0.55);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(177,74,85,0.6);}
+  .btn-ghost{
+    text-decoration:none;
+    color:var(--ink);
+    font-size:0.95rem;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:2px;
+  }
+  .hero-photo{
+    position:relative;
+    border-radius:6px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    max-width:420px;
+    justify-self:center;
+    box-shadow:0 30px 60px -25px rgba(46,35,32,0.35);
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .hero-photo::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(46,35,32,0) 55%, rgba(46,35,32,0.35) 100%);
+  }
+  .hero-photo-cap{
+    position:absolute;
+    left:16px;
+    bottom:14px;
+    z-index:2;
+    color:var(--cream);
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+  }
+  .hero-deco{
+    position:absolute;
+    top:-120px;
+    right:-140px;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    border:1px solid rgba(199,154,75,0.35);
+    z-index:0;
+  }
+  @media(min-width:900px){
+    .hero-grid{grid-template-columns:1.15fr 0.85fr; gap:64px;}
+    .hero-photo{justify-self:end; max-width:none;}
+  }
+
+  /* ---------- Trust strip ---------- */
+  section[data-section="trust"]{
+    padding:0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:#F3E9DA;
+  }
+  .trust-grid{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .trust-item{
+    padding:30px 24px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+  }
+  .trust-item:last-child{border-bottom:none;}
+  .trust-item .num{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    color:var(--primary);
+    display:block;
+    margin-bottom:6px;
+  }
+  .trust-item p{
+    margin:0;
+    font-size:0.92rem;
+    color:rgba(46,35,32,0.8);
+    max-width:34ch;
+  }
+  @media(min-width:760px){
+    .trust-grid{grid-template-columns:repeat(4,1fr);}
+    .trust-item{border-bottom:none; border-right:1px solid var(--line); padding:36px 26px;}
+    .trust-item:last-child{border-right:none;}
+  }
+
+  /* ---------- Generic section rhythm ---------- */
+  section{padding:100px 0;}
+  .section-head{
+    max-width:640px;
+    margin:0 auto 56px;
+    text-align:center;
+  }
+  .section-head h2{
+    font-size:clamp(2.1rem, 5vw, 3rem);
+    margin-top:10px;
+  }
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in-view{opacity:1; transform:none;}
+
+  /* ---------- About ---------- */
+  section[data-section="about"] .about-copy{
+    max-width:640px;
+    margin:0 auto;
+    font-size:1.08rem;
+    color:rgba(46,35,32,0.9);
+  }
+  section[data-section="about"] .about-copy p{margin:0 0 22px;}
+  section[data-section="about"] .about-copy p:last-child{margin-bottom:0;}
+  .about-signoff{
+    margin-top:34px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--primary);
+  }
+
+  /* ---------- Services ---------- */
+  section[data-section="services"]{background:#F3E9DA;}
+  .price-note{
+    text-align:center;
+    max-width:640px;
+    margin:-30px auto 50px;
+    font-size:0.92rem;
+    color:rgba(46,35,32,0.75);
+  }
+  .price-note strong{color:var(--primary); font-weight:600;}
+  .services-list{
+    max-width:760px;
+    margin:0 auto;
+    list-style:none;
+    padding:0;
+  }
+  .services-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+  }
+  .services-list li:last-child{border-bottom:none;}
+  .services-list li span.tag{
+    font-family:'Work Sans', sans-serif;
+    font-size:0.78rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--gold);
+    white-space:nowrap;
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+  .gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:4px;
+    aspect-ratio:3/4;
+  }
+  .gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+  }
+  .gallery-item:hover img{transform:scale(1.05);}
+  .gallery-item figcaption{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    padding:14px 16px;
+    background:linear-gradient(180deg, rgba(46,35,32,0) 0%, rgba(46,35,32,0.65) 100%);
+    color:var(--cream);
+    font-size:0.82rem;
+    margin:0;
+  }
+  .gallery-item.wide{grid-column:span 2;}
+  @media(min-width:720px){
+    .gallery-grid{grid-template-columns:repeat(3,1fr);}
+    .gallery-item.wide{grid-column:span 2; aspect-ratio:16/10;}
+  }
+
+  /* ---------- Contact ---------- */
+  section[data-section="contact"]{background:#F3E9DA;}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:48px;
+    max-width:960px;
+    margin:0 auto;
+  }
+  .contact-block h3{
+    font-size:1.1rem;
+    color:var(--primary);
+    margin-bottom:14px;
+  }
+  .contact-block p{margin:0 0 8px; font-size:0.98rem;}
+  .contact-block .muted{
+    font-size:0.82rem;
+    color:rgba(46,35,32,0.62);
+    margin-top:4px;
+  }
+  .contact-block a.link{
+    text-decoration:none;
+    border-bottom:1px solid var(--primary);
+    color:var(--ink);
+  }
+  .hours-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:6px;
+  }
+  .hours-table td{
+    padding:8px 0;
+    border-bottom:1px solid var(--line);
+    font-size:0.94rem;
+  }
+  .hours-table td:last-child{text-align:right; font-weight:500;}
+  .map-card{
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:26px;
+    background:var(--cream);
+    text-align:center;
+  }
+  .map-card svg{margin:0 auto 14px;}
+  .map-card .addr{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    color:var(--ink);
+  }
+  .map-card .muted{font-size:0.8rem; color:rgba(46,35,32,0.6); margin-top:10px;}
+  @media(min-width:860px){
+    .contact-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:48px 0 100px;
+    text-align:center;
+    border-top:1px solid var(--line);
+  }
+  footer .foot-brand{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--primary);
+    font-size:1.1rem;
+  }
+  footer .foot-links{
+    margin-top:16px;
+    display:flex;
+    justify-content:center;
+    gap:24px;
+  }
+  footer .foot-links a{
+    text-decoration:none;
+    font-size:0.88rem;
+    color:var(--ink);
+    border-bottom:1px solid transparent;
+  }
+  footer .foot-links a:hover{border-color:var(--gold);}
+  footer .copy{
+    margin-top:22px;
+    font-size:0.78rem;
+    color:rgba(46,35,32,0.55);
+  }
+
+  /* ---------- Badge ---------- */
+  .preview-badge{
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    z-index:50;
+    background:var(--ink);
+    color:var(--cream);
+    text-decoration:none;
+    font-size:0.74rem;
+    padding:9px 16px;
+    border-radius:999px;
+    box-shadow:0 6px 20px -6px rgba(0,0,0,0.4);
+    opacity:0.92;
+  }
+  .preview-badge strong{color:var(--gold);}
+  .preview-badge:hover{opacity:1;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#top" class="brand-mark">Marilyn</a>
+    <nav class="primary-nav" aria-label="Hlavná navigácia">
+      <a href="#about">O nás</a>
+      <a href="#services">Služby</a>
+      <a href="#gallery">Galéria</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <div class="header-actions">
+      <a class="call-pill" href="tel:+421465413856">Zavolať</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="mobileNav"><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilná navigácia">
+    <a href="#about">O nás</a>
+    <a href="#services">Služby</a>
+    <a href="#gallery">Galéria</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section data-section="hero">
+    <div class="hero-deco" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Prievidza · od roku 1991</p>
+        <h1>Kaderníctvo<br>Marilyn</h1>
+        <p class="sub">Vaše vlasy, náš dlhoročný záväzok.</p>
+        <p class="lead">Naše kaderníctvo Marilyn poznáte už od roku 1991. Za ten čas sme sa naučili jedno — že najkrajší účes je ten, po ktorom odchádzate s úsmevom. Zavolajte nám a dohodneme si termín, ktorý Vám bude vyhovovať.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="tel:+421465413856">Zavolať do salónu</a>
+          <a class="btn-ghost" href="#contact">Kde nás nájdete</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="assets/photo-1.jpg" alt="Interiér kaderníctva Marilyn s umývacím kútom a farebnou nástennou maľbou">
+        <figcaption class="hero-photo-cap">Náš salón v Prievidzi</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section data-section="trust">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <span class="num">1991</span>
+          <p>Tradícia, ktorú v Prievidzi poznáte už viac než tri desaťročia.</p>
+        </div>
+        <div class="trust-item">
+          <span class="num">Wella & Goldwell</span>
+          <p>Pravidelné školenia a produkty overených značiek pre kvalitu, na ktorej nám záleží.</p>
+        </div>
+        <div class="trust-item">
+          <span class="num">S.O.C.A.P.</span>
+          <p>Predlžovanie a zahusťovanie vlasov keratínovou metódou.</p>
+        </div>
+        <div class="trust-item">
+          <span class="num">96 % odporúčaní</span>
+          <p>Podľa 16 recenzií na našej facebookovej stránke.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Náš príbeh</p>
+        <h2>O nás</h2>
+      </div>
+      <div class="about-copy reveal">
+        <p>Naše kaderníctvo Marilyn poznáte už od roku 1991. Za tie roky sme si v Prievidzi vybudovali miesto, kam sa naše klientky a klienti radi vracajú — a za to sme úprimne vďační.</p>
+        <p>V snahe o neustále zvyšovanie kvality nami ponúkaných služieb prioritne sledujeme posledné trendy vo svete vlasov. Pravidelne sa vzdelávame na školeniach značiek Wella a Goldwell, aby sme Vám vedeli ponúknuť to najlepšie z odborných postupov aj produktov.</p>
+        <p>Poslednou novinkou v našom salóne je predlžovanie a zahusťovanie vlasov keratínovým spôsobom, metódou S.O.C.A.P. — pre tie z Vás, ktoré túžia po dlhších alebo hustejších vlasoch.</p>
+        <p class="about-signoff">Ďakujeme, že nám zachovávate Vašu úctivú priazeň — tešíme sa na Vaše ďalšie návštevy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Ponuka</p>
+        <h2>Služby</h2>
+      </div>
+      <p class="price-note reveal">Ceny na vyžiadanie — <strong>zavolajte nám</strong>, radi Vám poradíme podľa dĺžky a hustoty Vašich vlasov.</p>
+      <ul class="services-list reveal">
+        <li>Strihanie a úprava vlasov <span class="tag">Dámy · Páni · Deti</span></li>
+        <li>Farbenie a melírovanie vlasov <span class="tag">Farba</span></li>
+        <li>Trvalá ondulácia <span class="tag">Trvalá</span></li>
+        <li>Predlžovanie a zahusťovanie vlasov <span class="tag">Keratín · S.O.C.A.P.</span></li>
+        <li>Svadobné a spoločenské účesy <span class="tag">Účesy</span></li>
+        <li>Regenerácia vlasov keratínom <span class="tag">Starostlivosť</span></li>
+        <li>Základné kozmetické procedúry <span class="tag">Kozmetika</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section data-section="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Dôkaz remesla</p>
+        <h2>Naše premeny</h2>
+      </div>
+      <div class="gallery-grid reveal">
+        <figure class="gallery-item wide">
+          <img src="assets/photo-4.jpg" alt="Výrazný červeno-ružový balayage na vlnitých vlasoch">
+          <figcaption>Výrazný červeno-ružový balayage</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/photo-2.jpg" alt="Hladké rovné hnedé vlasy zozadu, výsledok úpravy v salóne">
+          <figcaption>Hladký, rovný strih</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/photo-5.jpg" alt="Výrazný červeno-ružový ombré na rovných vlasoch">
+          <figcaption>Sýte červeno-ružové ombré</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/photo-3.jpg" alt="Dlhé vlnité hnedé melírované vlasy zozadu, výsledok úpravy">
+          <figcaption>Melír na dlhých vlnitých vlasoch</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/photo-6.jpg" alt="Príprava a rozdeľovanie vlasov sponkami počas farbenia v salóne">
+          <figcaption>Príprava farbenia v našom salóne</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Poďte na kávu a nový účes</p>
+        <h2>Kontakt</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <div>
+          <div class="contact-block" style="margin-bottom:36px;">
+            <h3>Objednávky</h3>
+            <p><a class="link" href="tel:+421465413856">046 541 38 56</a></p>
+            <p class="muted">Doplnkové číslo 0907 126 071 — odporúčame overiť si pri objednávaní priamo s nami.</p>
+            <p style="margin-top:14px;"><a class="link" href="mailto:hricovan@gmail.com">hricovan@gmail.com</a></p>
+          </div>
+          <div class="contact-block">
+            <h3>Otváracie hodiny</h3>
+            <table class="hours-table">
+              <tr><td>Pondelok</td><td>10:00 – 18:00</td></tr>
+              <tr><td>Utorok – Piatok</td><td>8:00 – 18:00</td></tr>
+              <tr><td>Sobota</td><td>8:00 – 13:00</td></tr>
+              <tr><td>Nedeľa</td><td>zatvorené</td></tr>
+            </table>
+            <p class="muted">Orientačné, prosím overte si telefonicky.</p>
+          </div>
+        </div>
+        <div>
+          <div class="map-card">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M24 4C15.16 4 8 11.16 8 20c0 12 16 24 16 24s16-12 16-24c0-8.84-7.16-16-16-16z" stroke="#B14A55" stroke-width="1.5"/>
+              <circle cx="24" cy="20" r="6" stroke="#C79A4B" stroke-width="1.5"/>
+            </svg>
+            <p class="addr">Rad L. N. Tolstého 711/7<br>Prievidza</p>
+            <p class="muted">Schematické znázornenie polohy — presnú trasu si, prosím, overte vo svojej navigácii.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-brand">Marilyn</p>
+    <div class="foot-links">
+      <a href="https://www.facebook.com/Kadernictvo.Marilyn/" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/kadernictvo.marilyn/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p class="copy">Kaderníctvo Marilyn · Prievidza · na našej stránke prinášame aktuálne ponuky a akcie, a nové správy o našom salóne.</p>
+  </div>
+</footer>
+
+<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function(){
+    var btn = document.getElementById('menuBtn');
+    var nav = document.getElementById('mobileNav');
+    btn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    var revealEls = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.15});
+      revealEls.forEach(function(el){ io.observe(el); });
+    } else {
+      revealEls.forEach(function(el){ el.classList.add('in-view'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AB Luxury Barber — Barbershop Prievidza</title>
+<meta name="description" content="AB Luxury Barber, Prievidza — strih, úprava brady a kompletná starostlivosť v luxusnom barbershope. Rezervuj si svoj termín online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#c6a15b;
+    --gold-soft:#e6c98a;
+    --black:#0d0d0d;
+    --black-2:#161613;
+    --black-3:#1e1c18;
+    --red:#b0272d;
+    --blue:#1b3b6f;
+    --ivory:#f4ede1;
+    --muted:#b8b0a1;
+    --line: rgba(198,161,91,0.25);
+    --ff-head:'Playfair Display', 'Times New Roman', serif;
+    --ff-body:'Inter', system-ui, sans-serif;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--black);
+    color:var(--ivory);
+    font-family:var(--ff-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--ff-head);margin:0 0 .5em;color:var(--ivory);letter-spacing:.01em;}
+  p{margin:0 0 1em;color:var(--muted);}
+  .container{width:min(1140px, 92%);margin-inline:auto;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.5em;
+    font-family:var(--ff-body);font-weight:600;font-size:.78rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+    margin-bottom:.9em;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);display:inline-block;}
+  .skip-link{
+    position:absolute;left:-999px;top:0;background:var(--gold);color:var(--black);
+    padding:.6em 1em;z-index:200;font-weight:600;
+  }
+  .skip-link:focus{left:1rem;top:1rem;}
+
+  /* Header */
+  header.site-header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(13,13,13,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0;}
+  .brand{display:flex;align-items:center;gap:.7em;text-decoration:none;}
+  .brand img{
+    width:46px;height:46px;border-radius:50%;object-fit:cover;
+    border:1.5px solid var(--gold);
+  }
+  .brand-word{font-family:var(--ff-head);font-weight:700;font-size:1.05rem;letter-spacing:.04em;color:var(--ivory);}
+  .brand-word span{color:var(--gold);}
+
+  nav.main-nav ul{
+    display:flex;gap:1.9rem;list-style:none;margin:0;padding:0;
+  }
+  nav.main-nav a{
+    font-size:.85rem;font-weight:500;letter-spacing:.04em;text-decoration:none;
+    color:var(--muted);text-transform:uppercase;
+    position:relative;padding-bottom:.3em;
+    transition:color .2s ease;
+  }
+  nav.main-nav a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);
+    transition:width .25s ease;
+  }
+  nav.main-nav a:hover{color:var(--gold);}
+  nav.main-nav a:hover::after{width:100%;}
+
+  .nav-cta{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:inline-flex;flex-direction:column;justify-content:center;gap:5px;
+    background:none;border:1px solid var(--line);border-radius:6px;
+    width:42px;height:38px;cursor:pointer;
+  }
+  .menu-toggle span{display:block;height:2px;background:var(--gold);margin-inline:9px;}
+  nav.main-nav{
+    position:fixed;inset:64px 0 0 0;background:var(--black);
+    transform:translateY(-110%);transition:transform .3s ease;
+    padding:2rem 1.5rem;z-index:99;
+    overflow-y:auto;
+  }
+  nav.main-nav.open{transform:translateY(0);}
+  nav.main-nav ul{flex-direction:column;gap:1.4rem;}
+  nav.main-nav a{font-size:1.1rem;}
+
+  @media (min-width:900px){
+    .menu-toggle{display:none;}
+    nav.main-nav{position:static;transform:none;inset:auto;padding:0;background:transparent;}
+    nav.main-nav ul{flex-direction:row;}
+    nav.main-nav a{font-size:.85rem;}
+    .nav-cta{
+      display:inline-block;border:1px solid var(--gold);color:var(--gold);
+      padding:.55em 1.3em;border-radius:999px;text-decoration:none;
+      font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+      transition:background .2s ease,color .2s ease;
+    }
+    .nav-cta:hover{background:var(--gold);color:var(--black);}
+  }
+
+  /* Divider motifs */
+  .divider{
+    display:flex;align-items:center;justify-content:center;gap:1rem;
+    padding:2.4rem 0;
+  }
+  .divider .rule{height:1px;background:linear-gradient(90deg, transparent, var(--gold), transparent);flex:1;max-width:180px;}
+  .divider svg{width:26px;height:26px;color:var(--gold);flex-shrink:0;}
+
+  /* Hero */
+  section[data-section="hero"]{
+    position:relative;
+    min-height:92vh;
+    display:flex;align-items:center;
+    background:
+      linear-gradient(180deg, rgba(13,13,13,.55) 0%, rgba(13,13,13,.82) 55%, var(--black) 100%),
+      url('assets/stock-13.jpg') center/cover no-repeat;
+    padding:7rem 0 4rem;
+  }
+  .hero-inner{
+    display:grid;gap:2.4rem;align-items:center;
+  }
+  .hero-emblem{
+    width:118px;height:118px;margin:0 0 1.6rem;
+  }
+  .hero-emblem svg{width:100%;height:100%;}
+  section[data-section="hero"] h1{
+    font-size:clamp(2.6rem, 7vw, 4.6rem);
+    font-weight:800;
+    line-height:1.02;
+    color:var(--ivory);
+    text-shadow:0 4px 30px rgba(0,0,0,.5);
+  }
+  section[data-section="hero"] h1 em{
+    font-style:normal;color:var(--gold);
+  }
+  .hero-sub{
+    font-family:var(--ff-head);
+    font-size:clamp(1.15rem,2.6vw,1.55rem);
+    color:var(--gold-soft);
+    font-weight:600;
+    margin-bottom:1rem;
+  }
+  .hero-lede{
+    max-width:44ch;font-size:1.05rem;color:#d8d0c2;
+  }
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.8rem;}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;
+    padding:.95em 1.9em;border-radius:999px;
+    font-weight:600;font-size:.92rem;letter-spacing:.03em;
+    text-decoration:none;text-transform:uppercase;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    border:1px solid transparent;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color:var(--black);
+    box-shadow:0 10px 30px -10px rgba(198,161,91,.55);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -10px rgba(198,161,91,.7);}
+  .btn-ghost{
+    border-color:var(--gold);color:var(--gold-soft);background:transparent;
+  }
+  .btn-ghost:hover{background:var(--gold);color:var(--black);}
+
+  /* Reveal on scroll (below fold only) */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  /* Trust bar */
+  section[data-section="trust"]{
+    padding:1rem 0 3.5rem;
+  }
+  .trust-grid{
+    display:grid;gap:1.5rem;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:760px){.trust-grid{grid-template-columns:repeat(3,1fr);}}
+  .trust-card{
+    border:1px solid var(--line);
+    border-top:2px solid var(--gold);
+    background:linear-gradient(180deg, var(--black-2), var(--black));
+    padding:1.7rem 1.5rem;border-radius:10px;
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .trust-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+  .trust-icon{font-size:1.5rem;margin-bottom:.6rem;display:block;}
+  .trust-card h3{font-size:1.05rem;font-family:var(--ff-body);font-weight:700;color:var(--ivory);margin-bottom:.35em;}
+  .trust-card p{margin:0;font-size:.92rem;}
+
+  /* About */
+  section[data-section="about"]{padding:2rem 0 3.5rem;}
+  .about-grid{
+    display:grid;gap:2.5rem;align-items:center;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:860px){.about-grid{grid-template-columns:1fr 1.15fr;}}
+  .about-frame{
+    aspect-ratio:4/5;border-radius:12px;
+    border:1px solid var(--line);
+    background:
+      repeating-linear-gradient(135deg, var(--black-3) 0 18px, var(--black-2) 18px 36px);
+    display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  }
+  .about-frame::before{
+    content:"";position:absolute;inset:14px;border:1px solid var(--gold);border-radius:8px;opacity:.5;
+  }
+  .about-frame svg{width:64px;height:64px;color:var(--gold);opacity:.85;}
+  .about-text h2{font-size:clamp(1.8rem,3.4vw,2.5rem);}
+  .about-text p{font-size:1.03rem;}
+  .about-text p:last-of-type{color:var(--ivory);font-weight:500;}
+
+  /* Services */
+  section[data-section="services"]{padding:1rem 0 3.5rem;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 3rem;}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);}
+  .services-grid{
+    display:grid;gap:1.7rem;grid-template-columns:1fr;
+  }
+  @media (min-width:780px){.services-grid{grid-template-columns:repeat(3,1fr);}}
+  .service-card{
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    background:var(--black-2);
+    display:flex;flex-direction:column;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -20px rgba(0,0,0,.7);}
+  .service-media{aspect-ratio:4/3;overflow:hidden;background:var(--black-3);}
+  .service-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;filter:saturate(.92) contrast(1.05);}
+  .service-card:hover .service-media img{transform:scale(1.06);}
+  .service-media.icon-only{
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 50% 40%, var(--black-3), var(--black));
+  }
+  .service-media.icon-only svg{width:56px;height:56px;color:var(--gold);}
+  .service-body{padding:1.4rem 1.5rem 1.7rem;}
+  .service-body h3{font-family:var(--ff-head);font-size:1.3rem;color:var(--gold-soft);margin-bottom:.4em;}
+  .service-body p{margin:0;font-size:.94rem;}
+  .services-note{
+    text-align:center;margin-top:2.4rem;font-size:.92rem;color:var(--muted);
+  }
+  .services-note strong{color:var(--gold-soft);}
+
+  /* Gallery */
+  section[data-section="gallery"]{padding:1rem 0 3.5rem;}
+  .gallery-note{text-align:center;max-width:560px;margin:0 auto 2.6rem;font-style:italic;color:var(--muted);font-size:.92rem;}
+  .gallery-grid{
+    display:grid;gap:.9rem;
+    grid-template-columns:repeat(2,1fr);
+  }
+  @media (min-width:760px){
+    .gallery-grid{grid-template-columns:repeat(4,1fr);}
+  }
+  .gallery-item{
+    position:relative;border-radius:10px;overflow:hidden;
+    aspect-ratio:3/4;
+  }
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .gallery-item:hover img{transform:scale(1.08);}
+  .gallery-cap{
+    position:absolute;inset:auto 0 0 0;padding:.9rem .8rem 1rem;
+    background:linear-gradient(0deg, rgba(13,13,13,.92), transparent);
+    font-size:.82rem;color:var(--gold-soft);font-weight:600;letter-spacing:.02em;
+  }
+
+  /* Hours */
+  section[data-section="hours"]{padding:1rem 0 3.5rem;}
+  .hours-card{
+    max-width:560px;margin:0 auto;
+    border:1px solid var(--line);border-radius:12px;
+    background:linear-gradient(180deg, var(--black-2), var(--black));
+    padding:2rem 1.8rem;
+  }
+  .hours-list{list-style:none;margin:0 0 1.4rem;padding:0;}
+  .hours-list li{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:.75rem 0;border-bottom:1px dashed var(--line);
+    font-size:1rem;
+  }
+  .hours-list li:last-child{border-bottom:none;}
+  .hours-day{color:var(--ivory);font-weight:500;}
+  .hours-status{color:var(--gold-soft);font-weight:600;letter-spacing:.03em;font-size:.9rem;text-transform:uppercase;}
+  .hours-note{
+    display:flex;gap:.6em;align-items:flex-start;
+    font-size:.86rem;color:var(--muted);background:var(--black-3);
+    border-left:2px solid var(--gold);padding:.9rem 1rem;border-radius:6px;
+  }
+
+  /* Contact */
+  section[data-section="contact"]{padding:1rem 0 5rem;}
+  .contact-grid{
+    display:grid;gap:2rem;grid-template-columns:1fr;
+  }
+  @media (min-width:860px){.contact-grid{grid-template-columns:1.1fr .9fr;}}
+  .contact-info{
+    border:1px solid var(--line);border-radius:12px;padding:2rem;
+    background:var(--black-2);
+  }
+  .contact-list{list-style:none;margin:0;padding:0;display:grid;gap:1.3rem;}
+  .contact-list li{display:flex;gap:1em;align-items:flex-start;}
+  .contact-list svg{width:22px;height:22px;color:var(--gold);flex-shrink:0;margin-top:.15em;}
+  .contact-list a{text-decoration:none;color:var(--ivory);font-weight:600;}
+  .contact-list a:hover{color:var(--gold-soft);}
+  .contact-list .label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.2em;}
+  .contact-cta{
+    border:1px solid var(--gold);border-radius:12px;padding:2.2rem 2rem;
+    background:radial-gradient(circle at 30% 0%, rgba(198,161,91,.12), transparent 60%), var(--black-3);
+    display:flex;flex-direction:column;justify-content:center;gap:1.1rem;
+  }
+  .contact-cta h3{font-size:1.5rem;color:var(--gold-soft);}
+  .contact-cta p{margin:0;font-size:.94rem;}
+  .contact-cta .btn{align-self:flex-start;}
+
+  /* Footer */
+  footer.site-footer{
+    border-top:1px solid var(--line);
+    padding:2.4rem 0 6rem;
+    text-align:center;
+  }
+  footer.site-footer .brand-word{font-size:1rem;display:block;margin-bottom:.5rem;}
+  footer.site-footer p{font-size:.82rem;margin:0;}
+  footer.site-footer a.ig{color:var(--gold-soft);text-decoration:none;font-weight:600;}
+  footer.site-footer a.ig:hover{text-decoration:underline;}
+
+  /* Fixed preview badge */
+  .preview-badge{
+    position:fixed;right:1rem;bottom:1rem;z-index:150;
+    background:rgba(13,13,13,.9);border:1px solid var(--line);
+    color:var(--muted);font-size:.72rem;
+    padding:.5em .9em;border-radius:999px;
+    text-decoration:none;backdrop-filter:blur(6px);
+    box-shadow:0 6px 20px rgba(0,0,0,.4);
+  }
+  .preview-badge strong{color:var(--gold-soft);}
+  .preview-badge:hover{border-color:var(--gold);color:var(--ivory);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal, nav.main-nav, .gallery-item img, .service-card, .trust-card, .btn-primary{transition:none;}
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#hlavny-obsah">Preskočiť na obsah</a>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a class="brand" href="#hero">
+      <img src="assets/logo.jpg" alt="AB Luxury barber" width="46" height="46" loading="eager">
+      <span class="brand-word">AB <span>Luxury Barber</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="hlavne-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="hlavne-menu" aria-label="Hlavná navigácia">
+      <ul>
+        <li><a href="#o-nas">O nás</a></li>
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#atmosfera">Atmosféra</a></li>
+        <li><a href="#hodiny">Otváracie hodiny</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="#kontakt">Rezervuj si termín</a>
+  </div>
+</header>
+
+<main id="hlavny-obsah">
+
+  <section data-section="hero" id="hero" aria-labelledby="hero-heading">
+    <div class="container hero-inner">
+      <div class="hero-emblem" aria-hidden="true">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <path id="arcTop" d="M100,100 m-72,0 a72,72 0 1,1 144,0" />
+            <path id="arcBottom" d="M28,100 a72,72 0 1,1 144,0" />
+          </defs>
+          <circle cx="100" cy="100" r="96" fill="#0d0d0d" stroke="#c6a15b" stroke-width="2"/>
+          <circle cx="100" cy="100" r="86" fill="none" stroke="#c6a15b" stroke-width="1" opacity="0.5"/>
+          <text font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="3" fill="#c6a15b">
+            <textPath href="#arcTop" startOffset="50%" text-anchor="middle">AB LUXURY BARBER</textPath>
+          </text>
+          <text font-family="Inter, sans-serif" font-size="12.5" font-weight="700" letter-spacing="3" fill="#c6a15b">
+            <textPath href="#arcBottom" startOffset="50%" text-anchor="middle">✂ PRIEVIDZA ✂</textPath>
+          </text>
+          <text x="100" y="112" font-family="Playfair Display, serif" font-size="34" text-anchor="middle" fill="#c6a15b">✂</text>
+        </svg>
+      </div>
+      <p class="hero-sub">💈 Barbershop, na ktorý si Prievidza počkala</p>
+      <h1 id="hero-heading">AB <em>LUXURY</em> BARBER</h1>
+      <p class="hero-lede">Strih, úprava brady, kompletná starostlivosť. Presná ruka, luxusný priestor a štýl, ktorý si nesieš von ešte dlho po tom, čo vystúpiš z kresla.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#kontakt">Rezervuj si termín</a>
+        <a class="btn btn-ghost" href="#sluzby">Pozri si služby</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="rule"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6a3 3 0 1 0 3 3M6 18a3 3 0 1 0 3-3M9 9l10 8M19 6 9 15"/></svg>
+    <span class="rule"></span>
+  </div>
+
+  <section data-section="trust" aria-label="Prečo si vybrať AB Luxury Barber">
+    <div class="container">
+      <div class="trust-grid reveal">
+        <article class="trust-card">
+          <span class="trust-icon">📌</span>
+          <h3>Online rezervácia</h3>
+          <p>Termín si zarezervuješ priamo, bez zbytočného telefonovania naprázdno.</p>
+        </article>
+        <article class="trust-card">
+          <span class="trust-icon">✂️</span>
+          <h3>Kompletná starostlivosť</h3>
+          <p>Strih aj úprava brady v jednom termíne, presne podľa tvojho štýlu.</p>
+        </article>
+        <article class="trust-card">
+          <span class="trust-icon">💈</span>
+          <h3>Vlastný luxusný branding</h3>
+          <p>Tmavý interiér a jasná identita — u nás vieš presne, kam ideš.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="rule"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h11M12 12l7-5M12 12l7 5"/><circle cx="4" cy="12" r="2"/></svg>
+    <span class="rule"></span>
+  </div>
+
+  <section data-section="about" id="o-nas" aria-labelledby="about-heading">
+    <div class="container about-grid reveal">
+      <div class="about-frame" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6a3 3 0 1 0 3 3M6 18a3 3 0 1 0 3-3M9 9l10 8M19 6 9 15"/></svg>
+      </div>
+      <div class="about-text">
+        <p class="eyebrow">O nás</p>
+        <h2 id="about-heading">Sme AB Luxury Barber</h2>
+        <p>Barbershop v Prievidzi, kde sa strih berie ako remeslo a nie ako rýchla zástrižka medzi dverami. Presná ruka, poctivý čas na detail a priestor, v ktorom je hneď cítiť, že tu ide o štýl.</p>
+        <p>Strih, úprava brady, kompletná starostlivosť — u nás si prídeš oddýchnuť aj upraviť. Príď sa presvedčiť sám. 🙏🏼</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="rule"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="10.5" y="2" width="3" height="20" rx="1.5"/><path d="M10.5 6h3M10.5 18h3" stroke="#0d0d0d" stroke-width="1"/></svg>
+    <span class="rule"></span>
+  </div>
+
+  <section data-section="services" id="sluzby" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Ponuka</p>
+        <h2 id="services-heading">Služby</h2>
+        <p>Tri veci, v ktorých sme doma. Bez zbytočností, s dôrazom na detail.</p>
+      </div>
+      <div class="services-grid reveal">
+        <article class="service-card">
+          <div class="service-media">
+            <img src="assets/stock-05.jpg" alt="Barber pri presnom strihu elektrickým strojčekom" loading="lazy">
+          </div>
+          <div class="service-body">
+            <h3>Strih</h3>
+            <p>Klasika aj moderné strihy, prispôsobené tvaru tváre a tvojmu štýlu.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-media">
+            <img src="assets/stock-08.jpg" alt="Tradičná úprava brady britvou v barbershope" loading="lazy">
+          </div>
+          <div class="service-body">
+            <h3>Úprava brady</h3>
+            <p>Tvarovanie a dolaďovanie brady s citom pre detail a čisté línie.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-media icon-only" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6a3 3 0 1 0 3 3M6 18a3 3 0 1 0 3-3M9 9l10 8M19 6 9 15"/></svg>
+          </div>
+          <div class="service-body">
+            <h3>Kompletná starostlivosť</h3>
+            <p>Strih aj brada v jednom termíne — vyjdeš od nás hotový po hlavu aj po bradu.</p>
+          </div>
+        </article>
+      </div>
+      <p class="services-note reveal">Presný cenník ti radi pošleme na mieru — stačí napísať 📩 alebo zavolať. <strong>Rezervuj si svoj termín online</strong> a poriešime to spolu.</p>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="rule"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="8"/><path d="M8 8l8 8M16 8l-8 8" opacity=".6"/></svg>
+    <span class="rule"></span>
+  </div>
+
+  <section data-section="gallery" id="atmosfera" aria-labelledby="gallery-heading">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">U nás</p>
+        <h2 id="gallery-heading">Atmosféra</h2>
+      </div>
+      <p class="gallery-note reveal">Ilustračné zábery — presne takú atmosféru, tmavý luxusný interiér s barber pólom, pre teba pripravíme. 💈</p>
+      <div class="gallery-grid reveal">
+        <figure class="gallery-item">
+          <img src="assets/stock-02.jpg" alt="Luxusný tmavý interiér so zlatými akcentmi" loading="lazy">
+          <figcaption class="gallery-cap">Interiér so zlatými akcentmi</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/stock-03.jpg" alt="Elegantný priestor s tlmeným svetlom a zlatými detailmi" loading="lazy">
+          <figcaption class="gallery-cap">Tlmené svetlo, čisté línie</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/stock-11.jpg" alt="Vstup do barbershopu s klasickým barber pólom v noci" loading="lazy">
+          <figcaption class="gallery-cap">Barber pól — naša značka</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/stock-14.jpg" alt="Barber pracuje s klientom v modernom barbershope s tehlovou stenou" loading="lazy">
+          <figcaption class="gallery-cap">Práca, ktorá baví</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="rule"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+    <span class="rule"></span>
+  </div>
+
+  <section data-section="hours" id="hodiny" aria-labelledby="hours-heading">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Kedy nás nájdeš</p>
+        <h2 id="hours-heading">Otváracie hodiny</h2>
+      </div>
+      <div class="hours-card reveal">
+        <ul class="hours-list">
+          <li><span class="hours-day">Pondelok</span><span class="hours-status">Otvorené</span></li>
+          <li><span class="hours-day">Utorok</span><span class="hours-status">Otvorené</span></li>
+          <li><span class="hours-day">Streda</span><span class="hours-status">Otvorené</span></li>
+          <li><span class="hours-day">Štvrtok</span><span class="hours-status">Otvorené</span></li>
+          <li><span class="hours-day">Piatok</span><span class="hours-status">Otvorené</span></li>
+        </ul>
+        <p class="hours-note">🚨 Presný časový rozsah otváracích hodín si prosím over telefonicky na <a href="tel:+421940088636">0940 088 636</a> alebo priamo v našom Instagram bio — chceme ti dať istotu, že ťa nájdeme otvorených.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true">
+    <span class="rule"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6a3 3 0 1 0 3 3M6 18a3 3 0 1 0 3-3M9 9l10 8M19 6 9 15"/></svg>
+    <span class="rule"></span>
+  </div>
+
+  <section data-section="contact" id="kontakt" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Poď na termín</p>
+        <h2 id="contact-heading">Kontakt &amp; rezervácia</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <span class="label">Telefón</span>
+                <a href="tel:+421940088636">0940 088 636</a>
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <span class="label">Adresa</span>
+                <span>Košovská cesta 70/24, Prievidza 97101</span>
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+              <div>
+                <span class="label">Instagram</span>
+                <a href="https://www.instagram.com/ab_luxurybarber?igsh=MXVjcHg1aTAyZ2Nmbw%3D%3D&utm_source=qr" target="_blank" rel="noopener">@ab_luxurybarber</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="contact-cta">
+          <h3>Rezervuj si svoj termín online</h3>
+          <p>Rezervačný odkaz nájdeš priamo v našom Instagram bio 📌 — alebo nám jednoducho zavolaj a termín doriešime na telefóne.</p>
+          <a class="btn btn-primary" href="tel:+421940088636">Zavolať teraz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span class="brand-word">AB <span style="color:var(--gold)">Luxury Barber</span></span>
+    <p>Prievidza · Strih, úprava brady, kompletná starostlivosť · <a class="ig" href="https://www.instagram.com/ab_luxurybarber?igsh=MXVjcHg1aTAyZ2Nmbw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a></p>
+  </div>
+</footer>
+
+<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var menu = document.getElementById('hlavne-menu');
+    toggle.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(function(el){ observer.observe(el); });
+    } else {
+      revealEls.forEach(function(el){ el.classList.add('in-view'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

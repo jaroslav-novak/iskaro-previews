@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Autoservis MBH – oprava a údržba automobilov, Prievidza</title>
+<meta name="description" content="Autoservis MBH - Molota Juraj. Oprava a údržba automobilov v Prievidzi. Telefón 046 543 05 17.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#171A1D;
+    --ink-2:#20242A;
+    --ink-3:#3D444B;
+    --paper:#F4F1EC;
+    --accent:#E8560C;
+    --accent-dim:#B84409;
+    --line: rgba(244,241,236,0.12);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter', system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    margin:0;
+    color:var(--paper);
+  }
+  p{ margin:0; }
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Inter', sans-serif;
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:2px;
+    background:var(--accent);
+    display:inline-block;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 30px;
+    background:var(--accent);
+    color:var(--paper);
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    border:1px solid var(--accent);
+    transition:background .18s ease, color .18s ease, transform .18s ease;
+  }
+  .btn:hover{ background:transparent; color:var(--accent); }
+  .btn:active{ transform:translateY(1px); }
+  .btn-outline{
+    background:transparent;
+    color:var(--paper);
+    border:1px solid var(--line);
+  }
+  .btn-outline:hover{ border-color:var(--accent); color:var(--accent); background:transparent; }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:rgba(23,26,29,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+  }
+  .brand{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    font-size:1.25rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  .brand span{ color:var(--accent); }
+  .nav-links{
+    display:none;
+    align-items:center;
+    gap:32px;
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .nav-links a{
+    text-decoration:none;
+    font-size:0.9rem;
+    font-weight:500;
+    color:var(--paper);
+    opacity:0.85;
+    transition:opacity .15s ease, color .15s ease;
+  }
+  .nav-links a:hover{ opacity:1; color:var(--accent); }
+  .nav-call{
+    display:none;
+  }
+  .nav-toggle{
+    display:inline-flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:38px;
+    height:38px;
+    background:transparent;
+    border:1px solid var(--line);
+    cursor:pointer;
+  }
+  .nav-toggle span{
+    display:block;
+    width:18px;
+    height:2px;
+    margin:0 auto;
+    background:var(--paper);
+  }
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    border-top:1px solid var(--line);
+    background:var(--ink);
+  }
+  .mobile-menu.open{ display:flex; }
+  .mobile-menu a{
+    padding:16px 24px;
+    text-decoration:none;
+    color:var(--paper);
+    border-bottom:1px solid var(--line);
+    font-weight:500;
+  }
+  .mobile-menu a:last-child{ border-bottom:none; }
+  .mobile-menu .btn{ margin:16px 24px; justify-content:center; }
+
+  @media(min-width:900px){
+    .nav-links{ display:flex; }
+    .nav-call{ display:inline-flex; }
+    .nav-toggle{ display:none; }
+    .mobile-menu{ display:none !important; }
+  }
+
+  /* ---------- reveal ---------- */
+  [data-reveal]{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  [data-reveal].is-visible{ opacity:1; transform:translateY(0); }
+
+  /* ---------- placeholder frames ---------- */
+  .frame{
+    position:relative;
+    aspect-ratio:4/3;
+    background:
+      linear-gradient(135deg, rgba(232,86,12,0.08) 0%, rgba(232,86,12,0) 55%),
+      repeating-linear-gradient(45deg, rgba(244,241,236,0.035) 0 2px, transparent 2px 14px),
+      var(--ink-2);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .frame::before{
+    content:"";
+    position:absolute;
+    inset:14px;
+    border:1px dashed rgba(244,241,236,0.18);
+  }
+  .frame-label{
+    position:relative;
+    z-index:1;
+    max-width:80%;
+    text-align:center;
+    font-size:0.78rem;
+    font-weight:500;
+    letter-spacing:0.04em;
+    color:rgba(244,241,236,0.5);
+    text-transform:uppercase;
+  }
+  .frame-mark{
+    position:absolute;
+    top:12px;
+    left:14px;
+    font-family:'Oswald', sans-serif;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    color:rgba(232,86,12,0.7);
+    z-index:1;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 80px;
+    background:
+      radial-gradient(1100px 480px at 85% -10%, rgba(232,86,12,0.16), transparent 60%),
+      repeating-linear-gradient(115deg, rgba(244,241,236,0.025) 0 1px, transparent 1px 26px),
+      var(--ink);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    gap:48px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 5.2vw, 3.4rem);
+    line-height:1.08;
+    margin:18px 0 22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+  .hero-lede{
+    font-size:1.05rem;
+    color:rgba(244,241,236,0.78);
+    max-width:46ch;
+    margin-bottom:32px;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    align-items:center;
+    margin-bottom:28px;
+  }
+  .hero-phone{
+    font-family:'Oswald', sans-serif;
+    font-size:1.15rem;
+    letter-spacing:0.03em;
+  }
+  .hero-meta{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-size:0.85rem;
+    color:rgba(244,241,236,0.6);
+  }
+  .hero-meta strong{ color:var(--paper); font-weight:600; }
+  .hero-photo .frame{ aspect-ratio:5/4; }
+
+  @media(min-width:900px){
+    .hero-grid{ grid-template-columns:1.1fr 0.9fr; }
+  }
+
+  /* ---------- section shell ---------- */
+  section{
+    padding:76px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .section-head{
+    max-width:640px;
+    margin-bottom:44px;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem, 3.4vw, 2.3rem);
+    margin-top:14px;
+  }
+
+  /* ---------- about ---------- */
+  .about-body{
+    display:grid;
+    gap:36px;
+  }
+  .about-text p{
+    font-size:1.05rem;
+    color:rgba(244,241,236,0.82);
+    max-width:64ch;
+  }
+  .about-facts{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-top:36px;
+  }
+  .about-facts div{
+    background:var(--ink);
+    padding:22px 20px;
+  }
+  .about-facts .k{
+    display:block;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:rgba(244,241,236,0.5);
+    margin-bottom:8px;
+  }
+  .about-facts .v{
+    font-family:'Oswald', sans-serif;
+    font-size:1.1rem;
+    letter-spacing:0.01em;
+  }
+
+  /* ---------- services ---------- */
+  .service-grid{
+    display:grid;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--ink);
+    padding:38px 32px;
+    position:relative;
+  }
+  .service-card .num{
+    font-family:'Oswald', sans-serif;
+    font-size:0.8rem;
+    color:var(--accent);
+    letter-spacing:0.12em;
+    display:block;
+    margin-bottom:16px;
+  }
+  .service-card h3{
+    font-size:1.35rem;
+    margin-bottom:14px;
+  }
+  .service-card p{
+    color:rgba(244,241,236,0.75);
+    font-size:0.98rem;
+  }
+  @media(min-width:700px){
+    .service-grid{ grid-template-columns:1fr 1fr; }
+  }
+
+  /* ---------- galleries ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+  @media(min-width:700px){
+    .gallery-grid.g4{ grid-template-columns:repeat(4,1fr); }
+    .gallery-grid.g6{ grid-template-columns:repeat(3,1fr); }
+  }
+
+  .price-list{
+    margin-top:56px;
+    border-top:1px solid var(--line);
+  }
+  .price-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:24px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .price-row .name{
+    font-family:'Oswald', sans-serif;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+  }
+  .price-row .name small{
+    display:block;
+    font-family:'Inter', sans-serif;
+    font-weight:400;
+    font-size:0.82rem;
+    color:rgba(244,241,236,0.55);
+    letter-spacing:0;
+    text-transform:none;
+    margin-top:4px;
+  }
+  .price-row .price{
+    font-size:0.85rem;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  .price-note{
+    margin-top:20px;
+    font-size:0.85rem;
+    color:rgba(244,241,236,0.5);
+  }
+
+  /* ---------- contact ---------- */
+  .contact{
+    background:
+      radial-gradient(900px 420px at 10% 0%, rgba(232,86,12,0.12), transparent 60%),
+      var(--ink);
+    border-bottom:none;
+  }
+  .contact-grid{
+    display:grid;
+    gap:40px;
+  }
+  .contact-card{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    padding:40px clamp(24px,4vw,48px);
+  }
+  .contact-card h2{
+    font-size:clamp(1.8rem,3.6vw,2.5rem);
+    margin-bottom:16px;
+  }
+  .contact-card > p{
+    color:rgba(244,241,236,0.75);
+    max-width:52ch;
+    margin-bottom:32px;
+  }
+  .contact-items{
+    display:grid;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-bottom:32px;
+  }
+  .contact-item{
+    background:var(--ink);
+    padding:22px 24px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+  }
+  .contact-item .ic{
+    width:38px;
+    height:38px;
+    flex:0 0 auto;
+    border:1px solid var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--accent);
+  }
+  .contact-item .k{
+    display:block;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:rgba(244,241,236,0.5);
+    margin-bottom:4px;
+  }
+  .contact-item .v{
+    font-family:'Oswald', sans-serif;
+    font-size:1.15rem;
+  }
+  @media(min-width:640px){
+    .contact-items{ grid-template-columns:1fr 1fr 1fr; }
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:28px 0 100px;
+    text-align:center;
+    font-size:0.78rem;
+    color:rgba(244,241,236,0.4);
+  }
+
+  /* ---------- badge ---------- */
+  .preview-badge{
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    z-index:50;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(23,26,29,0.92);
+    border:1px solid var(--line);
+    color:rgba(244,241,236,0.85);
+    font-family:'Inter', sans-serif;
+    font-size:0.72rem;
+    padding:9px 14px;
+    border-radius:999px;
+    text-decoration:none;
+    backdrop-filter:blur(4px);
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .preview-badge strong{ color:var(--accent); font-weight:600; }
+  .preview-badge:hover{ border-color:var(--accent); color:var(--paper); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <div class="brand">Autoservis <span>MBH</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#about">O servise</a></li>
+        <li><a href="#services">Čo robíme</a></li>
+        <li><a href="#priestory">Priestory</a></li>
+        <li><a href="#cennik">Opravy a cenník</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a class="btn nav-call" href="tel:+421465430517">046 543 05 17</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Otvoriť menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">O servise</a>
+    <a href="#services">Čo robíme</a>
+    <a href="#priestory">Priestory</a>
+    <a href="#cennik">Opravy a cenník</a>
+    <a href="#contact">Kontakt</a>
+    <a class="btn" href="tel:+421465430517">Zavolať 046 543 05 17</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero" data-section="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Prievidza · oprava a údržba automobilov</span>
+        <h1>Autoservis MBH – oprava a údržba automobilov, <em>Prievidza</em></h1>
+        <p class="hero-lede">Vozidlo do rúk, riešenie do telefónu. Zavolajte a dohodneme si termín.</p>
+        <div class="hero-actions">
+          <a class="btn" href="tel:+421465430517">Zavolať teraz</a>
+          <span class="hero-phone">046 543 05 17</span>
+        </div>
+        <div class="hero-meta">
+          <span><strong>Lokalita</strong> · Prievidza</span>
+          <span><strong>Zameranie</strong> · Oprava a údržba automobilov</span>
+        </div>
+      </div>
+      <div class="hero-photo" data-reveal>
+        <div class="frame">
+          <span class="frame-mark">01</span>
+          <span class="frame-label">miesto pre vašu fotografiu servisu</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" data-section="about">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Predstavenie</span>
+        <h2>O servise</h2>
+      </div>
+      <div class="about-body">
+        <div class="about-text" data-reveal>
+          <p>Autoservis MBH – Molota Juraj pôsobí v Prievidzi a venuje sa oprave a údržbe automobilov. Bez okolkov, bez zbytočných rečí – vozidlo prinesiete, dohodneme rozsah a pustíme sa do práce.</p>
+        </div>
+        <div class="about-facts" data-reveal>
+          <div>
+            <span class="k">Prevádzka</span>
+            <span class="v">Autoservis MBH – Molota Juraj</span>
+          </div>
+          <div>
+            <span class="k">Zameranie</span>
+            <span class="v">Oprava a údržba automobilov</span>
+          </div>
+          <div>
+            <span class="k">Lokalita</span>
+            <span class="v">Prievidza</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" data-section="services">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Rozsah činnosti</span>
+        <h2>Čo robíme</h2>
+      </div>
+      <div class="service-grid" data-reveal>
+        <div class="service-card">
+          <span class="num">01</span>
+          <h3>Oprava automobilov</h3>
+          <p>Riešime opravy vozidiel v našej dielni v Prievidzi. Rozsah a postup opravy si vždy dohodneme vopred, priamo pri vozidle.</p>
+        </div>
+        <div class="service-card">
+          <span class="num">02</span>
+          <h3>Údržba automobilov</h3>
+          <p>Zabezpečujeme bežnú údržbu vozidiel, aby ste na cestu vyrazili s istotou. Termín dohodneme telefonicky.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="priestory" data-section="gallery">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Prevádzka</span>
+        <h2>Naše priestory</h2>
+      </div>
+      <div class="gallery-grid g4" data-reveal>
+        <div class="frame">
+          <span class="frame-mark">01</span>
+          <span class="frame-label">miesto pre fotku z čakárne</span>
+        </div>
+        <div class="frame">
+          <span class="frame-mark">02</span>
+          <span class="frame-label">miesto pre fotku z dielne</span>
+        </div>
+        <div class="frame">
+          <span class="frame-mark">03</span>
+          <span class="frame-label">miesto pre fotku priestorov servisu</span>
+        </div>
+        <div class="frame">
+          <span class="frame-mark">04</span>
+          <span class="frame-label">miesto pre fotku vstupu do prevádzky</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cennik" data-section="gallery">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Z dielne</span>
+        <h2>Opravy a cenník</h2>
+      </div>
+      <div class="gallery-grid g6" data-reveal>
+        <div class="frame">
+          <span class="frame-mark">01</span>
+          <span class="frame-label">miesto pre fotku z opravy</span>
+        </div>
+        <div class="frame">
+          <span class="frame-mark">02</span>
+          <span class="frame-label">miesto pre fotku z opravy</span>
+        </div>
+        <div class="frame">
+          <span class="frame-mark">03</span>
+          <span class="frame-label">miesto pre fotku z opravy</span>
+        </div>
+        <div class="frame">
+          <span class="frame-mark">04</span>
+          <span class="frame-label">miesto pre fotku z opravy</span>
+        </div>
+        <div class="frame">
+          <span class="frame-mark">05</span>
+          <span class="frame-label">miesto pre fotku z opravy</span>
+        </div>
+        <div class="frame">
+          <span class="frame-mark">06</span>
+          <span class="frame-label">miesto pre fotku z opravy</span>
+        </div>
+      </div>
+
+      <div class="price-list" data-reveal>
+        <div class="price-row">
+          <span class="name">Servisná prehliadka<small>pravidelná kontrola vozidla</small></span>
+          <span class="price">Cena na dopyt</span>
+        </div>
+        <div class="price-row">
+          <span class="name">Oprava motora<small>diagnostika a oprava</small></span>
+          <span class="price">Cena na dopyt</span>
+        </div>
+        <div class="price-row">
+          <span class="name">Brzdový systém<small>kontrola a oprava</small></span>
+          <span class="price">Cena na dopyt</span>
+        </div>
+        <div class="price-row">
+          <span class="name">Podvozok<small>kontrola a oprava</small></span>
+          <span class="price">Cena na dopyt</span>
+        </div>
+        <div class="price-row">
+          <span class="name">Elektrická diagnostika<small>vyhľadanie poruchy</small></span>
+          <span class="price">Cena na dopyt</span>
+        </div>
+        <div class="price-row">
+          <span class="name">Ostatná údržba<small>podľa dohody</small></span>
+          <span class="price">Cena na dopyt</span>
+        </div>
+        <p class="price-note">Presnú cenu určíme po obhliadke vozidla. Zavolajte na 046 543 05 17.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" data-section="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-card" data-reveal>
+        <span class="eyebrow">Dohodnime si termín</span>
+        <h2>Kontakt</h2>
+        <p>Vozidlo prinesiete, dohodneme rozsah práce a termín. Najrýchlejšie sa dohodneme telefonicky.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <span class="ic" aria-hidden="true">&#9742;</span>
+            <div>
+              <span class="k">Telefón</span>
+              <a class="v" href="tel:+421465430517">046 543 05 17</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ic" aria-hidden="true">&#9678;</span>
+            <div>
+              <span class="k">Lokalita</span>
+              <span class="v">Prievidza</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ic" aria-hidden="true">&#9776;</span>
+            <div>
+              <span class="k">Web</span>
+              <span class="v">autoservismolota.sk</span>
+            </div>
+          </div>
+        </div>
+        <a class="btn" href="tel:+421465430517">Zavolať 046 543 05 17</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">Autoservis MBH – Molota Juraj · Oprava a údržba automobilov · Prievidza</div>
+</footer>
+
+<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('mobileMenu');
+    if(toggle && menu){
+      toggle.addEventListener('click', function(){
+        var open = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      menu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+    } else {
+      document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

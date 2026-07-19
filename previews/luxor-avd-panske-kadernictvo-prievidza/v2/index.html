@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Luxor AVD - Pánske kaderníctvo | Prievidza</title>
+<meta name="description" content="Luxor AVD – pánske a dámske kaderníctvo v Prievidzi. Bez objednávania, stačí prísť.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #d4a437;
+    --gold-soft: rgba(212, 164, 55, 0.18);
+    --black: #141414;
+    --panel: #1f1f22;
+    --grey: #8a8d92;
+    --text: #f4efe6;
+    --text-dim: #c9c4ba;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.02em;
+    margin: 0;
+    color: var(--text);
+  }
+
+  a { color: var(--gold); }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(20, 20, 20, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(212, 164, 55, 0.2);
+  }
+
+  .site-header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    gap: 16px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .brand img {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+  }
+
+  .brand-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    line-height: 1.1;
+  }
+
+  .brand-name small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    color: var(--grey);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  nav.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav.main-nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  nav.main-nav a:hover,
+  nav.main-nav a:focus-visible {
+    color: var(--gold);
+  }
+
+  .header-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 9px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .header-call:hover,
+  .header-call:focus-visible {
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid rgba(212, 164, 55, 0.4);
+    color: var(--gold);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+
+  /* ---------- Hero ---------- */
+  section[data-section="hero"] {
+    position: relative;
+    padding: 88px 0 96px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 85% -10%, var(--gold-soft), transparent 60%),
+      var(--black);
+    border-bottom: 1px solid rgba(212, 164, 55, 0.15);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .hero-eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1.hero-title {
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.02;
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(212, 164, 55, 0.25);
+  }
+
+  h1.hero-title .sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin-top: 18px;
+  }
+
+  .hero-copy {
+    margin: 26px 0 34px;
+    max-width: 46ch;
+    color: var(--text-dim);
+    font-size: 1.08rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 16px 30px;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 12px 30px rgba(212, 164, 55, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(212, 164, 55, 0.35);
+  }
+
+  .btn-ghost {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 15px 22px;
+    border-radius: 999px;
+    border: 1px solid rgba(244, 239, 230, 0.25);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-tagline {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: var(--grey);
+    letter-spacing: 0.02em;
+  }
+
+  .hero-media {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 164, 55, 0.35);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    object-fit: cover;
+  }
+
+  .hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20,20,20,0) 40%, rgba(20,20,20,0.65) 100%);
+  }
+
+  /* ---------- Trust strip ---------- */
+  section[data-section="trust"] {
+    background: var(--panel);
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(212, 164, 55, 0.12);
+  }
+
+  .trust-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .trust-icon {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+  }
+
+  .trust-item p {
+    margin: 0;
+    font-size: 0.96rem;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  /* ---------- Reveal sections ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- About ---------- */
+  section[data-section="about"] {
+    padding: 96px 0;
+    text-align: center;
+  }
+
+  .section-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .section-kicker::before,
+  .section-kicker::after {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  section[data-section="about"] h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin: 18px 0 28px;
+  }
+
+  .about-text {
+    max-width: 62ch;
+    margin: 0 auto;
+    font-size: 1.18rem;
+    color: var(--text-dim);
+  }
+
+  .about-text strong {
+    color: var(--gold);
+  }
+
+  /* ---------- Services ---------- */
+  section[data-section="services"] {
+    padding: 96px 0;
+    background: var(--panel);
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-top: 18px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .service-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 164, 55, 0.2);
+    background: var(--black);
+  }
+
+  .service-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: saturate(1.05);
+  }
+
+  .service-card figcaption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 26px 24px 22px;
+    background: linear-gradient(180deg, rgba(20,20,20,0) 0%, rgba(20,20,20,0.94) 78%);
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem;
+    color: var(--gold);
+  }
+
+  .service-card p {
+    margin: 8px 0 0;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Gallery ---------- */
+  section[data-section="gallery"] {
+    padding: 96px 0;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+
+  .gallery-grid figure {
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 164, 55, 0.18);
+    aspect-ratio: 3 / 4;
+    position: relative;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-grid figure:hover img {
+    transform: scale(1.06);
+  }
+
+  .gallery-grid figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px 14px;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: linear-gradient(180deg, rgba(20,20,20,0) 0%, rgba(20,20,20,0.85) 100%);
+  }
+
+  .gallery-note {
+    text-align: center;
+    color: var(--grey);
+    font-size: 0.85rem;
+    margin-top: 22px;
+  }
+
+  /* ---------- Reviews ---------- */
+  section[data-section="reviews"] {
+    padding: 96px 0;
+    background: var(--panel);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+
+  blockquote {
+    margin: 0;
+    background: var(--black);
+    border: 1px solid rgba(212, 164, 55, 0.22);
+    border-top: 3px solid var(--gold);
+    border-radius: 14px;
+    padding: 30px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  blockquote p {
+    margin: 0;
+    font-size: 1.06rem;
+    color: var(--text);
+    font-style: italic;
+    line-height: 1.55;
+  }
+
+  blockquote p::before { content: "\201E"; color: var(--gold); }
+  blockquote p::after { content: "\201C"; color: var(--gold); }
+
+  blockquote footer {
+    font-style: normal;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+
+  blockquote cite {
+    font-style: normal;
+  }
+
+  /* ---------- Contact ---------- */
+  section[data-section="contact"] {
+    padding: 100px 0 120px;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  section[data-section="contact"] h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 18px;
+  }
+
+  .contact-lead {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    max-width: 44ch;
+    margin-bottom: 30px;
+  }
+
+  .contact-card {
+    background: var(--panel);
+    border: 1px solid rgba(212, 164, 55, 0.25);
+    border-radius: 18px;
+    padding: 34px;
+  }
+
+  .contact-line {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 22px;
+  }
+
+  .contact-line:last-child { margin-bottom: 0; }
+
+  .contact-line .icon {
+    color: var(--gold);
+    font-size: 1.2rem;
+    flex: 0 0 auto;
+    width: 26px;
+  }
+
+  .contact-line strong {
+    display: block;
+    color: var(--text);
+    font-size: 1.05rem;
+  }
+
+  .contact-line span,
+  .contact-line a {
+    color: var(--text-dim);
+    text-decoration: none;
+  }
+
+  .contact-line a.phone-link {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1.15rem;
+  }
+
+  .contact-cta {
+    margin-top: 28px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .walkin-banner {
+    margin-top: 22px;
+    padding: 16px 20px;
+    border-radius: 12px;
+    background: var(--gold-soft);
+    border: 1px dashed var(--gold);
+    color: var(--gold);
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Footer ---------- */
+  .site-footer {
+    border-top: 1px solid rgba(212, 164, 55, 0.15);
+    padding: 32px 0 100px;
+    text-align: center;
+    color: var(--grey);
+    font-size: 0.85rem;
+  }
+
+  .site-footer a {
+    color: var(--grey);
+    text-decoration: underline;
+  }
+
+  .site-footer a:hover { color: var(--gold); }
+
+  /* ---------- Preview badge ---------- */
+  .preview-badge {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 50;
+    background: rgba(20, 20, 20, 0.88);
+    border: 1px solid rgba(212, 164, 55, 0.4);
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.72rem;
+    padding: 8px 14px;
+    border-radius: 999px;
+    backdrop-filter: blur(4px);
+  }
+
+  .preview-badge strong { color: var(--gold); }
+  .preview-badge:hover { border-color: var(--gold); color: var(--text); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-media img { min-height: 260px; }
+    .trust-row { grid-template-columns: 1fr; gap: 18px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    nav.main-nav { display: none; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  }
+
+  @media (max-width: 900px) {
+    nav.main-nav.open {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--black);
+      border-bottom: 1px solid rgba(212, 164, 55, 0.2);
+      padding: 20px 24px 26px;
+    }
+    nav.main-nav.open ul {
+      flex-direction: column;
+      gap: 18px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    section[data-section="hero"] { padding: 64px 0 72px; }
+    section[data-section="about"],
+    section[data-section="services"],
+    section[data-section="gallery"],
+    section[data-section="reviews"] { padding: 64px 0; }
+    section[data-section="contact"] { padding: 70px 0 130px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#hero">
+      <img src="assets/logo.jpg" alt="Luxor AVD - Pánske kaderníctvo">
+      <span class="brand-name">Luxor AVD<small>Pánske &amp; dámske kaderníctvo</small></span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="#about">O nás</a></li>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#reviews">Recenzie</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="header-call" href="tel:+421948494098">📞 0948 494 098</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Otvoriť menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <section data-section="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="hero-eyebrow">💈 Pánske a dámske kaderníctvo · Prievidza</p>
+        <h1 class="hero-title">BEZ OBJEDNÁVKY<span class="sub">‼️ Stačí prísť, my vás ostriháme.</span></h1>
+        <p class="hero-copy">Pánske aj dámske strihanie na jednom mieste. Žiadne čakanie na termín, žiadne telefonovanie dopredu – dvere sú otvorené a stolička voľná.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="tel:+421948494098">📞 Zavolať: 0948 494 098</a>
+          <a class="btn-ghost" href="#contact">📍 Kde nás nájdete</a>
+        </div>
+        <p class="hero-tagline">💈 Pánske a dámske strihania 💈 — bez objednávania, bez čakania na termín.</p>
+      </div>
+      <div class="hero-media">
+        <img src="assets/stock-01.jpg" alt="Atmosféra tmavého barbershopu so zlatými detailmi a koženým kreslom">
+      </div>
+    </div>
+  </section>
+
+  <section data-section="trust">
+    <div class="wrap trust-row">
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">‼️</span>
+        <p>Bez objednávania – kedykoľvek počas otváracích dní</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">💈</span>
+        <p>Pánske aj dámske strihanie na jednom mieste</p>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">★</span>
+        <p>Obľúbený salón v Prievidzi medzi stálymi zákazníkmi</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" id="about" class="reveal">
+    <div class="wrap">
+      <p class="section-kicker">O nás</p>
+      <h2>Pouličný štýl, žiadne cirháty</h2>
+      <p class="about-text">💈 Sme barbershop pre ľudí, ktorí nemajú čas čakať na termín! Prídete, sadnete si, odchádzate ostrihaní – <strong>bez objednávania</strong>. Pánske aj dámske strihanie pod jednou strechou, s poriadnym gestom a zlatým leskom v pozadí.</p>
+    </div>
+  </section>
+
+  <section data-section="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-kicker">Ponuka</p>
+        <h2>Služby</h2>
+      </div>
+      <div class="services-grid">
+        <figure class="service-card">
+          <img src="assets/stock-08.jpg" alt="Pánsky strih so sviežim fade efektom">
+          <figcaption>
+            <h3>Pánske strihanie</h3>
+            <p>💈 Klasika aj moderné strihy – bez objednávania, hneď na počkanie.</p>
+          </figcaption>
+        </figure>
+        <figure class="service-card">
+          <img src="assets/stock-12.jpg" alt="Dámsky strih v modernom salóne">
+          <figcaption>
+            <h3>Dámske strihanie</h3>
+            <p>💈 Strih pre dámy v rovnakom uvoľnenom, walk-in duchu.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="gallery" id="gallery" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-kicker">Atmosféra</p>
+        <h2>Štýl a atmosféra</h2>
+      </div>
+      <div class="gallery-grid">
+        <figure>
+          <img src="assets/stock-02.jpg" alt="Štýlová inšpirácia – vintage barbershop interiér">
+          <figcaption>Interiér</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/stock-03.jpg" alt="Štýlová inšpirácia – barbierske kreslo a nástroje">
+          <figcaption>Kreslo</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/stock-13.jpg" alt="Štýlová inšpirácia – sada barbierskych nástrojov">
+          <figcaption>Nástroje</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/stock-15.jpg" alt="Štýlová inšpirácia – strojčeky, nožnice a britvy">
+          <figcaption>Detaily</figcaption>
+        </figure>
+      </div>
+      <p class="gallery-note">Ilustračné fotografie v štýle salónu — reálne zábery z prevádzky pripravujeme.</p>
+    </div>
+  </section>
+
+  <section data-section="reviews" id="reviews" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-kicker">Referencie</p>
+        <h2>Čo hovoria zákazníci</h2>
+      </div>
+      <div class="reviews-grid">
+        <blockquote>
+          <p>Pomer cena/kvalita dokonalý. Vždy odchádzam veľmi spokojný. Veľmi príjemná a priateľská atmosféra.</p>
+          <footer><cite>Kamil</cite></footer>
+        </blockquote>
+        <blockquote>
+          <p>Super prostredie, dobra atmosfera, dobra cena. Nikdy som dlho nečakal.</p>
+          <footer><cite>Martin H.</cite></footer>
+        </blockquote>
+        <blockquote>
+          <p>Priateľsky prístup, super nálada, skvelé ceny!!</p>
+          <footer><cite>Cubsride</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="contact" id="contact" class="reveal">
+    <div class="wrap contact-grid">
+      <div>
+        <p class="section-kicker">Kontakt</p>
+        <h2>Kde nás nájdete</h2>
+        <p class="contact-lead">📍 Žiadny formulár, žiadne čakanie na odpoveď. Stačí prísť alebo zavolať – sme tu pre vás.</p>
+        <div class="walkin-banner">‼️ Stačí prísť, netreba sa objednávať ‼️</div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-line">
+          <span class="icon" aria-hidden="true">📍</span>
+          <div>
+            <strong>Adresa</strong>
+            <span>J. I. Bajzu 818/9, Prievidza</span>
+          </div>
+        </div>
+        <div class="contact-line">
+          <span class="icon" aria-hidden="true">📞</span>
+          <div>
+            <strong>Telefón</strong>
+            <a class="phone-link" href="tel:+421948494098">0948 494 098</a>
+          </div>
+        </div>
+        <div class="contact-line">
+          <span class="icon" aria-hidden="true">💈</span>
+          <div>
+            <strong>Sledujte nás</strong>
+            <a href="https://www.instagram.com/luxoravd/" target="_blank" rel="noopener">Instagram @luxoravd</a>
+          </div>
+        </div>
+        <div class="contact-cta">
+          <a class="btn-primary" href="tel:+421948494098">📞 Zavolať teraz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Luxor AVD - Pánske kaderníctvo · Prievidza · <a href="https://www.instagram.com/luxoravd/" target="_blank" rel="noopener">Instagram</a></p>
+</footer>
+
+<a class="preview-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var nav = document.getElementById('main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && revealEls.length) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(function (el) { observer.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

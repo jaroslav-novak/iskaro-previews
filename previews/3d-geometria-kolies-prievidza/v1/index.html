@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>3D geometria kolies Prievidza — Richard Kohút</title>
+<meta name="description" content="3D geometria kolies, diagnostika vozidiel a autoklimatizácie v Prievidzi. Objednávka na telefóne 0905 409 124.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#d9c82a;
+    --dark:#1a1a1a;
+    --light:#f5f5f0;
+    --gray:#57544a;
+    --line:rgba(26,26,26,0.12);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  h1,h2,h3{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    margin:0;
+    color:var(--dark);
+  }
+  a{color:inherit;}
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Oswald',sans-serif;
+    font-size:0.78rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--dark);
+    background:var(--yellow);
+    padding:6px 14px;
+    font-weight:600;
+  }
+  .eyebrow::before{
+    content:"";
+    width:8px;height:8px;
+    background:var(--dark);
+    display:inline-block;
+  }
+
+  /* ---------- HEADER ---------- */
+  header.site-header{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(26,26,26,0.94);
+    border-bottom:2px solid var(--yellow);
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:72px;
+  }
+  .wordmark{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    font-family:'Oswald',sans-serif;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:0.03em;
+    color:var(--light);
+    text-decoration:none;
+    line-height:1;
+  }
+  .wordmark .d3{
+    background:var(--yellow);
+    color:var(--dark);
+    padding:4px 8px;
+    font-weight:700;
+  }
+  .wordmark small{
+    display:block;
+    font-family:'Inter',sans-serif;
+    font-size:0.6rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--yellow);
+    font-weight:500;
+  }
+  nav.main-nav{
+    display:none;
+    gap:28px;
+  }
+  nav.main-nav a{
+    font-family:'Oswald',sans-serif;
+    font-size:0.85rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--light);
+    opacity:0.85;
+    transition:opacity 0.2s, color 0.2s;
+  }
+  nav.main-nav a:hover{color:var(--yellow);opacity:1;}
+  .header-cta{
+    display:none;
+    align-items:center;
+    gap:10px;
+    background:var(--yellow);
+    color:var(--dark);
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    padding:10px 18px;
+    font-size:0.9rem;
+    text-transform:uppercase;
+    transition:background 0.2s;
+  }
+  .header-cta:hover{background:#c4b524;}
+  .menu-toggle{
+    background:none;
+    border:2px solid var(--yellow);
+    color:var(--yellow);
+    width:44px;height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+  .menu-toggle span{
+    display:block;
+    width:20px;height:2px;
+    background:var(--yellow);
+    position:relative;
+  }
+  .menu-toggle span::before,.menu-toggle span::after{
+    content:"";
+    position:absolute;
+    left:0;
+    width:20px;height:2px;
+    background:var(--yellow);
+  }
+  .menu-toggle span::before{top:-6px;}
+  .menu-toggle span::after{top:6px;}
+
+  #mobile-menu{
+    display:none;
+    background:var(--dark);
+    border-top:1px solid rgba(245,245,240,0.15);
+  }
+  #mobile-menu.open{display:block;}
+  #mobile-menu a{
+    display:block;
+    padding:16px 24px;
+    color:var(--light);
+    text-decoration:none;
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    border-bottom:1px solid rgba(245,245,240,0.1);
+  }
+  #mobile-menu a.mobile-call{color:var(--yellow);font-weight:600;}
+
+  @media(min-width:900px){
+    nav.main-nav{display:flex;}
+    .header-cta{display:inline-flex;}
+    .menu-toggle{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  section[data-section="hero"]{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    background:
+      linear-gradient(180deg, rgba(26,26,26,0.55) 0%, rgba(26,26,26,0.55) 40%, rgba(26,26,26,0.92) 100%),
+      url('assets/photo-2.jpg') center/cover no-repeat;
+    padding-top:72px;
+  }
+  .hero-inner{
+    width:100%;
+    padding:60px 24px 56px;
+  }
+  .hero-tagline{
+    color:var(--yellow);
+    font-family:'Oswald',sans-serif;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    font-size:0.85rem;
+    font-weight:600;
+    margin-bottom:18px;
+    display:block;
+  }
+  .hero-inner h1{
+    color:var(--light);
+    font-size:clamp(2.6rem, 9vw, 5.6rem);
+    line-height:0.98;
+    font-weight:700;
+    max-width:14ch;
+  }
+  .hero-inner h1 .accent{color:var(--yellow);}
+  .hero-sub{
+    color:var(--light);
+    opacity:0.9;
+    font-size:1.05rem;
+    max-width:46ch;
+    margin:22px 0 32px;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    align-items:center;
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--yellow);
+    color:var(--dark);
+    font-family:'Oswald',sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    padding:18px 30px;
+    font-size:1rem;
+    border:2px solid var(--yellow);
+    transition:background 0.2s, color 0.2s;
+  }
+  .btn-primary:hover{background:transparent;color:var(--yellow);}
+  .btn-ghost{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:var(--light);
+    text-decoration:none;
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:18px 8px;
+    border-bottom:2px solid transparent;
+    transition:border-color 0.2s;
+  }
+  .btn-ghost:hover{border-color:var(--yellow);}
+
+  /* ---------- REVEAL (below fold only) ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.is-visible{opacity:1;transform:none;}
+
+  /* ---------- TRUST ---------- */
+  section[data-section="trust"]{
+    background:var(--dark);
+    color:var(--light);
+    padding:72px 0;
+    border-bottom:6px solid var(--yellow);
+  }
+  .trust-grid{
+    display:grid;
+    gap:36px;
+    align-items:center;
+  }
+  .trust-number{
+    font-family:'Oswald',sans-serif;
+    font-weight:700;
+    color:var(--yellow);
+    font-size:clamp(4.5rem,14vw,8rem);
+    line-height:0.9;
+  }
+  .trust-number-label{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:1rem;
+    color:var(--light);
+    margin-top:6px;
+  }
+  .trust-source{
+    font-size:0.85rem;
+    opacity:0.65;
+    margin-top:10px;
+  }
+  .trust-source a{color:var(--yellow);text-decoration:underline;}
+  section[data-section="trust"] blockquote{
+    margin:0;
+    border-left:4px solid var(--yellow);
+    padding-left:24px;
+    font-family:'Oswald',sans-serif;
+    font-size:clamp(1.3rem,3vw,1.8rem);
+    font-weight:500;
+    line-height:1.35;
+  }
+  section[data-section="trust"] blockquote footer{
+    margin-top:16px;
+    font-family:'Inter',sans-serif;
+    font-size:0.85rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--yellow);
+    font-weight:600;
+  }
+  @media(min-width:800px){
+    .trust-grid{grid-template-columns:1fr 1.4fr;}
+  }
+
+  /* ---------- SECTION HEADERS (generic) ---------- */
+  .section-pad{padding:88px 0;}
+  .section-head{
+    margin-bottom:48px;
+    max-width:60ch;
+  }
+  .section-head h2{
+    font-size:clamp(2rem,5vw,3rem);
+    font-weight:700;
+  }
+  .section-head .eyebrow{margin-bottom:16px;}
+
+  /* ---------- SERVICES ---------- */
+  section[data-section="services"]{background:var(--light);}
+  .service-grid{
+    display:grid;
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--light);
+    display:flex;
+    flex-direction:column;
+  }
+  .service-photo{
+    aspect-ratio:4/3;
+    overflow:hidden;
+  }
+  .service-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(15%);transition:filter 0.3s;}
+  .service-card:hover .service-photo img{filter:grayscale(0);}
+  .service-body{padding:28px 24px 32px;position:relative;}
+  .service-index{
+    font-family:'Oswald',sans-serif;
+    color:var(--yellow);
+    font-weight:700;
+    font-size:0.85rem;
+    letter-spacing:0.1em;
+  }
+  .service-card h3{
+    font-size:1.35rem;
+    margin:10px 0 10px;
+  }
+  .service-card p{
+    color:var(--gray);
+    font-size:0.95rem;
+    margin:0;
+  }
+  @media(min-width:700px){
+    .service-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
+  /* ---------- ABOUT ---------- */
+  section[data-section="about"]{
+    background:var(--dark);
+    color:var(--light);
+  }
+  .about-grid{
+    display:grid;
+    gap:40px;
+    align-items:center;
+  }
+  .about-photo{
+    border:2px solid var(--yellow);
+    padding:10px;
+  }
+  .about-photo img{aspect-ratio:4/3;object-fit:cover;width:100%;}
+  section[data-section="about"] .section-head h2{color:var(--light);}
+  section[data-section="about"] p{
+    color:rgba(245,245,240,0.82);
+    font-size:1.02rem;
+    max-width:56ch;
+  }
+  .about-tag{
+    display:inline-block;
+    margin-top:24px;
+    font-family:'Oswald',sans-serif;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-size:0.85rem;
+    color:var(--yellow);
+    border-top:1px solid rgba(217,200,42,0.4);
+    padding-top:14px;
+  }
+  @media(min-width:800px){
+    .about-grid{grid-template-columns:1fr 1.2fr;}
+  }
+
+  /* ---------- REVIEWS ---------- */
+  section[data-section="reviews"]{background:var(--light);}
+  .review-grid{
+    display:grid;
+    gap:24px;
+  }
+  .review-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-top:4px solid var(--yellow);
+    padding:32px 26px;
+  }
+  .review-card blockquote{
+    margin:0 0 20px;
+    font-size:1.05rem;
+    line-height:1.55;
+    color:var(--dark);
+  }
+  .review-card blockquote footer{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-size:0.8rem;
+    color:var(--gray);
+  }
+  .reviews-source{
+    margin-top:32px;
+    font-size:0.85rem;
+    color:var(--gray);
+  }
+  .reviews-source a{color:var(--dark);text-decoration:underline;}
+  @media(min-width:760px){
+    .review-grid{grid-template-columns:repeat(3,1fr);}
+  }
+
+  /* ---------- PROCESS ---------- */
+  section[data-section="process"]{
+    background:var(--yellow);
+    color:var(--dark);
+  }
+  section[data-section="process"] .section-head h2{color:var(--dark);}
+  .process-box{
+    background:var(--dark);
+    color:var(--light);
+    padding:40px 32px;
+    max-width:70ch;
+    border-left:6px solid var(--light);
+  }
+  .process-box p{
+    font-size:1.1rem;
+    margin:0 0 16px;
+    line-height:1.6;
+  }
+  .process-box p:last-child{margin-bottom:0;}
+  .process-box strong{color:var(--yellow);}
+
+  /* ---------- HOURS ---------- */
+  section[data-section="hours"]{background:var(--dark);color:var(--light);}
+  section[data-section="hours"] .section-head h2{color:var(--light);}
+  table.hours-table{
+    width:100%;
+    max-width:520px;
+    border-collapse:collapse;
+    font-family:'Oswald',sans-serif;
+    font-size:1.1rem;
+  }
+  table.hours-table td{
+    padding:16px 4px;
+    border-bottom:1px solid rgba(245,245,240,0.15);
+  }
+  table.hours-table td:last-child{
+    text-align:right;
+    color:var(--yellow);
+    font-weight:600;
+  }
+  .hours-note{
+    margin-top:24px;
+    font-size:0.82rem;
+    color:rgba(245,245,240,0.55);
+    max-width:520px;
+    font-style:italic;
+  }
+
+  /* ---------- CONTACT ---------- */
+  section[data-section="contact"]{background:var(--light);}
+  .contact-grid{
+    display:grid;
+    gap:32px;
+  }
+  .contact-card{
+    background:var(--dark);
+    color:var(--light);
+    padding:44px 36px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .contact-phone{
+    font-family:'Oswald',sans-serif;
+    font-size:clamp(2rem,6vw,3rem);
+    font-weight:700;
+    color:var(--yellow);
+    text-decoration:none;
+  }
+  .contact-line{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0;
+    border-top:1px solid rgba(245,245,240,0.15);
+    font-size:0.95rem;
+  }
+  .contact-line a{color:var(--yellow);text-decoration:underline;}
+  .contact-note{
+    background:#fff;
+    border:1px dashed var(--line);
+    padding:24px;
+    font-size:0.88rem;
+    color:var(--gray);
+  }
+  @media(min-width:800px){
+    .contact-grid{grid-template-columns:1.1fr 1fr;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer.site-footer{
+    background:var(--dark);
+    color:rgba(245,245,240,0.6);
+    padding:32px 0 90px;
+    font-size:0.82rem;
+    text-align:center;
+  }
+  footer.site-footer a{color:var(--yellow);}
+
+  /* ---------- BADGE ---------- */
+  .iskaro-badge{
+    position:fixed;
+    right:14px;
+    bottom:14px;
+    z-index:200;
+    background:rgba(26,26,26,0.9);
+    color:var(--light);
+    font-family:'Inter',sans-serif;
+    font-size:0.72rem;
+    padding:8px 14px;
+    border-radius:999px;
+    text-decoration:none;
+    border:1px solid rgba(217,200,42,0.5);
+    box-shadow:0 2px 10px rgba(0,0,0,0.25);
+  }
+  .iskaro-badge strong{color:var(--yellow);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="#hero" class="wordmark">
+      <span class="d3">3D</span>
+      <span>Geometria kolies<br><small>Prievidza</small></span>
+    </a>
+    <nav class="main-nav">
+      <a href="#services">Služby</a>
+      <a href="#about">O nás</a>
+      <a href="#reviews">Recenzie</a>
+      <a href="#hours">Hodiny</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <a class="header-cta" href="tel:+421905409124">0905 409 124</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+    </button>
+  </div>
+  <div id="mobile-menu">
+    <a href="#services">Služby</a>
+    <a href="#about">O nás</a>
+    <a href="#reviews">Recenzie</a>
+    <a href="#hours">Hodiny</a>
+    <a href="#contact">Kontakt</a>
+    <a class="mobile-call" href="tel:+421905409124">Volať: 0905 409 124</a>
+  </div>
+</header>
+
+<main>
+
+  <section data-section="hero" id="hero" aria-label="Úvod">
+    <div class="hero-inner">
+      <div class="container" style="padding:0;">
+        <span class="hero-tagline">Autoservis · Prievidza</span>
+        <h1>3D geometria<br>kolies <span class="accent">Prievidza</span></h1>
+        <p class="hero-sub">Reálna prevádzka, moderné vybavenie Hunter a priamy kontakt na majiteľa. Vážení zákazníci, objednajte sa telefonicky a príďte presne na dohodnutý termín.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="tel:+421905409124">Objednať sa telefonicky</a>
+          <a class="btn-ghost" href="#trust">Prečo u nás ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="trust" id="trust" aria-label="Dôvera">
+    <div class="container">
+      <div class="trust-grid">
+        <div>
+          <div class="trust-number">116</div>
+          <div class="trust-number-label">Recenzií zákazníkov</div>
+          <p class="trust-source">Zdroj: <a href="https://slovenskobcan.com/autoservis/trenciansky/3d-geometria-kolies/" target="_blank" rel="noopener">slovenskobcan.com</a></p>
+        </div>
+        <blockquote>
+          Profesionálny prístup, berie na čas, práca na 1 s *.
+          <footer>— F. G., slovenskobcan.com</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" id="services" class="section-pad" aria-label="Služby">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Ponuka</span>
+        <h2>Čo u nás vybavíte</h2>
+      </div>
+      <div class="service-grid reveal">
+        <article class="service-card">
+          <div class="service-photo">
+            <img src="assets/stock-01.jpg" alt="Mechanik pri 3D geometrii kolies vo výbave servisu">
+          </div>
+          <div class="service-body">
+            <span class="service-index">01</span>
+            <h3>3D geometria kolies</h3>
+            <p>Presné nastavenie geometrie na modernom zariadení Hunter — rovnomerné opotrebenie pneumatík a stabilné riadenie.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-photo">
+            <img src="assets/stock-04.jpg" alt="Diagnostický prístroj pripojený vo vozidle">
+          </div>
+          <div class="service-body">
+            <span class="service-index">02</span>
+            <h3>Diagnostika vozidiel</h3>
+            <p>Komplexné preverenie elektroniky a systémov vozidla, aby ste presne vedeli, čo auto potrebuje.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-photo">
+            <img src="assets/stock-07.jpg" alt="Mechanik pri kontrole vozidla v servise">
+          </div>
+          <div class="service-body">
+            <span class="service-index">03</span>
+            <h3>Autoklimatizácie</h3>
+            <p>Servis klimatizácie pred letnou aj zimnou sezónou — nech vo vozidle dýchate čerstvý vzduch.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" id="about" class="section-pad" aria-label="O prevádzke">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <img src="assets/photo-1.jpg" alt="Interiér servisu s 3D geometrickým zariadením Hunter a zdvíhacou plošinou">
+        </div>
+        <div class="reveal">
+          <div class="section-head" style="margin-bottom:24px;">
+            <span class="eyebrow">O nás</span>
+            <h2>Richard Kohút a Hunter technológia</h2>
+          </div>
+          <p>Servis vedie Richard Kohút. Namiesto odhadu pracujeme na zariadení Hunter, ktoré presne odmeria geometriu kolies a spolu so zdvíhacou plošinou umožňuje dôkladnú prácu na vozidle.</p>
+          <p>Rovnaké vybavenie a rovnaký prístup stoja za desiatkami spokojných zákazníkov, ktorí sa k nám vracajú.</p>
+          <span class="about-tag">Moderné vybavenie · Osobný prístup</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="reviews" id="reviews" class="section-pad" aria-label="Recenzie zákazníkov">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Recenzie</span>
+        <h2>Čo hovoria zákazníci</h2>
+      </div>
+      <div class="review-grid reveal">
+        <div class="review-card">
+          <blockquote>
+            Profesionálny prístup, berie na čas, práca na 1 s *. Príjemný človek. Vrelo odporúčam.
+            <footer>F. G.</footer>
+          </blockquote>
+        </div>
+        <div class="review-card">
+          <blockquote>
+            Maximálna spokojnosť, komunikácia na úrovni a 100% odvedená práca.
+            <footer>N. D.</footer>
+          </blockquote>
+        </div>
+        <div class="review-card">
+          <blockquote>
+            Rýchle objednanie, super prístup, špičková technika. Spokojnosť.
+            <footer>M. K.</footer>
+          </blockquote>
+        </div>
+      </div>
+      <p class="reviews-source reveal">Recenzie prevzaté zo zdroja <a href="https://slovenskobcan.com/autoservis/trenciansky/3d-geometria-kolies/" target="_blank" rel="noopener">slovenskobcan.com</a>, presné dátumy nie sú uvedené.</p>
+    </div>
+  </section>
+
+  <section data-section="process" id="process" class="section-pad" aria-label="Ako prebieha objednávka">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Objednávka</span>
+        <h2>Ako prebieha objednávka</h2>
+      </div>
+      <div class="process-box reveal">
+        <p>Vážení zákazníci, na objednaný termín musíte chodiť presne. Vozidlá spracúvame jedno po druhom, a keď meškáte, posúvate aj toho, kto príde po vás.</p>
+        <p>V prípade meškania <strong>volajte</strong> vopred na 0905 409 124 — dohodneme sa. Bez ohlásenia si pri väčšom meškaní vyhradzujeme právo uprednostniť ďalšie pristavené vozidlo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="hours" id="hours" class="section-pad" aria-label="Otváracie hodiny">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Prevádzka</span>
+        <h2>Otváracie hodiny</h2>
+      </div>
+      <table class="hours-table reveal">
+        <tr><td>Pondelok — Piatok</td><td>8:00 – 17:00</td></tr>
+        <tr><td>Sobota</td><td>9:00 – 13:00</td></tr>
+        <tr><td>Nedeľa</td><td>Zatvorené</td></tr>
+      </table>
+      <p class="hours-note reveal">Poznámka pre klienta: hodiny sú prevzaté z externého katalógu slovenskobcan.com, FB stránka uvádza len prepínač „momentálne zatvorené" bez konkrétnych hodín — pred zverejnením webu ich, prosím, potvrďte.</p>
+    </div>
+  </section>
+
+  <section data-section="contact" id="contact" class="section-pad" aria-label="Kontakt a objednanie">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Kontakt a objednanie</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <span class="hero-tagline" style="margin-bottom:0;">Objednávka telefonicky</span>
+          <a class="contact-phone" href="tel:+421905409124">0905 409 124</a>
+          <div class="contact-line">
+            <span>Lokalita</span>
+            <span>Prievidza</span>
+          </div>
+          <div class="contact-line">
+            <span>Facebook</span>
+            <a href="https://www.facebook.com/people/Richard-Koh%C3%BAt-3D-geometria-diagnostika-klimatiz%C3%A1cie-Prievidza/100063612369120/" target="_blank" rel="noopener">Navštíviť stránku</a>
+          </div>
+        </div>
+        <div class="contact-note">
+          Presná adresa prevádzky sa naprieč zdrojmi líši, preto ju na náhľade zámerne neuvádzame. Pred zverejnením webu nám, prosím, potvrďte aktuálnu ulicu a číslo v Prievidzi.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>3D geometria kolies — Richard Kohút, Prievidza · <a href="tel:+421905409124">0905 409 124</a></p>
+  </div>
+</footer>
+
+<a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  var toggle = document.getElementById('menuToggle');
+  var menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+</script>
+
+</body>
+</html>

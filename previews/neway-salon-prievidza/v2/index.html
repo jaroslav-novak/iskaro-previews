@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>NEWAY Salón Prievidza — kaderníctvo s láskou</title>
+<meta name="description" content="NEWAY Salón Prievidza — kaderníctvo s láskou, radosťou a úsmevom. Strih a farbenie vlasov, balayage v medených odtieňoch. Objednajte sa telefonicky alebo cez Facebook.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #ffffff;
+    --cream: #f4ece6;
+    --copper: #b98d6f;
+    --copper-soft: #b98d6f33;
+    --copper-line: #b98d6f66;
+    --max: 1180px;
+    --radius: 18px;
+    font-size: 17px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  h1, h2, h3 { font-family: "Jost", sans-serif; font-weight: 600; margin: 0 0 .5em; letter-spacing: .01em; }
+  p { margin: 0 0 1em; }
+  a { color: inherit; }
+
+  .script {
+    font-family: "Dancing Script", cursive;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: "Dancing Script", cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: .35em;
+    position: relative;
+  }
+  .eyebrow::after {
+    content: "";
+    display: block;
+    width: 46px;
+    height: 2px;
+    background: var(--copper);
+    margin-top: .3em;
+    border-radius: 2px;
+  }
+
+  section[data-section] {
+    padding: clamp(3.5rem, 8vw, 6.5rem) 0;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  section[data-section].in-view { opacity: 1; transform: translateY(0); }
+
+  /* ---------- header ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--copper-line);
+  }
+  .site-header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 76px;
+  }
+  .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+  .brand img {
+    height: 46px;
+    width: 46px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1.5px solid var(--copper-line);
+  }
+  .brand-name {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .brand-name small {
+    display: block;
+    font-family: "Jost", sans-serif;
+    font-size: .62rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: .6;
+    margin-top: .25em;
+  }
+
+  nav.main-nav { display: none; gap: 1.9rem; }
+  nav.main-nav a {
+    text-decoration: none;
+    font-size: .92rem;
+    letter-spacing: .02em;
+    color: var(--ink);
+    opacity: .78;
+    position: relative;
+    padding: .3em 0;
+  }
+  nav.main-nav a:hover { opacity: 1; }
+  nav.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 2px;
+    background: var(--copper);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+  }
+  nav.main-nav a:hover::after { transform: scaleX(1); }
+
+  .header-cta {
+    display: none;
+    align-items: center;
+    gap: .6rem;
+    background: var(--ink);
+    color: #fff;
+    text-decoration: none;
+    padding: .65em 1.3em;
+    border-radius: 999px;
+    font-size: .88rem;
+    font-weight: 500;
+    letter-spacing: .02em;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .header-cta:hover { background: #262019; transform: translateY(-1px); }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    border: 1px solid var(--copper-line);
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+  }
+  .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after {
+    content: "";
+    display: block;
+    width: 18px; height: 2px;
+    background: var(--ink);
+    position: relative;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .menu-toggle span::before { position: absolute; top: -6px; }
+  .menu-toggle span::after { position: absolute; top: 6px; }
+  .menu-toggle[aria-expanded="true"] span { background: transparent; }
+  .menu-toggle[aria-expanded="true"] span::before { transform: translateY(6px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span::after { transform: translateY(-6px) rotate(-45deg); }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    background: var(--cream);
+    border-bottom: 1px solid var(--copper-line);
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    text-decoration: none;
+    color: var(--ink);
+    padding: 1.05rem clamp(1.25rem, 4vw, 3rem);
+    border-top: 1px solid var(--copper-line);
+    font-size: 1rem;
+  }
+  .mobile-nav a:first-child { border-top: none; }
+
+  @media (min-width: 900px) {
+    nav.main-nav { display: flex; }
+    .header-cta { display: inline-flex; }
+    .menu-toggle { display: none; }
+    .mobile-nav { display: none !important; }
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    text-decoration: none;
+    padding: .95em 1.7em;
+    border-radius: 999px;
+    font-size: .96rem;
+    font-weight: 500;
+    letter-spacing: .01em;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    white-space: nowrap;
+  }
+  .btn-primary { background: var(--copper); color: var(--ink); box-shadow: 0 10px 24px -12px var(--copper-soft); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 28px -12px var(--copper-soft); }
+  .btn-outline { background: transparent; color: var(--ink); border: 1.4px solid var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: #fff; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: .9rem; }
+
+  /* ---------- placeholders ---------- */
+  .photo-placeholder {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--cream);
+    border: 1.5px dashed var(--copper-line);
+    border-radius: var(--radius);
+    color: var(--ink);
+    opacity: .82;
+    padding: 1.4rem;
+  }
+  .photo-placeholder .ph-mark {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: .3em;
+    color: var(--copper);
+  }
+  .photo-placeholder p { margin: 0; font-size: .84rem; line-height: 1.5; max-width: 26ch; }
+
+  /* ---------- hero ---------- */
+  .hero .wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+  }
+  .hero-copy .kicker {
+    display: inline-block;
+    font-size: .78rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--copper);
+    background: var(--cream);
+    padding: .5em 1em;
+    border-radius: 999px;
+    margin-bottom: 1.4em;
+  }
+  .hero h1 {
+    font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+    line-height: 1.06;
+    margin-bottom: .25em;
+  }
+  .hero .tagline {
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    margin-bottom: .75em;
+  }
+  .hero p.lede { font-size: 1.08rem; max-width: 46ch; opacity: .85; }
+  .hero .photo-placeholder { min-height: 320px; }
+
+  @media (min-width: 900px) {
+    .hero .wrap { grid-template-columns: 1.1fr .9fr; }
+  }
+
+  /* ---------- trust ---------- */
+  .trust { background: var(--cream); }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+  @media (min-width: 720px) {
+    .trust-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .trust-item {
+    background: var(--paper);
+    border-radius: var(--radius);
+    padding: 1.8rem 1.6rem;
+    border: 1px solid var(--copper-line);
+  }
+  .trust-item .stars { color: var(--copper); font-size: 1.2rem; letter-spacing: .12em; margin-bottom: .4em; }
+  .trust-item strong { display: block; font-size: 1.15rem; margin-bottom: .2em; }
+  .trust-item span.note { display: block; font-size: .8rem; opacity: .6; margin-top: .4em; }
+  .trust-item a { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---------- about ---------- */
+  .about .wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+  }
+  .about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .about-photos .photo-placeholder { aspect-ratio: 3/4; }
+  .about-photos .photo-placeholder:first-child { transform: translateY(1.5rem); }
+  .about h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+  .about .signature { margin-top: 1.6em; font-family: "Dancing Script", cursive; font-size: 1.5rem; color: var(--copper); }
+  @media (min-width: 900px) {
+    .about .wrap { grid-template-columns: .95fr 1.05fr; }
+    .about .wrap { grid-auto-flow: column; }
+  }
+
+  /* ---------- services ---------- */
+  .services { background: var(--cream); }
+  .services h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); text-align: center; }
+  .services > .wrap > p.intro { text-align: center; max-width: 52ch; margin: 0 auto 2.6rem; opacity: .78; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  @media (min-width: 700px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+  .service-card {
+    background: var(--paper);
+    border-radius: var(--radius);
+    padding: 2.1rem 1.8rem;
+    border: 1px solid var(--copper-line);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 18px 34px -22px rgba(13,13,13,.28); }
+  .service-card .num {
+    font-family: "Dancing Script", cursive;
+    font-size: 2.1rem;
+    color: var(--copper);
+    display: block;
+    margin-bottom: .1em;
+  }
+  .service-card h3 { font-size: 1.25rem; margin-bottom: .35em; }
+  .service-card p { font-size: .93rem; opacity: .78; margin: 0; }
+  .services-note { text-align: center; margin-top: 2rem; font-size: .88rem; opacity: .65; }
+
+  /* ---------- gallery ---------- */
+  .gallery h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); text-align: center; }
+  .gallery > .wrap > p.intro { text-align: center; max-width: 56ch; margin: 0 auto 2.6rem; opacity: .78; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .gallery-grid .photo-placeholder { aspect-ratio: 3/4; }
+  .gallery-grid .photo-placeholder:nth-child(3n+2) { aspect-ratio: 1/1; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+  .gallery-note { text-align: center; margin-top: 2rem; font-size: .88rem; opacity: .65; }
+  .gallery-note a { text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---------- reviews ---------- */
+  .reviews { background: var(--ink); color: #fff; }
+  .reviews h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); text-align: center; color: #fff; }
+  .reviews > .wrap > p.intro { text-align: center; opacity: .6; margin-bottom: 2.6rem; }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 900px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+  blockquote {
+    margin: 0;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(185,141,111,.4);
+    border-radius: var(--radius);
+    padding: 1.9rem 1.7rem;
+    font-size: .96rem;
+    line-height: 1.7;
+  }
+  blockquote p { margin: 0 0 1.1em; }
+  blockquote p::before { content: "“"; color: var(--copper); font-size: 1.3em; }
+  blockquote footer { font-size: .82rem; opacity: .65; }
+  blockquote footer a { color: var(--copper); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---------- hours ---------- */
+  .hours .wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 860px) { .hours .wrap { grid-template-columns: .8fr 1.2fr; } }
+  .hours h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+  .hours-table {
+    background: var(--cream);
+    border-radius: var(--radius);
+    padding: 1.8rem 1.9rem;
+    border: 1px solid var(--copper-line);
+  }
+  .hours-table dl { display: grid; grid-template-columns: auto 1fr; gap: .55rem 1.2rem; margin: 0; }
+  .hours-table dt { font-weight: 500; }
+  .hours-table dd { margin: 0; opacity: .8; text-align: right; }
+  .hours-table .closed { opacity: .55; }
+  .hours-note { margin-top: 1.2rem; font-size: .85rem; opacity: .68; padding-top: 1.1rem; border-top: 1px solid var(--copper-line); }
+
+  /* ---------- contact ---------- */
+  .contact { background: var(--cream); }
+  .contact .wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+  @media (min-width: 860px) { .contact .wrap { grid-template-columns: 1fr 1fr; } }
+  .contact h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+  .contact-card {
+    background: var(--paper);
+    border-radius: var(--radius);
+    padding: 2rem;
+    border: 1px solid var(--copper-line);
+  }
+  .contact-list { list-style: none; margin: 0 0 1.4rem; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+  .contact-list a { text-decoration: none; display: flex; align-items: center; gap: .8rem; font-size: 1.02rem; }
+  .contact-list .ico {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--cream);
+    color: var(--copper);
+    flex: none;
+    font-size: 1.05rem;
+  }
+  .contact-list a:hover .ico { background: var(--copper); color: #fff; }
+  .address-note {
+    font-size: .88rem;
+    opacity: .68;
+    border-top: 1px solid var(--copper-line);
+    padding-top: 1.1rem;
+    margin-top: .2rem;
+  }
+
+  /* ---------- footer ---------- */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(255,255,255,.65);
+    padding: 2.6rem 0 6.5rem;
+    text-align: center;
+    font-size: .85rem;
+  }
+  .site-footer .script { color: var(--copper); font-size: 1.3rem; display: block; margin-bottom: .4em; }
+
+  /* ---------- iskaro badge ---------- */
+  .iskaro-badge {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 60;
+    background: rgba(13,13,13,.88);
+    color: #fff;
+    text-decoration: none;
+    font-size: .74rem;
+    letter-spacing: .01em;
+    padding: .55em 1em;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px -6px rgba(0,0,0,.4);
+    backdrop-filter: blur(6px);
+  }
+  .iskaro-badge strong { color: var(--copper); font-weight: 600; }
+
+  @media (max-width: 480px) {
+    .iskaro-badge { font-size: .68rem; padding: .5em .85em; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#hero">
+      <img src="assets/logo.jpg" alt="NEWAY Salón Prievidza" width="46" height="46">
+      <span class="brand-name">NEWAY<small>Salón Prievidza</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Hlavná navigácia">
+      <a href="#about">O salóne</a>
+      <a href="#services">Služby</a>
+      <a href="#gallery">Premeny</a>
+      <a href="#reviews">Recenzie</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <a class="header-cta" href="tel:+421950889787">
+      <span aria-hidden="true">☎</span> 0950 889 787
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilná navigácia">
+    <a href="#about">O salóne</a>
+    <a href="#services">Služby</a>
+    <a href="#gallery">Premeny</a>
+    <a href="#reviews">Recenzie</a>
+    <a href="#hours">Ako sa objednať</a>
+    <a href="#contact">Kontakt</a>
+    <a href="tel:+421950889787">☎ 0950 889 787</a>
+  </nav>
+</header>
+
+<main>
+
+  <section data-section="hero" class="hero" id="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="kicker">Kaderníctvo s dušou</span>
+        <h1>NEWAY Salón Prievidza</h1>
+        <p class="tagline script">Premena, ktorá rozžiari ♡</p>
+        <p class="lede">Vitajte u nás. Poskytujeme profesionálne služby s láskou, radosťou a úsmevom — v pokojnej atmosfére, kde má Váš čas i Vaše vlasy priestor na skutočnú premenu.<br>♡ Lucka ღ</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="tel:+421950889787"><span aria-hidden="true">☎</span> Zavolať 0950 889 787</a>
+          <a class="btn btn-outline" href="https://www.facebook.com/NewayPD/?locale=sk_SK" target="_blank" rel="noopener">Sledovať na Facebooku</a>
+        </div>
+      </div>
+      <div class="photo-placeholder">
+        <div>
+          <span class="ph-mark">✦</span>
+          <p>Miesto pre fotku salónu alebo tímu — čaká na výber z Facebooku (@NewayPD) alebo Instagramu (@neway_salon)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="trust" class="trust" id="trust">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <strong>5/5 z 27 Google recenzií</strong>
+          <span>Podľa agregátora <a href="https://www.zlatafirma.eu/company/neway-salon-prievidza-214580" target="_blank" rel="noopener">Zlatá Firma</a>.</span>
+          <span class="note">Re-overené 7/2026</span>
+        </div>
+        <div class="trust-item">
+          <div class="stars" aria-hidden="true">♡</div>
+          <strong>Oáza pokoja</strong>
+          <span>Klientky opakovane opisujú rodinnú atmosféru a profesionálny, srdečný prístup.</span>
+        </div>
+        <div class="trust-item">
+          <div class="stars" aria-hidden="true">☺</div>
+          <strong>Živá komunita na Facebooku</strong>
+          <span>Približne 1 447 fanúšikov, ktorí sledujú naše premeny.</span>
+          <span class="note">Re-overené 7/2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" class="about" id="about">
+    <div class="wrap">
+      <div class="about-copy">
+        <span class="eyebrow">S láskou od 2021</span>
+        <h2>O salóne</h2>
+        <p>NEWAY Salón Prievidza vznikol z túžby robiť veci poriadne a s citom — profesionálne služby s láskou, radosťou a úsmevom, ktoré si u nás odnesie každá klientka.</p>
+        <p>Naše dievčatá sú obrovské profesionálky, no predovšetkým sa u nás snažíme, aby ste sa cítili dobre a uvoľnene, akoby ste prišli za rodinou. Odchádzate od nás oddýchnutá, krásna a s úsmevom.</p>
+        <p class="signature">♡ Lucka ღ</p>
+      </div>
+      <div class="about-photos">
+        <div class="photo-placeholder">
+          <div>
+            <span class="ph-mark">✦</span>
+            <p>Miesto pre fotku interiéru salónu</p>
+          </div>
+        </div>
+        <div class="photo-placeholder">
+          <div>
+            <span class="ph-mark">✦</span>
+            <p>Miesto pre fotku nášho tímu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" class="services" id="services">
+    <div class="wrap">
+      <span class="eyebrow" style="display:block;text-align:center;">Pre Vás</span>
+      <h2>Služby</h2>
+      <p class="intro">Sústredíme sa na to, čo vieme najlepšie — presný strih a farbu s charakterom, šitú na mieru Vášmu štýlu.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="num">01</span>
+          <h3>Strih vlasov</h3>
+          <p>Precízny strih prispôsobený tvaru tváre aj Vášmu životnému štýlu — od jemných úprav po výraznú zmenu.</p>
+        </div>
+        <div class="service-card">
+          <span class="num">02</span>
+          <h3>Farbenie vlasov</h3>
+          <p>Jemné prechody, lesk a farba s charakterom — vrátane výraznej balayage v medených odtieňoch.</p>
+        </div>
+      </div>
+      <p class="services-note">Podrobnosti a odporúčanie na mieru radi preberieme telefonicky alebo priamo v salóne.</p>
+    </div>
+  </section>
+
+  <section data-section="gallery" class="gallery" id="gallery">
+    <div class="wrap">
+      <span class="eyebrow" style="display:block;text-align:center;">Naše premeny</span>
+      <h2>Naše premeny</h2>
+      <p class="intro">Ukážka premien, ktoré u nás vznikajú — výrazná balayage v medených odtieňoch, jemné prechody, lesk a farba s charakterom.</p>
+      <div class="gallery-grid">
+        <div class="photo-placeholder"><div><span class="ph-mark">✦</span><p>Balayage v medených odtieňoch — pred</p></div></div>
+        <div class="photo-placeholder"><div><span class="ph-mark">✦</span><p>Balayage v medených odtieňoch — po</p></div></div>
+        <div class="photo-placeholder"><div><span class="ph-mark">✦</span><p>Jemné prechody a lesk</p></div></div>
+        <div class="photo-placeholder"><div><span class="ph-mark">✦</span><p>Strih s charakterom</p></div></div>
+        <div class="photo-placeholder"><div><span class="ph-mark">✦</span><p>Detail farby a textúry</p></div></div>
+        <div class="photo-placeholder"><div><span class="ph-mark">✦</span><p>Výsledok premeny, ktorá rozžiari</p></div></div>
+      </div>
+      <p class="gallery-note">Fotografie čakajú na výber priamo z nášho <a href="https://www.instagram.com/neway_salon/" target="_blank" rel="noopener">Instagramu (@neway_salon)</a>.</p>
+    </div>
+  </section>
+
+  <section data-section="reviews" class="reviews" id="reviews">
+    <div class="wrap">
+      <span class="eyebrow" style="display:block;text-align:center;color:#fff;">Ich slovami</span>
+      <h2>Čo hovoria naše klientky</h2>
+      <p class="intro">Doslovné recenzie z Google, agregované cez Zlatú Firmu.</p>
+      <div class="reviews-grid">
+        <blockquote>
+          <p>Úžasné, veľmi príjemné miesto. Hneď od zaciatku som sa cítila veľmi dobre a uvoľnene. Dievčatá sú obrovské profesionálky, s novým strihom a farbou som nadmieru spokojná.</p>
+          <footer>Google recenzia · <a href="https://www.zlatafirma.eu/company/neway-salon-prievidza-214580" target="_blank" rel="noopener">Zlatá Firma</a></footer>
+        </blockquote>
+        <blockquote>
+          <p>Oáza pokoja, rodinnej atmosféry, veľmi milé a šikovné dievčatá. Odidem oddýchnutá a krásna. Vždy sa teším♥.</p>
+          <footer>Google recenzia · <a href="https://www.zlatafirma.eu/company/neway-salon-prievidza-214580" target="_blank" rel="noopener">Zlatá Firma</a></footer>
+        </blockquote>
+        <blockquote>
+          <p>Ďakujem pekne dievčatám za profesionálny prístup aj rady.. Cítila som sa tam veľmi príjemne a salón určite ešte navštívim a vrelo aj odporúčam.. Super ďakujem 😉</p>
+          <footer>Google recenzia · <a href="https://www.zlatafirma.eu/company/neway-salon-prievidza-214580" target="_blank" rel="noopener">Zlatá Firma</a></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="hours" class="hours" id="hours">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Termín pre Vás</span>
+        <h2>Ako sa objednať</h2>
+        <p>Pracujeme výhradne na objednávku, aby sme sa Vám mohli venovať naplno a bez zhonu. Ozvite sa nám telefonicky alebo správou na Facebooku a nájdeme si na Vás čas.</p>
+      </div>
+      <div class="hours-table">
+        <dl>
+          <dt>Pondelok — sobota</dt><dd>na objednávku</dd>
+          <dt class="closed">Nedeľa</dt><dd class="closed">zatvorené</dd>
+          <dt class="closed">Sviatky</dt><dd class="closed">zatvorené</dd>
+        </dl>
+        <p class="hours-note">Presné hodiny neuvádzame — termín si dohodneme individuálne podľa Vašich možností. Online rezervačný systém nemáme, objednávate sa telefonicky alebo cez Facebook.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="contact" class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-copy">
+        <span class="eyebrow">Tešíme sa na Vás</span>
+        <h2>Kontakt</h2>
+        <p>Napíšte nám alebo zavolajte — radi si s Vami dohodneme termín, ktorý Vám bude vyhovovať.</p>
+      </div>
+      <div class="contact-card">
+        <ul class="contact-list">
+          <li><a href="tel:+421950889787"><span class="ico" aria-hidden="true">☎</span> 0950 889 787</a></li>
+          <li><a href="mailto:desk@newaysalon.sk"><span class="ico" aria-hidden="true">✉</span> desk@newaysalon.sk</a></li>
+          <li><a href="https://www.facebook.com/NewayPD/" target="_blank" rel="noopener"><span class="ico" aria-hidden="true">f</span> facebook.com/NewayPD</a></li>
+          <li><a href="https://www.instagram.com/neway_salon/" target="_blank" rel="noopener"><span class="ico" aria-hidden="true">◎</span> @neway_salon</a></li>
+        </ul>
+        <p class="address-note">Presnú adresu Vám radi potvrdíme telefonicky alebo správou na Facebooku — objednávanie prebieha individuálne, bez online rezervácie.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span class="script">NEWAY Salón Prievidza</span>
+  <p>♡ Profesionálne služby s láskou, radosťou a úsmevom. ღ</p>
+</footer>
+
+<a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('mobileNav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    var sections = document.querySelectorAll('section[data-section]');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      sections.forEach(function (s) { io.observe(s); });
+    } else {
+      sections.forEach(function (s) { s.classList.add('in-view'); });
+    }
+  })();
+</script>
+
+</body>
+</html>

@@ -9,6 +9,20 @@
       "destination": "/previews/$slug/index.html"
     },
     {
+      "source": "/:ver(v\\d+)",
+      "has": [
+        { "type": "host", "value": "(?<slug>[^.]+)\\.nahlad\\.iskaro\\.sk" }
+      ],
+      "destination": "/previews/$slug/:ver/index.html"
+    },
+    {
+      "source": "/:ver(v\\d+)/",
+      "has": [
+        { "type": "host", "value": "(?<slug>[^.]+)\\.nahlad\\.iskaro\\.sk" }
+      ],
+      "destination": "/previews/$slug/:ver/index.html"
+    },
+    {
       "source": "/:path+",
       "has": [
         { "type": "host", "value": "(?<slug>[^.]+)\\.nahlad\\.iskaro\\.sk" }

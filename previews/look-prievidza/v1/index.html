@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>LOOK — Ecofriendly kaderníctvo Prievidza</title>
+<meta name="description" content="Kaderníctvo LOOK v Prievidzi — šetrné kadernícke služby, prémiové produkty KEVIN.MURPHY a starostlivosť, ktorá rešpektuje prírodu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#5fa052;
+    --green-dark:#4a8140;
+    --dark:#1a1a1a;
+    --cream:#f5f4ef;
+    --white:#ffffff;
+    --line:rgba(26,26,26,0.1);
+    --shadow:0 12px 32px rgba(26,26,26,0.08);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Heebo',sans-serif;
+    background:var(--cream);
+    color:var(--dark);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img{max-width:100%;display:block;}
+
+  h1,h2,h3,h4{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--green-dark);
+    margin-bottom:14px;
+  }
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(245,244,239,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 0;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .brand img{
+    height:40px;
+    width:auto;
+  }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    list-style:none;
+  }
+
+  .nav-links a{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.86rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:var(--dark);
+    position:relative;
+    padding:6px 0;
+  }
+
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:0;
+    width:0;
+    height:2px;
+    background:var(--green);
+    transition:width 0.25s ease;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after{width:100%;}
+
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    background:var(--green);
+    color:var(--white);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+    padding:11px 22px;
+    border-radius:100px;
+    transition:background 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-cta:hover{background:var(--green-dark);transform:translateY(-1px);}
+
+  .burger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:8px;
+  }
+
+  .burger span{
+    width:24px;
+    height:2px;
+    background:var(--dark);
+    transition:transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  /* ===== HERO ===== */
+  section[data-section="hero"]{
+    padding:64px 0 88px;
+  }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+
+  .hero-copy h1{
+    font-size:clamp(2.4rem, 5vw, 3.8rem);
+    margin-bottom:22px;
+  }
+
+  .hero-copy h1 em{
+    font-style:normal;
+    color:var(--green);
+  }
+
+  .hero-copy p{
+    font-size:1.08rem;
+    color:#403f3a;
+    max-width:480px;
+    margin-bottom:34px;
+  }
+
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:20px;
+  }
+
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--green);
+    color:var(--white);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:0.92rem;
+    letter-spacing:0.02em;
+    padding:16px 30px;
+    border-radius:100px;
+    box-shadow:0 10px 24px rgba(95,160,82,0.32);
+    transition:background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-primary:hover{
+    background:var(--green-dark);
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(95,160,82,0.4);
+  }
+
+  .btn-phone{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:0.92rem;
+    color:var(--dark);
+    border-bottom:1px solid var(--dark);
+    padding-bottom:3px;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn-phone:hover{color:var(--green-dark);border-color:var(--green-dark);}
+
+  .hero-visual{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    box-shadow:var(--shadow);
+  }
+
+  .hero-visual img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .hero-visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(26,26,26,0) 55%, rgba(26,26,26,0.42) 100%);
+  }
+
+  .hero-tag{
+    position:absolute;
+    left:20px;
+    bottom:20px;
+    z-index:2;
+    color:var(--white);
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+  }
+
+  .hero-leaf{
+    position:absolute;
+    top:-40px;
+    right:-40px;
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(95,160,82,0.22), transparent 70%);
+    z-index:-1;
+  }
+
+  /* ===== REVEAL (below-fold only) ===== */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.is-visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* ===== SECTION SHELL ===== */
+  section{
+    padding:96px 0;
+  }
+
+  .section-head{
+    max-width:640px;
+    margin:0 auto 56px;
+    text-align:center;
+  }
+
+  .section-head h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+  }
+
+  .section-head p{
+    color:#4a4942;
+    margin-top:14px;
+    font-size:1.02rem;
+  }
+
+  /* ===== ABOUT ===== */
+  section[data-section="about"]{
+    background:var(--white);
+  }
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:60px;
+    align-items:center;
+  }
+
+  .about-photo{
+    border-radius:18px;
+    overflow:hidden;
+    aspect-ratio:4/5;
+    box-shadow:var(--shadow);
+  }
+
+  .about-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .about-copy h3{
+    font-size:1.5rem;
+    margin-bottom:16px;
+  }
+
+  .about-copy p{
+    color:#3f3e39;
+    margin-bottom:16px;
+  }
+
+  .about-copy p:last-of-type{margin-bottom:26px;}
+
+  .about-copy strong{color:var(--green-dark);}
+
+  .brand-strip{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:16px 20px;
+    background:var(--cream);
+    border-radius:12px;
+    border:1px solid var(--line);
+  }
+
+  .brand-strip .dot{
+    width:10px;height:10px;border-radius:50%;
+    background:var(--green);
+    flex-shrink:0;
+  }
+
+  .brand-strip span{
+    font-family:'Montserrat',sans-serif;
+    font-weight:600;
+    font-size:0.88rem;
+  }
+
+  /* ===== SERVICES ===== */
+  section[data-section="services"]{
+    background:var(--cream);
+  }
+
+  .price-groups{
+    display:grid;
+    gap:44px;
+  }
+
+  .price-card{
+    background:var(--white);
+    border-radius:18px;
+    padding:36px 40px;
+    box-shadow:var(--shadow);
+  }
+
+  .price-card h3{
+    font-size:1.3rem;
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .price-card h3::before{
+    content:"";
+    width:8px;height:8px;
+    border-radius:50%;
+    background:var(--green);
+    flex-shrink:0;
+  }
+
+  .price-list{
+    list-style:none;
+    display:grid;
+    gap:0;
+  }
+
+  .price-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+  }
+
+  .price-list li:last-child{border-bottom:none;}
+
+  .price-name{
+    font-weight:500;
+  }
+
+  .price-name small{
+    display:block;
+    color:#6b6a63;
+    font-size:0.82rem;
+    margin-top:3px;
+    font-weight:400;
+  }
+
+  .price-amount{
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    color:var(--green-dark);
+    white-space:nowrap;
+  }
+
+  .price-note{
+    margin-top:36px;
+    padding:20px 24px;
+    background:var(--white);
+    border:1px dashed var(--line);
+    border-radius:12px;
+    font-size:0.9rem;
+    color:#4a4942;
+  }
+
+  .price-note a{
+    color:var(--green-dark);
+    font-weight:600;
+    border-bottom:1px solid currentColor;
+  }
+
+  /* ===== GALLERY ===== */
+  section[data-section="gallery"]{
+    background:var(--white);
+  }
+
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+  }
+
+  .gallery-grid a{
+    display:block;
+    position:relative;
+    border-radius:14px;
+    overflow:hidden;
+    aspect-ratio:3/4;
+  }
+
+  .gallery-grid img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.5s ease;
+  }
+
+  .gallery-grid a:hover img{transform:scale(1.06);}
+
+  .gallery-grid a:nth-child(2),
+  .gallery-grid a:nth-child(5){
+    grid-row:span 2;
+    aspect-ratio:3/6.2;
+  }
+
+  /* ===== TEAM ===== */
+  section[data-section="team"]{
+    background:var(--cream);
+  }
+
+  .team-grid{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:24px;
+  }
+
+  .team-card{
+    text-align:center;
+  }
+
+  .team-photo{
+    aspect-ratio:1/1;
+    border-radius:50%;
+    background:var(--white);
+    border:1.5px dashed rgba(95,160,82,0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 18px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .team-photo span{
+    font-size:0.72rem;
+    color:#8c8b83;
+    text-align:center;
+    padding:0 16px;
+    line-height:1.4;
+  }
+
+  .team-card h4{
+    font-size:1.02rem;
+    margin-bottom:4px;
+  }
+
+  .team-card p{
+    font-size:0.84rem;
+    color:#6b6a63;
+  }
+
+  /* ===== REVIEWS ===== */
+  section[data-section="reviews"]{
+    background:var(--dark);
+    color:var(--cream);
+  }
+
+  section[data-section="reviews"] .section-head p{color:#c9c8c0;}
+  section[data-section="reviews"] .eyebrow{color:#8fc47e;}
+
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+
+  blockquote{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:16px;
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    height:100%;
+  }
+
+  blockquote p{
+    font-size:1.02rem;
+    line-height:1.6;
+    color:var(--white);
+  }
+
+  blockquote p::before{content:"\201E";}
+  blockquote p::after{content:"\201C";}
+
+  blockquote footer{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.82rem;
+    color:#8fc47e;
+    font-style:normal;
+  }
+
+  blockquote footer cite{
+    font-style:normal;
+    display:block;
+    color:#a3a29a;
+    font-weight:400;
+    margin-top:2px;
+    font-size:0.8rem;
+  }
+
+  /* ===== CONTACT ===== */
+  section[data-section="contact"]{
+    background:var(--white);
+  }
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:stretch;
+  }
+
+  .contact-list{
+    list-style:none;
+    display:grid;
+    gap:22px;
+    margin-bottom:32px;
+  }
+
+  .contact-list li{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+
+  .contact-icon{
+    width:42px;height:42px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:rgba(95,160,82,0.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--green-dark);
+  }
+
+  .contact-list h4{
+    font-family:'Montserrat',sans-serif;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:#8c8b83;
+    margin-bottom:4px;
+  }
+
+  .contact-list a,
+  .contact-list span{
+    font-size:1rem;
+    font-weight:500;
+  }
+
+  .contact-list a:hover{color:var(--green-dark);}
+
+  .contact-socials{
+    display:flex;
+    gap:14px;
+  }
+
+  .contact-socials a{
+    width:42px;height:42px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .contact-socials a:hover{border-color:var(--green);color:var(--green-dark);}
+
+  .map-frame{
+    border-radius:18px;
+    background:linear-gradient(135deg, #eef1e8 0%, #e2e7d9 100%);
+    border:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+    min-height:340px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .map-frame svg{position:absolute;inset:0;width:100%;height:100%;opacity:0.5;}
+
+  .map-pin{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    background:var(--white);
+    padding:20px 26px;
+    border-radius:14px;
+    box-shadow:var(--shadow);
+  }
+
+  .map-pin strong{
+    display:block;
+    font-family:'Montserrat',sans-serif;
+    font-size:0.95rem;
+    margin-bottom:4px;
+  }
+
+  .map-pin span{
+    font-size:0.84rem;
+    color:#6b6a63;
+  }
+
+  /* ===== FOOTER ===== */
+  footer.site-footer{
+    background:var(--dark);
+    color:#b9b8b0;
+    padding:36px 0;
+    text-align:center;
+    font-size:0.84rem;
+  }
+
+  footer.site-footer strong{color:var(--white);}
+
+  /* ===== BADGE ===== */
+  .iskaro-badge{
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    z-index:200;
+    background:rgba(26,26,26,0.86);
+    color:#f2f2ee;
+    font-family:'Heebo',sans-serif;
+    font-size:0.72rem;
+    padding:9px 14px;
+    border-radius:100px;
+    backdrop-filter:blur(6px);
+    box-shadow:0 6px 18px rgba(0,0,0,0.2);
+    transition:background 0.2s ease;
+  }
+
+  .iskaro-badge:hover{background:rgba(26,26,26,0.96);}
+
+  .iskaro-badge strong{color:#8fc47e;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:900px){
+    .hero-grid,
+    .about-grid,
+    .contact-grid{
+      grid-template-columns:1fr;
+    }
+
+    .about-grid{gap:40px;}
+    .about-photo{order:-1;max-width:420px;margin:0 auto;}
+
+    .gallery-grid{grid-template-columns:repeat(2, 1fr);}
+    .gallery-grid a:nth-child(2),
+    .gallery-grid a:nth-child(5){grid-row:auto;aspect-ratio:3/4;}
+
+    .team-grid{grid-template-columns:repeat(3, 1fr);}
+    .reviews-grid{grid-template-columns:1fr;}
+  }
+
+  @media (max-width:720px){
+    .nav-links,
+    .nav-cta{display:none;}
+
+    header.open .nav-links{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:6px;
+      position:absolute;
+      top:100%;left:0;right:0;
+      background:var(--white);
+      padding:20px 24px 26px;
+      border-bottom:1px solid var(--line);
+    }
+
+    header.open .nav-links a{padding:10px 0;width:100%;}
+
+    header.open .nav-cta{
+      display:inline-flex;
+      margin:8px 24px 20px;
+    }
+
+    .burger{display:flex;}
+
+    section{padding:64px 0;}
+
+    .price-card{padding:26px 22px;}
+
+    .team-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+
+  @media (max-width:480px){
+    .gallery-grid{grid-template-columns:repeat(2, 1fr);}
+    .team-grid{grid-template-columns:repeat(2, 1fr);}
+    .price-list li{flex-direction:column;align-items:flex-start;gap:4px;}
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap nav">
+    <a href="#" class="brand" aria-label="LOOK — domov">
+      <img src="assets/logo.png" alt="LOOK">
+    </a>
+    <nav aria-label="Hlavná navigácia">
+      <ul class="nav-links">
+        <li><a href="#about">Filozofia</a></li>
+        <li><a href="#services">Cenník</a></li>
+        <li><a href="#gallery">Práce</a></li>
+        <li><a href="#team">Tím</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="https://salonlook.sk/rezervacia/" target="_blank" rel="noopener">Rezervovať termín</a>
+    <button class="burger" id="burger" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="site-header">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section data-section="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Ecofriendly salón · Prievidza</p>
+        <h1>Vaše vlasy <em>naša vášeň</em></h1>
+        <p>Krásne vlasy, ktoré rešpektujú prírodu. Sme salón LOOK v centre Prievidze a naším poslaním je ukázať, že krása a zodpovednosť môžu ísť ruka v ruke — pri každom strihu, farbení aj úprave.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://salonlook.sk/rezervacia/" target="_blank" rel="noopener">
+            Rezervovať termín
+          </a>
+          <a class="btn-phone" href="tel:+421908620022">0908 620 022</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-leaf" aria-hidden="true"></div>
+        <img src="assets/photo-8.jpg" alt="Interiér salónu LOOK s prírodnými prvkami — drevený nábytok a izbová rastlina">
+        <span class="hero-tag">Náš salón v Prievidzi</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" id="about">
+    <div class="wrap">
+      <div class="about-grid reveal">
+        <div class="about-photo">
+          <img src="assets/photo-3.jpg" alt="Umývanie vlasov klientke v salóne LOOK, v pozadí drevená stena so zeleňou">
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">Naša filozofia</p>
+          <h3>Ekologická starostlivosť, ktorá vás očarí</h3>
+          <p>Vaše vlasy sú v rukách expertov, ktorým záleží nielen na výsledku, ale aj na tom, ako sa k nemu dopracujeme. Ponúkame šetrné kadernícke služby pre krásu a prírodu — pracujeme tak, aby bol každý úkon <strong>šetrný k prírode aj k zdraviu našich zákazníkov</strong>.</p>
+          <p>V salóne pracujeme s prémiovou značkou <strong>KEVIN.MURPHY</strong>, ktorej produkty spájajú profesionálne výsledky s ohľaduplnosťou k životnému prostrediu. Náš salón je kombináciou štýlu, komfortu a profesionálneho prístupu — nahliadnite do nášho sveta krásy.</p>
+          <div class="brand-strip">
+            <span class="dot" aria-hidden="true"></span>
+            <span>Prémiové produkty KEVIN.MURPHY pri každom ošetrení</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Cenník</p>
+        <h2>Služby a cenník</h2>
+        <p>Prehľadný prehľad našich služieb priamo tu — bez sťahovania súborov.</p>
+      </div>
+
+      <div class="price-groups reveal">
+
+        <div class="price-card">
+          <h3>Dámske služby</h3>
+          <ul class="price-list">
+            <li>
+              <span class="price-name">Dámske strihanie CLASIC<small>do 45 min — poradenstvo, zmytie a masáž hlavy, ošetrenie vlasov, strih, úprava, styling</small></span>
+              <span class="price-amount">40 € / 35 €</span>
+            </li>
+            <li>
+              <span class="price-name">Dámske strihanie FASHION<small>zmena strihu, do 60 min</small></span>
+              <span class="price-amount">50 € / 45 €</span>
+            </li>
+            <li>
+              <span class="price-name">Fúkaná CLASIC<small>do 30 min</small></span>
+              <span class="price-amount">35 € / 30 €</span>
+            </li>
+            <li>
+              <span class="price-name">Fúkaná FASHION<small>do 45 min</small></span>
+              <span class="price-amount">40 € / 35 €</span>
+            </li>
+            <li>
+              <span class="price-name">Nanášanie farby, odfarbovanie<small>cca 60 min, bez materiálu</small></span>
+              <span class="price-amount">35 € / 30 €</span>
+            </li>
+            <li>
+              <span class="price-name">Melír / Balayage REFRESH<small>do 10 cm, cca 90 min, bez materiálu</small></span>
+              <span class="price-amount">55 € / 50 €</span>
+            </li>
+            <li>
+              <span class="price-name">Melír / Balayage NEW<small>cca 120 min, bez materiálu</small></span>
+              <span class="price-amount">80 € / 70 €</span>
+            </li>
+            <li>
+              <span class="price-name">Tónovanie<small>do 30 min, bez materiálu</small></span>
+              <span class="price-amount">20 €</span>
+            </li>
+            <li>
+              <span class="price-name">Hĺbková vlasová kúra TREATMENT<small>do 45 min, bez materiálu</small></span>
+              <span class="price-amount">30 €</span>
+            </li>
+            <li>
+              <span class="price-name">Spoločenský účes CLASIC<small>do 60 min</small></span>
+              <span class="price-amount">50 € / 45 €</span>
+            </li>
+            <li>
+              <span class="price-name">Spoločenský účes FASHION<small>do 90 min</small></span>
+              <span class="price-amount">60 € / 55 €</span>
+            </li>
+            <li>
+              <span class="price-name">Svadobný účes CLASIC<small>do 60 min</small></span>
+              <span class="price-amount">80 € / 70 €</span>
+            </li>
+            <li>
+              <span class="price-name">Svadobný účes FASHION<small>do 90 min</small></span>
+              <span class="price-amount">100 € / 90 €</span>
+            </li>
+            <li>
+              <span class="price-name">Formovanie obočia</span>
+              <span class="price-amount">15 €</span>
+            </li>
+            <li>
+              <span class="price-name">Farbenie obočia</span>
+              <span class="price-amount">15 €</span>
+            </li>
+            <li>
+              <span class="price-name">Očné DUO<small>formovanie + farbenie obočia</small></span>
+              <span class="price-amount">25 €</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="price-card">
+          <h3>Pánske služby</h3>
+          <ul class="price-list">
+            <li>
+              <span class="price-name">Pánske strihanie<small>do 30 min</small></span>
+              <span class="price-amount">25 €</span>
+            </li>
+            <li>
+              <span class="price-name">Pánske strihanie + úprava brady<small>do 45 min</small></span>
+              <span class="price-amount">30 €</span>
+            </li>
+            <li>
+              <span class="price-name">Strihanie mašinkou<small>20 min</small></span>
+              <span class="price-amount">20 €</span>
+            </li>
+            <li>
+              <span class="price-name">Pánske strihanie BOKY<small>do 15 min</small></span>
+              <span class="price-amount">20 €</span>
+            </li>
+            <li>
+              <span class="price-name">Depilácia nosných dierok / uší / obočia<small>do 5 min</small></span>
+              <span class="price-amount">5 €</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="price-card">
+          <h3>Detské služby</h3>
+          <ul class="price-list">
+            <li>
+              <span class="price-name">Detský strih bez umývania — chlapec</span>
+              <span class="price-amount">18 €</span>
+            </li>
+            <li>
+              <span class="price-name">Detský strih bez umývania — dievča</span>
+              <span class="price-amount">20 €</span>
+            </li>
+            <li>
+              <span class="price-name">Detské strihanie do 5 rokov<small>jednoduché zastrihnutie bez umývania</small></span>
+              <span class="price-amount">10 €</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="price-note">Ceny sú orientačné a určujú sa dohodou podľa náročnosti úkonu a spotreby materiálu. Pri dvojitých cenách platí druhá suma pri objednaní ku Romanke. Presnú cenu vám radi potvrdíme priamo pri rezervácii — kompletný cenník nájdete aj <a href="https://salonlook.sk/wp-content/uploads/2026/05/CENNIK-LOOK-maj-2026.pdf" target="_blank" rel="noopener">na stiahnutie tu</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Naša práca</p>
+        <h2>Naše práce</h2>
+        <p>Nahliadnite do nášho sveta krásy — skutočné výsledky z rúk nášho tímu.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <a href="#gallery" tabindex="-1">
+          <img src="assets/photo-1.jpg" alt="Rovné svetlé melírované vlasy, výsledok farbenia v salóne LOOK">
+        </a>
+        <a href="#gallery" tabindex="-1">
+          <img src="assets/photo-2.jpg" alt="Vlnité hnedé vlasy, výsledok farbenia v salóne LOOK">
+        </a>
+        <a href="#gallery" tabindex="-1">
+          <img src="assets/photo-4.jpg" alt="Česanie a úprava vlasov v interiéri salónu LOOK">
+        </a>
+        <a href="#gallery" tabindex="-1">
+          <img src="assets/photo-5.jpg" alt="Dlhé vlnené vlasy, výsledok stylingu v salóne LOOK">
+        </a>
+        <a href="#gallery" tabindex="-1">
+          <img src="assets/photo-6.jpg" alt="Krátky melírovaný bob s vlnami, výsledok strihu v salóne LOOK">
+        </a>
+        <a href="#gallery" tabindex="-1">
+          <img src="assets/photo-7.jpg" alt="Rovný melírovaný bob v interiéri salónu LOOK">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="team" id="team">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Ľudia za značkou</p>
+        <h2>Náš tím</h2>
+        <p>Vaše vlasy v rukách expertov, ktorí spájajú remeslo so vzťahom k prírode.</p>
+      </div>
+      <div class="team-grid reveal">
+        <div class="team-card">
+          <div class="team-photo"><span>miesto pre fotku — Miron</span></div>
+          <h4>Miron</h4>
+          <p>Manažér</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>miesto pre fotku — Katarína</span></div>
+          <h4>Katarína</h4>
+          <p>Kaderníčka a vizážistka</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>miesto pre fotku — Evi</span></div>
+          <h4>Evi</h4>
+          <p>Social media &amp; content</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>miesto pre fotku — Zuzka</span></div>
+          <h4>Zuzka</h4>
+          <p>Kaderníčka a vizážistka</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>miesto pre fotku — Romanka</span></div>
+          <h4>Romanka</h4>
+          <p>Kaderníčka a barberka</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="reviews" id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Referencie</p>
+        <h2>Čo o nás hovoria klienti</h2>
+        <p>Sme vďační za dôveru, ktorú nám naši klienti dávajú.</p>
+      </div>
+      <div class="reviews-grid reveal">
+        <blockquote>
+          <p>Služby salóna LOOK prekonali všetky moje očakávania,vždy sa teším na dalšiu návštevu .</p>
+          <footer>Jana M.<cite>spokojná zákazníčka a pravidelná návštevníčka</cite></footer>
+        </blockquote>
+        <blockquote>
+          <p>Starostlivosť tímu LOOK je neprekonateľná – kvalita a precíznosť na najvyššej úrovni.</p>
+          <footer>Marek H.<cite>dlhoročný klient a milovník ekologických produktov</cite></footer>
+        </blockquote>
+        <blockquote>
+          <p>Som nesmierne spokojná s profesionálnym prístupom a príjemnou atmosférou.</p>
+          <footer>Petra S.<cite>veriaca v prírodnú krásu a ekologické riešenia</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Poďte za krásou k nám</p>
+        <h2>Kontakt</h2>
+        <p>Tu sa môžete rezervovať alebo nás jednoducho kontaktovať.</p>
+      </div>
+      <div class="contact-grid reveal">
+        <div>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              </span>
+              <div>
+                <h4>Adresa</h4>
+                <span>M. R. Štefánika 7, Prievidza</span>
+              </div>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <div>
+                <h4>Telefón</h4>
+                <a href="tel:+421908620022">0908 620 022</a>
+              </div>
+            </li>
+            <li>
+              <span class="contact-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+              </span>
+              <div>
+                <h4>E-mail</h4>
+                <a href="mailto:salonlook@salonlook.sk">salonlook@salonlook.sk</a>
+              </div>
+            </li>
+          </ul>
+          <a class="btn-primary" href="https://salonlook.sk/rezervacia/" target="_blank" rel="noopener" style="margin-bottom:28px;">Rezervovať termín</a>
+          <div class="contact-socials">
+            <a href="https://www.facebook.com/salonlookprievidza" target="_blank" rel="noopener" aria-label="Facebook LOOK">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5H16l.5-3.2h-3V8.2c0-.9.3-1.6 1.7-1.6H16.6V3.8C16.1 3.7 15 3.6 13.8 3.6c-2.6 0-4.4 1.6-4.4 4.5v2.2H6.9v3.2h2.5V21h4.1z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/look_pd/" target="_blank" rel="noopener" aria-label="Instagram LOOK">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <svg viewBox="0 0 400 340" aria-hidden="true">
+            <path d="M0 60 H400 M0 140 H400 M0 220 H400 M0 300 H400" stroke="#5fa052" stroke-width="1"/>
+            <path d="M70 0 V340 M170 0 V340 M270 0 V340 M370 0 V340" stroke="#5fa052" stroke-width="1"/>
+          </svg>
+          <div class="map-pin">
+            <strong>LOOK, kaderníctvo</strong>
+            <span>M. R. Štefánika 7, Prievidza</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>LOOK</strong> — Ecofriendly kaderníctvo, M. R. Štefánika 7, Prievidza</p>
+  </div>
+</footer>
+
+<a class="iskaro-badge" href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+
+<script>
+(function(){
+  var header = document.getElementById('site-header');
+  var burger = document.getElementById('burger');
+  burger.addEventListener('click', function(){
+    var open = header.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  header.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click', function(){
+      header.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+})();
+</script>
+
+</body>
+</html>

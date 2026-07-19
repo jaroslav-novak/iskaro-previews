@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AsiVlasy — Kaderníctvo a vlasové Spa | Prievidza</title>
+<meta name="description" content="AsiVlasy — kaderníctvo a vlasové Spa v Prievidzi. Špičkové strihy, farbenia a Head Spa s prémiovou kozmetikou Dott.solari, Just, Olaplex a Davines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tan:#d9b99a;
+    --ink:#1a1a1a;
+    --bronze:#b08d57;
+    --cream:#f5f1ea;
+    --cream-dim:#eee7da;
+    --radius-lg:1.5rem;
+    --radius-md:1rem;
+    --radius-sm:0.6rem;
+    --container:72rem;
+    --shadow-soft:0 1.25rem 2.5rem -1.25rem rgba(26,26,26,0.35);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  ul{list-style:none;margin:0;padding:0;}
+  h1,h2,h3{
+    font-family:"Michroma",system-ui,sans-serif;
+    font-weight:400;
+    line-height:1.25;
+    margin:0;
+    letter-spacing:0.01em;
+  }
+  p{margin:0;}
+  .container{
+    width:100%;
+    max-width:var(--container);
+    margin-inline:auto;
+    padding-inline:1.25rem;
+  }
+  section{padding-block:clamp(3.5rem,7vw,6.5rem);}
+
+  .eyebrow{
+    display:inline-block;
+    font-family:"Michroma",system-ui,sans-serif;
+    font-size:0.68rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--bronze);
+    margin-bottom:0.9rem;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    font-family:"Inter",sans-serif;
+    font-weight:700;
+    font-size:0.98rem;
+    padding:0.95rem 1.9rem;
+    border-radius:999px;
+    text-decoration:none;
+    border:2px solid transparent;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--cream);
+    box-shadow:var(--shadow-soft);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 1.5rem 2.75rem -1.25rem rgba(26,26,26,0.5);}
+  .btn-outline{
+    background:transparent;
+    border-color:var(--ink);
+    color:var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink);color:var(--cream);}
+
+  /* ---------- Header ---------- */
+  header.site-header{
+    position:sticky;
+    top:0;
+    z-index:500;
+    background:rgba(245,241,234,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(26,26,26,0.08);
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-block:0.85rem;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:0.7rem;
+    text-decoration:none;
+  }
+  .brand img{
+    height:2.5rem;
+    width:2.5rem;
+    object-fit:cover;
+    border-radius:50%;
+    border:2px solid var(--tan);
+  }
+  .wordmark{
+    font-family:"Michroma",system-ui,sans-serif;
+    font-size:1.05rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+  .nav-toggle-input{display:none;}
+  .nav-toggle-label{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    width:1.6rem;
+    cursor:pointer;
+    padding:0.5rem;
+    margin:-0.5rem;
+  }
+  .nav-toggle-label span{
+    display:block;
+    height:2px;
+    background:var(--ink);
+    border-radius:2px;
+  }
+  .nav-links{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:var(--cream);
+    border-bottom:1px solid rgba(26,26,26,0.08);
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.3s ease;
+  }
+  .nav-toggle-input:checked ~ .nav-links{max-height:24rem;}
+  .nav-links a{
+    display:block;
+    padding:1rem 1.25rem;
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.95rem;
+    border-top:1px solid rgba(26,26,26,0.06);
+  }
+  .nav-cta{display:none;}
+
+  @media (min-width:840px){
+    .nav-toggle-label{display:none;}
+    .nav-links{
+      position:static;
+      flex-direction:row;
+      max-height:none;
+      overflow:visible;
+      background:transparent;
+      border-bottom:none;
+      gap:0.5rem;
+    }
+    .nav-links a{
+      border-top:none;
+      padding:0.5rem 0.9rem;
+      border-radius:999px;
+      font-size:0.9rem;
+    }
+    .nav-links a:hover{background:rgba(176,141,87,0.14);}
+    .nav-cta{display:inline-flex;}
+  }
+
+  /* ---------- Hero ---------- */
+  section[data-section="hero"]{
+    position:relative;
+    padding-block:0;
+    min-height:min(46rem,100svh);
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-media{
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+  .hero-media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(26,26,26,0.35) 0%, rgba(26,26,26,0.55) 55%, rgba(26,26,26,0.88) 100%);
+  }
+  .hero-inner{
+    position:relative;
+    z-index:1;
+    color:var(--cream);
+    padding-block:clamp(4rem,12vw,6rem) clamp(3rem,8vw,4.5rem);
+    width:100%;
+  }
+  .hero-inner .eyebrow{color:var(--tan);}
+  .hero-inner h1{
+    font-size:clamp(2.1rem,5.4vw,3.6rem);
+    max-width:22ch;
+    color:var(--cream);
+  }
+  .hero-inner p{
+    margin-top:1.25rem;
+    max-width:40ch;
+    font-size:1.05rem;
+    color:rgba(245,241,234,0.92);
+  }
+  .hero-actions{
+    margin-top:2.25rem;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:1rem;
+  }
+  .hero-actions .btn-primary{background:var(--tan);color:var(--ink);}
+  .hero-actions .btn-primary:hover{background:var(--bronze);}
+  .hero-note{
+    font-size:0.85rem;
+    color:rgba(245,241,234,0.75);
+  }
+
+  /* ---------- Trust ---------- */
+  section[data-section="trust"]{
+    padding-block:clamp(2.5rem,5vw,3.5rem);
+    border-bottom:1px solid rgba(26,26,26,0.08);
+  }
+  .trust-grid{
+    display:grid;
+    gap:1.5rem;
+    grid-template-columns:1fr;
+  }
+  @media (min-width:700px){
+    .trust-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  .trust-card{
+    display:flex;
+    flex-direction:column;
+    gap:0.6rem;
+    padding:1.5rem;
+    background:var(--cream-dim);
+    border-radius:var(--radius-md);
+    border:1px solid rgba(26,26,26,0.06);
+  }
+  .trust-card .stat{
+    font-family:"Michroma",system-ui,sans-serif;
+    font-size:1.9rem;
+    color:var(--bronze);
+  }
+  .trust-card p{font-size:0.92rem;color:rgba(26,26,26,0.75);}
+  .trust-icon{
+    width:2.25rem;
+    height:2.25rem;
+    color:var(--bronze);
+  }
+
+  /* ---------- About ---------- */
+  section[data-section="about"]{
+    position:relative;
+  }
+  .about-wrap{
+    display:grid;
+    gap:2.5rem;
+    align-items:center;
+  }
+  @media (min-width:860px){
+    .about-wrap{grid-template-columns:0.9fr 1.1fr;}
+  }
+  .about-visual{
+    position:relative;
+    aspect-ratio:4/3;
+    border-radius:var(--radius-lg);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(217,185,154,0.55), transparent 55%),
+      radial-gradient(circle at 80% 75%, rgba(176,141,87,0.4), transparent 55%),
+      var(--cream-dim);
+    border:1px solid rgba(26,26,26,0.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .about-visual .wordmark-big{
+    font-family:"Michroma",system-ui,sans-serif;
+    font-size:clamp(1.8rem,5vw,2.6rem);
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink);
+    text-align:center;
+    opacity:0.85;
+  }
+  .about-text h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:1.25rem;}
+  .about-text p{font-size:1.05rem;color:rgba(26,26,26,0.82);margin-bottom:1rem;}
+  .about-text .signoff{
+    font-weight:600;
+    color:var(--bronze);
+  }
+
+  /* ---------- Services ---------- */
+  section[data-section="services"]{
+    background:var(--cream-dim);
+    border-top:1px solid rgba(26,26,26,0.08);
+    border-bottom:1px solid rgba(26,26,26,0.08);
+  }
+  .section-head{
+    max-width:38rem;
+    margin-bottom:2.5rem;
+  }
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.4rem);}
+  .services-grid{
+    display:grid;
+    gap:1.5rem;
+  }
+  @media (min-width:700px){
+    .services-grid{grid-template-columns:1fr 1fr;}
+  }
+  .service-card{
+    background:var(--cream);
+    border-radius:var(--radius-lg);
+    padding:2rem;
+    border:1px solid rgba(26,26,26,0.08);
+    box-shadow:var(--shadow-soft);
+    transition:transform 0.25s ease;
+  }
+  .service-card:hover{transform:translateY(-4px);}
+  .service-card .tag{
+    display:inline-block;
+    font-size:0.7rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--bronze);
+    font-weight:700;
+    margin-bottom:0.75rem;
+  }
+  .service-card h3{
+    font-family:"Inter",sans-serif;
+    font-weight:800;
+    font-size:1.35rem;
+    margin-bottom:0.75rem;
+  }
+  .service-card p{color:rgba(26,26,26,0.78);font-size:0.98rem;}
+
+  /* ---------- Pricing ---------- */
+  .pricing-card{
+    max-width:38rem;
+    margin-inline:auto;
+    text-align:center;
+    background:linear-gradient(160deg, rgba(217,185,154,0.4), rgba(245,241,234,0.2));
+    border:1px solid rgba(176,141,87,0.35);
+    border-radius:var(--radius-lg);
+    padding:clamp(2rem,5vw,3rem);
+  }
+  .pricing-card .eyebrow{display:block;}
+  .pricing-card h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:1rem;}
+  .pricing-card p{font-size:1.02rem;color:rgba(26,26,26,0.8);margin-bottom:1.75rem;}
+  .pricing-pill{
+    display:inline-block;
+    font-size:0.8rem;
+    font-weight:700;
+    letter-spacing:0.04em;
+    padding:0.5rem 1.1rem;
+    border-radius:999px;
+    background:var(--ink);
+    color:var(--cream);
+    margin-bottom:1.75rem;
+  }
+
+  /* ---------- Gallery ---------- */
+  section[data-section="gallery"]{
+    background:var(--cream);
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:0.85rem;
+  }
+  @media (min-width:700px){
+    .gallery-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:11rem;}
+    .gallery-grid figure:nth-child(1){grid-column:span 2;grid-row:span 2;}
+    .gallery-grid figure:nth-child(4){grid-row:span 2;}
+    .gallery-grid figure:nth-child(7){grid-column:span 2;}
+  }
+  .gallery-grid figure{
+    margin:0;
+    position:relative;
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    background:var(--cream-dim);
+    aspect-ratio:1/1;
+  }
+  @media (min-width:700px){
+    .gallery-grid figure{aspect-ratio:auto;}
+  }
+  .gallery-grid img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.5s ease;
+  }
+  .gallery-grid figure:hover img{transform:scale(1.06);}
+
+  /* ---------- Contact ---------- */
+  section[data-section="contact"]{
+    background:var(--ink);
+    color:var(--cream);
+  }
+  section[data-section="contact"] .eyebrow{color:var(--tan);}
+  .contact-wrap{
+    display:grid;
+    gap:2.5rem;
+  }
+  @media (min-width:860px){
+    .contact-wrap{grid-template-columns:1fr 1fr;align-items:start;}
+  }
+  .contact-list{display:flex;flex-direction:column;gap:1.5rem;margin-top:1.75rem;}
+  .contact-item{display:flex;gap:1rem;align-items:flex-start;}
+  .contact-item .ico{
+    width:2.25rem;
+    height:2.25rem;
+    flex:none;
+    border-radius:50%;
+    background:rgba(217,185,154,0.16);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--tan);
+  }
+  .contact-item a, .contact-item p{
+    text-decoration:none;
+    color:var(--cream);
+    font-weight:600;
+  }
+  .contact-item .muted{
+    display:block;
+    font-weight:400;
+    font-size:0.85rem;
+    color:rgba(245,241,234,0.6);
+    margin-top:0.2rem;
+  }
+  .contact-panel{
+    background:rgba(245,241,234,0.06);
+    border:1px solid rgba(245,241,234,0.16);
+    border-radius:var(--radius-lg);
+    padding:clamp(1.75rem,4vw,2.5rem);
+  }
+  .contact-panel h3{
+    font-family:"Inter",sans-serif;
+    font-weight:800;
+    font-size:1.25rem;
+    margin-bottom:0.9rem;
+  }
+  .contact-panel p{color:rgba(245,241,234,0.78);margin-bottom:1.5rem;}
+  .social-row{display:flex;flex-wrap:wrap;gap:0.75rem;}
+  .social-row a{
+    padding:0.7rem 1.2rem;
+    border-radius:999px;
+    border:1px solid rgba(245,241,234,0.3);
+    text-decoration:none;
+    font-size:0.88rem;
+    font-weight:600;
+    transition:background-color 0.2s ease, border-color 0.2s ease;
+  }
+  .social-row a:hover{background:rgba(245,241,234,0.12);border-color:rgba(245,241,234,0.6);}
+
+  footer.site-footer{
+    background:var(--ink);
+    color:rgba(245,241,234,0.55);
+    text-align:center;
+    font-size:0.82rem;
+    padding:1.75rem 1.25rem 2.5rem;
+    border-top:1px solid rgba(245,241,234,0.1);
+  }
+
+  /* ---------- Iskaro badge ---------- */
+  .iskaro-badge{
+    position:fixed;
+    right:0.85rem;
+    bottom:0.85rem;
+    z-index:900;
+  }
+  .iskaro-badge a{
+    display:inline-flex;
+    align-items:center;
+    gap:0.3rem;
+    background:rgba(26,26,26,0.88);
+    color:var(--cream);
+    text-decoration:none;
+    font-size:0.72rem;
+    padding:0.5rem 0.85rem;
+    border-radius:999px;
+    box-shadow:0 0.5rem 1.25rem -0.5rem rgba(0,0,0,0.5);
+    backdrop-filter:blur(6px);
+  }
+  .iskaro-badge a:hover{background:rgba(26,26,26,1);}
+  .iskaro-badge strong{color:var(--tan);font-weight:700;}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(1.1rem);transition:opacity 0.6s ease, transform 0.6s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .service-card:hover, .btn-primary:hover, .gallery-grid figure:hover img{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a class="brand" href="#hero">
+      <img src="assets/logo.jpg" alt="AsiVlasy Kaderníctvo a vlasové spa">
+      <span class="wordmark">AsiVlasy</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Otvoriť menu">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-links" aria-label="Hlavná navigácia">
+      <a href="#about">O nás</a>
+      <a href="#services">Služby</a>
+      <a href="#pricing">Cenník</a>
+      <a href="#gallery">Naša práca</a>
+      <a href="#contact">Kontakt</a>
+      <a class="nav-cta btn btn-outline" href="tel:+421905250912">0905 250 912</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section data-section="hero" id="hero">
+    <div class="hero-media">
+      <img src="assets/photo-1.jpg" alt="Interiér kaderníctva AsiVlasy — okrúhle LED svietidlá, sklenené a mosadzné police a botanická tapeta">
+    </div>
+    <div class="container hero-inner">
+      <span class="eyebrow">Kaderníctvo · Prievidza</span>
+      <h1>AsiVlasy — Kaderníctvo a vlasové Spa</h1>
+      <p>Vitajte v salóne, kde vás čaká špičkový strih, farbenie a chvíľa dokonalého oddychu. Tešíme sa na vašu návštevu!</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+421905250912">Zavolať a objednať sa · 0905 250 912</a>
+      </div>
+      <p class="hero-note">Objednávky výhradne telefonicky.</p>
+    </div>
+  </section>
+
+  <section data-section="trust">
+    <div class="container trust-grid">
+      <div class="trust-card reveal">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.2 1 5.9L12 16.6 6.8 19.4l1-5.9L3.5 9.3l5.9-.9L12 3z" stroke-linejoin="round"/></svg>
+        <span class="stat">100 %</span>
+        <p>odporúča na Facebooku — 11 recenzií</p>
+      </div>
+      <div class="trust-card reveal">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c3 3.5 5 6.6 5 9.2A5 5 0 0 1 7 12.2C7 9.6 9 6.5 12 3z" stroke-linejoin="round"/></svg>
+        <span class="stat">Prémiová kozmetika</span>
+        <p>Pracujeme s Dott.solari, Just, Olaplex a Davines</p>
+      </div>
+      <div class="trust-card reveal">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M9 12a3 3 0 0 1 6 0"/></svg>
+        <span class="stat">Head Spa</span>
+        <p>Vlasové SPA ako príjemné rozšírenie klasického kaderníctva</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="about" id="about">
+    <div class="container about-wrap">
+      <div class="about-visual reveal">
+        <span class="wordmark-big">AsiVlasy</span>
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">O nás</span>
+        <h2>Vitajte u nás</h2>
+        <p>Vitajte na oficiálnej stránke nášho profesionálneho kaderníctva! Ponúkame vám nielen špičkové strihy a farbenia, ale aj príjemné prostredie, kde si môžete dokonale oddýchnuť.</p>
+        <p>Pracujeme s kozmetikou Dott.solari, Just, Olaplex. Tešíme sa na vašu návštevu!</p>
+        <p class="signoff">Ďakujeme, že ste tu — od srdca. ❤️</p>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="services" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Ponuka</span>
+        <h2>Čo u nás nájdete</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <span class="tag">Kaderníctvo</span>
+          <h3>Strihy a farbenia na mieru</h3>
+          <p>Špičkové strihy, farbenia a styling pre každý typ a dĺžku vlasov — s citom pre detail a váš osobný štýl.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="tag">Vlasové Spa</span>
+          <h3>Head Spa ošetrenie</h3>
+          <p>Chvíľa len pre vás — vlasové SPA, pri ktorom si vaša pokožka hlavy aj vlasy naozaj oddýchnu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="pricing" id="pricing">
+    <div class="container">
+      <div class="pricing-card reveal">
+        <span class="eyebrow">Cenník</span>
+        <h2>Cenník na vyžiadanie</h2>
+        <p>Každé vlasy sú iné, a tak aj naše ceny prispôsobujeme dĺžke, hustote a zvolenému ošetreniu. Presný cenník vám radi povieme telefonicky, aby bol naozaj na mieru.</p>
+        <span class="pricing-pill">Cenník na vyžiadanie / telefonicky</span>
+        <div>
+          <a class="btn btn-primary" href="tel:+421905250912">Zavolať pre cenník</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="gallery" id="gallery">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Galéria</span>
+        <h2>Naša práca</h2>
+      </div>
+      <div class="gallery-grid">
+        <figure class="reveal">
+          <img src="assets/photo-2.jpg" alt="Výsledok farbenia — rovné hnedé vlasy s melírom, pohľad zozadu pri stene salónu AsiVlasy">
+        </figure>
+        <figure class="reveal">
+          <img src="assets/photo-3.jpg" alt="Prirodzené vlnité hnedé vlasy, pohľad zozadu v salóne AsiVlasy">
+        </figure>
+        <figure class="reveal">
+          <img src="assets/photo-4.jpg" alt="Blond balayage s vlnami, pohľad zozadu pri brand stene salónu">
+        </figure>
+        <figure class="reveal">
+          <img src="assets/photo-5.jpg" alt="Blond vlnité vlasy, pohľad zozadu pri brand stene salónu">
+        </figure>
+        <figure class="reveal">
+          <img src="assets/photo-6.jpg" alt="Usmiata klientka s blond vlnitými vlasmi pred brand stenou salónu AsiVlasy">
+        </figure>
+        <figure class="reveal">
+          <img src="assets/photo-7.jpg" alt="Dlhé rovné hnedé vlasy, pohľad zozadu v salóne AsiVlasy">
+        </figure>
+        <figure class="reveal">
+          <img src="assets/photo-8.jpg" alt="Detail lesklých hnedých vlasov v exteriéri, slnečné svetlo zvýrazňuje farbu">
+        </figure>
+        <figure class="reveal">
+          <img src="assets/photo-1.jpg" alt="Interiér kaderníctva AsiVlasy — okrúhle LED svietidlá, sklenené a mosadzné police a botanická tapeta">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section data-section="contact" id="contact">
+    <div class="container contact-wrap">
+      <div class="reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Poďme sa spoznať</h2>
+        <div class="contact-list">
+          <div class="contact-item">
+            <span class="ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 8.3 6.7 15 15 15l2-4-5-2-2 2c-2.5-1.2-4.8-3.5-6-6l2-2-2-5-4 2z" stroke-linejoin="round"/></svg>
+            </span>
+            <div>
+              <a href="tel:+421905250912">0905 250 912</a>
+              <span class="muted">Objednávky výhradne telefonicky</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.2"/></svg>
+            </span>
+            <div>
+              <p>Mojmírova ulica, Prievidza</p>
+              <span class="muted">Presné číslo domu vám radi potvrdíme telefonicky</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ico" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <div>
+              <p>Otváracie hodiny</p>
+              <span class="muted">Zavolajte nám a radi vás rovno aj objednáme</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-panel reveal">
+        <h3>Sledujte nás</h3>
+        <p>Najnovšie fotky, výsledky a novinky zo salónu nájdete na sociálnych sieťach — a polohu si viete pozrieť aj v katalógu prevádzok.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/p/AsiVlasy-Kadern%C3%ADctvo-a-vlasov%C3%A9-Spa-61576273101537/?locale=sk_SK" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.instagram.com/asivlasykadernictvoavlasovespa/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://poi.oma.sk/n6406864640" target="_blank" rel="noopener">Zobraziť polohu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© AsiVlasy Kaderníctvo a vlasové spa · Prievidza</p>
+</footer>
+
+<div class="iskaro-badge">
+  <a href="https://iskaro.sk" target="_blank" rel="noopener">Nezáväzný náhľad · pripravilo <strong>Iskaro</strong></a>
+</div>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function(el){ io.observe(el); });
+
+    var navToggle = document.getElementById('nav-toggle');
+    var navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(function(link){
+      link.addEventListener('click', function(){
+        if(navToggle) navToggle.checked = false;
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
